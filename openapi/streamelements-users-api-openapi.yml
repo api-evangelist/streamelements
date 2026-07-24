@@ -1,0 +1,506 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities users API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: users
+  description: Folder for loyalty
+paths:
+  /users/current:
+    get:
+      tags:
+      - users
+      summary: /current
+      description: Current user channel
+      operationId: /current
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:26:23 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '1317'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Success67'
+              example:
+                suspended: false
+                teams: []
+                channels:
+                - profile:
+                    headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+                    title: leeeeex's profile
+                  provider: twitch
+                  suspended: false
+                  nullChannel: false
+                  providerEmails: []
+                  lastJWTToken: null
+                  _id: 5b2e2007760aeb7729487dab
+                  email: email@streamelements.com
+                  avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+                  verified: false
+                  username: leeeeex
+                  alias: leeeeex
+                  displayName: leeeeex
+                  providerId: '85827806'
+                  isPartner: false
+                  broadcasterType: ''
+                  ab: []
+                  createdAt: '2018-06-23T10:25:11.733Z'
+                  updatedAt: '2018-12-07T17:26:23.792Z'
+                  lastLogin: '2018-12-07T17:26:23.79Z'
+                  country: US
+                  role: owner
+                  moderators:
+                  - user:
+                      _id: 5b53229c8f09b957272a404f
+                      username: keizar
+                      avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
+                    role: administrator
+                _id: 5b2e2007760aeb6677487daa
+                lastLogin: '2018-06-23T10:25:11.728Z'
+                ab: []
+                primaryChannel: 5b2e2007760aeb7729487dab
+                username: leeeeex
+                avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+                createdAt: '2018-06-23T10:25:11.732Z'
+                updatedAt: '2018-12-07T08:43:29.014Z'
+      deprecated: false
+  /users/channels:
+    get:
+      tags:
+      - users
+      summary: /channels
+      description: 'TODO: Add Description'
+      operationId: /channels
+      parameters:
+      - name: type
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: tip
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /users/access:
+    get:
+      tags:
+      - users
+      summary: /access
+      description: List channel's access list
+      operationId: /access
+      parameters:
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:27:16 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '219'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChannelUsers'
+                example:
+                - channelId: 5b2e2007760aeb7729487dab
+                  username: leeeeex
+                  avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+                  provider: twitch
+                  role: owner
+              example:
+              - channelId: 5b2e2007760aeb7729487dab
+                username: leeeeex
+                avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+                provider: twitch
+                role: owner
+      deprecated: false
+components:
+  schemas:
+    Success67:
+      title: Success67
+      required:
+      - suspended
+      - teams
+      - channels
+      - _id
+      - lastLogin
+      - ab
+      - primaryChannel
+      - username
+      - avatar
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        suspended:
+          type: boolean
+        teams:
+          type: array
+          items:
+            type: string
+          description: ''
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel1'
+          description: ''
+        _id:
+          type: string
+        lastLogin:
+          type: string
+        ab:
+          type: object
+        primaryChannel:
+          type: string
+        username:
+          type: string
+        avatar:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        suspended: false
+        teams: []
+        channels:
+        - profile:
+            headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+            title: leeeeex's profile
+          provider: twitch
+          suspended: false
+          nullChannel: false
+          providerEmails: []
+          lastJWTToken: null
+          _id: 5b2e2007760aeb7729487dab
+          email: email@streamelements.com
+          avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+          verified: false
+          username: leeeeex
+          alias: leeeeex
+          displayName: leeeeex
+          providerId: '85827806'
+          isPartner: false
+          broadcasterType: ''
+          ab: []
+          createdAt: '2018-06-23T10:25:11.733Z'
+          updatedAt: '2018-12-07T17:26:23.792Z'
+          lastLogin: '2018-12-07T17:26:23.79Z'
+          country: US
+          role: owner
+          moderators:
+          - user:
+              _id: 5b53229c8f09b957272a404f
+              username: keizar
+              avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
+            role: administrator
+        _id: 5b2e2007760aeb6677487daa
+        lastLogin: '2018-06-23T10:25:11.728Z'
+        ab: {}
+        primaryChannel: 5b2e2007760aeb7729487dab
+        username: leeeeex
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        createdAt: '2018-06-23T10:25:11.732Z'
+        updatedAt: '2018-12-07T08:43:29.014Z'
+    User13:
+      title: User13
+      required:
+      - _id
+      - username
+      - avatar
+      type: object
+      properties:
+        _id:
+          type: string
+        username:
+          type: string
+        avatar:
+          type: string
+      example:
+        _id: 5b53229c8f09b957272a404f
+        username: keizar
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
+    ChannelUsers:
+      title: ChannelUsers
+      required:
+      - channelId
+      - username
+      - avatar
+      - provider
+      - role
+      type: object
+      properties:
+        channelId:
+          type: string
+        username:
+          type: string
+        avatar:
+          type: string
+        provider:
+          type: string
+        role:
+          type: string
+      example:
+        channelId: 5b2e2007760aeb7729487dab
+        username: leeeeex
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        provider: twitch
+        role: owner
+    Profile:
+      title: Profile
+      required:
+      - headerImage
+      - title
+      type: object
+      properties:
+        headerImage:
+          type: string
+        title:
+          type: string
+      example:
+        headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+        title: leeeeex's profile
+    Channel1:
+      title: Channel1
+      required:
+      - profile
+      - provider
+      - suspended
+      - nullChannel
+      - providerEmails
+      - lastJWTToken
+      - _id
+      - email
+      - avatar
+      - verified
+      - username
+      - alias
+      - displayName
+      - providerId
+      - isPartner
+      - broadcasterType
+      - ab
+      - createdAt
+      - updatedAt
+      - lastLogin
+      - country
+      - role
+      - moderators
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/Profile'
+        provider:
+          type: string
+        suspended:
+          type: boolean
+        nullChannel:
+          type: boolean
+        providerEmails:
+          type: array
+          items:
+            type: string
+          description: ''
+        lastJWTToken:
+          type: string
+          nullable: true
+        _id:
+          type: string
+        email:
+          type: string
+        avatar:
+          type: string
+        verified:
+          type: boolean
+        username:
+          type: string
+        alias:
+          type: string
+        displayName:
+          type: string
+        providerId:
+          type: string
+        isPartner:
+          type: boolean
+        broadcasterType:
+          type: string
+        ab:
+          type: array
+          items:
+            type: string
+          description: ''
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        lastLogin:
+          type: string
+        country:
+          type: string
+        role:
+          type: string
+        moderators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Moderator'
+          description: ''
+      example:
+        profile:
+          headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+          title: leeeeex's profile
+        provider: twitch
+        suspended: false
+        nullChannel: false
+        providerEmails: []
+        lastJWTToken: null
+        _id: 5b2e2007760aeb7729487dab
+        email: email@streamelements.com
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        verified: false
+        username: leeeeex
+        alias: leeeeex
+        displayName: leeeeex
+        providerId: '85827806'
+        isPartner: false
+        broadcasterType: ''
+        ab: []
+        createdAt: '2018-06-23T10:25:11.733Z'
+        updatedAt: '2018-12-07T17:26:23.792Z'
+        lastLogin: '2018-12-07T17:26:23.79Z'
+        country: US
+        role: owner
+        moderators:
+        - user:
+            _id: 5b53229c8f09b957272a404f
+            username: keizar
+            avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
+          role: administrator
+    Moderator:
+      title: Moderator
+      required:
+      - user
+      - role
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User13'
+        role:
+          type: string
+      example:
+        user:
+          _id: 5b53229c8f09b957272a404f
+          username: keizar
+          avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
+        role: administrator
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

@@ -1,0 +1,798 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities contests API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: contests
+  description: Endpoints to interract with contests
+paths:
+  /contests/{channel}/{contestId}:
+    get:
+      tags:
+      - contests
+      summary: /:channel/:contestId
+      description: List contests
+      operationId: /:channel/:contestId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: contestId
+        in: path
+        description: guid - Contest id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 11:05:23 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '500'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Contest'
+              example:
+                botResponses: true
+                totalAmount: 0
+                totalUsers: 0
+                _id: 5c0a53cede9a4c207fa14d90
+                title: Will I win the next game?
+                minBet: 10
+                maxBet: 10000
+                duration: 5
+                options:
+                - totalAmount: 0
+                  totalUsers: 0
+                  _id: 5c0a53cede9a4cc345a14d92
+                  title: Win
+                  command: win
+                - totalAmount: 0
+                  totalUsers: 0
+                  _id: 5c0a53cede9a4c4b39a14d91
+                  title: Lose
+                  command: lose
+                channel: 5b2e2007760aeb7729487dab
+                state: created
+                createdAt: '2018-12-07T11:04:46.528Z'
+                updatedAt: '2018-12-07T11:04:46.528Z'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/channel_redemptions_itemId'
+              example:
+                statusCode: 404
+                error: Not Found
+                message: No contest found
+      deprecated: false
+  /contests/{channel}/{contestId}/bet:
+    get:
+      tags:
+      - contests
+      summary: /:channel/:contestId/bet
+      description: Get contests bets
+      operationId: Get/:channel/:contestId/bet
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel Id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: contestId
+        in: path
+        description: guid - Contest id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /contests/{channel}/{contestId}/start:
+    put:
+      tags:
+      - contests
+      summary: /:channel/:contestId/start
+      description: Start a contest
+      operationId: /:channel/:contestId/start
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: contestId
+        in: path
+        description: guid - Contest id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 13:22:00 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '539'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Contest'
+              example:
+                botResponses: true
+                totalAmount: 0
+                totalUsers: 0
+                _id: 5c0a53cede9a4c207fa14d90
+                title: Will I win the next game?
+                minBet: 10
+                maxBet: 10000
+                duration: 5
+                options:
+                - totalAmount: 0
+                  totalUsers: 0
+                  _id: 5c0a53cede9a4cc345a14d92
+                  title: Win
+                  command: win
+                - totalAmount: 0
+                  totalUsers: 0
+                  _id: 5c0a53cede9a4c4b39a14d91
+                  title: Lose
+                  command: lose
+                channel: 5b2e2007760aeb7729487dab
+                state: running
+                createdAt: '2018-12-07T11:04:46.528Z'
+                updatedAt: '2018-12-07T13:21:59.997Z'
+                startedAt: '2018-12-07T13:21:59.996Z'
+      deprecated: false
+  /contests/{channel}/{contestId}/winner:
+    put:
+      tags:
+      - contests
+      summary: /:channel/:contestId/winner
+      description: Draw a winner of contest
+      operationId: /:channel/:contestId/winner
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: contestId
+        in: path
+        description: guid - Contest id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 13:25:06 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+      deprecated: false
+  /contests/{channel}/{contestId}/refund:
+    delete:
+      tags:
+      - contests
+      summary: /:channel/:contestId/refund
+      description: Refund users participating in contest
+      operationId: /:channel/:contestId/refund
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: contestId
+        in: path
+        description: guid - Contest id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /contests/{channel}/{contestId}/close:
+    delete:
+      tags:
+      - contests
+      summary: /:channel/:contestId/close
+      description: Close contest
+      operationId: /:channel/:contestId/close
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: contestId
+        in: path
+        description: guid - Contest id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 13:27:07 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+      deprecated: false
+  /contests/{channel}:
+    get:
+      tags:
+      - contests
+      summary: /:channel
+      description: List contests
+      operationId: Get/:channel123456
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 11:05:03 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '529'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Contests'
+              example:
+                active: null
+                contests:
+                - botResponses: true
+                  totalAmount: 0
+                  totalUsers: 0
+                  _id: 5c0a53cede9a4c207fa14d90
+                  title: Will I win the next game?
+                  minBet: 10
+                  maxBet: 10000
+                  duration: 5
+                  options:
+                  - totalAmount: 0
+                    totalUsers: 0
+                    _id: 5c0a53cede9a4cc345a14d92
+                    title: Win
+                    command: win
+                  - totalAmount: 0
+                    totalUsers: 0
+                    _id: 5c0a53cede9a4c4b39a14d91
+                    title: Lose
+                    command: lose
+                  channel: 5b2e2007760aeb7729487dab
+                  state: created
+                  createdAt: '2018-12-07T11:04:46.528Z'
+                  updatedAt: '2018-12-07T11:04:46.528Z'
+      deprecated: false
+    post:
+      tags:
+      - contests
+      summary: /:channel
+      description: Create a new contest
+      operationId: Post/:channel12
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 11:04:46 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '500'
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: X-HTTP-Method-Override
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Contests'
+              example:
+                botResponses: true
+                totalAmount: 0
+                totalUsers: 0
+                _id: 5c0a53cede9a4c207fa14d90
+                title: Will I win the next game?
+                minBet: 10
+                maxBet: 10000
+                duration: 5
+                options:
+                - totalAmount: 0
+                  totalUsers: 0
+                  _id: 5c0a53cede9a4cc345a14d92
+                  title: Win
+                  command: win
+                - totalAmount: 0
+                  totalUsers: 0
+                  _id: 5c0a53cede9a4c4b39a14d91
+                  title: Lose
+                  command: lose
+                channel: 5b2e2007760aeb7729487dab
+                state: created
+                createdAt: '2018-12-07T11:04:46.528Z'
+                updatedAt: '2018-12-07T11:04:46.528Z'
+      deprecated: false
+  /contests/{channel}/history:
+    get:
+      tags:
+      - contests
+      summary: /:channel/history
+      description: List previous contests
+      operationId: /:channel/history
+      parameters:
+      - name: limit
+        in: query
+        description: integer - Number of items per page
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: offset
+        in: query
+        description: integer - Number of items to be skipped
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    Contests:
+      title: Contests
+      required:
+      - active
+      - contests
+      type: object
+      properties:
+        active:
+          type: string
+          nullable: true
+        contests:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contest'
+          description: ''
+      example:
+        active: null
+        contests:
+        - botResponses: true
+          totalAmount: 0
+          totalUsers: 0
+          _id: 5c0a53cede9a4c207fa14d90
+          title: Will I win the next game?
+          minBet: 10
+          maxBet: 10000
+          duration: 5
+          options:
+          - totalAmount: 0
+            totalUsers: 0
+            _id: 5c0a53cede9a4cc345a14d92
+            title: Win
+            command: win
+          - totalAmount: 0
+            totalUsers: 0
+            _id: 5c0a53cede9a4c4b39a14d91
+            title: Lose
+            command: lose
+          channel: 5b2e2007760aeb7729487dab
+          state: created
+          createdAt: '2018-12-07T11:04:46.528Z'
+          updatedAt: '2018-12-07T11:04:46.528Z'
+    Option:
+      title: Option
+      required:
+      - totalAmount
+      - totalUsers
+      - _id
+      - title
+      - command
+      type: object
+      properties:
+        totalAmount:
+          type: integer
+          format: int32
+        totalUsers:
+          type: integer
+          format: int32
+        _id:
+          type: string
+        title:
+          type: string
+        command:
+          type: string
+      example:
+        totalAmount: 0
+        totalUsers: 0
+        _id: 5c0a53cede9a4cc345a14d92
+        title: Win
+        command: win
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
+    Contest:
+      title: Contest
+      required:
+      - botResponses
+      - totalAmount
+      - totalUsers
+      - _id
+      - title
+      - minBet
+      - maxBet
+      - duration
+      - options
+      - channel
+      - state
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        botResponses:
+          type: boolean
+        totalAmount:
+          type: integer
+          format: int32
+        totalUsers:
+          type: integer
+          format: int32
+        _id:
+          type: string
+        title:
+          type: string
+        minBet:
+          type: integer
+          format: int32
+        maxBet:
+          type: integer
+          format: int32
+        duration:
+          type: integer
+          format: int32
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
+          description: ''
+        channel:
+          type: string
+        state:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        botResponses: true
+        totalAmount: 0
+        totalUsers: 0
+        _id: 5c0a53cede9a4c207fa14d90
+        title: Will I win the next game?
+        minBet: 10
+        maxBet: 10000
+        duration: 5
+        options:
+        - totalAmount: 0
+          totalUsers: 0
+          _id: 5c0a53cede9a4cc345a14d92
+          title: Win
+          command: win
+        - totalAmount: 0
+          totalUsers: 0
+          _id: 5c0a53cede9a4c4b39a14d91
+          title: Lose
+          command: lose
+        channel: 5b2e2007760aeb7729487dab
+        state: created
+        createdAt: '2018-12-07T11:04:46.528Z'
+        updatedAt: '2018-12-07T11:04:46.528Z'
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

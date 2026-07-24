@@ -1,0 +1,820 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities tips API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: tips
+  description: Endpoints to interract with tips
+paths:
+  /tips/{channel}:
+    get:
+      tags:
+      - tips
+      summary: /:channel
+      description: List tips
+      operationId: Get/:channel123456789101112
+      parameters:
+      - name: offset
+        in: query
+        description: integer - Starting element
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: limit
+        in: query
+        description: integer - Events per page between 1 and 100
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: sort
+        in: query
+        description: string - Sorting method. Possible values createdAt, -createdAt, donation.amount, -donation.amount, donation.provider, -donation.provider
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: -createdAt
+      - name: tz
+        in: query
+        description: integer - Timezone number
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 4
+      - name: username
+        in: query
+        description: string - Username
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: string - Email address
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: after
+        in: query
+        description: datetime - Start date
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: before
+        in: query
+        description: datetime - End date
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int64
+          example: 1544178274000
+      - name: message
+        in: query
+        description: string - Tip message
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:19:29 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '457'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TipData'
+              example:
+                docs:
+                - donation:
+                    user:
+                      username: StreamElements
+                      geo: null
+                      email: streamelements@streamelements.com
+                    message: This is a test
+                    amount: 100
+                    currency: USD
+                  provider: paypal
+                  status: success
+                  deleted: false
+                  _id: 5c0aab85de9a4c6756a14e0d
+                  channel: 5b2e2007760aeb7729487dab
+                  transactionId: IMPORTED
+                  createdAt: '2018-12-07T17:19:01.957Z'
+                  approved: allowed
+                  updatedAt: '2018-12-07T17:19:01.957Z'
+                total: 1
+                limit: 25
+                offset: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: child "after" fails because ["after" must be a number of milliseconds or valid date string]. child "before" fails because ["before" must be a number of milliseconds or valid date string]. child "limit" fails because ["limit" must be a number]. child "offset" fails because ["offset" must be a number]. child "sort" fails because ["sort" is not allowed to be empty, "sort" must be one of [createdAt, -createdAt, donation.amount, -donation.amount, donation.provider, -donation.provider]]. child "email" fails because ["email" is not allowed to be empty, "email" must be a valid email]. child "tz" fails because ["tz" must be a number]
+                details:
+                - path:
+                  - after
+                  message: '"after" must be a number of milliseconds or valid date string'
+                - path:
+                  - before
+                  message: '"before" must be a number of milliseconds or valid date string'
+                - path:
+                  - limit
+                  message: '"limit" must be a number'
+                - path:
+                  - offset
+                  message: '"offset" must be a number'
+                - path:
+                  - sort
+                  message: '"sort" is not allowed to be empty'
+                - path:
+                  - sort
+                  message: '"sort" must be one of [createdAt, -createdAt, donation.amount, -donation.amount, donation.provider, -donation.provider]'
+                - path:
+                  - email
+                  message: '"email" is not allowed to be empty'
+                - path:
+                  - email
+                  message: '"email" must be a valid email'
+                - path:
+                  - tz
+                  message: '"tz" must be a number'
+      deprecated: false
+    post:
+      tags:
+      - tips
+      summary: /:channel
+      operationId: Post/:channel1234
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTip'
+            example:
+              user:
+                userId: ''
+                username: ''
+                email: com
+              provider: ''
+              message: ''
+              amount: 0
+              currency: ''
+              imported: true
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:25:38 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '422'
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: X-HTTP-Method-Override
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TipData'
+              example:
+                donation:
+                  user:
+                    username: StreamElements
+                    ip: null
+                    geo: null
+                    email: StreamElements@streamelements.com
+                  message: Test message
+                  amount: 123
+                  currency: USD
+                provider: paypal
+                status: success
+                deleted: false
+                _id: 5c0aad12de9a4c5ca1a14e13
+                channel: 5b2e2007760aeb7729487dab
+                transactionId: IMPORTED
+                createdAt: '2018-12-07T17:25:38.507Z'
+                approved: allowed
+                updatedAt: '2018-12-07T17:25:38.507Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: child "currency" fails because ["currency" is not allowed to be empty, "currency" must be one of [AUD, BRL, CAD, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, NOK, NZD, PHP, PLN, GBP, RUB, SGD, SEK, CHF, TWD, THB, TRY, USD]]. child "user" fails because [child "email" fails because ["email" must be a valid email]]
+                details:
+                - path:
+                  - currency
+                  message: '"currency" is not allowed to be empty'
+                - path:
+                  - currency
+                  message: '"currency" must be one of [AUD, BRL, CAD, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, NOK, NZD, PHP, PLN, GBP, RUB, SGD, SEK, CHF, TWD, THB, TRY, USD]'
+                - path:
+                  - user
+                  - email
+                  message: '"email" must be a valid email'
+      deprecated: false
+  /tips/{channel}/top:
+    get:
+      tags:
+      - tips
+      summary: /:channel/top
+      description: Get top tippers for channel
+      operationId: Get/:channel/top12
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:19:52 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '180'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Success64'
+                example:
+                - username: StreamElements
+                  first: '2018-12-07T17:19:01.957Z'
+                  last: '2018-12-07T17:19:01.957Z'
+                  count: 1
+                  total: 100
+                  email: streamelements@streamelements.com
+                  average: 100
+              example:
+              - username: StreamElements
+                first: '2018-12-07T17:19:01.957Z'
+                last: '2018-12-07T17:19:01.957Z'
+                count: 1
+                total: 100
+                email: streamelements@streamelements.com
+                average: 100
+      deprecated: false
+  /tips/{channel}/leaderboard:
+    get:
+      tags:
+      - tips
+      summary: /:channel/leaderboard
+      description: Get tips leaderboard
+      operationId: /:channel/leaderboard
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /tips/{channel}/moderation:
+    get:
+      tags:
+      - tips
+      summary: /:channel/moderation
+      description: List tips waiting for moderation
+      operationId: /:channel/moderation
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:21:00 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '440'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TipData'
+              example:
+                recent:
+                - donation:
+                    user:
+                      username: StreamElements
+                      geo: null
+                      email: streamelements@streamelements.com
+                    message: This is a test
+                    amount: 100
+                    currency: USD
+                  provider: paypal
+                  status: success
+                  deleted: false
+                  _id: 5c0aab85de9a4c6756a14e0d
+                  channel: 5b2e2007760aeb7729487dab
+                  transactionId: IMPORTED
+                  createdAt: '2018-12-07T17:19:01.957Z'
+                  approved: allowed
+                  updatedAt: '2018-12-07T17:19:01.957Z'
+                pending: []
+      deprecated: false
+  /tips/{channel}/{tipId}:
+    get:
+      tags:
+      - tips
+      summary: /:channel/:tipId
+      description: Get tip details
+      operationId: /:channel/:tipId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: tipId
+        in: path
+        description: guid - Tip id
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:21:25 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '414'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/TipData'
+              example:
+                donation:
+                  user:
+                    username: StreamElements
+                    geo: null
+                    email: streamelements@streamelements.com
+                  message: This is a test
+                  amount: 100
+                  currency: USD
+                provider: paypal
+                status: success
+                deleted: false
+                _id: 5c0aab85de9a4c6756a14e0d
+                channel: 5b2e2007760aeb7729487dab
+                transactionId: IMPORTED
+                createdAt: '2018-12-07T17:19:01.957Z'
+                approved: allowed
+                updatedAt: '2018-12-07T17:19:01.957Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "tipId" fails because ["tipId" with value "truncated" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - tipId
+                  message: '"tipId" with value "truncated" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notfound2'
+              example:
+                statusCode: 404
+                error: Not Found
+      deprecated: false
+components:
+  schemas:
+    Success64:
+      title: Success64
+      required:
+      - username
+      - first
+      - last
+      - count
+      - total
+      - email
+      - average
+      type: object
+      properties:
+        username:
+          type: string
+        first:
+          type: string
+        last:
+          type: string
+        count:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        email:
+          type: string
+        average:
+          type: integer
+          format: int32
+      example:
+        username: StreamElements
+        first: '2018-12-07T17:19:01.957Z'
+        last: '2018-12-07T17:19:01.957Z'
+        count: 1
+        total: 100
+        email: streamelements@streamelements.com
+        average: 100
+    Donation:
+      title: Donation3
+      required:
+      - user
+      - message
+      - amount
+      - currency
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/DonationUser'
+        message:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        currency:
+          type: string
+      example:
+        user:
+          username: StreamElements
+          ip: null
+          geo: null
+          email: StreamElements@streamelements.com
+        message: Test message
+        amount: 123
+        currency: USD
+    Notfound2:
+      title: Notfound2
+      required:
+      - statusCode
+      - error
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+    DonationUser:
+      title: Donation user
+      required:
+      - username
+      - geo
+      - email
+      type: object
+      properties:
+        username:
+          type: string
+        ip:
+          type: string
+          nullable: true
+        geo:
+          type: string
+          nullable: true
+        email:
+          type: string
+      example:
+        username: StreamElements
+        ip: null
+        geo: null
+        email: StreamElements@streamelements.com
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
+    TipData:
+      title: TipData
+      required:
+      - donation
+      - provider
+      - status
+      - deleted
+      - _id
+      - channel
+      - transactionId
+      - createdAt
+      - approved
+      - updatedAt
+      type: object
+      properties:
+        donation:
+          $ref: '#/components/schemas/Donation'
+        provider:
+          type: string
+        status:
+          type: string
+        deleted:
+          type: boolean
+        _id:
+          type: string
+        channel:
+          type: string
+        transactionId:
+          type: string
+        createdAt:
+          type: string
+        approved:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        donation:
+          user:
+            username: StreamElements
+            geo: null
+            email: streamelements@streamelements.com
+          message: This is a test
+          amount: 100
+          currency: USD
+        provider: paypal
+        status: success
+        deleted: false
+        _id: 5c0aab85de9a4c6756a14e0d
+        channel: 5b2e2007760aeb7729487dab
+        transactionId: IMPORTED
+        createdAt: '2018-12-07T17:19:01.957Z'
+        approved: allowed
+        updatedAt: '2018-12-07T17:19:01.957Z'
+    NewTip:
+      title: New tip
+      required:
+      - user
+      - provider
+      - message
+      - amount
+      - currency
+      - imported
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User11'
+        provider:
+          type: string
+        message:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        currency:
+          type: string
+        imported:
+          type: boolean
+      example:
+        user:
+          userId: ''
+          username: ''
+          email: com
+        provider: ''
+        message: ''
+        amount: 0
+        currency: ''
+        imported: true
+    User11:
+      title: User11
+      required:
+      - userId
+      - username
+      - email
+      type: object
+      properties:
+        userId:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+      example:
+        userId: ''
+        username: ''
+        email: com
+    400-badrequest:
+      title: 400-badrequest
+      required:
+      - statusCode
+      - error
+      - message
+      - details
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        statusCode: 400
+        error: Bad Request
+        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+        details:
+        - path:
+          - giveawayId
+          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

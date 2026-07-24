@@ -1,0 +1,458 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities points API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: points
+  description: Endpoints to manage loyalty points
+paths:
+  /points/{channel}/{user}:
+    get:
+      tags:
+      - points
+      summary: /:channel/:user
+      description: Get userpoints for specific username
+      operationId: /:channel/:user
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: user
+        in: path
+        description: string - Username
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}/{user}/rank:
+    get:
+      tags:
+      - points
+      summary: /:channel/:user/rank
+      description: Get current user rank by username
+      operationId: /:channel/:user/rank
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: user
+        in: path
+        description: string - Username
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}/{user}/{amount}:
+    put:
+      tags:
+      - points
+      summary: /:channel/:user/:amount
+      description: Add or remove points from user
+      operationId: /:channel/:user/:amount
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: user
+        in: path
+        description: string - Username
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: amount
+        in: path
+        description: integer - Amount of points to be added, use negative number to remove points
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}/alltime/{user}/{amount}:
+    put:
+      tags:
+      - points
+      summary: /:channel/alltime/:user/:amount
+      description: Update alltime points for user
+      operationId: /:channel/alltime/:user/:amount
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: user
+        in: path
+        description: string - username
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: leeeeex
+      - name: amount
+        in: path
+        description: integer - amount of points to be added (negative if removed)
+        required: true
+        style: simple
+        schema:
+          type: integer
+          format: int32
+          example: 234
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}/alltime:
+    get:
+      tags:
+      - points
+      summary: /:channel/alltime
+      description: List alltime userpoints
+      operationId: /:channel/alltime
+      parameters:
+      - name: limit
+        in: query
+        description: integer - Number of items per page
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: offset
+        in: query
+        description: integer - Number of items to be skipped
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}/top:
+    get:
+      tags:
+      - points
+      summary: /:channel/top
+      description: List top userpoints
+      operationId: Get/:channel/top
+      parameters:
+      - name: limit
+        in: query
+        description: integer - Number of items per page
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: offset
+        in: query
+        description: integer - Number of items to be skipped
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}/watchtime:
+    get:
+      tags:
+      - points
+      summary: /:channel/watchtime
+      description: List users watchtime
+      operationId: /:channel/watchtime
+      parameters:
+      - name: limit
+        in: query
+        description: integer - Number of items per page
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: offset
+        in: query
+        description: integer - Number of items to be skipped
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}:
+    put:
+      tags:
+      - points
+      summary: /:channel
+      description: Bulk add/set points to users
+      operationId: Put/:channel1
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: string
+              example: '{ "users": [ { "username": "testuser123", "current": 200 }, { "username": "testuser456", "current": 150 } ], "mode": "add" }'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /points/{channel}/reset/{context}:
+    delete:
+      tags:
+      - points
+      summary: /:channel/reset/:context
+      operationId: /:channel/reset/:context
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: context
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

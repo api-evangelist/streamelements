@@ -1,0 +1,1598 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities songrequests API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: songrequests
+  description: Endpoints to interact with StreamElements Mediashare
+paths:
+  /songrequest/playing:
+    get:
+      tags:
+      - songrequests
+      summary: /playing
+      operationId: /playing
+      parameters:
+      - name: provider
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: room
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /songrequest/youtube:
+    get:
+      tags:
+      - songrequests
+      summary: /youtube
+      description: Get song details
+      operationId: /youtube
+      parameters:
+      - name: videoId
+        in: query
+        description: string - YouTube video ID
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: string - phrase to search
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 13:02:32 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '782'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Success-searchbysongname'
+                example:
+                - videoId: dQw4w9WgXcQ
+                  thumbnail: https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg
+                  title: Rick Astley - Never Gonna Give You Up (Video)
+                - videoId: 6_b7RDuLwcI
+                  thumbnail: https://i.ytimg.com/vi/6_b7RDuLwcI/default.jpg
+                  title: Rick Astley Never gonna give you up lyrics!!!
+                - videoId: X9NOzYMLfmM
+                  thumbnail: https://i.ytimg.com/vi/X9NOzYMLfmM/default.jpg
+                  title: Never Gonna Give You Up By Rick Astley (AKA The Rick Roll Song) Lyrics
+                - videoId: IO9XlQrEt2Y
+                  thumbnail: https://i.ytimg.com/vi/IO9XlQrEt2Y/default.jpg
+                  title: Rick Astley - Never Gonna Give You Up (The Roxy 1987)
+                - videoId: p1tMZ50s2Oo
+                  thumbnail: https://i.ytimg.com/vi/p1tMZ50s2Oo/default.jpg
+                  title: Rick Astley - Never Gonna Give You Up (Live @ V Festival 2016 + Interview, HD)
+              example:
+              - videoId: dQw4w9WgXcQ
+                thumbnail: https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg
+                title: Rick Astley - Never Gonna Give You Up (Video)
+              - videoId: 6_b7RDuLwcI
+                thumbnail: https://i.ytimg.com/vi/6_b7RDuLwcI/default.jpg
+                title: Rick Astley Never gonna give you up lyrics!!!
+              - videoId: X9NOzYMLfmM
+                thumbnail: https://i.ytimg.com/vi/X9NOzYMLfmM/default.jpg
+                title: Never Gonna Give You Up By Rick Astley (AKA The Rick Roll Song) Lyrics
+              - videoId: IO9XlQrEt2Y
+                thumbnail: https://i.ytimg.com/vi/IO9XlQrEt2Y/default.jpg
+                title: Rick Astley - Never Gonna Give You Up (The Roxy 1987)
+              - videoId: p1tMZ50s2Oo
+                thumbnail: https://i.ytimg.com/vi/p1tMZ50s2Oo/default.jpg
+                title: Rick Astley - Never Gonna Give You Up (Live @ V Festival 2016 + Interview, HD)
+      deprecated: false
+  /songrequest/{channel}/settings:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/settings
+      description: Get settings
+      operationId: Get/:channel/settings
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:07:17 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '600'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/MediaRequestData'
+              example:
+                player:
+                  delay: 0
+                limits:
+                  users:
+                    free: 5
+                    paid: 0
+                  queueLimit: 10
+                  maxDuration: 420
+                backupPlaylist:
+                  url: https://www.youtube.com/playlist?list=UUp8OOssjSjGZRVYK6zWbNLg
+                  prioritizeQueue: false
+                bot:
+                  voteskip:
+                    enabled: true
+                    votesRequired: 5
+                  cost: 0
+                  subscriberDiscount: 50
+                  exemptUserLevel: 500
+                  minUserLevel: 100
+                tips:
+                  mediashare:
+                    enabled: false
+                    costPerSecond: 0.1
+                  prioritize: true
+                youtube:
+                  securityLevel: 0
+                  musicOnly: false
+                  bannedTags: []
+                  bannedVideos: []
+                enabled: false
+                mode: combined
+                moderation: false
+                _id: 5b2e2007760aeb82e8487dc4
+                bannedUsers: []
+      deprecated: false
+  /songrequest/{channel}/settings/public:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/settings/public
+      description: Get public settings
+      operationId: /:channel/settings/public
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:08:02 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '216'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Success48'
+              example:
+                enabled: false
+                limits:
+                  users:
+                    free: 5
+                    paid: 0
+                  queueLimit: 10
+                  maxDuration: 420
+                mode: combined
+                tips:
+                  mediashare:
+                    enabled: false
+                    costPerSecond: 0.1
+                  prioritize: true
+                youtube:
+                  musicOnly: false
+      deprecated: false
+  /songrequest/{channel}/queue:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/queue
+      description: Get songrequest queue
+      operationId: /:channel/queue
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:15:04 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '332'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Song'
+                example:
+                - duration: 213
+                  tags: []
+                  _id: 5c0ba7b3de9a4c7036a15040
+                  videoId: dQw4w9WgXcQ
+                  title: Rick Astley - Never Gonna Give You Up (Video)
+                  channel: RickAstleyVEVO
+                  statistics:
+                    viewCount: 504489596
+                    likeCount: 3380238
+                    dislikeCount: 154269
+                  source: site
+                  user:
+                    username: leeeeex
+                    providerId: '85827806'
+                  voteskips: []
+              example:
+              - duration: 213
+                tags: []
+                _id: 5c0ba7b3de9a4c7036a15040
+                videoId: dQw4w9WgXcQ
+                title: Rick Astley - Never Gonna Give You Up (Video)
+                channel: RickAstleyVEVO
+                statistics:
+                  viewCount: 504489596
+                  likeCount: 3380238
+                  dislikeCount: 154269
+                source: site
+                user:
+                  username: leeeeex
+                  providerId: '85827806'
+                voteskips: []
+      deprecated: false
+    post:
+      tags:
+      - songrequests
+      summary: /:channel/queue
+      description: Get songrequest queue
+      operationId: Post/:channel/queue
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/channel_queuerequest'
+            example:
+              video: youtube-Identifier
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:23:38 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '499'
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: X-HTTP-Method-Override
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Song'
+              example:
+                videoId: dQw4w9WgXcQ
+                title: Rick Astley - Never Gonna Give You Up (Video)
+                channel: RickAstleyVEVO
+                duration: 213
+                categoryId: 10
+                statistics:
+                  viewCount: 504489631
+                  likeCount: 3380251
+                  dislikeCount: 154269
+                _id: 5c0ba9bade9a4c3723a1504d
+                source: site
+                user:
+                  _id: 5b2e2007760aeb7729487dab
+                  username: leeeeex
+                  providerId: '85827806'
+                  displayName: leeeeex
+                  avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/channel_redemptions_itemId'
+              example:
+                statusCode: 404
+                error: Not Found
+                message: No videos found
+      deprecated: false
+  /songrequest/{channel}/queue/{song}:
+    delete:
+      tags:
+      - songrequests
+      summary: /:channel/queue/:song
+      description: Remove song from queue
+      operationId: /:channel/queue/:song
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: song
+        in: path
+        description: guid - Song id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5c0ba9bade9a4c3723a1504d
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:30:45 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "songId" fails because ["songId" with value "truncated" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - songId
+                  message: '"songId" with value "truncated" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /songrequest/{channel}/queue/public:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/queue/public
+      description: Get songrequest queue for public exposure (without video details)
+      operationId: /:channel/queue/public
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:15:33 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '228'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Song'
+                example:
+                - duration: 213
+                  _id: 5c0ba7b3de9a4c7036a15040
+                  videoId: dQw4w9WgXcQ
+                  title: Rick Astley - Never Gonna Give You Up (Video)
+                  channel: RickAstleyVEVO
+                  source: site
+                  user:
+                    username: leeeeex
+                    providerId: '85827806'
+              example:
+              - duration: 213
+                _id: 5c0ba7b3de9a4c7036a15040
+                videoId: dQw4w9WgXcQ
+                title: Rick Astley - Never Gonna Give You Up (Video)
+                channel: RickAstleyVEVO
+                source: site
+                user:
+                  username: leeeeex
+                  providerId: '85827806'
+      deprecated: false
+  /songrequest/{channel}/pending:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/pending
+      description: Get songs in moderation queue
+      operationId: /:channel/pending
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /songrequest/{channel}/playlist:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/playlist
+      description: Get songs on playlist
+      operationId: /:channel/playlist
+      parameters:
+      - name: limit
+        in: query
+        description: integer - number of results per page
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: page
+        in: query
+        description: string - page identifier as in nextPage
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:19:17 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '3041'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/MediaRequestQueue'
+              example:
+                limit: 25
+                nextPage: CDIQAA
+                total: 102
+                videos:
+                - videoId: KjBNpJiID-k
+                  title: Anevo & Laura Brehm - Universe [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: dpdQZ56cKgA
+                  title: CloudNone - Spring Snow [Monstercat EP Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: _6tqFnhz83M
+                  title: Keepsake - This Time Around (feat. Slyleaf) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: cIseaPTGCRU
+                  title: Bad Computer - Voyage (feat. Savoi) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: VT9q8-i8e7Q
+                  title: Conro - September [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: xhTJ_5g_57k
+                  title: Aiobahn & Vin - If We Never [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: DzJXOb7Q1_s
+                  title: Laszlo - Gravity [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: XvEtJ6zbzyw
+                  title: The Night - Set Me Free [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: K2QEKOKPlV4
+                  title: Au5 - The Journey (feat. Trove) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: lAHpT1eAYH4
+                  title: Conro - Trippin [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: mlpdyTXeUTc
+                  title: Koven - Settled [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: FrX0ZfX8Dqs
+                  title: Ephixa - Dreamstate [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: MH9i4DkNVRc
+                  title: CloudNone - None Trick Pony [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: vZkExPWt3ig
+                  title: Vicetone - Walk Thru Fire (feat. Meron Ryan) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: 5m7L8hlArsU
+                  title: Lookas & Krewella - Alarm [Monstercat Official Music Video]
+                  channel: 'Monstercat: Instinct'
+                - videoId: 1zjqS6YGwrs
+                  title: Snareskin - Mad For You (feat. Trove) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: f244Kb8y_a8
+                  title: Koven - Voices [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: FIE_w_Yiy68
+                  title: Jay Cosmic - One Way Dream [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: UMh8V--HxnI
+                  title: Rogue - Mirage [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: uPDjXJgGklM
+                  title: Aiobahn - In Your Arms (feat. Ralph Larenzo) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: AiYuSpsY9kg
+                  title: MYLK - Sleepy [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: P6JcPvoIT6E
+                  title: Dion Timmer - The Right Type (feat. Jade LeMac) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: Ba_n0eHnNDc
+                  title: Duumu - Forward (feat. ÊMIA) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: fBsNIJLj0Gs
+                  title: LVTHER - Time Well Spent (feat. Ayelle) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+                - videoId: iS-PpppSj0E
+                  title: SLANDER - So Long (feat. Juliana Chahayed) [Monstercat Release]
+                  channel: 'Monstercat: Instinct'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: child "limit" fails because ["limit" must be a number]. child "page" fails because ["page" is not allowed to be empty]
+                details:
+                - path:
+                  - limit
+                  message: '"limit" must be a number'
+                - path:
+                  - page
+                  message: '"page" is not allowed to be empty'
+      deprecated: false
+  /songrequest/{channel}/player:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/player
+      description: Get current player status
+      operationId: /:channel/player
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:19:39 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '18'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Success53'
+              example:
+                state: paused
+      deprecated: false
+  /songrequest/{channel}/player/{state}:
+    post:
+      tags:
+      - songrequests
+      summary: /:channel/player/:state
+      description: Change current state of media player
+      operationId: /:channel/player/:state
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: state
+        in: path
+        description: string - one of play, pause
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 11 Dec 2018 08:31:47 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: X-HTTP-Method-Override
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: child "state" fails because ["state" must be one of [volume, play, pause]]
+                details:
+                - path:
+                  - state
+                  message: '"state" must be one of [volume, play, pause]'
+      deprecated: false
+  /songrequest/{channel}/history:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/history
+      description: Get songrequest history
+      operationId: Get/:channel/history1
+      parameters:
+      - name: limit
+        in: query
+        description: integer - Number of items per page
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: offset
+        in: query
+        description: integer - Number of items to be skipped
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /songrequest/{channel}/playing:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/playing
+      description: Get currently playing song
+      operationId: /:channel/playing
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 11:21:33 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '330'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Song'
+              example:
+                user:
+                  username: leeeeex
+                  providerId: '85827806'
+                statistics:
+                  viewCount: 504489596
+                  likeCount: 3380238
+                  dislikeCount: 154269
+                duration: 213
+                tags: []
+                _id: 5c0ba73fde9a4c1385a1503b
+                voteskips: []
+                videoId: dQw4w9WgXcQ
+                title: Rick Astley - Never Gonna Give You Up (Video)
+                channel: RickAstleyVEVO
+                source: site
+      deprecated: false
+  /songrequest/{channel}/next:
+    get:
+      tags:
+      - songrequests
+      summary: /:channel/next
+      description: Get details of next song in queue
+      operationId: /:channel/next
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 11 Dec 2018 11:19:50 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '339'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Song'
+              example:
+                song:
+                  user:
+                    username: leeeeex
+                    providerId: '85827806'
+                  statistics:
+                    viewCount: 505416595
+                    likeCount: 3387160
+                    dislikeCount: 154477
+                  duration: 213
+                  tags: []
+                  voteskips: []
+                  _id: 5c0f9d54bd1e47cf2d3d6cac
+                  videoId: dQw4w9WgXcQ
+                  title: Rick Astley - Never Gonna Give You Up (Video)
+                  channel: RickAstleyVEVO
+                  source: site
+      deprecated: false
+components:
+  schemas:
+    MediaRequestData:
+      title: Media Request data
+      required:
+      - player
+      - limits
+      - backupPlaylist
+      - bot
+      - tips
+      - youtube
+      - enabled
+      - mode
+      - moderation
+      - _id
+      - bannedUsers
+      type: object
+      properties:
+        player:
+          $ref: '#/components/schemas/Player'
+        limits:
+          $ref: '#/components/schemas/Limits'
+        backupPlaylist:
+          $ref: '#/components/schemas/BackupPlaylist'
+        bot:
+          $ref: '#/components/schemas/Bot1'
+        tips:
+          $ref: '#/components/schemas/Tips'
+        youtube:
+          $ref: '#/components/schemas/Youtube'
+        enabled:
+          type: boolean
+        mode:
+          type: string
+        moderation:
+          type: boolean
+        _id:
+          type: string
+        bannedUsers:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        player:
+          delay: 0
+        limits:
+          users:
+            free: 5
+            paid: 0
+          queueLimit: 10
+          maxDuration: 420
+        backupPlaylist:
+          url: https://www.youtube.com/playlist?list=UUp8OOssjSjGZRVYK6zWbNLg
+          prioritizeQueue: false
+        bot:
+          voteskip:
+            enabled: true
+            votesRequired: 5
+          cost: 0
+          subscriberDiscount: 50
+          exemptUserLevel: 500
+          minUserLevel: 100
+        tips:
+          mediashare:
+            enabled: false
+            costPerSecond: 0.1
+          prioritize: true
+        youtube:
+          securityLevel: 0
+          musicOnly: false
+          bannedTags: []
+          bannedVideos: []
+        enabled: false
+        mode: combined
+        moderation: false
+        _id: 5b2e2007760aeb82e8487dc4
+        bannedUsers: []
+    Video1:
+      title: Video1
+      required:
+      - videoId
+      - title
+      - channel
+      type: object
+      properties:
+        videoId:
+          type: string
+        title:
+          type: string
+        channel:
+          type: string
+      example:
+        videoId: KjBNpJiID-k
+        title: Anevo & Laura Brehm - Universe [Monstercat Release]
+        channel: 'Monstercat: Instinct'
+    BackupPlaylist:
+      title: BackupPlaylist
+      required:
+      - url
+      - prioritizeQueue
+      type: object
+      properties:
+        url:
+          type: string
+        prioritizeQueue:
+          type: boolean
+      example:
+        url: https://www.youtube.com/playlist?list=UUp8OOssjSjGZRVYK6zWbNLg
+        prioritizeQueue: false
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
+    Song:
+      title: Song
+      required:
+      - user
+      - duration
+      - _id
+      - videoId
+      - title
+      - channel
+      - source
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User2'
+        statistics:
+          $ref: '#/components/schemas/Statistics'
+        duration:
+          type: integer
+          format: int32
+        tags:
+          type: array
+          items:
+            type: string
+          description: ''
+        voteskips:
+          type: array
+          items:
+            type: string
+          description: ''
+        _id:
+          type: string
+        videoId:
+          type: string
+        title:
+          type: string
+        channel:
+          type: string
+        source:
+          type: string
+      example:
+        user:
+          username: leeeeex
+          providerId: '85827806'
+        statistics:
+          viewCount: 505416595
+          likeCount: 3387160
+          dislikeCount: 154477
+        duration: 213
+        tags: []
+        voteskips: []
+        _id: 5c0f9d54bd1e47cf2d3d6cac
+        videoId: dQw4w9WgXcQ
+        title: Rick Astley - Never Gonna Give You Up (Video)
+        channel: RickAstleyVEVO
+        source: site
+    Tips:
+      title: Tips
+      required:
+      - mediashare
+      - prioritize
+      type: object
+      properties:
+        mediashare:
+          $ref: '#/components/schemas/Mediashare'
+        prioritize:
+          type: boolean
+      example:
+        mediashare:
+          enabled: false
+          costPerSecond: 0.1
+        prioritize: true
+    Voteskip:
+      title: Voteskip
+      required:
+      - enabled
+      - votesRequired
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        votesRequired:
+          type: integer
+          format: int32
+      example:
+        enabled: true
+        votesRequired: 5
+    Youtube:
+      title: Youtube
+      required:
+      - musicOnly
+      type: object
+      properties:
+        securityLevel:
+          type: integer
+          format: int32
+        musicOnly:
+          type: boolean
+        bannedTags:
+          type: array
+          items:
+            type: string
+          description: ''
+        bannedVideos:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        securityLevel: 0
+        musicOnly: false
+        bannedTags: []
+        bannedVideos: []
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
+    Mediashare:
+      title: Mediashare
+      required:
+      - enabled
+      - costPerSecond
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        costPerSecond:
+          type: number
+      example:
+        enabled: false
+        costPerSecond: 0.1
+    Success48:
+      title: Success48
+      required:
+      - enabled
+      - limits
+      - mode
+      - tips
+      - youtube
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        limits:
+          $ref: '#/components/schemas/Limits'
+        mode:
+          type: string
+        tips:
+          $ref: '#/components/schemas/Tips'
+        youtube:
+          $ref: '#/components/schemas/Youtube'
+      example:
+        enabled: false
+        limits:
+          users:
+            free: 5
+            paid: 0
+          queueLimit: 10
+          maxDuration: 420
+        mode: combined
+        tips:
+          mediashare:
+            enabled: false
+            costPerSecond: 0.1
+          prioritize: true
+        youtube:
+          musicOnly: false
+    Statistics:
+      title: Statistics
+      required:
+      - viewCount
+      - likeCount
+      - dislikeCount
+      type: object
+      properties:
+        viewCount:
+          type: integer
+          format: int32
+        likeCount:
+          type: integer
+          format: int32
+        dislikeCount:
+          type: integer
+          format: int32
+      example:
+        viewCount: 504489596
+        likeCount: 3380238
+        dislikeCount: 154269
+    400-badrequest:
+      title: 400-badrequest
+      required:
+      - statusCode
+      - error
+      - message
+      - details
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        statusCode: 400
+        error: Bad Request
+        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+        details:
+        - path:
+          - giveawayId
+          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+    Limits:
+      title: Limits
+      required:
+      - users
+      - queueLimit
+      - maxDuration
+      type: object
+      properties:
+        users:
+          $ref: '#/components/schemas/Users'
+        queueLimit:
+          type: integer
+          format: int32
+        maxDuration:
+          type: integer
+          format: int32
+      example:
+        users:
+          free: 5
+          paid: 0
+        queueLimit: 10
+        maxDuration: 420
+    Success-searchbysongname:
+      title: Success-searchbysongname
+      required:
+      - videoId
+      - thumbnail
+      - title
+      type: object
+      properties:
+        videoId:
+          type: string
+        thumbnail:
+          type: string
+        title:
+          type: string
+      example:
+        videoId: dQw4w9WgXcQ
+        thumbnail: https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg
+        title: Rick Astley - Never Gonna Give You Up (Video)
+    channel_queuerequest:
+      title: /:channel/queuerequest
+      required:
+      - video
+      type: object
+      properties:
+        video:
+          type: string
+      example:
+        video: youtube-Identifier
+    Bot1:
+      title: Bot1
+      required:
+      - voteskip
+      - cost
+      - subscriberDiscount
+      - exemptUserLevel
+      - minUserLevel
+      type: object
+      properties:
+        voteskip:
+          $ref: '#/components/schemas/Voteskip'
+        cost:
+          type: integer
+          format: int32
+        subscriberDiscount:
+          type: integer
+          format: int32
+        exemptUserLevel:
+          type: integer
+          format: int32
+        minUserLevel:
+          type: integer
+          format: int32
+      example:
+        voteskip:
+          enabled: true
+          votesRequired: 5
+        cost: 0
+        subscriberDiscount: 50
+        exemptUserLevel: 500
+        minUserLevel: 100
+    Users:
+      title: Users
+      required:
+      - free
+      - paid
+      type: object
+      properties:
+        free:
+          type: integer
+          format: int32
+        paid:
+          type: integer
+          format: int32
+      example:
+        free: 5
+        paid: 0
+    Success53:
+      title: Success53
+      required:
+      - state
+      type: object
+      properties:
+        state:
+          type: string
+      example:
+        state: paused
+    MediaRequestQueue:
+      title: MediaRequestQueue
+      required:
+      - limit
+      - nextPage
+      - total
+      - videos
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int32
+        nextPage:
+          type: string
+        total:
+          type: integer
+          format: int32
+        videos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Video1'
+          description: ''
+      example:
+        limit: 25
+        nextPage: CDIQAA
+        total: 102
+        videos:
+        - videoId: KjBNpJiID-k
+          title: Anevo & Laura Brehm - Universe [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: dpdQZ56cKgA
+          title: CloudNone - Spring Snow [Monstercat EP Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: _6tqFnhz83M
+          title: Keepsake - This Time Around (feat. Slyleaf) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: cIseaPTGCRU
+          title: Bad Computer - Voyage (feat. Savoi) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: VT9q8-i8e7Q
+          title: Conro - September [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: xhTJ_5g_57k
+          title: Aiobahn & Vin - If We Never [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: DzJXOb7Q1_s
+          title: Laszlo - Gravity [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: XvEtJ6zbzyw
+          title: The Night - Set Me Free [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: K2QEKOKPlV4
+          title: Au5 - The Journey (feat. Trove) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: lAHpT1eAYH4
+          title: Conro - Trippin [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: mlpdyTXeUTc
+          title: Koven - Settled [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: FrX0ZfX8Dqs
+          title: Ephixa - Dreamstate [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: MH9i4DkNVRc
+          title: CloudNone - None Trick Pony [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: vZkExPWt3ig
+          title: Vicetone - Walk Thru Fire (feat. Meron Ryan) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: 5m7L8hlArsU
+          title: Lookas & Krewella - Alarm [Monstercat Official Music Video]
+          channel: 'Monstercat: Instinct'
+        - videoId: 1zjqS6YGwrs
+          title: Snareskin - Mad For You (feat. Trove) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: f244Kb8y_a8
+          title: Koven - Voices [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: FIE_w_Yiy68
+          title: Jay Cosmic - One Way Dream [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: UMh8V--HxnI
+          title: Rogue - Mirage [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: uPDjXJgGklM
+          title: Aiobahn - In Your Arms (feat. Ralph Larenzo) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: AiYuSpsY9kg
+          title: MYLK - Sleepy [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: P6JcPvoIT6E
+          title: Dion Timmer - The Right Type (feat. Jade LeMac) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: Ba_n0eHnNDc
+          title: Duumu - Forward (feat. ÊMIA) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: fBsNIJLj0Gs
+          title: LVTHER - Time Well Spent (feat. Ayelle) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: iS-PpppSj0E
+          title: SLANDER - So Long (feat. Juliana Chahayed) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+    User2:
+      title: User2
+      required:
+      - username
+      - providerId
+      type: object
+      properties:
+        username:
+          type: string
+        providerId:
+          type: string
+      example:
+        username: leeeeex
+        providerId: '85827806'
+    Player:
+      title: Player
+      required:
+      - delay
+      type: object
+      properties:
+        delay:
+          type: integer
+          format: int32
+      example:
+        delay: 0
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

@@ -1,0 +1,289 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities chatstats API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: chatstats
+  description: Endpoint to get chat statistics
+paths:
+  /chatstats:
+    get:
+      tags:
+      - chatstats
+      summary: /
+      description: Get global chatstats
+      operationId: /
+      parameters:
+      - name: limit
+        in: query
+        description: integer - Number of items per page
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: offset
+        in: query
+        description: integer - Number of items to be skipped
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /chatstats/search:
+    get:
+      tags:
+      - chatstats
+      summary: /search
+      description: Search for channel by channel name
+      operationId: /search
+      parameters:
+      - name: channel
+        in: query
+        description: string - Channel name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: leeeeex
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /chatstats/{username}:
+    get:
+      tags:
+      - chatstats
+      summary: /:username
+      description: Get stats for channel name
+      operationId: /:username
+      parameters:
+      - name: username
+        in: path
+        description: string - Channel name
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: leeeeex
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /chatstats/{username}/epm:
+    get:
+      tags:
+      - chatstats
+      summary: /:username/epm
+      description: Get channel's "emotes per minute"
+      operationId: /:username/epm
+      parameters:
+      - name: limit
+        in: query
+        description: integer - number of items to be shown
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: username
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /chatstats/{username}/stats:
+    get:
+      tags:
+      - chatstats
+      summary: /:username/stats
+      description: Get channels stats
+      operationId: /:username/stats
+      parameters:
+      - name: limit
+        in: query
+        description: integer - Number of items to be shown
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: username
+        in: path
+        description: string - Channel name
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: leeeeex
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /chatstats/{username}/{category}/{item}:
+    get:
+      tags:
+      - chatstats
+      summary: /:username/:category/:item
+      description: Get channels details linked to provided URL
+      operationId: /:username/:category/:item
+      parameters:
+      - name: username
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: leeeeex
+      - name: category
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: item
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

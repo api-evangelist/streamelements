@@ -1,0 +1,1454 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities modules API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: modules
+  description: Endpoints to manage bot modules
+paths:
+  /bot/modules/{channel}:
+    get:
+      tags:
+      - modules
+      summary: /:channel
+      description: 'TODO: Add Description'
+      operationId: Get/:channel12
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 20:19:23 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '5947'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/BotModules'
+              example:
+                roulette:
+                  cooldown:
+                    user: 60
+                    global: 0
+                  messages:
+                    win: /me {user} won {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsGoodMan
+                    lose: /me {user} lost {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsBadMan
+                    allinWin: /me PogChamp {user} went all in and won {bet} ${pointsname} PogChamp they now have {points} ${pointsname} FeelsGoodMan
+                    allinLose: /me {user} went all in and lost every single one of their {bet} ${pointsname} LUL
+                  enabled: false
+                  luck: 45
+                  minAmount: 1
+                raffle:
+                  single:
+                    messages:
+                      start: /me PogChamp a Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+                      running: /me The Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+                      end: /me The Raffle has ended and {winner} won {points} ${pointsname} FeelsGoodMan
+                    duration: 30
+                    maxAmount: 3000
+                  multi:
+                    messages:
+                      start: /me PogChamp a Multi-Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+                      running: /me The Multi-Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+                      end: /me The Multi-Raffle has ended and {winner} won {points} ${pointsname} each FeelsGoodMan
+                    duration: 30
+                    maxAmount: 6000
+                  enabled: false
+                pyramid:
+                  enabled: false
+                  messages:
+                  - _id: 5b2e2007760aeb7356487db5
+                    width: 3
+                    message: /me nice {width}-width {emote} pyramid {user} LUL
+                  - _id: 5b2e2007760aeb46e0487db4
+                    width: 5
+                    message: /me PogChamp {user} just finished a {width}-width {emote} pyramid, gj KKona
+                  - _id: 5b2e2007760aeb39fc487db3
+                    width: 9
+                    message: /me {user} just finished a {width}-width {emote} pyramid! Now thats what i call pyramid farming Kappa //
+                  - _id: 5b2e2007760aeb22ae487db2
+                    width: 15
+                    message: /me {user} just finished a {width}-width {emote} pyramid!!! I almost ran out of memory there MrDestructoid //
+                  - _id: 5b2e2007760aeb6219487db1
+                    width: 25
+                    message: /me WutFace {user} just finished a {width}-width {emote} pyramid!!! BUFFER OVERFLOW WutFace WutFace WutFace
+                bingo:
+                  enabled: false
+                  maxAmount: 4000
+                slotmachine:
+                  cooldown:
+                    user: 60
+                    global: 0
+                  messages:
+                    win: '@{user} you got {emotes} and won {points} ${pointsname} PogChamp //'
+                    lose: '@{user} you got {emotes} and lost your {points} ${pointsname} LUL'
+                  enabled: false
+                  returnAmount: 80
+                  minAmount: 100
+                  emotes:
+                  - Kappa
+                  - PogChamp
+                  - BibleThump
+                  - OpieOP
+                  - 4Head
+                duel:
+                  cooldown:
+                    user: 5
+                    global: 0
+                  messages:
+                    win: /me {winner} won the Duel vs {loser} PogChamp gj {winner} Kappa //
+                    pointsWin: /me {winner} won the Duel vs {loser} PogChamp {winner} won {points} ${pointsname} FeelsGoodMan
+                  enabled: false
+                eightball:
+                  cooldown:
+                    user: 5
+                    global: 15
+                  enabled: false
+                  messages:
+                  - sure
+                  - are you kidding?!
+                  - yeah
+                  - 'no'
+                  - i think so
+                  - don't bet on it
+                  - ja
+                  - doubtful
+                  - for sure
+                  - forget about it
+                  - nein
+                  - maybe
+                  - Kappa Keepo PogChamp
+                  - sure
+                  - i don't think so
+                  - it is so
+                  - leaning towards no
+                  - look deep in your heart and you will see the answer
+                  - most definitely
+                  - most likely
+                  - my sources say yes
+                  - never
+                  - nah m8
+                  - might actually be yes
+                  - no.
+                  - outlook good
+                  - outlook not so good
+                  - perhaps
+                  - mayhaps
+                  - that's a tough one
+                  - idk kev
+                  - don't ask that
+                  - the answer to that isn't pretty
+                  - the heavens point to yes
+                  - who knows?
+                  - without a doubt
+                  - yesterday it would've been a yes, but today it's a yep
+                  - you will have to wait
+                  emotes:
+                  - Kappa
+                  - Keepo
+                  - xD
+                  - KKona
+                  - 4Head
+                  - EleGiggle
+                  - DansGame
+                  - KappaCool
+                  - BrokeBack
+                  - OpieOP
+                  - KappaRoss
+                  - KappaPride
+                  - FeelsBadMan
+                  - FeelsGoodMan
+                  - FeelsBirthdayMan
+                  - FeelsAmazingMan
+                  - PogChamp
+                  - VisLaud
+                  - OhMyDog
+                  - FrankerZ
+                  - DatSheffy
+                  - BabyRage
+                  - VoHiYo
+                  - haHAA
+                  - LUL
+                  - ResidentSleeper
+                  - SourPls
+                  - TriHard
+                  - SMOrc
+                emotecombo:
+                  enabled: false
+                  minCount: 5
+                  cooldown: 10
+                  messages:
+                  - _id: 5b2e2007760aeb1d7e487dba
+                    count: 3
+                    message: '{count}x {emote} combo'
+                  - _id: 5b2e2007760aeb31c3487db9
+                    count: 10
+                    message: '{count}x {emote} combo PogChamp'
+                  - _id: 5b2e2007760aeb4b11487db8
+                    count: 20
+                    message: /me {user} ruined the {count}x {emote} combo KappaRoss
+                  - _id: 5b2e2007760aeb4251487db7
+                    count: 50
+                    message: /me you don't ruin {count}x {emote} combos {user} DansGame
+                  - _id: 5b2e2007760aebbbe7487db6
+                    count: 420
+                    message: /timeout {user} {count} you don't ruin {emote} combos DansGame
+                twitter:
+                  enabled: false
+                  replies: false
+                  retweets: false
+                  template: '/me PogChamp new Tweet from {user}: {tweet}'
+                  followed:
+                  - twitchsupport
+                  - streamelements
+                chatalerts:
+                  follow:
+                    enabled: true
+                    messages:
+                    - Thank you for following {user} :)
+                  tip:
+                    enabled: true
+                    messages:
+                    - _id: 5b2e2007760aebcb99487dbb
+                      amount: 1
+                      message: '{user} just tipped {currency}{amount} PogChamp'
+                  host:
+                    enabled: true
+                    messages:
+                    - _id: 5b2e2007760aebad31487dbc
+                      amount: 1
+                      message: '{user} just hosted the stream for {amount} viewers PogChamp'
+                  subscriber:
+                    enabled: true
+                    messages:
+                    - _id: 5b2e2007760aeb0830487dbe
+                      amount: 1
+                      message: '{user} just subscribed PogChamp'
+                    - _id: 5b2e2007760aebaf00487dbd
+                      amount: 2
+                      message: '{user} just subscribed for {amount} months in a row PogChamp'
+                  cheer:
+                    enabled: true
+                    messages:
+                    - _id: 5b2e2007760aeb5381487dbf
+                      amount: 1
+                      message: '{user} just cheered {amount} bits PogChamp'
+                  redemption:
+                    enabled: true
+                    message: '{user} just redeemed {item} PogChamp'
+                  raid:
+                    enabled: true
+                    messages:
+                    - _id: 5b2e2007760aeb0fed487dc0
+                      amount: 1
+                      message: '{user} just raided the channel with {amount} viewers PogChamp'
+                  enabled: false
+                  delay: 0
+                songrequest:
+                  voteskip:
+                    enabled: true
+                    votesRequired: 5
+                  enabled: true
+                  moderation: true
+                  minUserLevel: 100
+                  cost: 0
+                  subscriberDiscount: 50
+                  exemptUserLevel: 500
+                announcements:
+                  streamStart:
+                    enabled: true
+                    message: '${channel.display_name} is now live! Streaming {game}: {title}'
+                  enabled: true
+      deprecated: false
+components:
+  schemas:
+    RaffleMessages:
+      title: Raffle Messages
+      required:
+      - win
+      - lose
+      - allinWin
+      - allinLose
+      type: object
+      properties:
+        win:
+          type: string
+        lose:
+          type: string
+        allinWin:
+          type: string
+        allinLose:
+          type: string
+      example:
+        win: /me {user} won {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsGoodMan
+        lose: /me {user} lost {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsBadMan
+        allinWin: /me PogChamp {user} went all in and won {bet} ${pointsname} PogChamp they now have {points} ${pointsname} FeelsGoodMan
+        allinLose: /me {user} went all in and lost every single one of their {bet} ${pointsname} LUL
+    Twitter:
+      title: Twitter
+      required:
+      - enabled
+      - replies
+      - retweets
+      - template
+      - followed
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        replies:
+          type: boolean
+        retweets:
+          type: boolean
+        template:
+          type: string
+        followed:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        enabled: false
+        replies: false
+        retweets: false
+        template: '/me PogChamp new Tweet from {user}: {tweet}'
+        followed:
+        - twitchsupport
+        - streamelements
+    RaidBot:
+      title: Raid
+      required:
+      - enabled
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalMessagesBot'
+          description: ''
+      example:
+        enabled: true
+        messages:
+        - _id: 5b2e2007760aeb0fed487dc0
+          amount: 1
+          message: '{user} just raided the channel with {amount} viewers PogChamp'
+    Pyramid:
+      title: Pyramid
+      required:
+      - enabled
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/PyramidMessages'
+          description: ''
+      example:
+        enabled: false
+        messages:
+        - _id: 5b2e2007760aeb7356487db5
+          width: 3
+          message: /me nice {width}-width {emote} pyramid {user} LUL
+        - _id: 5b2e2007760aeb46e0487db4
+          width: 5
+          message: /me PogChamp {user} just finished a {width}-width {emote} pyramid, gj KKona
+        - _id: 5b2e2007760aeb39fc487db3
+          width: 9
+          message: /me {user} just finished a {width}-width {emote} pyramid! Now thats what i call pyramid farming Kappa //
+        - _id: 5b2e2007760aeb22ae487db2
+          width: 15
+          message: /me {user} just finished a {width}-width {emote} pyramid!!! I almost ran out of memory there MrDestructoid //
+        - _id: 5b2e2007760aeb6219487db1
+          width: 25
+          message: /me WutFace {user} just finished a {width}-width {emote} pyramid!!! BUFFER OVERFLOW WutFace WutFace WutFace
+    Emotecombo:
+      title: Emotecombo
+      required:
+      - enabled
+      - minCount
+      - cooldown
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        minCount:
+          type: integer
+          format: int32
+        cooldown:
+          type: integer
+          format: int32
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Messages6'
+          description: ''
+      example:
+        enabled: false
+        minCount: 5
+        cooldown: 10
+        messages:
+        - _id: 5b2e2007760aeb1d7e487dba
+          count: 3
+          message: '{count}x {emote} combo'
+        - _id: 5b2e2007760aeb31c3487db9
+          count: 10
+          message: '{count}x {emote} combo PogChamp'
+        - _id: 5b2e2007760aeb4b11487db8
+          count: 20
+          message: /me {user} ruined the {count}x {emote} combo KappaRoss
+        - _id: 5b2e2007760aeb4251487db7
+          count: 50
+          message: /me you don't ruin {count}x {emote} combos {user} DansGame
+        - _id: 5b2e2007760aebbbe7487db6
+          count: 420
+          message: /timeout {user} {count} you don't ruin {emote} combos DansGame
+    RedemptionBot:
+      title: Redemption
+      required:
+      - enabled
+      - message
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        message:
+          type: string
+      example:
+        enabled: true
+        message: '{user} just redeemed {item} PogChamp'
+    Cooldown:
+      title: Cooldown
+      required:
+      - user
+      - global
+      type: object
+      properties:
+        user:
+          type: integer
+          format: int32
+        global:
+          type: integer
+          format: int32
+      example:
+        user: 15
+        global: 5
+    TipBot:
+      title: Tip
+      required:
+      - enabled
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalMessagesBot'
+          description: ''
+      example:
+        enabled: true
+        messages:
+        - _id: 5b2e2007760aebcb99487dbb
+          amount: 1
+          message: '{user} just tipped {currency}{amount} PogChamp'
+    Voteskip:
+      title: Voteskip
+      required:
+      - enabled
+      - votesRequired
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        votesRequired:
+          type: integer
+          format: int32
+      example:
+        enabled: true
+        votesRequired: 5
+    Announcements:
+      title: Announcements
+      required:
+      - streamStart
+      - enabled
+      type: object
+      properties:
+        streamStart:
+          $ref: '#/components/schemas/StreamStart'
+        enabled:
+          type: boolean
+      example:
+        streamStart:
+          enabled: true
+          message: '${channel.display_name} is now live! Streaming {game}: {title}'
+        enabled: true
+    StreamStart:
+      title: StreamStart
+      required:
+      - enabled
+      - message
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        message:
+          type: string
+      example:
+        enabled: true
+        message: '${channel.display_name} is now live! Streaming {game}: {title}'
+    Slotmachine:
+      title: Slotmachine
+      required:
+      - cooldown
+      - messages
+      - enabled
+      - returnAmount
+      - minAmount
+      - emotes
+      type: object
+      properties:
+        cooldown:
+          $ref: '#/components/schemas/Cooldown'
+        messages:
+          $ref: '#/components/schemas/SlotsMessages'
+        enabled:
+          type: boolean
+        returnAmount:
+          type: integer
+          format: int32
+        minAmount:
+          type: integer
+          format: int32
+        emotes:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        cooldown:
+          user: 60
+          global: 0
+        messages:
+          win: '@{user} you got {emotes} and won {points} ${pointsname} PogChamp //'
+          lose: '@{user} you got {emotes} and lost your {points} ${pointsname} LUL'
+        enabled: false
+        returnAmount: 80
+        minAmount: 100
+        emotes:
+        - Kappa
+        - PogChamp
+        - BibleThump
+        - OpieOP
+        - 4Head
+    Songrequest:
+      title: Songrequest
+      required:
+      - voteskip
+      - enabled
+      - moderation
+      - minUserLevel
+      - cost
+      - subscriberDiscount
+      - exemptUserLevel
+      type: object
+      properties:
+        voteskip:
+          $ref: '#/components/schemas/Voteskip'
+        enabled:
+          type: boolean
+        moderation:
+          type: boolean
+        minUserLevel:
+          type: integer
+          format: int32
+        cost:
+          type: integer
+          format: int32
+        subscriberDiscount:
+          type: integer
+          format: int32
+        exemptUserLevel:
+          type: integer
+          format: int32
+      example:
+        voteskip:
+          enabled: true
+          votesRequired: 5
+        enabled: true
+        moderation: true
+        minUserLevel: 100
+        cost: 0
+        subscriberDiscount: 50
+        exemptUserLevel: 500
+    FollowBot:
+      title: Follow
+      required:
+      - enabled
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        enabled: true
+        messages:
+        - Thank you for following {user} :)
+    Single:
+      title: Single
+      required:
+      - messages
+      - duration
+      - maxAmount
+      type: object
+      properties:
+        messages:
+          $ref: '#/components/schemas/SingleRaffleMessages'
+        duration:
+          type: integer
+          format: int32
+        maxAmount:
+          type: integer
+          format: int32
+      example:
+        messages:
+          start: /me PogChamp a Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+          running: /me The Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+          end: /me The Raffle has ended and {winner} won {points} ${pointsname} FeelsGoodMan
+        duration: 30
+        maxAmount: 3000
+    PyramidMessages:
+      title: Pyramid Message
+      required:
+      - _id
+      - width
+      - message
+      type: object
+      properties:
+        _id:
+          type: string
+        width:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        _id: 5b2e2007760aeb7356487db5
+        width: 3
+        message: /me nice {width}-width {emote} pyramid {user} LUL
+    Multi:
+      title: Multi
+      required:
+      - messages
+      - duration
+      - maxAmount
+      type: object
+      properties:
+        messages:
+          $ref: '#/components/schemas/SingleRaffleMessages'
+        duration:
+          type: integer
+          format: int32
+        maxAmount:
+          type: integer
+          format: int32
+      example:
+        messages:
+          start: /me PogChamp a Multi-Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+          running: /me The Multi-Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+          end: /me The Multi-Raffle has ended and {winner} won {points} ${pointsname} each FeelsGoodMan
+        duration: 30
+        maxAmount: 6000
+    Bingo:
+      title: Bingo
+      required:
+      - enabled
+      - maxAmount
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        maxAmount:
+          type: integer
+          format: int32
+      example:
+        enabled: false
+        maxAmount: 4000
+    Eightball:
+      title: Eightball
+      required:
+      - cooldown
+      - enabled
+      - messages
+      - emotes
+      type: object
+      properties:
+        cooldown:
+          $ref: '#/components/schemas/Cooldown'
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            type: string
+          description: ''
+        emotes:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        cooldown:
+          user: 5
+          global: 15
+        enabled: false
+        messages:
+        - sure
+        - are you kidding?!
+        - yeah
+        - 'no'
+        - i think so
+        - don't bet on it
+        - ja
+        - doubtful
+        - for sure
+        - forget about it
+        - nein
+        - maybe
+        - Kappa Keepo PogChamp
+        - sure
+        - i don't think so
+        - it is so
+        - leaning towards no
+        - look deep in your heart and you will see the answer
+        - most definitely
+        - most likely
+        - my sources say yes
+        - never
+        - nah m8
+        - might actually be yes
+        - no.
+        - outlook good
+        - outlook not so good
+        - perhaps
+        - mayhaps
+        - that's a tough one
+        - idk kev
+        - don't ask that
+        - the answer to that isn't pretty
+        - the heavens point to yes
+        - who knows?
+        - without a doubt
+        - yesterday it would've been a yes, but today it's a yep
+        - you will have to wait
+        emotes:
+        - Kappa
+        - Keepo
+        - xD
+        - KKona
+        - 4Head
+        - EleGiggle
+        - DansGame
+        - KappaCool
+        - BrokeBack
+        - OpieOP
+        - KappaRoss
+        - KappaPride
+        - FeelsBadMan
+        - FeelsGoodMan
+        - FeelsBirthdayMan
+        - FeelsAmazingMan
+        - PogChamp
+        - VisLaud
+        - OhMyDog
+        - FrankerZ
+        - DatSheffy
+        - BabyRage
+        - VoHiYo
+        - haHAA
+        - LUL
+        - ResidentSleeper
+        - SourPls
+        - TriHard
+        - SMOrc
+    BotModules:
+      title: BotModules
+      required:
+      - roulette
+      - raffle
+      - pyramid
+      - bingo
+      - slotmachine
+      - duel
+      - eightball
+      - emotecombo
+      - twitter
+      - chatalerts
+      - songrequest
+      - announcements
+      type: object
+      properties:
+        roulette:
+          $ref: '#/components/schemas/Roulette'
+        raffle:
+          $ref: '#/components/schemas/Raffle'
+        pyramid:
+          $ref: '#/components/schemas/Pyramid'
+        bingo:
+          $ref: '#/components/schemas/Bingo'
+        slotmachine:
+          $ref: '#/components/schemas/Slotmachine'
+        duel:
+          $ref: '#/components/schemas/Duel'
+        eightball:
+          $ref: '#/components/schemas/Eightball'
+        emotecombo:
+          $ref: '#/components/schemas/Emotecombo'
+        twitter:
+          $ref: '#/components/schemas/Twitter'
+        chatalerts:
+          $ref: '#/components/schemas/Chatalerts'
+        songrequest:
+          $ref: '#/components/schemas/Songrequest'
+        announcements:
+          $ref: '#/components/schemas/Announcements'
+      example:
+        roulette:
+          cooldown:
+            user: 60
+            global: 0
+          messages:
+            win: /me {user} won {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsGoodMan
+            lose: /me {user} lost {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsBadMan
+            allinWin: /me PogChamp {user} went all in and won {bet} ${pointsname} PogChamp they now have {points} ${pointsname} FeelsGoodMan
+            allinLose: /me {user} went all in and lost every single one of their {bet} ${pointsname} LUL
+          enabled: false
+          luck: 45
+          minAmount: 1
+        raffle:
+          single:
+            messages:
+              start: /me PogChamp a Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+              running: /me The Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+              end: /me The Raffle has ended and {winner} won {points} ${pointsname} FeelsGoodMan
+            duration: 30
+            maxAmount: 3000
+          multi:
+            messages:
+              start: /me PogChamp a Multi-Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+              running: /me The Multi-Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+              end: /me The Multi-Raffle has ended and {winner} won {points} ${pointsname} each FeelsGoodMan
+            duration: 30
+            maxAmount: 6000
+          enabled: false
+        pyramid:
+          enabled: false
+          messages:
+          - _id: 5b2e2007760aeb7356487db5
+            width: 3
+            message: /me nice {width}-width {emote} pyramid {user} LUL
+          - _id: 5b2e2007760aeb46e0487db4
+            width: 5
+            message: /me PogChamp {user} just finished a {width}-width {emote} pyramid, gj KKona
+          - _id: 5b2e2007760aeb39fc487db3
+            width: 9
+            message: /me {user} just finished a {width}-width {emote} pyramid! Now thats what i call pyramid farming Kappa //
+          - _id: 5b2e2007760aeb22ae487db2
+            width: 15
+            message: /me {user} just finished a {width}-width {emote} pyramid!!! I almost ran out of memory there MrDestructoid //
+          - _id: 5b2e2007760aeb6219487db1
+            width: 25
+            message: /me WutFace {user} just finished a {width}-width {emote} pyramid!!! BUFFER OVERFLOW WutFace WutFace WutFace
+        bingo:
+          enabled: false
+          maxAmount: 4000
+        slotmachine:
+          cooldown:
+            user: 60
+            global: 0
+          messages:
+            win: '@{user} you got {emotes} and won {points} ${pointsname} PogChamp //'
+            lose: '@{user} you got {emotes} and lost your {points} ${pointsname} LUL'
+          enabled: false
+          returnAmount: 80
+          minAmount: 100
+          emotes:
+          - Kappa
+          - PogChamp
+          - BibleThump
+          - OpieOP
+          - 4Head
+        duel:
+          cooldown:
+            user: 5
+            global: 0
+          messages:
+            win: /me {winner} won the Duel vs {loser} PogChamp gj {winner} Kappa //
+            pointsWin: /me {winner} won the Duel vs {loser} PogChamp {winner} won {points} ${pointsname} FeelsGoodMan
+          enabled: false
+        eightball:
+          cooldown:
+            user: 5
+            global: 15
+          enabled: false
+          messages:
+          - sure
+          - are you kidding?!
+          - yeah
+          - 'no'
+          - i think so
+          - don't bet on it
+          - ja
+          - doubtful
+          - for sure
+          - forget about it
+          - nein
+          - maybe
+          - Kappa Keepo PogChamp
+          - sure
+          - i don't think so
+          - it is so
+          - leaning towards no
+          - look deep in your heart and you will see the answer
+          - most definitely
+          - most likely
+          - my sources say yes
+          - never
+          - nah m8
+          - might actually be yes
+          - no.
+          - outlook good
+          - outlook not so good
+          - perhaps
+          - mayhaps
+          - that's a tough one
+          - idk kev
+          - don't ask that
+          - the answer to that isn't pretty
+          - the heavens point to yes
+          - who knows?
+          - without a doubt
+          - yesterday it would've been a yes, but today it's a yep
+          - you will have to wait
+          emotes:
+          - Kappa
+          - Keepo
+          - xD
+          - KKona
+          - 4Head
+          - EleGiggle
+          - DansGame
+          - KappaCool
+          - BrokeBack
+          - OpieOP
+          - KappaRoss
+          - KappaPride
+          - FeelsBadMan
+          - FeelsGoodMan
+          - FeelsBirthdayMan
+          - FeelsAmazingMan
+          - PogChamp
+          - VisLaud
+          - OhMyDog
+          - FrankerZ
+          - DatSheffy
+          - BabyRage
+          - VoHiYo
+          - haHAA
+          - LUL
+          - ResidentSleeper
+          - SourPls
+          - TriHard
+          - SMOrc
+        emotecombo:
+          enabled: false
+          minCount: 5
+          cooldown: 10
+          messages:
+          - _id: 5b2e2007760aeb1d7e487dba
+            count: 3
+            message: '{count}x {emote} combo'
+          - _id: 5b2e2007760aeb31c3487db9
+            count: 10
+            message: '{count}x {emote} combo PogChamp'
+          - _id: 5b2e2007760aeb4b11487db8
+            count: 20
+            message: /me {user} ruined the {count}x {emote} combo KappaRoss
+          - _id: 5b2e2007760aeb4251487db7
+            count: 50
+            message: /me you don't ruin {count}x {emote} combos {user} DansGame
+          - _id: 5b2e2007760aebbbe7487db6
+            count: 420
+            message: /timeout {user} {count} you don't ruin {emote} combos DansGame
+        twitter:
+          enabled: false
+          replies: false
+          retweets: false
+          template: '/me PogChamp new Tweet from {user}: {tweet}'
+          followed:
+          - twitchsupport
+          - streamelements
+        chatalerts:
+          follow:
+            enabled: true
+            messages:
+            - Thank you for following {user} :)
+          tip:
+            enabled: true
+            messages:
+            - _id: 5b2e2007760aebcb99487dbb
+              amount: 1
+              message: '{user} just tipped {currency}{amount} PogChamp'
+          host:
+            enabled: true
+            messages:
+            - _id: 5b2e2007760aebad31487dbc
+              amount: 1
+              message: '{user} just hosted the stream for {amount} viewers PogChamp'
+          subscriber:
+            enabled: true
+            messages:
+            - _id: 5b2e2007760aeb0830487dbe
+              amount: 1
+              message: '{user} just subscribed PogChamp'
+            - _id: 5b2e2007760aebaf00487dbd
+              amount: 2
+              message: '{user} just subscribed for {amount} months in a row PogChamp'
+          cheer:
+            enabled: true
+            messages:
+            - _id: 5b2e2007760aeb5381487dbf
+              amount: 1
+              message: '{user} just cheered {amount} bits PogChamp'
+          redemption:
+            enabled: true
+            message: '{user} just redeemed {item} PogChamp'
+          raid:
+            enabled: true
+            messages:
+            - _id: 5b2e2007760aeb0fed487dc0
+              amount: 1
+              message: '{user} just raided the channel with {amount} viewers PogChamp'
+          enabled: false
+          delay: 0
+        songrequest:
+          voteskip:
+            enabled: true
+            votesRequired: 5
+          enabled: true
+          moderation: true
+          minUserLevel: 100
+          cost: 0
+          subscriberDiscount: 50
+          exemptUserLevel: 500
+        announcements:
+          streamStart:
+            enabled: true
+            message: '${channel.display_name} is now live! Streaming {game}: {title}'
+          enabled: true
+    SlotsMessages:
+      title: SlotsMessages
+      required:
+      - win
+      - lose
+      type: object
+      properties:
+        win:
+          type: string
+        lose:
+          type: string
+      example:
+        win: '@{user} you got {emotes} and won {points} ${pointsname} PogChamp //'
+        lose: '@{user} you got {emotes} and lost your {points} ${pointsname} LUL'
+    HostBot:
+      title: Host
+      required:
+      - enabled
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalMessagesBot'
+          description: ''
+      example:
+        enabled: true
+        messages:
+        - _id: 5b2e2007760aebad31487dbc
+          amount: 1
+          message: '{user} just hosted the stream for {amount} viewers PogChamp'
+    AdditionalMessagesBot:
+      title: Tip messages
+      required:
+      - _id
+      - amount
+      - message
+      type: object
+      properties:
+        _id:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        _id: 5b2e2007760aebcb99487dbb
+        amount: 1
+        message: '{user} just tipped {currency}{amount} PogChamp'
+    Chatalerts:
+      title: Chatalerts
+      required:
+      - follow
+      - tip
+      - host
+      - subscriber
+      - cheer
+      - redemption
+      - raid
+      - enabled
+      - delay
+      type: object
+      properties:
+        follow:
+          $ref: '#/components/schemas/FollowBot'
+        tip:
+          $ref: '#/components/schemas/TipBot'
+        host:
+          $ref: '#/components/schemas/HostBot'
+        subscriber:
+          $ref: '#/components/schemas/SubscriberBot'
+        cheer:
+          $ref: '#/components/schemas/CheerBot'
+        redemption:
+          $ref: '#/components/schemas/RedemptionBot'
+        raid:
+          $ref: '#/components/schemas/RaidBot'
+        enabled:
+          type: boolean
+        delay:
+          type: integer
+          format: int32
+      example:
+        follow:
+          enabled: true
+          messages:
+          - Thank you for following {user} :)
+        tip:
+          enabled: true
+          messages:
+          - _id: 5b2e2007760aebcb99487dbb
+            amount: 1
+            message: '{user} just tipped {currency}{amount} PogChamp'
+        host:
+          enabled: true
+          messages:
+          - _id: 5b2e2007760aebad31487dbc
+            amount: 1
+            message: '{user} just hosted the stream for {amount} viewers PogChamp'
+        subscriber:
+          enabled: true
+          messages:
+          - _id: 5b2e2007760aeb0830487dbe
+            amount: 1
+            message: '{user} just subscribed PogChamp'
+          - _id: 5b2e2007760aebaf00487dbd
+            amount: 2
+            message: '{user} just subscribed for {amount} months in a row PogChamp'
+        cheer:
+          enabled: true
+          messages:
+          - _id: 5b2e2007760aeb5381487dbf
+            amount: 1
+            message: '{user} just cheered {amount} bits PogChamp'
+        redemption:
+          enabled: true
+          message: '{user} just redeemed {item} PogChamp'
+        raid:
+          enabled: true
+          messages:
+          - _id: 5b2e2007760aeb0fed487dc0
+            amount: 1
+            message: '{user} just raided the channel with {amount} viewers PogChamp'
+        enabled: false
+        delay: 0
+    CheerBot:
+      title: Cheer
+      required:
+      - enabled
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalMessagesBot'
+          description: ''
+      example:
+        enabled: true
+        messages:
+        - _id: 5b2e2007760aeb5381487dbf
+          amount: 1
+          message: '{user} just cheered {amount} bits PogChamp'
+    SubscriberBot:
+      title: Subscriber
+      required:
+      - enabled
+      - messages
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalMessagesBot'
+          description: ''
+      example:
+        enabled: true
+        messages:
+        - _id: 5b2e2007760aeb0830487dbe
+          amount: 1
+          message: '{user} just subscribed PogChamp'
+        - _id: 5b2e2007760aebaf00487dbd
+          amount: 2
+          message: '{user} just subscribed for {amount} months in a row PogChamp'
+    Raffle:
+      title: Raffle
+      required:
+      - single
+      - multi
+      - enabled
+      type: object
+      properties:
+        single:
+          $ref: '#/components/schemas/Single'
+        multi:
+          $ref: '#/components/schemas/Multi'
+        enabled:
+          type: boolean
+      example:
+        single:
+          messages:
+            start: /me PogChamp a Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+            running: /me The Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+            end: /me The Raffle has ended and {winner} won {points} ${pointsname} FeelsGoodMan
+          duration: 30
+          maxAmount: 3000
+        multi:
+          messages:
+            start: /me PogChamp a Multi-Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+            running: /me The Multi-Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+            end: /me The Multi-Raffle has ended and {winner} won {points} ${pointsname} each FeelsGoodMan
+          duration: 30
+          maxAmount: 6000
+        enabled: false
+    Duel:
+      title: Duel
+      required:
+      - cooldown
+      - messages
+      - enabled
+      type: object
+      properties:
+        cooldown:
+          $ref: '#/components/schemas/Cooldown'
+        messages:
+          $ref: '#/components/schemas/Messages5'
+        enabled:
+          type: boolean
+      example:
+        cooldown:
+          user: 5
+          global: 0
+        messages:
+          win: /me {winner} won the Duel vs {loser} PogChamp gj {winner} Kappa //
+          pointsWin: /me {winner} won the Duel vs {loser} PogChamp {winner} won {points} ${pointsname} FeelsGoodMan
+        enabled: false
+    SingleRaffleMessages:
+      title: SingleRaffleMessages
+      required:
+      - start
+      - running
+      - end
+      type: object
+      properties:
+        start:
+          type: string
+        running:
+          type: string
+        end:
+          type: string
+      example:
+        start: /me PogChamp a Raffle has begun for {points} ${pointsname} PogChamp it will end in {time} Seconds. Enter by typing "!join" OpieOP
+        running: /me The Raffle for {points} ${pointsname} will end in {time} Seconds. Enter by typing "!join" FeelsGoodMan
+        end: /me The Raffle has ended and {winner} won {points} ${pointsname} FeelsGoodMan
+    Roulette:
+      title: Roulette
+      required:
+      - cooldown
+      - messages
+      - enabled
+      - luck
+      - minAmount
+      type: object
+      properties:
+        cooldown:
+          $ref: '#/components/schemas/Cooldown'
+        messages:
+          $ref: '#/components/schemas/RaffleMessages'
+        enabled:
+          type: boolean
+        luck:
+          type: integer
+          format: int32
+        minAmount:
+          type: integer
+          format: int32
+      example:
+        cooldown:
+          user: 60
+          global: 0
+        messages:
+          win: /me {user} won {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsGoodMan
+          lose: /me {user} lost {bet} ${pointsname} in roulette and now has {points} ${pointsname}! FeelsBadMan
+          allinWin: /me PogChamp {user} went all in and won {bet} ${pointsname} PogChamp they now have {points} ${pointsname} FeelsGoodMan
+          allinLose: /me {user} went all in and lost every single one of their {bet} ${pointsname} LUL
+        enabled: false
+        luck: 45
+        minAmount: 1
+    Messages5:
+      title: Messages5
+      required:
+      - win
+      - pointsWin
+      type: object
+      properties:
+        win:
+          type: string
+        pointsWin:
+          type: string
+      example:
+        win: /me {winner} won the Duel vs {loser} PogChamp gj {winner} Kappa //
+        pointsWin: /me {winner} won the Duel vs {loser} PogChamp {winner} won {points} ${pointsname} FeelsGoodMan
+    Messages6:
+      title: Messages6
+      required:
+      - _id
+      - count
+      - message
+      type: object
+      properties:
+        _id:
+          type: string
+        count:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        _id: 5b2e2007760aeb1d7e487dba
+        count: 3
+        message: '{count}x {emote} combo'
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

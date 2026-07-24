@@ -1,0 +1,828 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities filters API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: filters
+  description: Bot spam filters management
+paths:
+  /bot/filters/banphrases/search:
+    get:
+      tags:
+      - filters
+      summary: /banphrases/search
+      description: Get details for provided banned phrase id
+      operationId: /banphrases/search
+      parameters:
+      - name: id
+        in: query
+        description: guid - banned phrase id
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: channel
+        in: query
+        description: string - channel name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: leeeeex
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 10:11:31 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '303'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Success16'
+                example:
+                - public: false
+                  excludeLevel: 500
+                  enabled: true
+                  appliesTo: []
+                  runsOn: []
+                  _id: 5c0b9794de9a4c1f3aa15034
+                  name: someInsult
+                  phrases: []
+                  channel: 5b2e2007760aeb7729487dab
+                  lastUpdatedBy: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-08T10:06:12.342Z'
+                  updatedAt: '2018-12-08T10:06:12.342Z'
+              example:
+              - public: false
+                excludeLevel: 500
+                enabled: true
+                appliesTo: []
+                runsOn: []
+                _id: 5c0b9794de9a4c1f3aa15034
+                name: someInsult
+                phrases: []
+                channel: 5b2e2007760aeb7729487dab
+                lastUpdatedBy: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-08T10:06:12.342Z'
+                updatedAt: '2018-12-08T10:06:12.342Z'
+      deprecated: false
+  /bot/filters/{channel}:
+    get:
+      tags:
+      - filters
+      summary: /:channel
+      description: List filters
+      operationId: Get/:channel123
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Sat, 08 Dec 2018 09:58:59 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '928'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/BotFilters'
+              example:
+                activitySettings:
+                  enabled: false
+                  enableDefaultPhrases: true
+                  enableCustomPhrases: false
+                  mode: 3
+                  replaceWords:
+                  - bunnies
+                  - butterfly
+                  - kitten
+                  - love
+                  - gingerly
+                  - flowers
+                  - puppy
+                  - joyful
+                  - rainbows
+                  - unicorn
+                botFilters:
+                  caps:
+                    timeout:
+                      length: 300
+                    settings:
+                      limit: 50
+                      min: 8
+                      percent: 60
+                    enabled: false
+                    exclude: 300
+                  links:
+                    timeout:
+                      length: 300
+                    enabled: false
+                    exclude: 300
+                    whitelist: []
+                    blacklist: []
+                  banphrases:
+                    enabled: false
+                  emotes:
+                    timeout:
+                      length: 300
+                    settings:
+                      limit: 20
+                    enabled: false
+                    exclude: 300
+                  symbols:
+                    timeout:
+                      length: 300
+                    settings:
+                      limit: 50
+                      min: 15
+                      percent: 40
+                    enabled: false
+                    exclude: 300
+                  paragraph:
+                    timeout:
+                      length: 300
+                    settings:
+                      limit: 250
+                    enabled: false
+                    exclude: 300
+                banphrases: []
+                _id: 5b2e2007760aeb6949487daf
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-06-23T10:25:11.768Z'
+                updatedAt: '2018-06-23T10:25:11.768Z'
+      deprecated: false
+    put:
+      tags:
+      - filters
+      summary: /:channel
+      description: Update channel settings
+      operationId: Put/:channel
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: string
+              example: '{"banphrases":,"filter":}'
+            example: '{"banphrases":,"filter":}'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bot/filters/{channel}/banphrases:
+    post:
+      tags:
+      - filters
+      summary: /:channel/banphrases
+      description: Add new banphrases group
+      operationId: /:channel/banphrases
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Banphrasesrequest'
+            example:
+              name: ''
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bot/filters/{channel}/test:
+    post:
+      tags:
+      - filters
+      summary: /:channel/test
+      description: Test a message against filters
+      operationId: /:channel/test
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: string
+              example: '{"origin":,"data":}'
+            example: '{"origin":,"data":}'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bot/filters/{channel}/banphrases/{groupId}:
+    put:
+      tags:
+      - filters
+      summary: /:channel/banphrases/:groupId
+      description: Update banphrases group
+      operationId: /:channel/banphrases/:groupId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: groupId
+        in: path
+        description: guid - group id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+      - filters
+      summary: /:channel/banphrases/:groupId
+      description: Delete banphrases group
+      operationId: Delete/:channel/banphrases/:groupId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: groupId
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /bot/filters/{channel}/{filter}:
+    put:
+      tags:
+      - filters
+      summary: /:channel/:filter
+      description: Start a contest
+      operationId: /:channel/:filter
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: filter
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: string
+              example: '{"filter":}'
+            example: '{"filter":}'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    Paragraph:
+      title: Paragraph
+      required:
+      - timeout
+      - settings
+      - enabled
+      - exclude
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        settings:
+          $ref: '#/components/schemas/TimeoutSettings'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+      example:
+        timeout:
+          length: 300
+        settings:
+          limit: 250
+        enabled: false
+        exclude: 300
+    Success16:
+      title: Success16
+      required:
+      - public
+      - excludeLevel
+      - enabled
+      - appliesTo
+      - runsOn
+      - _id
+      - name
+      - phrases
+      - channel
+      - lastUpdatedBy
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        public:
+          type: boolean
+        excludeLevel:
+          type: integer
+          format: int32
+        enabled:
+          type: boolean
+        appliesTo:
+          type: array
+          items:
+            type: string
+          description: ''
+        runsOn:
+          type: array
+          items:
+            type: string
+          description: ''
+        _id:
+          type: string
+        name:
+          type: string
+        phrases:
+          type: array
+          items:
+            type: string
+          description: ''
+        channel:
+          type: string
+        lastUpdatedBy:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        public: false
+        excludeLevel: 500
+        enabled: true
+        appliesTo: []
+        runsOn: []
+        _id: 5c0b9794de9a4c1f3aa15034
+        name: someInsult
+        phrases: []
+        channel: 5b2e2007760aeb7729487dab
+        lastUpdatedBy: 5b2e2007760aeb7729487dab
+        createdAt: '2018-12-08T10:06:12.342Z'
+        updatedAt: '2018-12-08T10:06:12.342Z'
+    Banphrases:
+      title: Banphrases
+      required:
+      - enabled
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      example:
+        enabled: false
+    Settings:
+      title: Settings
+      required:
+      - limit
+      - min
+      - percent
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int32
+        min:
+          type: integer
+          format: int32
+        percent:
+          type: integer
+          format: int32
+      example:
+        limit: 50
+        min: 8
+        percent: 60
+    Caps:
+      title: Caps
+      required:
+      - timeout
+      - settings
+      - enabled
+      - exclude
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        settings:
+          $ref: '#/components/schemas/Settings'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+      example:
+        timeout:
+          length: 300
+        settings:
+          limit: 50
+          min: 8
+          percent: 60
+        enabled: false
+        exclude: 300
+    BotFilters:
+      title: BotFilters
+      required:
+      - caps
+      - links
+      - banphrases
+      - emotes
+      - symbols
+      - paragraph
+      type: object
+      properties:
+        caps:
+          $ref: '#/components/schemas/Caps'
+        links:
+          $ref: '#/components/schemas/Links'
+        banphrases:
+          $ref: '#/components/schemas/Banphrases'
+        emotes:
+          $ref: '#/components/schemas/Emotes'
+        symbols:
+          $ref: '#/components/schemas/Symbols'
+        paragraph:
+          $ref: '#/components/schemas/Paragraph'
+      example:
+        caps:
+          timeout:
+            length: 300
+          settings:
+            limit: 50
+            min: 8
+            percent: 60
+          enabled: false
+          exclude: 300
+        links:
+          timeout:
+            length: 300
+          enabled: false
+          exclude: 300
+          whitelist: []
+          blacklist: []
+        banphrases:
+          enabled: false
+        emotes:
+          timeout:
+            length: 300
+          settings:
+            limit: 20
+          enabled: false
+          exclude: 300
+        symbols:
+          timeout:
+            length: 300
+          settings:
+            limit: 50
+            min: 15
+            percent: 40
+          enabled: false
+          exclude: 300
+        paragraph:
+          timeout:
+            length: 300
+          settings:
+            limit: 250
+          enabled: false
+          exclude: 300
+    TimeoutSettings:
+      title: TimeoutSettings
+      required:
+      - limit
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int32
+      example:
+        limit: 20
+    Timeout:
+      title: Timeout
+      required:
+      - length
+      type: object
+      properties:
+        length:
+          type: integer
+          format: int32
+      example:
+        length: 300
+    Banphrasesrequest:
+      title: New ban phrase
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: ''
+    Links:
+      title: Links
+      required:
+      - timeout
+      - enabled
+      - exclude
+      - whitelist
+      - blacklist
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+        whitelist:
+          type: array
+          items:
+            type: string
+          description: ''
+        blacklist:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        timeout:
+          length: 300
+        enabled: false
+        exclude: 300
+        whitelist: []
+        blacklist: []
+    Symbols:
+      title: Symbols
+      required:
+      - timeout
+      - settings
+      - enabled
+      - exclude
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        settings:
+          $ref: '#/components/schemas/Settings'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+      example:
+        timeout:
+          length: 300
+        settings:
+          limit: 50
+          min: 15
+          percent: 40
+        enabled: false
+        exclude: 300
+    Emotes:
+      title: Emotes
+      required:
+      - timeout
+      - settings
+      - enabled
+      - exclude
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        settings:
+          $ref: '#/components/schemas/TimeoutSettings'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+      example:
+        timeout:
+          length: 300
+        settings:
+          limit: 20
+        enabled: false
+        exclude: 300
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

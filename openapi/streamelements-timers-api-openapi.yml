@@ -1,0 +1,654 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities timers API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: timers
+  description: Bot timers (chat "cron" messages) management
+paths:
+  /bot/timers/{channel}:
+    get:
+      tags:
+      - timers
+      summary: /:channel
+      description: List timers
+      operationId: Get/:channel1
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:11:53 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '307'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Success11'
+                example:
+                - online:
+                    enabled: true
+                    interval: 5
+                  offline:
+                    enabled: true
+                    interval: 30
+                  enabled: true
+                  chatLines: 5
+                  _id: 5c0aa9d3de9a4c4622a14e07
+                  channel: 5b2e2007760aeb7729487dab
+                  name: test timer
+                  message: This is a test
+                  createdAt: '2018-12-07T17:11:47.909Z'
+                  updatedAt: '2018-12-07T17:11:47.909Z'
+              example:
+              - online:
+                  enabled: true
+                  interval: 5
+                offline:
+                  enabled: true
+                  interval: 30
+                enabled: true
+                chatLines: 5
+                _id: 5c0aa9d3de9a4c4622a14e07
+                channel: 5b2e2007760aeb7729487dab
+                name: test timer
+                message: This is a test
+                createdAt: '2018-12-07T17:11:47.909Z'
+                updatedAt: '2018-12-07T17:11:47.909Z'
+      deprecated: false
+    post:
+      tags:
+      - timers
+      summary: /:channel
+      description: Create a new timer
+      operationId: Post/:channel1
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/channelrequest1'
+            example:
+              online:
+                enabled: true
+                interval: 5
+              offline:
+                enabled: true
+                interval: 30
+              enabled: true
+              chatLines: 5
+              name: ''
+              message: ''
+        required: true
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 11:00:44 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '388'
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: X-HTTP-Method-Override
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/BotCommand'
+              example:
+                cooldown:
+                  user: 15
+                  global: 5
+                aliases: []
+                keywords: []
+                enabled: true
+                enabledOnline: true
+                enabledOffline: true
+                hidden: false
+                cost: 0
+                type: say
+                accessLevel: 100
+                _id: 5c0a52dcde9a4c1de1a14d8d
+                regex: test[0-9]{3}
+                reply: test response
+                command: test2
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-07T11:00:44.538Z'
+                updatedAt: '2018-12-07T11:00:44.538Z'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/channel_redemptions_itemId'
+              example:
+                statusCode: 409
+                error: Conflict
+                message: Command test already exists
+      deprecated: false
+  /bot/timers/{channel}/{timerId}:
+    get:
+      tags:
+      - timers
+      summary: /:channel/:timerId
+      description: Get timer details
+      operationId: /:channel/:timerId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: timerId
+        in: path
+        description: guid - Timer id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:12:08 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '305'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Success11'
+              example:
+                online:
+                  enabled: true
+                  interval: 5
+                offline:
+                  enabled: true
+                  interval: 30
+                enabled: true
+                chatLines: 5
+                _id: 5c0aa9d3de9a4c4622a14e07
+                channel: 5b2e2007760aeb7729487dab
+                name: test timer
+                message: This is a test
+                createdAt: '2018-12-07T17:11:47.909Z'
+                updatedAt: '2018-12-07T17:11:47.909Z'
+      deprecated: false
+    put:
+      tags:
+      - timers
+      summary: /:channel/:timerId
+      description: Update timer details
+      operationId: Put/:channel/:timerId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: timerId
+        in: path
+        description: guid - Timer id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 17:13:23 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '306'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Success11'
+              example:
+                online:
+                  enabled: true
+                  interval: 5
+                offline:
+                  enabled: false
+                  interval: 35
+                enabled: true
+                chatLines: 5
+                _id: 5c0aa9d3de9a4c4622a14e07
+                channel: 5b2e2007760aeb7729487dab
+                name: test timer
+                message: This is a test
+                createdAt: '2018-12-07T17:11:47.909Z'
+                updatedAt: '2018-12-07T17:13:23.118Z'
+      deprecated: false
+    delete:
+      tags:
+      - timers
+      summary: /:channel/:timerId1
+      description: Delete timer
+      operationId: /:channel/:timerId1
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: timerId
+        in: path
+        description: guid - Timer id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    Cooldown:
+      title: Cooldown
+      required:
+      - user
+      - global
+      type: object
+      properties:
+        user:
+          type: integer
+          format: int32
+        global:
+          type: integer
+          format: int32
+      example:
+        user: 15
+        global: 5
+    BotCommand:
+      title: BotCommand
+      required:
+      - cooldown
+      - aliases
+      - keywords
+      - enabled
+      - enabledOnline
+      - enabledOffline
+      - hidden
+      - cost
+      - type
+      - accessLevel
+      - regex
+      - reply
+      - command
+      - channel
+      type: object
+      properties:
+        cooldown:
+          $ref: '#/components/schemas/Cooldown'
+        aliases:
+          type: array
+          items:
+            type: string
+          description: ''
+        keywords:
+          type: array
+          items:
+            type: string
+          description: ''
+        enabled:
+          type: boolean
+        enabledOnline:
+          type: boolean
+        enabledOffline:
+          type: boolean
+        hidden:
+          type: boolean
+        cost:
+          type: integer
+          format: int32
+        type:
+          type: string
+        accessLevel:
+          type: integer
+          format: int32
+        _id:
+          type: string
+        regex:
+          type: string
+        reply:
+          type: string
+        command:
+          type: string
+        channel:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        cooldown:
+          user: 15
+          global: 5
+        aliases: []
+        keywords: []
+        enabled: true
+        enabledOnline: true
+        enabledOffline: true
+        hidden: false
+        cost: 0
+        type: say
+        accessLevel: 100
+        _id: 5c0a5172de9a4c5b7da14d8a
+        regex: test[0-9]{3}
+        reply: test response
+        command: test
+        channel: 5b2e2007760aeb7729487dab
+        createdAt: '2018-12-07T10:54:42.594Z'
+        updatedAt: '2018-12-07T10:54:42.594Z'
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
+    Offline:
+      title: Offline
+      required:
+      - enabled
+      - interval
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        interval:
+          type: integer
+          format: int32
+      example:
+        enabled: true
+        interval: 30
+    Online:
+      title: Online
+      required:
+      - enabled
+      - interval
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        interval:
+          type: integer
+          format: int32
+      example:
+        enabled: true
+        interval: 5
+    channelrequest1:
+      title: /:channelrequest1
+      required:
+      - online
+      - offline
+      - enabled
+      - chatLines
+      - name
+      - message
+      type: object
+      properties:
+        online:
+          $ref: '#/components/schemas/Online'
+        offline:
+          $ref: '#/components/schemas/Offline'
+        enabled:
+          type: boolean
+        chatLines:
+          type: integer
+          format: int32
+        name:
+          type: string
+        message:
+          type: string
+      example:
+        online:
+          enabled: true
+          interval: 5
+        offline:
+          enabled: true
+          interval: 30
+        enabled: true
+        chatLines: 5
+        name: ''
+        message: ''
+    Success11:
+      title: Success11
+      required:
+      - online
+      - offline
+      - enabled
+      - chatLines
+      - _id
+      - channel
+      - name
+      - message
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        online:
+          $ref: '#/components/schemas/Online'
+        offline:
+          $ref: '#/components/schemas/Offline'
+        enabled:
+          type: boolean
+        chatLines:
+          type: integer
+          format: int32
+        _id:
+          type: string
+        channel:
+          type: string
+        name:
+          type: string
+        message:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        online:
+          enabled: true
+          interval: 5
+        offline:
+          enabled: true
+          interval: 30
+        enabled: true
+        chatLines: 5
+        _id: 5c0aa9d3de9a4c4622a14e07
+        channel: 5b2e2007760aeb7729487dab
+        name: test timer
+        message: This is a test
+        createdAt: '2018-12-07T17:11:47.909Z'
+        updatedAt: '2018-12-07T17:11:47.909Z'
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

@@ -1,0 +1,1339 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: activities
+  description: Endpoints to interract with activities collected by StreamElements
+paths:
+  /activities/{channel}:
+    get:
+      tags:
+      - activities
+      summary: /:channel
+      description: List channel activities
+      operationId: /:channel
+      security:
+      - httpBearer: []
+      - OAuth2:
+        - activities:read
+      parameters:
+      - name: after
+        in: query
+        description: datetime - Start date
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: before
+        in: query
+        description: datetime - End date
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int64
+          example: 1544178274000
+      - name: limit
+        in: query
+        description: integer - events per page between 1 and 100
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: mincheer
+        in: query
+        description: integer - minimum amount of bits in cheer
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: minhost
+        in: query
+        description: integer - minimum amount of viewers in host
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: minsub
+        in: query
+        description: integer - minimum amount of subscription's months
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: mintip
+        in: query
+        description: integer - minimum amount of tip
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: origin
+        in: query
+        description: ''
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: types
+        in: query
+        description: 'array - Possible values: follow, tip, host, cheer, redemption, raid, superchat, sponsor, merch'
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: '[follow, tip, sponsor, superchat, host, raid, subscriber, cheer, redemption, merch]'
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 10:25:17 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7254'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Success'
+                example:
+                - data:
+                    username: Toy Bosco
+                    amount: 33
+                    message: ''
+                    tier: '3000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4cebcca14be8
+                  type: merch
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-06T01:28:27.648Z'
+                - data:
+                    username: Hellen Rohan
+                    amount: 28
+                    message: ''
+                    tier: '2000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c2d6ea14b81
+                  type: cheer
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-06T01:03:03.148Z'
+                - data:
+                    username: Katelynn Runolfsson V
+                    amount: 43
+                    message: ''
+                    tier: '3000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4cd73da14c0c
+                  type: subscriber
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T19:59:50.002Z'
+                - data:
+                    username: Pinkie Lowe
+                    amount: 45
+                    message: ''
+                    tier: prime
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c7a54a14cf5
+                  type: cheer
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T17:50:59.294Z'
+                - data:
+                    username: Velma Langosh
+                    amount: 8
+                    message: ''
+                    tier: '3000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c2ae4a14b68
+                  type: raid
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T17:32:09.468Z'
+                - data:
+                    username: Amya Kilback
+                    amount: 35
+                    message: ''
+                    tier: '1000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c49b2a14c65
+                  type: raid
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T16:12:40.253Z'
+                - data:
+                    username: Rosemary Beatty
+                    amount: 22
+                    message: ''
+                    tier: '3000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c0ddaa14bcd
+                  type: redemption
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T14:16:44.503Z'
+                - data:
+                    username: Emma O'Connell PhD
+                    amount: 8
+                    message: ''
+                    tier: prime
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c18b5a14d1b
+                  type: tip
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T14:01:16.581Z'
+                - data:
+                    username: Halie Hamill
+                    amount: 20
+                    message: ''
+                    tier: '1000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c78efa14b65
+                  type: merch
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T13:58:26.849Z'
+                - data:
+                    username: Gretchen Koepp
+                    amount: 6
+                    message: ''
+                    tier: '2000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4cf882a14c15
+                  type: merch
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T12:02:09.516Z'
+                - data:
+                    username: Kayli Greenholt
+                    amount: 37
+                    message: ''
+                    tier: prime
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c3c2da14bb8
+                  type: host
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T10:21:32.894Z'
+                - data:
+                    username: Aniyah Cronin
+                    amount: 2
+                    message: ''
+                    tier: '1000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c0e5ea14ce8
+                  type: merch
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T08:01:05.618Z'
+                - data:
+                    username: Chester Beer
+                    amount: 39
+                    message: ''
+                    tier: prime
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c02daa14bc3
+                  type: cheer
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-05T03:55:39.572Z'
+                - data:
+                    username: Jeramy Stark V
+                    amount: 21
+                    message: ''
+                    tier: '3000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c8737a14beb
+                  type: merch
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T17:33:30.369Z'
+                - data:
+                    username: Augustus Crona DVM
+                    amount: 9
+                    message: ''
+                    tier: '1000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c6e75a14c86
+                  type: tip
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T17:16:39.223Z'
+                - data:
+                    username: Max Jakubowski
+                    amount: 11
+                    message: ''
+                    tier: '1000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c719ea14b9e
+                  type: host
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T16:06:41.439Z'
+                - data:
+                    username: Junius Tremblay
+                    amount: 3
+                    message: ''
+                    tier: '1000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c3caba14c55
+                  type: follow
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T16:03:53.523Z'
+                - data:
+                    username: Kali Swift
+                    amount: 3
+                    message: ''
+                    tier: prime
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c3ccca14d30
+                  type: tip
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T15:28:19.542Z'
+                - data:
+                    username: Patrick Kohler
+                    amount: 19
+                    message: ''
+                    tier: '2000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c2d71a14c28
+                  type: redemption
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T14:37:28.669Z'
+                - data:
+                    username: Sydni Kemmer MD
+                    amount: 19
+                    message: ''
+                    tier: '2000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c347ea14d0e
+                  type: tip
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T09:50:17.756Z'
+                - data:
+                    username: Jordi Johns
+                    amount: 3
+                    message: ''
+                    tier: prime
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c486ca14b7f
+                  type: redemption
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-04T01:34:12.037Z'
+                - data:
+                    username: Mr. Rachael Bergstrom
+                    amount: 45
+                    message: ''
+                    tier: '3000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c2001a14c7f
+                  type: host
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-03T23:46:26.492Z'
+                - data:
+                    username: Osbaldo Medhurst
+                    amount: 49
+                    message: ''
+                    tier: '2000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4cab54a14c63
+                  type: merch
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-03T22:02:52.622Z'
+                - data:
+                    username: Emily Russel
+                    amount: 21
+                    message: ''
+                    tier: '1000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4cf0f0a14c21
+                  type: host
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-03T19:12:54.925Z'
+                - data:
+                    username: Marco Keeling
+                    amount: 35
+                    message: ''
+                    tier: '3000'
+                    avatar: https://cdn.streamelements.com/static/default-avatar.png
+                  provider: twitch
+                  _id: 5c09463bde9a4c62d5a14d3d
+                  type: tip
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-03T18:45:38.679Z'
+              example:
+              - data:
+                  username: Toy Bosco
+                  amount: 33
+                  message: ''
+                  tier: '3000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4cebcca14be8
+                type: merch
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-06T01:28:27.648Z'
+              - data:
+                  username: Hellen Rohan
+                  amount: 28
+                  message: ''
+                  tier: '2000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c2d6ea14b81
+                type: cheer
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-06T01:03:03.148Z'
+              - data:
+                  username: Katelynn Runolfsson V
+                  amount: 43
+                  message: ''
+                  tier: '3000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4cd73da14c0c
+                type: subscriber
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T19:59:50.002Z'
+              - data:
+                  username: Pinkie Lowe
+                  amount: 45
+                  message: ''
+                  tier: prime
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c7a54a14cf5
+                type: cheer
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T17:50:59.294Z'
+              - data:
+                  username: Velma Langosh
+                  amount: 8
+                  message: ''
+                  tier: '3000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c2ae4a14b68
+                type: raid
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T17:32:09.468Z'
+              - data:
+                  username: Amya Kilback
+                  amount: 35
+                  message: ''
+                  tier: '1000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c49b2a14c65
+                type: raid
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T16:12:40.253Z'
+              - data:
+                  username: Rosemary Beatty
+                  amount: 22
+                  message: ''
+                  tier: '3000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c0ddaa14bcd
+                type: redemption
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T14:16:44.503Z'
+              - data:
+                  username: Emma O'Connell PhD
+                  amount: 8
+                  message: ''
+                  tier: prime
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c18b5a14d1b
+                type: tip
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T14:01:16.581Z'
+              - data:
+                  username: Halie Hamill
+                  amount: 20
+                  message: ''
+                  tier: '1000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c78efa14b65
+                type: merch
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T13:58:26.849Z'
+              - data:
+                  username: Gretchen Koepp
+                  amount: 6
+                  message: ''
+                  tier: '2000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4cf882a14c15
+                type: merch
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T12:02:09.516Z'
+              - data:
+                  username: Kayli Greenholt
+                  amount: 37
+                  message: ''
+                  tier: prime
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c3c2da14bb8
+                type: host
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T10:21:32.894Z'
+              - data:
+                  username: Aniyah Cronin
+                  amount: 2
+                  message: ''
+                  tier: '1000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c0e5ea14ce8
+                type: merch
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T08:01:05.618Z'
+              - data:
+                  username: Chester Beer
+                  amount: 39
+                  message: ''
+                  tier: prime
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c02daa14bc3
+                type: cheer
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-05T03:55:39.572Z'
+              - data:
+                  username: Jeramy Stark V
+                  amount: 21
+                  message: ''
+                  tier: '3000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c8737a14beb
+                type: merch
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T17:33:30.369Z'
+              - data:
+                  username: Augustus Crona DVM
+                  amount: 9
+                  message: ''
+                  tier: '1000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c6e75a14c86
+                type: tip
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T17:16:39.223Z'
+              - data:
+                  username: Max Jakubowski
+                  amount: 11
+                  message: ''
+                  tier: '1000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c719ea14b9e
+                type: host
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T16:06:41.439Z'
+              - data:
+                  username: Junius Tremblay
+                  amount: 3
+                  message: ''
+                  tier: '1000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c3caba14c55
+                type: follow
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T16:03:53.523Z'
+              - data:
+                  username: Kali Swift
+                  amount: 3
+                  message: ''
+                  tier: prime
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c3ccca14d30
+                type: tip
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T15:28:19.542Z'
+              - data:
+                  username: Patrick Kohler
+                  amount: 19
+                  message: ''
+                  tier: '2000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c2d71a14c28
+                type: redemption
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T14:37:28.669Z'
+              - data:
+                  username: Sydni Kemmer MD
+                  amount: 19
+                  message: ''
+                  tier: '2000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c347ea14d0e
+                type: tip
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T09:50:17.756Z'
+              - data:
+                  username: Jordi Johns
+                  amount: 3
+                  message: ''
+                  tier: prime
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c486ca14b7f
+                type: redemption
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-04T01:34:12.037Z'
+              - data:
+                  username: Mr. Rachael Bergstrom
+                  amount: 45
+                  message: ''
+                  tier: '3000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c2001a14c7f
+                type: host
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-03T23:46:26.492Z'
+              - data:
+                  username: Osbaldo Medhurst
+                  amount: 49
+                  message: ''
+                  tier: '2000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4cab54a14c63
+                type: merch
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-03T22:02:52.622Z'
+              - data:
+                  username: Emily Russel
+                  amount: 21
+                  message: ''
+                  tier: '1000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4cf0f0a14c21
+                type: host
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-03T19:12:54.925Z'
+              - data:
+                  username: Marco Keeling
+                  amount: 35
+                  message: ''
+                  tier: '3000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c62d5a14d3d
+                type: tip
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-03T18:45:38.679Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: child "types" fails because ["types" must be an array, "types" is not allowed to be empty, "types" must be one of [follow, tip, sponsor, superchat, host, raid, subscriber, cheer, redemption, merch]]. child "limit" fails because ["limit" must be a number]. child "after" fails because ["after" must be a number of milliseconds or valid date string]. child "before" fails because ["before" must be a number of milliseconds or valid date string]. child "origin" fails because ["origin" is not allowed to be empty]. child "minhost" fails because ["minhost" must be a number]. child "mintip" fails because ["mintip" must be a number]. child "mincheer" fails because ["mincheer" must be a number]. child "minsub" fails because ["minsub" must be a number]
+                details:
+                - path:
+                  - types
+                  message: '"types" must be an array'
+                - path:
+                  - types
+                  message: '"types" is not allowed to be empty'
+                - path:
+                  - types
+                  message: '"types" must be one of [follow, tip, sponsor, superchat, host, raid, subscriber, cheer, redemption, merch]'
+                - path:
+                  - limit
+                  message: '"limit" must be a number'
+                - path:
+                  - after
+                  message: '"after" must be a number of milliseconds or valid date string'
+                - path:
+                  - before
+                  message: '"before" must be a number of milliseconds or valid date string'
+                - path:
+                  - origin
+                  message: '"origin" is not allowed to be empty'
+                - path:
+                  - minhost
+                  message: '"minhost" must be a number'
+                - path:
+                  - mintip
+                  message: '"mintip" must be a number'
+                - path:
+                  - mincheer
+                  message: '"mincheer" must be a number'
+                - path:
+                  - minsub
+                  message: '"minsub" must be a number'
+      deprecated: false
+  /activities/{channel}/top:
+    get:
+      tags:
+      - activities
+      summary: /:channel/top
+      description: List channel's top activities by selected type
+      operationId: /:channel/top
+      parameters:
+      - name: offset
+        in: query
+        description: integer - starting element
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 0
+      - name: limit
+        in: query
+        description: integer - number of events
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+          format: int32
+          example: 25
+      - name: type
+        in: query
+        description: 'string - Possible values: cheer, tip'
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: tip
+      - name: period
+        in: query
+        description: 'string - Possible values: alltime, months, weeks, session'
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: alltime
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 10:26:48 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '1039'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Success1'
+                example:
+                - total: 50
+                  username: Thurman Borer
+                - total: 50
+                  username: Demarco Okuneva
+                - total: 49
+                  username: Mr. Emile Sawayn
+                - total: 49
+                  username: Ilene Wiegand
+                - total: 49
+                  username: Dr. Macey Lakin
+                - total: 48
+                  username: Quinten Ondricka
+                - total: 48
+                  username: Audrey Heidenreich
+                - total: 48
+                  username: Reymundo Mueller
+                - total: 47
+                  username: Bradford Erdman
+                - total: 47
+                  username: Jakayla Littel
+                - total: 47
+                  username: Samanta Jacobson
+                - total: 46
+                  username: Mr. Melyssa Block
+                - total: 46
+                  username: Ana Erdman
+                - total: 45
+                  username: Monserrat Streich
+                - total: 45
+                  username: Emilie Bartell
+                - total: 45
+                  username: Kellen Robel
+                - total: 45
+                  username: Eleanore Reinger
+                - total: 45
+                  username: Linda Homenick
+                - total: 44
+                  username: Mylene Daugherty
+                - total: 44
+                  username: Ashly Okuneva
+                - total: 44
+                  username: Rocio Goodwin
+                - total: 44
+                  username: Stacy O'Keefe
+                - total: 44
+                  username: Emelie Tremblay
+                - total: 44
+                  username: Pearline Nienow
+                - total: 44
+                  username: Keely Hauck
+              example:
+              - total: 50
+                username: Thurman Borer
+              - total: 50
+                username: Demarco Okuneva
+              - total: 49
+                username: Mr. Emile Sawayn
+              - total: 49
+                username: Ilene Wiegand
+              - total: 49
+                username: Dr. Macey Lakin
+              - total: 48
+                username: Quinten Ondricka
+              - total: 48
+                username: Audrey Heidenreich
+              - total: 48
+                username: Reymundo Mueller
+              - total: 47
+                username: Bradford Erdman
+              - total: 47
+                username: Jakayla Littel
+              - total: 47
+                username: Samanta Jacobson
+              - total: 46
+                username: Mr. Melyssa Block
+              - total: 46
+                username: Ana Erdman
+              - total: 45
+                username: Monserrat Streich
+              - total: 45
+                username: Emilie Bartell
+              - total: 45
+                username: Kellen Robel
+              - total: 45
+                username: Eleanore Reinger
+              - total: 45
+                username: Linda Homenick
+              - total: 44
+                username: Mylene Daugherty
+              - total: 44
+                username: Ashly Okuneva
+              - total: 44
+                username: Rocio Goodwin
+              - total: 44
+                username: Stacy O'Keefe
+              - total: 44
+                username: Emelie Tremblay
+              - total: 44
+                username: Pearline Nienow
+              - total: 44
+                username: Keely Hauck
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: child "limit" fails because ["limit" must be a number]. child "offset" fails because ["offset" must be a number]. child "period" fails because ["period" is not allowed to be empty, "period" must be one of [alltime, months, weeks, session]]. child "type" fails because ["type" is not allowed to be empty, "type" must be one of [cheer, tip]]
+                details:
+                - path:
+                  - limit
+                  message: '"limit" must be a number'
+                - path:
+                  - offset
+                  message: '"offset" must be a number'
+                - path:
+                  - period
+                  message: '"period" is not allowed to be empty'
+                - path:
+                  - period
+                  message: '"period" must be one of [alltime, months, weeks, session]'
+                - path:
+                  - type
+                  message: '"type" is not allowed to be empty'
+                - path:
+                  - type
+                  message: '"type" must be one of [cheer, tip]'
+      deprecated: false
+  /activities/{channel}/{activityId}:
+    get:
+      tags:
+      - activities
+      summary: /:channel/:activityId
+      description: Get activity details by id
+      operationId: /:channel/:activityId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: activityId
+        in: path
+        description: guid - Activity id
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 10:28:46 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '287'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Success'
+              example:
+                data:
+                  username: Hellen Rohan
+                  amount: 28
+                  message: ''
+                  tier: '2000'
+                  avatar: https://cdn.streamelements.com/static/default-avatar.png
+                provider: twitch
+                _id: 5c09463bde9a4c2d6ea14b81
+                type: cheer
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-06T01:03:03.148Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "activityId" fails because ["activityId" with value "test" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - activityId
+                  message: '"activityId" with value "test" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+    post:
+      tags:
+      - activities
+      summary: /:channel/:activityId1
+      description: Update activity id
+      operationId: /:channel/:activityId1
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: activityId
+        in: path
+        description: guid - Activity id
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "activityId" fails because ["activityId" with value "test" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - activityId
+                  message: '"activityId" with value "test" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /activities/{channel}/{activityId}/replay:
+    post:
+      tags:
+      - activities
+      summary: /:channel/:activityId/replay
+      description: Replay activity
+      operationId: /:channel/:activityId/replay
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: activityId
+        in: path
+        description: guid - Activity id
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 10:30:25 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '16'
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: X-HTTP-Method-Override
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Success3'
+              example:
+                success: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "activityId" fails because ["activityId" with value "replay" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - activityId
+                  message: '"activityId" with value "replay" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notfound2'
+              example:
+                statusCode: 404
+                error: Not Found
+      deprecated: false
+components:
+  schemas:
+    Success1:
+      title: Success1
+      required:
+      - total
+      - username
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int32
+        username:
+          type: string
+      example:
+        total: 50
+        username: Thurman Borer
+    Notfound2:
+      title: Notfound2
+      required:
+      - statusCode
+      - error
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+    Success3:
+      title: Success3
+      required:
+      - success
+      type: object
+      properties:
+        success:
+          type: boolean
+      example:
+        success: true
+    Success:
+      title: Success
+      required:
+      - data
+      - provider
+      - _id
+      - type
+      - channel
+      - createdAt
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/SubscriberEvent'
+        provider:
+          type: string
+        _id:
+          type: string
+        type:
+          type: string
+        channel:
+          type: string
+        createdAt:
+          type: string
+      example:
+        data:
+          username: Toy Bosco
+          amount: 33
+          message: ''
+          tier: '3000'
+          avatar: https://cdn.streamelements.com/static/default-avatar.png
+        provider: twitch
+        _id: 5c09463bde9a4cebcca14be8
+        type: merch
+        channel: 5b2e2007760aeb7729487dab
+        createdAt: '2018-12-06T01:28:27.648Z'
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
+    SubscriberEvent:
+      title: Subscriber Event
+      required:
+      - username
+      - amount
+      - message
+      - tier
+      - avatar
+      type: object
+      properties:
+        username:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        message:
+          type: string
+        tier:
+          type: string
+        avatar:
+          type: string
+      example:
+        username: Toy Bosco
+        amount: 33
+        message: ''
+        tier: '3000'
+        avatar: https://cdn.streamelements.com/static/default-avatar.png
+    400-badrequest:
+      title: 400-badrequest
+      required:
+      - statusCode
+      - error
+      - message
+      - details
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        statusCode: 400
+        error: Bad Request
+        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+        details:
+        - path:
+          - giveawayId
+          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways

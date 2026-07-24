@@ -1,0 +1,1062 @@
+openapi: 3.0.0
+info:
+  title: SE API Docs activities single giveaway API
+  description: '## Custom Variable types
+
+    `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
+
+    `datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format
+
+    ## Global variables
+
+    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+
+    `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
+
+    `channelName` - string: lowercase channel name
+
+    `timezone` - integer: timezone index'
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://api.streamelements.com/kappa/v2
+  description: V2
+  variables: {}
+- url: https://api.streamelements.com/kappa/v3
+  description: V3
+  variables: {}
+security:
+- JWTBearer: []
+- OAuth2: []
+- ApiKeyBearer: []
+tags:
+- name: single giveaway
+  description: 'This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+paths:
+  /giveaways/{channel}/{giveawayId}:
+    get:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId
+      description: 'Get giveaway details. This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId
+      parameters:
+      - name: entrants
+        in: query
+        description: boolean
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 14:45:00 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '636'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Giveaways'
+              example:
+                active: null
+                giveaways:
+                - subscriberLuck: 1
+                  subscriberOnly: false
+                  totalAmount: 0
+                  totalUsers: 0
+                  botResponses: false
+                  _id: 5c0a6c00de9a4c3a70a14da6
+                  winners: []
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-07T12:48:00.133Z'
+                  updatedAt: '2018-12-07T12:48:00.133Z'
+                - subscriberLuck: 1
+                  subscriberOnly: false
+                  totalAmount: 0
+                  totalUsers: 0
+                  botResponses: false
+                  _id: 5c0a6bdfde9a4c6faaa14da2
+                  winners: []
+                  channel: 5b2e2007760aeb7729487dab
+                  createdAt: '2018-12-07T12:47:27.369Z'
+                  updatedAt: '2018-12-07T12:49:10.109Z'
+                  startedAt: '2018-12-07T12:47:55.782Z'
+                  state: closed
+                  endedAt: '2018-12-07T12:49:10.108Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "truncated" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "truncated" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/channel_redemptions_itemId'
+              example:
+                statusCode: 404
+                error: Not Found
+                message: No giveaway found
+      deprecated: false
+    post:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId
+      description: 'Create a new Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: Post/:channel/:giveawayId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid|empty - Giveaway id or no value for ongoing giveaway
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 15:59:56 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '270'
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: X-HTTP-Method-Override
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Giveaway'
+              example:
+                subscriberLuck: 1
+                subscriberOnly: false
+                totalAmount: 0
+                totalUsers: 0
+                botResponses: false
+                _id: 5c0a98fcde9a4c7372a14de8
+                entrants: []
+                winners: []
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-07T15:59:56.996Z'
+                updatedAt: '2018-12-07T15:59:56.996Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/channel_redemptions_itemId'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: The giveaway is currently not running
+      deprecated: false
+    put:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId1
+      description: 'Update giveaway details This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId1
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              example: {}
+            example: {}
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 15:00:36 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '352'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Giveaway'
+              example:
+                subscriberLuck: 1
+                subscriberOnly: false
+                totalAmount: 0
+                totalUsers: 0
+                botResponses: false
+                _id: 5c0a89efde9a4c758ea14db9
+                winners: []
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-07T14:55:43.348Z'
+                updatedAt: '2018-12-07T15:00:19.448Z'
+                startedAt: '2018-12-07T14:59:25.049Z'
+                state: completed
+                endedAt: '2018-12-07T15:00:19.447Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+    delete:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId
+      description: 'Delete Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: Delete/:channel/:giveawayId
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/channel_redemptions_itemId'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: You can't remove a running or closed giveaway
+      deprecated: false
+  /giveaways/{channel}/{giveawayId}/joined:
+    get:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId/joined
+      description: 'List joined users in giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId/joined
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 12:55:37 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '69'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/GiveawayUserList'
+              example:
+                entered: false
+                tickets: 0
+                username: leeeeex
+                subscriber: false
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "11111111" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "11111111" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /giveaways/{channel}/{giveawayId}/start:
+    put:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId/start
+      description: 'Start a Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId/start
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 14:59:25 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '327'
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Giveaway'
+              example:
+                subscriberLuck: 1
+                subscriberOnly: false
+                totalAmount: 0
+                totalUsers: 0
+                botResponses: false
+                _id: 5c0a89efde9a4c758ea14db9
+                entrants: []
+                winners: []
+                channel: 5b2e2007760aeb7729487dab
+                createdAt: '2018-12-07T14:55:43.348Z'
+                updatedAt: '2018-12-07T14:59:25.051Z'
+                startedAt: '2018-12-07T14:59:25.049Z'
+                state: running
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "start" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "start" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /giveaways/{channel}/{giveawayId}/winner:
+    put:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId/winner
+      description: 'Draw a Giveaway winner This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId/winner
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: application/json; charset=utf-8
+      responses:
+        '200':
+          description: ''
+          headers: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /giveaways/{channel}/{giveawayId}/complete:
+    put:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId/complete
+      description: 'Mark Giveaway as complete This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId/complete
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 15:00:19 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /giveaways/{channel}/{giveawayId}/reopen:
+    put:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId/reopen
+      description: 'Reopen Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId/reopen
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 15:01:22 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "1a1528113asd23sg" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "1a1528113asd23sg" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /giveaways/{channel}/{giveawayId}/refund:
+    delete:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId/refund
+      description: 'Refund Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId/refund
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 15:01:52 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+  /giveaways/{channel}/{giveawayId}/close:
+    delete:
+      tags:
+      - single giveaway
+      summary: /:channel/:giveawayId/close
+      description: 'Close Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.'
+      operationId: /:channel/:giveawayId/close
+      parameters:
+      - name: channel
+        in: path
+        description: guid - Channel id
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 5b2e2007760aeb7729487dab
+      - name: giveawayId
+        in: path
+        description: guid - Giveaway id
+        required: true
+        style: simple
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: text/plain; charset=utf-8
+      responses:
+        '201':
+          description: ''
+          headers:
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Fri, 07 Dec 2018 15:01:38 GMT
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '7'
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                type: string
+                example: Created
+              example: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400-badrequest'
+              example:
+                statusCode: 400
+                error: Bad Request
+                message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+                details:
+                - path:
+                  - giveawayId
+                  message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+      deprecated: false
+components:
+  schemas:
+    Giveaways:
+      title: Giveaways
+      required:
+      - active
+      - giveaways
+      type: object
+      properties:
+        active:
+          type: string
+          nullable: true
+        giveaways:
+          type: array
+          items:
+            $ref: '#/components/schemas/Giveaway'
+          description: ''
+      example:
+        active: null
+        giveaways:
+        - subscriberLuck: 1
+          subscriberOnly: false
+          totalAmount: 0
+          totalUsers: 0
+          botResponses: false
+          _id: 5c0a6c00de9a4c3a70a14da6
+          winners: []
+          channel: 5b2e2007760aeb7729487dab
+          createdAt: '2018-12-07T12:48:00.133Z'
+          updatedAt: '2018-12-07T12:48:00.133Z'
+        - subscriberLuck: 1
+          subscriberOnly: false
+          totalAmount: 0
+          totalUsers: 0
+          botResponses: false
+          _id: 5c0a6bdfde9a4c6faaa14da2
+          winners: []
+          channel: 5b2e2007760aeb7729487dab
+          createdAt: '2018-12-07T12:47:27.369Z'
+          updatedAt: '2018-12-07T12:49:10.109Z'
+          startedAt: '2018-12-07T12:47:55.782Z'
+          state: closed
+          endedAt: '2018-12-07T12:49:10.108Z'
+    GiveawayUserList:
+      title: GiveawayUserList
+      required:
+      - entered
+      - tickets
+      - username
+      - subscriber
+      type: object
+      properties:
+        entered:
+          type: boolean
+        tickets:
+          type: integer
+          format: int32
+        username:
+          type: string
+        subscriber:
+          type: boolean
+      example:
+        entered: false
+        tickets: 0
+        username: leeeeex
+        subscriber: false
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
+    Giveaway:
+      title: Giveaway
+      required:
+      - subscriberLuck
+      - subscriberOnly
+      - totalAmount
+      - totalUsers
+      - botResponses
+      - _id
+      - winners
+      - channel
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        subscriberLuck:
+          type: integer
+          format: int32
+        subscriberOnly:
+          type: boolean
+        totalAmount:
+          type: integer
+          format: int32
+        totalUsers:
+          type: integer
+          format: int32
+        botResponses:
+          type: boolean
+        _id:
+          type: string
+        winners:
+          type: array
+          items:
+            type: string
+          description: ''
+        channel:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        startedAt:
+          type: string
+        state:
+          type: string
+        endedAt:
+          type: string
+      example:
+        subscriberLuck: 1
+        subscriberOnly: false
+        totalAmount: 0
+        totalUsers: 0
+        botResponses: false
+        _id: 5c0a6c00de9a4c3a70a14da6
+        winners: []
+        channel: 5b2e2007760aeb7729487dab
+        createdAt: '2018-12-07T12:48:00.133Z'
+        updatedAt: '2018-12-07T12:48:00.133Z'
+    400-badrequest:
+      title: 400-badrequest
+      required:
+      - statusCode
+      - error
+      - message
+      - details
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        statusCode: 400
+        error: Bad Request
+        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+        details:
+        - path:
+          - giveawayId
+          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+  securitySchemes:
+    JWTBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyBearer:
+      type: http
+      scheme: bearer
+      name: apiKey
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes:
+            tips:read: Ability read of tips
+            tips:write: Grants create/modify/delete tips
+            activities:read: Grants read of activities
+            activities:write: Grants create activities
+            loyalty:read: Grants read of loyalty settings and the leaderboard
+            loyalty:write: Grants update of loyalty settings and update the leaderboard
+            overlays:read: Grants read overlays
+            overlays:write: Grants creation, update, deletion of overlays
+            store:read: Grants read redemptions and items
+            store:write: Grants create new store items and complete redemptions
+            bot:read: Grants read timers, commands, spam filters and modules
+            bot:write: Grants create and update timers, commands, spam filters and modules
+            session:read: Grants read of session data
+            contest:read: Grants read of contests
+            contest:write: Grants create and update contests
+            giveaway:read: Grants read of giveaways
+            giveaway:write: Grants create and update giveaways
