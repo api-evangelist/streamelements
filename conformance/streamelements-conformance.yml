@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/streamelements-openapi-original.yml
+note: >-
+  Cross-cutting standards conformance derived from the OpenAPI and SE developer docs.
+  No published certification/compliance program (SOC 2 / ISO 27001 / PCI / etc.) was
+  found on a trust or security page, so no Compliance pointer is emitted.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OpenAPI securitySchemes declares OAuth2 authorizationCode flow with 16+ scopes; docs at /oauth2/authorize|token|revoke
+  - id: oauth2-bearer
+    conforms: true
+    evidence: HTTP bearer schemes (JWTBearer, ApiKeyBearer) plus OAuth2 access tokens
+  - id: rfc6749-authorization-code
+    conforms: true
+    evidence: documented authorization-code grant with client_id/client_secret/code exchange
+  - id: rfc7519-jwt
+    conforms: true
+    evidence: JWTBearer securityScheme (bearerFormat JWT); personal-access JWT documented
+  - id: oidc
+    conforms: false
+    evidence: no /.well-known/openid-configuration (404); no OpenID Connect discovery
+  - id: rfc8414-oauth-metadata
+    conforms: false
+    evidence: no /.well-known/oauth-authorization-server (404)
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors returned as application/json ({error,statusCode,message}), not application/problem+json
+  - id: pagination
+    conforms: true
+    evidence: list endpoints use offset/limit and date-window (after/before) query parameters
+  - id: idempotency
+    conforms: false
+    evidence: no Idempotency-Key header or documented idempotency contract
+  - id: json-api
+    conforms: false
+  - id: fhir
+    conforms: false
+  - id: scim
+    conforms: false

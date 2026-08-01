@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: api.streamelements.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 12 03:24:58 2026 GMT
+  hsts: null
+domains:
+- domain: streamelements.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.streamelements.com/docs/overlays
+note: 'Client-side/embeddable surfaces distinct from server SDKs: StreamElements custom overlay widgets
+  rendered in the Overlay Editor, driven by native browser events and the in-widget SE_API.'
+families:
+- name: Custom Overlay Widgets
+  description: HTML/CSS/JS widgets rendered inside overlays; receive native events (onWidgetLoad, onEventReceived,
+    onSessionUpdate).
+  docs: https://dev.streamelements.com/docs/overlays/custom-widget
+  events:
+  - onWidgetLoad
+  - onEventReceived
+  - onSessionUpdate
+- name: SE_API
+  description: In-widget JavaScript API available to custom widgets for store/session/kv operations.
+  docs: https://dev.streamelements.com/docs/overlays
+- name: AlertBox custom code
+  description: Custom code injection points in the AlertBox widget.
+  docs: https://dev.streamelements.com/docs/overlays/custom-code-in-alertbox
+- name: Leaderboard Extension
+  description: Embeddable leaderboard extension (tracked on the status page).
+loaders:
+- name: widgets
+  repo: https://github.com/StreamElements/widgets
+  description: Open-source StreamElements widgets library.

@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/streamelements-openapi-original.yml
+format: json
+note: StreamElements returns JSON errors (not RFC 9457 problem+json). Statuses derived from OpenAPI 4xx/5xx
+  responses; titles/remediation enriched from SE developer docs.
+envelope:
+  content_type: application/json
+  fields:
+  - error
+  - statusCode
+  - message
+problems:
+- status: 400
+  title: Bad Request
+  descriptions:
+  - Bad Request
+  remediation: Validate request parameters and body against the operation schema.
+  example_operations:
+  - GET /activities/{channel}
+  - GET /activities/{channel}/top
+  - GET /activities/{channel}/{activityId}
+- status: 404
+  title: Not Found
+  descriptions:
+  - Not Found
+  remediation: Verify the channel id/name and resource id in the path exist.
+  example_operations:
+  - POST /activities/{channel}/{activityId}/replay
+  - GET /contests/{channel}/{contestId}
+  - GET /giveaways/{channel}/{giveawayId}
+- status: 409
+  title: Conflict
+  descriptions:
+  - Conflict
+  remediation: Resource already exists or conflicts with current state; fetch current state and retry.
+  example_operations:
+  - POST /bot/commands/{channel}
+  - POST /bot/timers/{channel}

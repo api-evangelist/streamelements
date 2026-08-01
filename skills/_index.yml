@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: generated
+note: Packaged agent skills grounded in real StreamElements operations (REST kappa v2 + Astro WebSocket
+  topics).
+skills:
+- file: streamelements-read-channel-activities.md
+  name: Read channel activities and tips
+  api: openapi/streamelements-openapi-original.yml
+  operations:
+  - GET /channels/me
+  - GET /activities/{channel}
+  - GET /tips/{channel}
+- file: streamelements-manage-loyalty-points.md
+  name: Manage channel loyalty points and store
+  api: openapi/streamelements-openapi-original.yml
+  operations:
+  - GET /points/{channel}/top
+  - PUT /points/{channel}
+  - GET /store/{channel}/items
+  - GET /store/{channel}/redemptions
+- file: streamelements-subscribe-realtime-events.md
+  name: Subscribe to real-time channel events (Astro)
+  api: asyncapi/streamelements-astro-asyncapi.yml
+  operations:
+  - subscribe channel.tips
+  - subscribe channel.activities
+  - subscribe channel.session.update

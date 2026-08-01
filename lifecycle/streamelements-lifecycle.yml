@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://status.streamelements.com/
+note: >-
+  Lifecycle facts for the StreamElements API. Versioning derived from OpenAPI base paths;
+  status page verified live. No formal deprecation/sunset policy (RFC 8594) is published,
+  so no Deprecation pointer is emitted.
+versioning:
+  scheme: uri-path
+  current: v2
+  versions: [kappa/v2, kappa/v3]
+  docs: https://dev.streamelements.com/docs/api-docs
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation policy or Sunset/Deprecation header support found.
+status_page:
+  url: https://status.streamelements.com/
+  platform: openstatus.dev
+  components:
+    - name: API
+      recent_uptime: '99.85%'
+    - name: Leaderboard Extension
+      recent_uptime: '100%'
+    - name: Astro
+      recent_uptime: '99.96%'
+sla:
+  url: null
+  uptime_target: null
+deprecated_operations: []

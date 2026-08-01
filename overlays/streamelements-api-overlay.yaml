@@ -1,0 +1,16 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for StreamElements API
+  version: 1.0.0
+extends: openapi/streamelements-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 4
+    x-enrichment-note: Enriched with authentication, OAuth scopes, conventions, error catalog, lifecycle,
+      conformance, data-model, Astro AsyncAPI/webhooks, MCP candidate, and agent skills.
+    x-realtime-gateway: wss://astro.streamelements.com/
+    x-status-page: https://status.streamelements.com/
+- target: $.servers[0]
+  update:
+    x-environment: production

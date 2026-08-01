@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/StreamElements/docs (src/content/changelog)
+docs: https://dev.streamelements.com/changelog
+scheme: dated
+note: Recent dated changelog entries from the StreamElements documentation changelog (docs + websockets
+  streams).
+entries:
+- date: '2026-07-18'
+  area: docs
+  title: Accuracy pass
+  breaking: false
+  highlights:
+  - Comprehensive accuracy pass across the documentation.
+- date: '2026-06-05'
+  area: docs
+  title: New documentation site
+  breaking: false
+  highlights:
+  - Launched the new Astro-based developer documentation site.
+- date: '2026-03-20'
+  area: websockets
+  title: Astro protocol docs
+  breaking: false
+  highlights:
+  - Published the Astro WebSocket gateway protocol reference.
+- date: '2026-03-17'
+  area: websockets
+  title: Overlay broadcast topic
+  breaking: false
+  additions: true
+  highlights:
+  - Added the channel.overlay.broadcast topic for overlay-to-overlay messaging.
+- date: '2024-07-24'
+  area: chatbot
+  title: Chatbot documentation overhaul
+  breaking: false
+  highlights:
+  - Comprehensive update to chatbot commands and variables docs.

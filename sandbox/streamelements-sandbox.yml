@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/StreamElements/standalone_emulator
+note: StreamElements does not publish a separate test/live API mode or test credentials. Its first-party
+  test surface is the standalone overlay emulator for testing overlays and widgets locally before going
+  live.
+test_live_separation: false
+tools:
+- name: Standalone Emulator
+  type: overlay-emulator
+  url: https://github.com/StreamElements/standalone_emulator
+  description: A standalone page to test overlays and elements (widgets) without a live stream.
+- name: Overlay Editor preview
+  type: preview
+  url: https://streamelements.com/dashboard/overlays
+  description: The overlay editor lets you emulate/replay events (follow, sub, tip, cheer) against a widget.

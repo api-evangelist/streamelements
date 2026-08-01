@@ -1,0 +1,55 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.streamelements.com/docs/api-docs
+note: >-
+  Cross-cutting request/response semantics for the StreamElements REST API (kappa v2/v3),
+  derived from the OpenAPI and enriched from the SE developer docs. No documented
+  idempotency-key contract exists, so no Idempotency pointer is emitted.
+base_url: https://api.streamelements.com/kappa/v2
+authentication:
+  styles:
+    - name: JWT (personal access)
+      header: 'Authorization: Bearer <JWT>'
+      note: Channel JWT copied from the dashboard (Show Secrets). Single-channel use.
+    - name: Overlay API key
+      header: 'Authorization: Bearer <apiKey>'
+      note: Overlay token for a channel; also used as an apikey token on the Astro gateway.
+    - name: OAuth2 authorization-code
+      header: 'Authorization: Bearer <access_token>'
+      note: For third-party apps acting on behalf of a user. Scopes are space-separated.
+  see: authentication/streamelements-authentication.yml
+identifiers:
+  guid: '/^[0-9a-fA-F]{24}$/  (24-char hex MongoDB ObjectId)'
+  channel: Most endpoints take {channel} as either the channel guid or the lowercase channel name.
+  datetime: Unix timestamp in milliseconds, or an ISO 8601 string.
+pagination:
+  style: offset
+  detected: derived from OpenAPI query parameters
+  common_params: [limit, offset, sort, after, before]
+  note: >-
+    List endpoints (activities, tips, songrequests, points leaderboard) accept limit/offset
+    and date-window (after/before) query parameters. No cursor pagination is documented.
+idempotency:
+  supported: false
+  note: No Idempotency-Key header or documented idempotency contract; writes are not idempotent.
+versioning:
+  scheme: uri-path
+  current: kappa/v2
+  also: kappa/v3
+  note: Version is carried in the base path (/kappa/v2, /kappa/v3).
+  see: lifecycle/streamelements-lifecycle.yml
+error_envelope:
+  content_type: application/json
+  shape: '{ "error": <string>, "statusCode": <int>, "message": <string> }'
+  format: json (not RFC 9457 problem+json)
+  see: errors/streamelements-problem-types.yml
+rate_limiting:
+  documented: partial
+  note: >-
+    The Astro WebSocket gateway documents a connection rate limit returning
+    429 Too Many Requests with a `Retry-After: 2` header. REST rate-limit headers
+    are not formally published.
+realtime:
+  gateway: wss://astro.streamelements.com/
+  pattern: pubsub (subscribe to topics)
+  see: asyncapi/streamelements-astro-asyncapi.yml

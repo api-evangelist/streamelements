@@ -1,0 +1,572 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+note: No official StreamElements MCP server was found. Candidate tool list derived one-per-operation from the OpenAPI;
+  not an endorsed server.
+server:
+  name: streamelements
+  transport: stdio
+source: openapi/streamelements-openapi-original.yml
+tool_count: 137
+tools:
+- name: get_activities_channel
+  description: List channel activities
+  source_operation: openapi/streamelements-openapi-original.yml# GET /activities/{channel}
+  tag: activities
+- name: get_activities_channel_top
+  description: List channel's top activities by selected type
+  source_operation: openapi/streamelements-openapi-original.yml# GET /activities/{channel}/top
+  tag: activities
+- name: get_activities_channel_activityId
+  description: Get activity details by id
+  source_operation: openapi/streamelements-openapi-original.yml# GET /activities/{channel}/{activityId}
+  tag: activities
+- name: post_activities_channel_activityId
+  description: Update activity id
+  source_operation: openapi/streamelements-openapi-original.yml# POST /activities/{channel}/{activityId}
+  tag: activities
+- name: post_activities_channel_activityId_replay
+  description: Replay activity
+  source_operation: openapi/streamelements-openapi-original.yml# POST /activities/{channel}/{activityId}/replay
+  tag: activities
+- name: get_bot_commands_channel
+  description: List custom commands
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/commands/{channel}
+  tag: commands
+- name: post_bot_commands_channel
+  description: Create new command
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/commands/{channel}
+  tag: commands
+- name: get_bot_commands_channel_public
+  description: List channel's public commands
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/commands/{channel}/public
+  tag: commands
+- name: get_bot_commands_channel_default
+  description: Lists default commands
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/commands/{channel}/default
+  tag: commands
+- name: put_bot_commands_channel_default_commandId
+  description: Update default command
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /bot/commands/{channel}/default/{commandId}
+  tag: commands
+- name: get_bot_commands_channel_commandId
+  description: Get command details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/commands/{channel}/{commandId}
+  tag: commands
+- name: put_bot_commands_channel_commandId
+  description: Update command details
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /bot/commands/{channel}/{commandId}
+  tag: commands
+- name: delete_bot_commands_channel_commandId
+  description: Delete command
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /bot/commands/{channel}/{commandId}
+  tag: commands
+- name: get_bot_timers_channel
+  description: List timers
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/timers/{channel}
+  tag: timers
+- name: post_bot_timers_channel
+  description: Create a new timer
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/timers/{channel}
+  tag: timers
+- name: get_bot_timers_channel_timerId
+  description: Get timer details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/timers/{channel}/{timerId}
+  tag: timers
+- name: put_bot_timers_channel_timerId
+  description: Update timer details
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /bot/timers/{channel}/{timerId}
+  tag: timers
+- name: delete_bot_timers_channel_timerId
+  description: Delete timer
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /bot/timers/{channel}/{timerId}
+  tag: timers
+- name: get_bot_modules_channel
+  description: 'TODO: Add Description'
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/modules/{channel}
+  tag: modules
+- name: get_bot_filters_banphrases_search
+  description: Get details for provided banned phrase id
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/filters/banphrases/search
+  tag: filters
+- name: get_bot_filters_channel
+  description: List filters
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/filters/{channel}
+  tag: filters
+- name: put_bot_filters_channel
+  description: Update channel settings
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /bot/filters/{channel}
+  tag: filters
+- name: post_bot_filters_channel_banphrases
+  description: Add new banphrases group
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/filters/{channel}/banphrases
+  tag: filters
+- name: post_bot_filters_channel_test
+  description: Test a message against filters
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/filters/{channel}/test
+  tag: filters
+- name: put_bot_filters_channel_banphrases_groupId
+  description: Update banphrases group
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /bot/filters/{channel}/banphrases/{groupId}
+  tag: filters
+- name: delete_bot_filters_channel_banphrases_groupId
+  description: Delete banphrases group
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /bot/filters/{channel}/banphrases/{groupId}
+  tag: filters
+- name: put_bot_filters_channel_filter
+  description: Start a contest
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /bot/filters/{channel}/{filter}
+  tag: filters
+- name: get_bot_channel
+  description: Get bot info
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/{channel}
+  tag: bot
+- name: post_bot_channel_join
+  description: Join bot to channel
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/{channel}/join
+  tag: bot
+- name: post_bot_channel_part
+  description: Leave bot from channel
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/{channel}/part
+  tag: bot
+- name: post_bot_channel_mute
+  description: Mute bot
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/{channel}/mute
+  tag: bot
+- name: post_bot_channel_unmute
+  description: Unmute bot
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/{channel}/unmute
+  tag: bot
+- name: post_bot_channel_say
+  description: Send message to channel as bot
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/{channel}/say
+  tag: bot
+- name: post_bot_channel_language
+  description: Set bot language
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/{channel}/language
+  tag: bot
+- name: get_bot_channel_levels
+  description: List channel permissions for users
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/{channel}/levels
+  tag: bot
+- name: post_bot_channel_levels
+  description: Add user to permissions table
+  source_operation: openapi/streamelements-openapi-original.yml# POST /bot/{channel}/levels
+  tag: bot
+- name: delete_bot_channel_levels_username
+  description: Remove user from permission table
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /bot/{channel}/levels/{username}
+  tag: bot
+- name: get_bot_channel_counters_counter
+  description: Get list of bot modules
+  source_operation: openapi/streamelements-openapi-original.yml# GET /bot/{channel}/counters/{counter}
+  tag: bot
+- name: get_channels_me
+  description: Get channels details linked to provided JWT Token
+  source_operation: openapi/streamelements-openapi-original.yml# GET /channels/me
+  tag: channels
+- name: get_channels_channel
+  description: Get channel details for provided channel id or channel name
+  source_operation: openapi/streamelements-openapi-original.yml# GET /channels/{channel}
+  tag: channels
+- name: get_channels_channel_details
+  description: Get channel details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /channels/{channel}/details
+  tag: channels
+- name: get_channels_channel_emotes
+  description: Get emotes that can be used on channel (twitch, bttv, ffz)
+  source_operation: openapi/streamelements-openapi-original.yml# GET /channels/{channel}/emotes
+  tag: channels
+- name: post_channels_channel_socket
+  description: /:channel/socket
+  source_operation: openapi/streamelements-openapi-original.yml# POST /channels/{channel}/socket
+  tag: channels
+- name: delete_channels_channel_accesstoken
+  description: /:channelId/accesstoken
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /channels/{channel}/accesstoken
+  tag: channels
+- name: get_chatstats
+  description: Get global chatstats
+  source_operation: openapi/streamelements-openapi-original.yml# GET /chatstats
+  tag: chatstats
+- name: get_chatstats_search
+  description: Search for channel by channel name
+  source_operation: openapi/streamelements-openapi-original.yml# GET /chatstats/search
+  tag: chatstats
+- name: get_chatstats_username
+  description: Get stats for channel name
+  source_operation: openapi/streamelements-openapi-original.yml# GET /chatstats/{username}
+  tag: chatstats
+- name: get_chatstats_username_epm
+  description: Get channel's "emotes per minute"
+  source_operation: openapi/streamelements-openapi-original.yml# GET /chatstats/{username}/epm
+  tag: chatstats
+- name: get_chatstats_username_stats
+  description: Get channels stats
+  source_operation: openapi/streamelements-openapi-original.yml# GET /chatstats/{username}/stats
+  tag: chatstats
+- name: get_chatstats_username_category_item
+  description: Get channels details linked to provided URL
+  source_operation: openapi/streamelements-openapi-original.yml# GET /chatstats/{username}/{category}/{item}
+  tag: chatstats
+- name: get_contests_channel_contestId
+  description: List contests
+  source_operation: openapi/streamelements-openapi-original.yml# GET /contests/{channel}/{contestId}
+  tag: single contest
+- name: put_contests_channel_contestId
+  description: Update contest
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /contests/{channel}/{contestId}
+  tag: single contest
+- name: delete_contests_channel_contestId
+  description: Close contest
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /contests/{channel}/{contestId}
+  tag: single contest
+- name: post_contests_channel_contestId_bet
+  description: Place a bet on selected option
+  source_operation: openapi/streamelements-openapi-original.yml# POST /contests/{channel}/{contestId}/bet
+  tag: single contest
+- name: get_contests_channel_contestId_bet
+  description: Get contests bets
+  source_operation: openapi/streamelements-openapi-original.yml# GET /contests/{channel}/{contestId}/bet
+  tag: single contest
+- name: put_contests_channel_contestId_start
+  description: Start a contest
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /contests/{channel}/{contestId}/start
+  tag: single contest
+- name: put_contests_channel_contestId_winner
+  description: Draw a winner of contest
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /contests/{channel}/{contestId}/winner
+  tag: single contest
+- name: delete_contests_channel_contestId_refund
+  description: Refund users participating in contest
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /contests/{channel}/{contestId}/refund
+  tag: single contest
+- name: delete_contests_channel_contestId_close
+  description: Close contest
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /contests/{channel}/{contestId}/close
+  tag: single contest
+- name: get_contests_channel
+  description: List contests
+  source_operation: openapi/streamelements-openapi-original.yml# GET /contests/{channel}
+  tag: contests
+- name: post_contests_channel
+  description: Create a new contest
+  source_operation: openapi/streamelements-openapi-original.yml# POST /contests/{channel}
+  tag: contests
+- name: get_contests_channel_history
+  description: List previous contests
+  source_operation: openapi/streamelements-openapi-original.yml# GET /contests/{channel}/history
+  tag: contests
+- name: get_giveaways_channel_giveawayId
+  description: 'Get giveaway details. This endpoint is available only in the API version 3. Make sure to use the
+    v3 base URL: https://ap'
+  source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}/{giveawayId}
+  tag: single giveaway
+- name: post_giveaways_channel_giveawayId
+  description: 'Create a new Giveaway This endpoint is available only in the API version 3. Make sure to use the
+    v3 base URL: https://ap'
+  source_operation: openapi/streamelements-openapi-original.yml# POST /giveaways/{channel}/{giveawayId}
+  tag: single giveaway
+- name: put_giveaways_channel_giveawayId
+  description: 'Update giveaway details This endpoint is available only in the API version 3. Make sure to use the
+    v3 base URL: https://'
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}
+  tag: single giveaway
+- name: delete_giveaways_channel_giveawayId
+  description: 'Delete Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
+    URL: https://api.stre'
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /giveaways/{channel}/{giveawayId}
+  tag: single giveaway
+- name: get_giveaways_channel_giveawayId_joined
+  description: 'List joined users in giveaway This endpoint is available only in the API version 3. Make sure to
+    use the v3 base URL: ht'
+  source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}/{giveawayId}/joined
+  tag: single giveaway
+- name: put_giveaways_channel_giveawayId_start
+  description: 'Start a Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
+    URL: https://api.str'
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/start
+  tag: single giveaway
+- name: put_giveaways_channel_giveawayId_winner
+  description: 'Draw a Giveaway winner This endpoint is available only in the API version 3. Make sure to use the
+    v3 base URL: https://a'
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/winner
+  tag: single giveaway
+- name: put_giveaways_channel_giveawayId_complete
+  description: 'Mark Giveaway as complete This endpoint is available only in the API version 3. Make sure to use
+    the v3 base URL: https:'
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/complete
+  tag: single giveaway
+- name: put_giveaways_channel_giveawayId_reopen
+  description: 'Reopen Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
+    URL: https://api.stre'
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/reopen
+  tag: single giveaway
+- name: delete_giveaways_channel_giveawayId_refund
+  description: 'Refund Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
+    URL: https://api.stre'
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /giveaways/{channel}/{giveawayId}/refund
+  tag: single giveaway
+- name: delete_giveaways_channel_giveawayId_close
+  description: 'Close Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
+    URL: https://api.strea'
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /giveaways/{channel}/{giveawayId}/close
+  tag: single giveaway
+- name: get_giveaways_channel
+  description: List giveaways
+  source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}
+  tag: giveaways
+- name: post_giveaways_channel
+  description: 'Create a new Giveaway This endpoint is available only in the API version 3. Make sure to use the
+    v3 base URL: https://ap'
+  source_operation: openapi/streamelements-openapi-original.yml# POST /giveaways/{channel}
+  tag: giveaways
+- name: get_giveaways_channel_history
+  description: 'List previous giveaways This endpoint is available only in the API version 3. Make sure to use the
+    v3 base URL: https://'
+  source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}/history
+  tag: giveaways
+- name: get_loyalty_channel
+  description: Get loyalty settings
+  source_operation: openapi/streamelements-openapi-original.yml# GET /loyalty/{channel}
+  tag: loyalties
+- name: put_loyalty_channel
+  description: Update loyalty settings
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /loyalty/{channel}
+  tag: loyalties
+- name: get_overlays_channel
+  description: List overlays
+  source_operation: openapi/streamelements-openapi-original.yml# GET /overlays/{channel}
+  tag: overlays
+- name: get_overlays_channel_overlayId
+  description: Gets overlay details with all widgets on it
+  source_operation: openapi/streamelements-openapi-original.yml# GET /overlays/{channel}/{overlayId}
+  tag: overlays
+- name: put_overlays_channel_reload
+  description: Reloads overlays for channel
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /overlays/{channel}/reload
+  tag: overlays
+- name: put_overlays_channel_action_action
+  description: Overlay/Alerts control
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /overlays/{channel}/action/{action}
+  tag: overlays
+- name: get_points_channel_user
+  description: Get userpoints for specific username
+  source_operation: openapi/streamelements-openapi-original.yml# GET /points/{channel}/{user}
+  tag: single user
+- name: delete_points_channel_user
+  description: Reset user points (remove from table)
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /points/{channel}/{user}
+  tag: single user
+- name: get_points_channel_user_rank
+  description: Get current user rank by username
+  source_operation: openapi/streamelements-openapi-original.yml# GET /points/{channel}/{user}/rank
+  tag: single user
+- name: put_points_channel_user_amount
+  description: Add or remove points from user
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /points/{channel}/{user}/{amount}
+  tag: single user
+- name: put_points_channel_alltime_user_amount
+  description: Update alltime points for user
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /points/{channel}/alltime/{user}/{amount}
+  tag: single user
+- name: delete_points_channel_alltime_user
+  description: /:channel/alltime/:user
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /points/{channel}/alltime/{user}
+  tag: single user
+- name: get_points_channel_alltime
+  description: List alltime userpoints
+  source_operation: openapi/streamelements-openapi-original.yml# GET /points/{channel}/alltime
+  tag: points
+- name: get_points_channel_top
+  description: List top userpoints
+  source_operation: openapi/streamelements-openapi-original.yml# GET /points/{channel}/top
+  tag: points
+- name: get_points_channel_watchtime
+  description: List users watchtime
+  source_operation: openapi/streamelements-openapi-original.yml# GET /points/{channel}/watchtime
+  tag: points
+- name: put_points_channel
+  description: Bulk add/set points to users
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /points/{channel}
+  tag: points
+- name: delete_points_channel_reset_context
+  description: /:channel/reset/:context
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /points/{channel}/reset/{context}
+  tag: points
+- name: get_sessions_channel
+  description: Get session data
+  source_operation: openapi/streamelements-openapi-original.yml# GET /sessions/{channel}
+  tag: sessions
+- name: put_sessions_channel
+  description: Update session data
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /sessions/{channel}
+  tag: sessions
+- name: get_sessions_channel_settings
+  description: Get session settings
+  source_operation: openapi/streamelements-openapi-original.yml# GET /sessions/{channel}/settings
+  tag: sessions
+- name: put_sessions_channel_settings
+  description: Update session settings
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /sessions/{channel}/settings
+  tag: sessions
+- name: put_sessions_channel_reset
+  description: Reset session data
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /sessions/{channel}/reset
+  tag: sessions
+- name: get_sessions_channel_top
+  description: Get top events from aggregates
+  source_operation: openapi/streamelements-openapi-original.yml# GET /sessions/{channel}/top
+  tag: sessions
+- name: get_songrequest_playing
+  description: /playing
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/playing
+  tag: songrequests
+- name: get_songrequest_youtube
+  description: Get song details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/youtube
+  tag: songrequests
+- name: get_songrequest_channel_settings
+  description: Get settings
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/settings
+  tag: songrequests
+- name: get_songrequest_channel_settings_public
+  description: Get public settings
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/settings/public
+  tag: songrequests
+- name: get_songrequest_channel_queue
+  description: Get songrequest queue
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/queue
+  tag: songrequests
+- name: post_songrequest_channel_queue
+  description: Get songrequest queue
+  source_operation: openapi/streamelements-openapi-original.yml# POST /songrequest/{channel}/queue
+  tag: songrequests
+- name: delete_songrequest_channel_queue_song
+  description: Remove song from queue
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /songrequest/{channel}/queue/{song}
+  tag: songrequests
+- name: get_songrequest_channel_queue_public
+  description: Get songrequest queue for public exposure (without video details)
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/queue/public
+  tag: songrequests
+- name: get_songrequest_channel_pending
+  description: Get songs in moderation queue
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/pending
+  tag: songrequests
+- name: get_songrequest_channel_playlist
+  description: Get songs on playlist
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/playlist
+  tag: songrequests
+- name: get_songrequest_channel_player
+  description: Get current player status
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/player
+  tag: songrequests
+- name: post_songrequest_channel_player_state
+  description: Change current state of media player
+  source_operation: openapi/streamelements-openapi-original.yml# POST /songrequest/{channel}/player/{state}
+  tag: songrequests
+- name: get_songrequest_channel_history
+  description: Get songrequest history
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/history
+  tag: songrequests
+- name: get_songrequest_channel_playing
+  description: Get currently playing song
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/playing
+  tag: songrequests
+- name: get_songrequest_channel_next
+  description: Get details of next song in queue
+  source_operation: openapi/streamelements-openapi-original.yml# GET /songrequest/{channel}/next
+  tag: songrequests
+- name: get_stats_channel
+  description: Get channels stats
+  source_operation: openapi/streamelements-openapi-original.yml# GET /stats/{channel}
+  tag: stats
+- name: get_store_channel_redemptions
+  description: List redemptions
+  source_operation: openapi/streamelements-openapi-original.yml# GET /store/{channel}/redemptions
+  tag: redemptions
+- name: get_store_channel_redemptions_search
+  description: Search for redemptions
+  source_operation: openapi/streamelements-openapi-original.yml# GET /store/{channel}/redemptions/search
+  tag: redemptions
+- name: get_store_channel_redemptions_me
+  description: Get own redemptions
+  source_operation: openapi/streamelements-openapi-original.yml# GET /store/{channel}/redemptions/me
+  tag: redemptions
+- name: put_store_channel_redemptions_redemptionId
+  description: Update redemption
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /store/{channel}/redemptions/{redemptionId}
+  tag: redemptions
+- name: delete_store_channel_redemptions_redemptionId
+  description: Delete redemption
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /store/{channel}/redemptions/{redemptionId}
+  tag: redemptions
+- name: get_store_channel_redemptions_redemptionId
+  description: Get redemption details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /store/{channel}/redemptions/{redemptionId}
+  tag: redemptions
+- name: get_store_channel_items
+  description: List store items
+  source_operation: openapi/streamelements-openapi-original.yml# GET /store/{channel}/items
+  tag: store
+- name: post_store_channel_items
+  description: Add new item to store
+  source_operation: openapi/streamelements-openapi-original.yml# POST /store/{channel}/items
+  tag: store
+- name: get_store_channel_items_itemId
+  description: Get item details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /store/{channel}/items/{itemId}
+  tag: store
+- name: put_store_channel_items_itemId
+  description: Update item
+  source_operation: openapi/streamelements-openapi-original.yml# PUT /store/{channel}/items/{itemId}
+  tag: store
+- name: delete_store_channel_items_itemId
+  description: Delete item from store
+  source_operation: openapi/streamelements-openapi-original.yml# DELETE /store/{channel}/items/{itemId}
+  tag: store
+- name: get_themes
+  description: List available themes
+  source_operation: openapi/streamelements-openapi-original.yml# GET /themes
+  tag: themes
+- name: get_themes_themeId
+  description: Get theme details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /themes/{themeId}
+  tag: themes
+- name: get_tips_channel
+  description: List tips
+  source_operation: openapi/streamelements-openapi-original.yml# GET /tips/{channel}
+  tag: tips
+- name: post_tips_channel
+  description: /:channel
+  source_operation: openapi/streamelements-openapi-original.yml# POST /tips/{channel}
+  tag: tips
+- name: get_tips_channel_top
+  description: Get top tippers for channel
+  source_operation: openapi/streamelements-openapi-original.yml# GET /tips/{channel}/top
+  tag: tips
+- name: get_tips_channel_leaderboard
+  description: Get tips leaderboard
+  source_operation: openapi/streamelements-openapi-original.yml# GET /tips/{channel}/leaderboard
+  tag: tips
+- name: get_tips_channel_moderation
+  description: List tips waiting for moderation
+  source_operation: openapi/streamelements-openapi-original.yml# GET /tips/{channel}/moderation
+  tag: tips
+- name: get_tips_channel_tipId
+  description: Get tip details
+  source_operation: openapi/streamelements-openapi-original.yml# GET /tips/{channel}/{tipId}
+  tag: tips
+- name: get_users_current
+  description: Current user channel
+  source_operation: openapi/streamelements-openapi-original.yml# GET /users/current
+  tag: users
+- name: get_users_channels
+  description: 'TODO: Add Description'
+  source_operation: openapi/streamelements-openapi-original.yml# GET /users/channels
+  tag: users
+- name: get_users_access
+  description: List channel's access list
+  source_operation: openapi/streamelements-openapi-original.yml# GET /users/access
+  tag: users

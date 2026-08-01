@@ -1,0 +1,100 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/streamelements-openapi-original.yml
+note: Entity graph derived from OpenAPI tags/paths. Ids are StreamElements guids (24-char hex, /^[0-9a-fA-F]{24}$/)
+  unless noted; every resource belongs to a Channel (by id or lowercase name).
+id_format:
+  guid: /^[0-9a-fA-F]{24}$/
+entities:
+- entity: Channel
+  id_format: guid (24-char hex)
+  key: true
+  domain: account
+  description: The streamer account; every other resource is scoped to a channel id or name.
+- entity: Activity
+  id_format: guid
+  description: A logged channel event (follow, sub, tip, cheer, host, raid, redemption).
+  belongs_to: Channel
+- entity: Tip
+  id_format: guid
+  description: A donation/tip transaction.
+  belongs_to: Channel
+- entity: LoyaltyUser
+  id_format: username
+  description: A viewer holding loyalty points on a channel.
+  belongs_to: Channel
+- entity: StoreItem
+  id_format: guid
+  description: A redeemable item in the channel loyalty store.
+  belongs_to: Channel
+- entity: Redemption
+  id_format: guid
+  description: A viewer redemption of a store item.
+  belongs_to:
+  - Channel
+  - StoreItem
+  via: item
+- entity: Command
+  id_format: guid
+  description: A chatbot command.
+  belongs_to: Channel
+- entity: Timer
+  id_format: guid
+  description: A scheduled chatbot timer message.
+  belongs_to: Channel
+- entity: Filter
+  id_format: string
+  description: A chatbot spam/ban-phrase filter group.
+  belongs_to: Channel
+- entity: Giveaway
+  id_format: guid
+  description: A giveaway with entrants and winners.
+  belongs_to: Channel
+- entity: Contest
+  id_format: guid
+  description: A contest with participants.
+  belongs_to: Channel
+- entity: SongRequest
+  id_format: guid
+  description: A queued media/song request.
+  belongs_to: Channel
+- entity: Session
+  id_format: guid
+  description: Current-stream session counters (latest tip/follower/sub, goals, totals).
+  belongs_to: Channel
+- entity: Overlay
+  id_format: guid
+  description: A visual overlay composed of widgets.
+  belongs_to: Channel
+relationships:
+- from: Activity
+  to: Channel
+  type: belongs_to
+  via: channel
+- from: Tip
+  to: Channel
+  type: belongs_to
+  via: channel
+- from: Redemption
+  to: StoreItem
+  type: belongs_to
+  via: item
+- from: Redemption
+  to: Channel
+  type: belongs_to
+  via: channel
+- from: Channel
+  to: Command
+  type: has_many
+- from: Channel
+  to: Timer
+  type: has_many
+- from: Channel
+  to: StoreItem
+  type: has_many
+- from: Channel
+  to: Giveaway
+  type: has_many
+- from: Channel
+  to: Contest
+  type: has_many

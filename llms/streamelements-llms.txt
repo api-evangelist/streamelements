@@ -1,0 +1,29 @@
+# StreamElements
+
+> StreamElements is a cloud-based platform for live streamers and content creators on Twitch, YouTube, Kick and Facebook — offering free customizable overlays and alerts, a chatbot, tipping/donations, loyalty points, giveaways and contests, song requests, a media/merch store, sponsorships, and analytics. Developers integrate through a REST API (api.streamelements.com, kappa v2/v3) using JWT, overlay API keys, or OAuth2, plus the Astro real-time WebSocket gateway.
+
+## APIs
+- [StreamElements API reference](https://dev.streamelements.com/docs/api-docs): REST API (kappa v2/v3) — channels, activities, tips, loyalty points, giveaways, contests, song requests, chatbot, overlays, store, sessions.
+- [Base URL v2](https://api.streamelements.com/kappa/v2)
+- [Base URL v3](https://api.streamelements.com/kappa/v3)
+
+## Specs
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/streamelements/refs/heads/main/openapi/streamelements-openapi-original.yml)
+- [AsyncAPI (Astro real-time gateway)](https://raw.githubusercontent.com/api-evangelist/streamelements/refs/heads/main/asyncapi/streamelements-astro-asyncapi.yml)
+
+## Authentication
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/streamelements/refs/heads/main/authentication/streamelements-authentication.yml): JWT (personal access), overlay API key, OAuth2 authorization-code.
+- [OAuth scopes](https://raw.githubusercontent.com/api-evangelist/streamelements/refs/heads/main/scopes/streamelements-scopes.yml)
+- OAuth2 endpoints: authorize `https://api.streamelements.com/oauth2/authorize`, token `https://api.streamelements.com/oauth2/token`, revoke `https://api.streamelements.com/oauth2/revoke`.
+
+## Real-time
+- Astro WebSocket gateway: `wss://astro.streamelements.com/` (pubsub topics: channel.tips, channel.activities, channel.session.update, channel.stream.status, chatbot topics).
+
+## Docs
+- [Developer portal](https://dev.streamelements.com/)
+- [WebSockets docs](https://dev.streamelements.com/docs/websockets)
+- [OAuth2 samples](https://github.com/StreamElements/authentication-samples)
+- [Status page](https://status.streamelements.com/)
+- [Support / Help center](https://support.streamelements.com/)
+- [Blog](https://blog.streamelements.com/)
+- [GitHub org](https://github.com/StreamElements)

@@ -1,24 +1,361 @@
 aid: streamelements
 name: StreamElements
-description: 'StreamElements is a company surfaced as a portfolio company of softbank-vision-fund and
-  added to the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead
-  awaiting the enrichment pipeline.'
+description: StreamElements is a cloud-based platform for live streamers and content creators on Twitch,
+  YouTube, Kick and Facebook, offering 100% free customizable overlays and alerts, a chatbot, tipping
+  and donations, loyalty points, giveaways and contests, song requests, a media/merch store, brand sponsorships,
+  and analytics — all managed from the StreamElements dashboard. Developers integrate through a public
+  REST API at api.streamelements.com (kappa v2/v3) authenticated with JWT, overlay API keys, or OAuth2,
+  plus the Astro real-time WebSocket gateway (wss://astro.streamelements.com) for live event topics.
 url: https://raw.githubusercontent.com/api-evangelist/streamelements/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - softbank-vision-fund
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: public-api
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Consumer
-apis: []
+- Live Streaming
+- Creator Economy
+- Overlays
+- Chatbot
+- Monetization
+- Donations
+- Loyalty Points
+- Giveaways
+- Video
+- Twitch
+- YouTube
+- Real-Time
+- WebSockets
+- Webhooks
+- REST
+apis:
+- aid: streamelements:streamelements-activities-api
+  name: StreamElements activities API
+  description: Endpoints to interract with activities collected by StreamElements
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - activities
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-activities-api-openapi.yml
+- aid: streamelements:streamelements-bot-api
+  name: StreamElements bot API
+  description: Endpoints to manage StreamElements chat bot
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - bot
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-bot-api-openapi.yml
+- aid: streamelements:streamelements-channels-api
+  name: StreamElements channels API
+  description: Endpoints to get channel data
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - channels
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-channels-api-openapi.yml
+- aid: streamelements:streamelements-chatstats-api
+  name: StreamElements chatstats API
+  description: Endpoint to get chat statistics
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - chatstats
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-chatstats-api-openapi.yml
+- aid: streamelements:streamelements-commands-api
+  name: StreamElements commands API
+  description: Bot commands management
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - commands
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-commands-api-openapi.yml
+- aid: streamelements:streamelements-contests-api
+  name: StreamElements contests API
+  description: Endpoints to interract with contests
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - contests
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-contests-api-openapi.yml
+- aid: streamelements:streamelements-filters-api
+  name: StreamElements filters API
+  description: Bot spam filters management
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - filters
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-filters-api-openapi.yml
+- aid: streamelements:streamelements-giveaways-api
+  name: StreamElements giveaways API
+  description: >-
+    This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - giveaways
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-giveaways-api-openapi.yml
+- aid: streamelements:streamelements-loyalties-api
+  name: StreamElements loyalties API
+  description: Endpoints to manage loyalty settings
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - loyalties
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-loyalties-api-openapi.yml
+- aid: streamelements:streamelements-modules-api
+  name: StreamElements modules API
+  description: Endpoints to manage bot modules
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - modules
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-modules-api-openapi.yml
+- aid: streamelements:streamelements-overlays-api
+  name: StreamElements overlays API
+  description: Endpoints to manage overlays assigned to channel
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - overlays
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-overlays-api-openapi.yml
+- aid: streamelements:streamelements-points-api
+  name: StreamElements points API
+  description: Endpoints to manage loyalty points
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - points
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-points-api-openapi.yml
+- aid: streamelements:streamelements-redemptions-api
+  name: StreamElements redemptions API
+  description: The redemptions API from StreamElements — 4 operation(s) for redemptions.
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - redemptions
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-redemptions-api-openapi.yml
+- aid: streamelements:streamelements-sessions-api
+  name: StreamElements sessions API
+  description: Endpoints to manage session data
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-sessions-api-openapi.yml
+- aid: streamelements:streamelements-single-contest-api
+  name: StreamElements single contest API
+  description: The single contest API from StreamElements — 6 operation(s) for single contest.
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - single contest
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-single-contest-api-openapi.yml
+- aid: streamelements:streamelements-single-giveaway-api
+  name: StreamElements single giveaway API
+  description: >-
+    This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - single giveaway
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-single-giveaway-api-openapi.yml
+- aid: streamelements:streamelements-single-user-api
+  name: StreamElements single user API
+  description: Endpoints to manage single user points data
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - single user
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-single-user-api-openapi.yml
+- aid: streamelements:streamelements-songrequests-api
+  name: StreamElements songrequests API
+  description: Endpoints to interact with StreamElements Mediashare
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - songrequests
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-songrequests-api-openapi.yml
+- aid: streamelements:streamelements-stats-api
+  name: StreamElements stats API
+  description: Folder for loyalty
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - stats
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-stats-api-openapi.yml
+- aid: streamelements:streamelements-store-api
+  name: StreamElements store API
+  description: Store items management
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - store
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-store-api-openapi.yml
+- aid: streamelements:streamelements-themes-api
+  name: StreamElements themes API
+  description: Endpoints to browse StreamElements themes
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - themes
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-themes-api-openapi.yml
+- aid: streamelements:streamelements-timers-api
+  name: StreamElements timers API
+  description: Bot timers (chat "cron" messages) management
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - timers
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-timers-api-openapi.yml
+- aid: streamelements:streamelements-tips-api
+  name: StreamElements tips API
+  description: Endpoints to interract with tips
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - tips
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-tips-api-openapi.yml
+- aid: streamelements:streamelements-users-api
+  name: StreamElements users API
+  description: Folder for loyalty
+  humanURL: https://dev.streamelements.com/docs/api-docs
+  baseURL: https://api.streamelements.com/kappa/v2
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/streamelements-users-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/streamelements-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/streamelements-agentic-access.yml
+- type: OAuthScopes
+  url: scopes/streamelements-scopes.yml
+- type: Authentication
+  url: authentication/streamelements-authentication.yml
+- type: DeveloperPortal
+  url: https://dev.streamelements.com/
+- type: Documentation
+  url: https://dev.streamelements.com/docs/api-docs
+- type: APIReference
+  url: https://dev.streamelements.com/docs/api-docs
+- type: GettingStarted
+  url: https://dev.streamelements.com/docs/api-docs/authentication
+- type: GitHubOrganization
+  url: https://github.com/StreamElements
+- type: Support
+  url: https://support.streamelements.com/
+- type: Blog
+  url: https://blog.streamelements.com/
+- type: TermsOfService
+  url: https://streamelements.com/terms
+- type: PrivacyPolicy
+  url: https://streamelements.com/privacy
+- type: SignUp
+  url: https://streamelements.com/login
+- type: StatusPage
+  url: https://status.streamelements.com/
+- type: Conventions
+  url: conventions/streamelements-conventions.yml
+- type: ErrorCatalog
+  url: errors/streamelements-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/streamelements-lifecycle.yml
+- type: Conformance
+  url: conformance/streamelements-conformance.yml
+- type: DataModel
+  url: data-model/streamelements-data-model.yml
+- type: MCPServer
+  url: mcp/streamelements-mcp.yml
+- type: LLMsTxt
+  url: llms/streamelements-llms.txt
+- type: AsyncAPI
+  url: asyncapi/streamelements-astro-asyncapi.yml
+  name: StreamElements Astro real-time gateway
+- type: Webhooks
+  url: asyncapi/streamelements-astro-asyncapi.yml
+  name: StreamElements real-time event topics
+- type: ChangeLog
+  url: changelog/streamelements-changelog.yml
+- type: Sandbox
+  url: sandbox/streamelements-sandbox.yml
+- type: Components
+  url: components/streamelements-components.yml
+- type: AgentSkill
+  url: skills/_index.yml
+image: https://streamelements.com/logo.png
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1

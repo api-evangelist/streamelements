@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/streamelements-openapi-original.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: JWTBearer
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/streamelements-openapi-original.yml
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.streamelements.com/oauth2/authorize
+    tokenUrl: https://api.streamelements.com/oauth2/token
+    scopes: 17
+  sources:
+  - openapi/streamelements-openapi-original.yml
+docs: https://dev.streamelements.com/docs/api-docs/authentication
+note: 'Three token types: channel JWT (personal access), overlay API key, and OAuth2 authorization-code
+  access tokens. JWT and overlay key are copied from the dashboard (Show Secrets); OAuth2 endpoints: /oauth2/authorize,
+  /oauth2/token, /oauth2/revoke.'

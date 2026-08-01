@@ -1,0 +1,501 @@
+asyncapi: 2.6.0
+info:
+  title: StreamElements Astro Real-Time Gateway
+  version: 1.0.0
+  description: StreamElements' dedicated pubsub WebSocket gateway. Subscribe to per-channel topics to receive live
+    stream events (tips, activities, session updates, overlay/chatbot events) the moment they happen. Captured from
+    the SE developer docs (dev.streamelements.com/docs/websockets).
+  x-provenance:
+    generated: '2026-07-21'
+    method: searched
+    source: https://github.com/StreamElements/docs (src/content/docs/websockets)
+servers:
+  astro:
+    url: astro.streamelements.com
+    protocol: wss
+    description: Astro WebSocket gateway. Reconnect with ?reconnect_token=<token>. 502 when draining; 429 + Retry-After:2
+      when rate limited.
+defaultContentType: application/json
+components:
+  securitySchemes:
+    jwt:
+      type: httpApiKey
+      in: user
+      description: Channel JWT passed as data.token with data.token_type=jwt
+    apikey:
+      type: httpApiKey
+      in: user
+      description: Overlay API key passed as data.token with data.token_type=apikey
+    oauth2:
+      type: oauth2
+      description: OAuth2 access token passed as data.token with data.token_type=oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.streamelements.com/oauth2/authorize
+          tokenUrl: https://api.streamelements.com/oauth2/token
+          scopes: {}
+channels:
+  channel.activities:
+    description: Real-time channel activities (follows, subs, tips, cheers, hosts, raids, redemptions).
+    subscribe:
+      summary: Real-time channel activities (follows, subs, tips, cheers, hosts, raids, redemptions).
+      message:
+        name: channel_activities
+        title: channel.activities
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.activities
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: activities:read
+  channel.chat.message:
+    description: Real-time chat messages on the channel.
+    subscribe:
+      summary: Real-time chat messages on the channel.
+      message:
+        name: channel_chat_message
+        title: channel.chat.message
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.chat.message
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: overlays:read
+  channel.contests:
+    description: Contest state updates (start, entries, winners).
+    subscribe:
+      summary: Contest state updates (start, entries, winners).
+      message:
+        name: channel_contests
+        title: channel.contests
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.contests
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+  channel.giveaways:
+    description: Giveaway state updates (start, entries, winners).
+    subscribe:
+      summary: Giveaway state updates (start, entries, winners).
+      message:
+        name: channel_giveaways
+        title: channel.giveaways
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.giveaways
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+  channel.overlay.action:
+    description: Overlay action events.
+    subscribe:
+      summary: Overlay action events.
+      message:
+        name: channel_overlay_action
+        title: channel.overlay.action
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.overlay.action
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: overlays:read
+  channel.overlay.broadcast:
+    description: Custom broadcast messages between overlays/widgets.
+    subscribe:
+      summary: Custom broadcast messages between overlays/widgets.
+      message:
+        name: channel_overlay_broadcast
+        title: channel.overlay.broadcast
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.overlay.broadcast
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: overlays:broadcast
+  channel.overlay.update:
+    description: Overlay configuration updates.
+    subscribe:
+      summary: Overlay configuration updates.
+      message:
+        name: channel_overlay_update
+        title: channel.overlay.update
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.overlay.update
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: overlays:read
+  channel.session.reset:
+    description: Session counters were reset.
+    subscribe:
+      summary: Session counters were reset.
+      message:
+        name: channel_session_reset
+        title: channel.session.reset
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.session.reset
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: session:read
+  channel.session.update:
+    description: Session counters updated (latest tip/follower/sub, goals, totals).
+    subscribe:
+      summary: Session counters updated (latest tip/follower/sub, goals, totals).
+      message:
+        name: channel_session_update
+        title: channel.session.update
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.session.update
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: session:read
+  channel.songrequest:
+    description: Song/media request queue updates.
+    subscribe:
+      summary: Song/media request queue updates.
+      message:
+        name: channel_songrequest
+        title: channel.songrequest
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.songrequest
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: overlays:read
+  channel.stream.status:
+    description: Stream went live / offline.
+    subscribe:
+      summary: Stream went live / offline.
+      message:
+        name: channel_stream_status
+        title: channel.stream.status
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.stream.status
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: stream-live:read
+  channel.tips:
+    description: A tip/donation was completed.
+    subscribe:
+      summary: A tip/donation was completed.
+      message:
+        name: channel_tips
+        title: channel.tips
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.tips
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: tips:read
+  channel.tips.moderation:
+    description: A tip changed moderation state (approved/flagged).
+    subscribe:
+      summary: A tip changed moderation state (approved/flagged).
+      message:
+        name: channel_tips_moderation
+        title: channel.tips.moderation
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.tips.moderation
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: tips:moderation
+  channel.chatbot.counters:
+    description: Chatbot counter value changes.
+    subscribe:
+      summary: Chatbot counter value changes.
+      message:
+        name: channel_chatbot_counters
+        title: channel.chatbot.counters
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.chatbot.counters
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+  channel.chatbot.modules.emotecombo:
+    description: Emote-combo module events.
+    subscribe:
+      summary: Emote-combo module events.
+      message:
+        name: channel_chatbot_modules_emotecombo
+        title: channel.chatbot.modules.emotecombo
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.chatbot.modules.emotecombo
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: bot:read
+  channel.chatbot.modules.pyramid:
+    description: Pyramid module events.
+    subscribe:
+      summary: Pyramid module events.
+      message:
+        name: channel_chatbot_modules_pyramid
+        title: channel.chatbot.modules.pyramid
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.chatbot.modules.pyramid
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: bot:read
+  channel.chatbot.status:
+    description: Chatbot connection/status changes.
+    subscribe:
+      summary: Chatbot connection/status changes.
+      message:
+        name: channel_chatbot_status
+        title: channel.chatbot.status
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.chatbot.status
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.
+    x-scope: bot:read
+  channel.chatbot.timeout:
+    description: A user was timed out by the chatbot.
+    subscribe:
+      summary: A user was timed out by the chatbot.
+      message:
+        name: channel_chatbot_timeout
+        title: channel.chatbot.timeout
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Event id (ULID)
+            ts:
+              type: string
+              format: date-time
+            type:
+              type: string
+            topic:
+              type: string
+              const: channel.chatbot.timeout
+            data:
+              type: object
+              description: Topic-specific payload; see the topic reference.

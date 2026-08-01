@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: probed
+host: https://api.streamelements.com
+note: Probed the /.well-known/ discovery surface on the API host. None are published (all 404). Recorded
+  for provenance; no WellKnown pointer emitted.
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
