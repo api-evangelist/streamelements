@@ -295,6 +295,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/streamelements-api-overlay.yaml
 - type: DomainSecurity
   url: security/streamelements-domain-security.yml
 - type: AgenticAccess
