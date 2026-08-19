@@ -1,0 +1,1089 @@
+{
+  "item": [
+    {
+      "id": "eefe3a84-11c5-488a-93e5-164040370ed6",
+      "name": "store",
+      "description": {
+        "content": "Store items management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a7d529e-a52f-40af-9f2a-1633f0307372",
+          "name": "/:channel/items",
+          "request": {
+            "name": "/:channel/items",
+            "description": {
+              "content": "List store items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "store",
+                ":channel",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) integer - number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) integer - number of items to be skipped"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1bd86b56-7a69-4a3f-82c0-f8869992cbbd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"bot\": {\n      \"enabled\": true,\n      \"identifier\": \"testitem\"\n    },\n    \"cooldown\": {\n      \"user\": 5,\n      \"global\": 0\n    },\n    \"quantity\": {\n      \"total\": -1\n    },\n    \"alert\": {\n      \"graphics\": {\n        \"duration\": 8\n      },\n      \"audio\": {\n        \"volume\": 0.5,\n        \"src\": null\n      },\n      \"enabled\": true\n    },\n    \"subscriberOnly\": false,\n    \"userInput\": [],\n    \"_id\": \"5c0bb2aede9a4c4402a15056\",\n    \"enabled\": true,\n    \"featured\": false,\n    \"name\": \"Test item\",\n    \"description\": \"Test description\",\n    \"type\": \"perk\",\n    \"cost\": 1,\n    \"public\": false,\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-08T12:01:50.208Z\",\n    \"updatedAt\": \"2018-12-08T12:02:47.902Z\"\n  },\n  {\n    \"bot\": {\n      \"enabled\": true,\n      \"identifier\": \"super_item\"\n    },\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"quantity\": {\n      \"total\": 3,\n      \"current\": 3\n    },\n    \"alert\": {\n      \"graphics\": {\n        \"duration\": 8\n      },\n      \"audio\": {\n        \"volume\": 0.5,\n        \"src\": \"https://cdn.streamelements.com/uploads/08e58dd8-b750-4113-a496-2b5817fd8031.mp3\"\n      },\n      \"enabled\": true\n    },\n    \"subscriberOnly\": false,\n    \"userInput\": [],\n    \"_id\": \"5c0bb3b0de9a4c40a3a1505d\",\n    \"enabled\": true,\n    \"featured\": false,\n    \"name\": \"Super item\",\n    \"description\": \"Super description\",\n    \"type\": \"code\",\n    \"cost\": 100,\n    \"preview\": \"https://cdn.streamelements.com/uploads/dbf6ff1f-3d03-4db7-a4bd-43d30e22461a.gif\",\n    \"public\": false,\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-08T12:06:08.435Z\",\n    \"updatedAt\": \"2018-12-08T12:06:08.435Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d60efa6-339c-443f-a706-659e2359e074",
+          "name": "/:channel/items",
+          "request": {
+            "name": "/:channel/items",
+            "description": {
+              "content": "Add new item to store",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "store",
+                ":channel",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb21ece5-bf09-4443-924a-549e8e906672",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Vary",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"cooldown\": {\n    \"user\": 10,\n    \"global\": 0\n  },\n  \"accessCodes\": {\n    \"keys\": [],\n    \"mode\": \"multi\",\n    \"random\": false\n  },\n  \"alert\": {\n    \"graphics\": {\n      \"duration\": 8\n    },\n    \"audio\": {\n      \"volume\": 0.5,\n      \"src\": null\n    },\n    \"enabled\": true\n  },\n  \"subscriberOnly\": false,\n  \"userInput\": [],\n  \"_id\": \"5c0bb2aede9a4c4402a15056\",\n  \"enabled\": true,\n  \"featured\": false,\n  \"name\": \"Test item\",\n  \"description\": \"Test description\",\n  \"type\": \"perk\",\n  \"cost\": 1,\n  \"quantity\": {\n    \"total\": -1\n  },\n  \"bot\": {\n    \"enabled\": true,\n    \"identifier\": \"testitem\"\n  },\n  \"public\": false,\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-08T12:01:50.208Z\",\n  \"updatedAt\": \"2018-12-08T12:01:50.208Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3763602a-cb90-4974-b881-7cf8a8c0d67c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"name\\\" fails because [\\\"name\\\" is required]. child \\\"description\\\" fails because [\\\"description\\\" is required]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"name\"\n      ],\n      \"message\": \"\\\"name\\\" is required\"\n    },\n    {\n      \"path\": [\n        \"description\"\n      ],\n      \"message\": \"\\\"description\\\" is required\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a162d87-18ce-4dca-9378-8ad9f26729d5",
+          "name": "/:channel/items/:itemId",
+          "request": {
+            "name": "/:channel/items/:itemId",
+            "description": {
+              "content": "Get item details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "store",
+                ":channel",
+                "items",
+                ":itemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemId",
+                  "description": "(Required) guid - Item id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f533956b-7388-405a-833e-b68861744ee7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) guid - Item id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"bot\": {\n    \"enabled\": true,\n    \"identifier\": \"testitem\"\n  },\n  \"cooldown\": {\n    \"user\": 5,\n    \"global\": 0\n  },\n  \"quantity\": {\n    \"total\": -1\n  },\n  \"accessCodes\": {\n    \"keys\": [],\n    \"mode\": \"multi\",\n    \"random\": false\n  },\n  \"alert\": {\n    \"graphics\": {\n      \"duration\": 8\n    },\n    \"audio\": {\n      \"volume\": 0.5,\n      \"src\": null\n    },\n    \"enabled\": true\n  },\n  \"subscriberOnly\": false,\n  \"userInput\": [],\n  \"_id\": \"5c0bb2aede9a4c4402a15056\",\n  \"enabled\": true,\n  \"featured\": false,\n  \"name\": \"Test item\",\n  \"description\": \"Test description\",\n  \"type\": \"perk\",\n  \"cost\": 0,\n  \"public\": false,\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-08T12:01:50.208Z\",\n  \"updatedAt\": \"2018-12-08T12:12:45.883Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd087c33-0a3b-41be-8629-e3ad7aa2efda",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) guid - Item id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"itemId\\\" fails because [\\\"itemId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"itemId\"\n      ],\n      \"message\": \"\\\"itemId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f3ed390-db9a-4852-9980-f007cac12058",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) guid - Item id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ecebcca-c4ae-450b-b5e6-e59572dd543d",
+          "name": "/:channel/items/:itemId",
+          "request": {
+            "name": "/:channel/items/:itemId",
+            "description": {
+              "content": "Update item",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "store",
+                ":channel",
+                "items",
+                ":itemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemId",
+                  "description": "(Required) guid - Item id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa5be3a1-6fbb-4f87-b250-06c8c85f9e04",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) guid - Item id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"bot\": {\n    \"enabled\": true,\n    \"identifier\": \"testitem\"\n  },\n  \"cooldown\": {\n    \"user\": 5,\n    \"global\": 0\n  },\n  \"quantity\": {\n    \"total\": -1\n  },\n  \"accessCodes\": {\n    \"keys\": [],\n    \"mode\": \"multi\",\n    \"random\": false\n  },\n  \"alert\": {\n    \"graphics\": {\n      \"duration\": 8\n    },\n    \"audio\": {\n      \"volume\": 0.5,\n      \"src\": null\n    },\n    \"enabled\": true\n  },\n  \"subscriberOnly\": false,\n  \"userInput\": [],\n  \"_id\": \"5c0bb2aede9a4c4402a15056\",\n  \"enabled\": true,\n  \"featured\": false,\n  \"name\": \"Test item\",\n  \"description\": \"Test description\",\n  \"type\": \"perk\",\n  \"cost\": 1,\n  \"public\": false,\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-08T12:01:50.208Z\",\n  \"updatedAt\": \"2018-12-08T12:02:47.902Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "697f475d-c8d8-4c4d-bc4a-f8b0e5442ccc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) guid - Item id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"name\\\" fails because [\\\"name\\\" is required]. child \\\"description\\\" fails because [\\\"description\\\" is required]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"name\"\n      ],\n      \"message\": \"\\\"name\\\" is required\"\n    },\n    {\n      \"path\": [\n        \"description\"\n      ],\n      \"message\": \"\\\"description\\\" is required\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe062b54-af92-47f0-a9b6-45842a86ceab",
+          "name": "/:channel/items/:itemId1",
+          "request": {
+            "name": "/:channel/items/:itemId1",
+            "description": {
+              "content": "Delete item from store",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "store",
+                ":channel",
+                "items",
+                ":itemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemId",
+                  "description": "(Required) guid - Item id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain; charset=utf-8"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0d0d645-71a5-4e53-8fe5-9d7fe21aee56",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) guid - Item id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "text/plain; charset=utf-8"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain; charset=utf-8"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain; charset=utf-8"
+                }
+              ],
+              "body": "Created",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "79b6b251-e0b7-407c-b962-7b567a42abb5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    ":channel",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) guid - Item id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "text/plain; charset=utf-8"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f7a4611-6d12-4411-93eb-fc3379d4c9b8",
+    "name": "SE API Docs activities store API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

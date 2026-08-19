@@ -1,0 +1,202 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities tips API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/tips/:channel",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "integer - Starting element"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - Events per page between 1 and 100"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "string - Sorting method. Possible values createdAt, -createdAt, donation.amount, -donation.amount, donation.provider, -donation.provider"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "integer - Timezone number"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "string - Username"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "string - Email address"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "datetime - Start date"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "datetime - End date"
+              },
+              {
+                "name": "message",
+                "value": "",
+                "type": "query",
+                "description": "string - Tip message"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "List tips"
+        },
+        {
+          "info": {
+            "name": "/:channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/tips/:channel",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "/:channel"
+        },
+        {
+          "info": {
+            "name": "/:channel/top",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/tips/:channel/top",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get top tippers for channel"
+        },
+        {
+          "info": {
+            "name": "/:channel/leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/tips/:channel/leaderboard",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get tips leaderboard"
+        },
+        {
+          "info": {
+            "name": "/:channel/moderation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/tips/:channel/moderation",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "List tips waiting for moderation"
+        },
+        {
+          "info": {
+            "name": "/:channel/:tipId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/tips/:channel/:tipId",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "tipId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Tip id"
+              }
+            ]
+          },
+          "docs": "Get tip details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

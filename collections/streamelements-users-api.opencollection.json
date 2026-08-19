@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities users API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/current",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/users/current",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Current user channel"
+        },
+        {
+          "info": {
+            "name": "/channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/users/channels",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "TODO: Add Description"
+        },
+        {
+          "info": {
+            "name": "/access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/users/access",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "List channel's access list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

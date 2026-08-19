@@ -1,0 +1,191 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities store API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "store",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel/items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/store/:channel/items",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - number of items per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "integer - number of items to be skipped"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "List store items"
+        },
+        {
+          "info": {
+            "name": "/:channel/items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/store/:channel/items",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - channel id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add new item to store"
+        },
+        {
+          "info": {
+            "name": "/:channel/items/:itemId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/store/:channel/items/:itemId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Item id"
+              }
+            ]
+          },
+          "docs": "Get item details"
+        },
+        {
+          "info": {
+            "name": "/:channel/items/:itemId",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/store/:channel/items/:itemId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Item id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update item"
+        },
+        {
+          "info": {
+            "name": "/:channel/items/:itemId1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/store/:channel/items/:itemId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Item id"
+              }
+            ]
+          },
+          "docs": "Delete item from store"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,319 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities single contest API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "single contest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel/:contestId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ]
+          },
+          "docs": "List contests"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update contest"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ]
+          },
+          "docs": "Close contest"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId/bet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId/bet",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel Id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ]
+          },
+          "docs": "Get contests bets"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId/bet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId/bet",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Place a bet on selected option"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId/start",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId/start",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start a contest"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId/winner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId/winner",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Draw a winner of contest"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId/refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId/refund",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ]
+          },
+          "docs": "Refund users participating in contest"
+        },
+        {
+          "info": {
+            "name": "/:channel/:contestId/close",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/contests/:channel/:contestId/close",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "contestId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Contest id"
+              }
+            ]
+          },
+          "docs": "Close contest"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

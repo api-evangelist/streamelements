@@ -1,0 +1,387 @@
+{
+  "item": [
+    {
+      "id": "4ff8622d-4b4d-4dc3-94c1-e51f24766ffe",
+      "name": "themes",
+      "description": {
+        "content": "Endpoints to browse StreamElements themes",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b899bab2-e8ed-4f69-84c2-0b7bf9cf5645",
+          "name": "/",
+          "request": {
+            "name": "/",
+            "description": {
+              "content": "List available themes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "themes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) string - one of alert, regular, super mobile, widget"
+                },
+                {
+                  "disabled": false,
+                  "key": "mobile",
+                  "value": "<string>",
+                  "description": "(Required) boolean"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "083538bf-8ffe-4399-9a1a-a893cd41e467",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "themes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mobile",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"published\": false,\n    \"provider\": \"string\",\n    \"type\": \"string\",\n    \"size\": \"string\",\n    \"totalUsers\": 5455,\n    \"mobile\": true,\n    \"_id\": \"string\",\n    \"updatedAt\": \"string\",\n    \"createdAt\": \"string\",\n    \"title\": \"string\",\n    \"author\": \"string\",\n    \"game\": \"string\",\n    \"thumbnail\": \"string\",\n    \"overlays\": [\n      {\n        \"overlay\": \"59ef74438af1bc0001deac8e\",\n        \"thumbnail\": \"https://cdn.streamelements.com/uploads/d6e21e73-0199-4c63-ac75-86be48fad5fc.jpg\",\n        \"preview\": \"https://cdn.streamelements.com/uploads/0135c315-8f84-4b9d-a215-06300e4c3d7c.jpg\",\n        \"_id\": \"59efb08e96c10a00014f62f4\"\n      },\n      {\n        \"overlay\": \"59ef74438af1bc0001deac8e\",\n        \"thumbnail\": \"https://cdn.streamelements.com/uploads/d6e21e73-0199-4c63-ac75-86be48fad5fc.jpg\",\n        \"preview\": \"https://cdn.streamelements.com/uploads/0135c315-8f84-4b9d-a215-06300e4c3d7c.jpg\",\n        \"_id\": \"59efb08e96c10a00014f62f4\"\n      }\n    ],\n    \"rating\": 916,\n    \"new\": false\n  },\n  {\n    \"published\": true,\n    \"provider\": \"string\",\n    \"type\": \"string\",\n    \"size\": \"string\",\n    \"totalUsers\": 9618,\n    \"mobile\": true,\n    \"_id\": \"string\",\n    \"updatedAt\": \"string\",\n    \"createdAt\": \"string\",\n    \"title\": \"string\",\n    \"author\": \"string\",\n    \"game\": \"string\",\n    \"thumbnail\": \"string\",\n    \"overlays\": [\n      {\n        \"overlay\": \"59ef74438af1bc0001deac8e\",\n        \"thumbnail\": \"https://cdn.streamelements.com/uploads/d6e21e73-0199-4c63-ac75-86be48fad5fc.jpg\",\n        \"preview\": \"https://cdn.streamelements.com/uploads/0135c315-8f84-4b9d-a215-06300e4c3d7c.jpg\",\n        \"_id\": \"59efb08e96c10a00014f62f4\"\n      },\n      {\n        \"overlay\": \"59ef74438af1bc0001deac8e\",\n        \"thumbnail\": \"https://cdn.streamelements.com/uploads/d6e21e73-0199-4c63-ac75-86be48fad5fc.jpg\",\n        \"preview\": \"https://cdn.streamelements.com/uploads/0135c315-8f84-4b9d-a215-06300e4c3d7c.jpg\",\n        \"_id\": \"59efb08e96c10a00014f62f4\"\n      }\n    ],\n    \"rating\": 371,\n    \"new\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "014fb8a3-64f9-41a5-bf5d-63d032c694bf",
+          "name": "/:themeId",
+          "request": {
+            "name": "/:themeId",
+            "description": {
+              "content": "Get theme details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "themes",
+                ":themeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "themeId",
+                  "description": "(Required) guid - theme id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7497c739-19e3-41ec-a2da-3819e7510d15",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "themes",
+                    ":themeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "themeId",
+                      "description": "(Required) guid - theme id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"published\": true,\n  \"provider\": \"twitch\",\n  \"type\": \"super\",\n  \"size\": \"1080\",\n  \"totalUsers\": 359,\n  \"mobile\": false,\n  \"_id\": \"59c29040a59fb471efc0c8c5\",\n  \"updatedAt\": \"2018-03-17T22:46:11.532Z\",\n  \"createdAt\": \"2017-09-20T15:58:56.312Z\",\n  \"title\": \"HATTRICK SUPER THEME\",\n  \"author\": \"designki\",\n  \"game\": \"FIFA2018\",\n  \"thumbnail\": \"https://cdn.streamelements.com/uploads/418cd740-f6ea-4050-a82b-761c9b1c9b1d.png\",\n  \"overlays\": [\n    {\n      \"overlay\": {\n        \"_id\": \"59c03140374e871d01925ef1\",\n        \"game\": \"FIFA 18\",\n        \"name\": \"HATTRICK IN GAME SCENE\"\n      },\n      \"thumbnail\": \"https://cdn.streamelements.com/uploads/6882ec4d-a59b-4fed-9bb2-86d88b3a10d6.jpg\",\n      \"preview\": \"https://cdn.streamelements.com/uploads/0be5a140-42d4-4311-a139-947a33f89680.jpg\",\n      \"_id\": \"59c29040a59fb471efc0c8c6\"\n    },\n    {\n      \"overlay\": {\n        \"_id\": \"59c03634374e871d01926090\",\n        \"game\": \"FIFA 18\",\n        \"name\": \"HATTRICK TALK  SCENE\"\n      },\n      \"thumbnail\": \"https://cdn.streamelements.com/uploads/c8f686e8-505f-47ab-8f90-f923bb62eafa.jpg\",\n      \"preview\": \"https://cdn.streamelements.com/uploads/7e79a7c1-18cd-48c3-ac55-52b9daad55ab.jpg\",\n      \"_id\": \"59c29040a59fb471efc0c8c7\"\n    },\n    {\n      \"overlay\": {\n        \"_id\": \"59c0d6cadf375d6bb3858424\",\n        \"game\": \"FIFA 18\",\n        \"name\": \"HATTRICK START SCENE\"\n      },\n      \"thumbnail\": \"https://cdn.streamelements.com/uploads/8d494630-3264-44c0-9e68-bce32bb8267c.jpg\",\n      \"preview\": \"https://cdn.streamelements.com/uploads/4b249217-5b4e-4277-be8a-cae8abf7dc84.jpg\",\n      \"_id\": \"59c29040a59fb471efc0c8c8\"\n    },\n    {\n      \"overlay\": {\n        \"_id\": \"59c0d9444492765935648d70\",\n        \"game\": \"FIFA 18\",\n        \"name\": \"HATTRICK BRB SCENE\"\n      },\n      \"thumbnail\": \"https://cdn.streamelements.com/uploads/4cb659ea-7a7b-4e81-b75e-8643944d5957.jpg\",\n      \"preview\": \"https://cdn.streamelements.com/uploads/c2202e0c-1695-4169-b155-cd1c4dd5a157.jpg\",\n      \"_id\": \"59c29040a59fb471efc0c8c9\"\n    },\n    {\n      \"overlay\": {\n        \"_id\": \"59c0dbff69db7f0460376197\",\n        \"game\": \"FIFA 18\",\n        \"name\": \"HATTRICK END SCENE\"\n      },\n      \"thumbnail\": \"https://cdn.streamelements.com/uploads/c3f6be0f-2c93-41f9-8b84-469c1073e558.jpg\",\n      \"preview\": \"https://cdn.streamelements.com/uploads/643b716d-0597-4673-9772-3b7f1194b604.jpg\",\n      \"_id\": \"59c29040a59fb471efc0c8ca\"\n    }\n  ],\n  \"rating\": 0.2777777777777778,\n  \"new\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "897ed7cf-c8a9-4950-b908-36be4d403a06",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "themes",
+                    ":themeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "themeId",
+                      "description": "(Required) guid - theme id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"themeId\\\" fails because [\\\"themeId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"themeId\"\n      ],\n      \"message\": \"\\\"themeId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85c7a211-9fe1-4bbb-acab-67155008f19a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "themes",
+                    ":themeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "themeId",
+                      "description": "(Required) guid - theme id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e79e8fb3-ce5a-4c84-b4b2-10f8059e8805",
+    "name": "SE API Docs activities themes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,379 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities single giveaway API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "single giveaway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel/:giveawayId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entrants",
+                "value": "",
+                "type": "query",
+                "description": "boolean"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Get giveaway details. This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid|empty - Giveaway id or no value for ongoing giveaway"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update giveaway details This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Delete Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId/joined",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId/joined",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "List joined users in giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId/start",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId/start",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Start a Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId/winner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId/winner",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Draw a Giveaway winner This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId/complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId/complete",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Mark Giveaway as complete This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId/reopen",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId/reopen",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Reopen Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId/refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId/refund",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Refund Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        },
+        {
+          "info": {
+            "name": "/:channel/:giveawayId/close",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/giveaways/:channel/:giveawayId/close",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "giveawayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Giveaway id"
+              }
+            ]
+          },
+          "docs": "Close Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

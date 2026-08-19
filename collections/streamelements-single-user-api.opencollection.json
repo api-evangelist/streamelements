@@ -1,0 +1,226 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities single user API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "single user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel/:user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/points/:channel/:user",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "path",
+                "description": "string - Username"
+              }
+            ]
+          },
+          "docs": "Get userpoints for specific username"
+        },
+        {
+          "info": {
+            "name": "/:channel/:user1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/points/:channel/:user",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "path",
+                "description": "string - Username"
+              }
+            ]
+          },
+          "docs": "Reset user points (remove from table)"
+        },
+        {
+          "info": {
+            "name": "/:channel/:user/rank",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/points/:channel/:user/rank",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "path",
+                "description": "string - Username"
+              }
+            ]
+          },
+          "docs": "Get current user rank by username"
+        },
+        {
+          "info": {
+            "name": "/:channel/:user/:amount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/points/:channel/:user/:amount",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "path",
+                "description": "string - Username"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "path",
+                "description": "integer - Amount of points to be added, use negative number to remove points"
+              }
+            ]
+          },
+          "docs": "Add or remove points from user"
+        },
+        {
+          "info": {
+            "name": "/:channel/alltime/:user/:amount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/points/:channel/alltime/:user/:amount",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "path",
+                "description": "string - username"
+              },
+              {
+                "name": "amount",
+                "value": "",
+                "type": "path",
+                "description": "integer - amount of points to be added (negative if removed)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update alltime points for user"
+        },
+        {
+          "info": {
+            "name": "/:channel/alltime/:user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/points/:channel/alltime/:user",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "path",
+                "description": "string - Username"
+              }
+            ]
+          },
+          "docs": "/:channel/alltime/:user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities stats API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/stats/:channel",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "string - year, month, week, day"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "datetime"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "integer - timezone number"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get channels stats"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,164 @@
+{
+  "item": [
+    {
+      "id": "ce996e07-b66b-4bf3-a9ce-5710ebfd3b84",
+      "name": "stats",
+      "description": {
+        "content": "Folder for loyalty",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fec01a6d-0118-4337-b6c4-cda35cf24311",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "Get channels stats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stats",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) string - year, month, week, day"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "(Required) datetime"
+                },
+                {
+                  "disabled": false,
+                  "key": "tz",
+                  "value": "<integer>",
+                  "description": "(Required) integer - timezone number"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa809d97-0b0d-4525-a891-7ec9084a509d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "week"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2018-12-07T02:41Z"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1dcd9df3-dc52-4b2f-9423-5a5768cad5ca",
+    "name": "SE API Docs activities stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

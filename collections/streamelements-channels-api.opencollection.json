@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities channels API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/me",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/channels/me",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get channels details linked to provided JWT Token"
+        },
+        {
+          "info": {
+            "name": "/:channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/channels/:channel",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "String|guid - Channel name or channel id"
+              }
+            ]
+          },
+          "docs": "Get channel details for provided channel id or channel name"
+        },
+        {
+          "info": {
+            "name": "/:channel/details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/channels/:channel/details",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get channel details"
+        },
+        {
+          "info": {
+            "name": "/:channel/emotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/channels/:channel/emotes",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get emotes that can be used on channel (twitch, bttv, ffz)"
+        },
+        {
+          "info": {
+            "name": "/:channel/socket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/channels/:channel/socket",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "/:channel/socket"
+        },
+        {
+          "info": {
+            "name": "/:channelId/accesstoken",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/channels/:channel/accesstoken",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "/:channelId/accesstoken"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

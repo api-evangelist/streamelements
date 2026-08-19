@@ -1,0 +1,273 @@
+{
+  "item": [
+    {
+      "id": "0adf0c24-98f4-4bc0-bc8a-56d4d47d64b9",
+      "name": "loyalties",
+      "description": {
+        "content": "Endpoints to manage loyalty settings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "213339d9-f562-402c-8824-20cd1ef9ab04",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "Get loyalty settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47fce9e3-9f83-4ddd-be60-2c5ca55a5623",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"loyalty\": {\n    \"bonuses\": {\n      \"follow\": 0,\n      \"tip\": 0,\n      \"subscriber\": 0,\n      \"cheer\": 0,\n      \"host\": 0\n    },\n    \"name\": \"points\",\n    \"enabled\": false,\n    \"amount\": 5,\n    \"subscriberMultiplier\": 3,\n    \"ignored\": [\n      \"streamelements\"\n    ]\n  },\n  \"_id\": \"5b2e2007760aeb7230487dc1\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-06-23T10:25:11.768Z\",\n  \"updatedAt\": \"2018-06-23T10:25:11.768Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cc28331-4de1-4f1c-b88a-d5c700322d87",
+          "name": "/:channel1",
+          "request": {
+            "name": "/:channel1",
+            "description": {
+              "content": "Update loyalty settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9520f057-7e04-44a2-821a-75fbd58ce48c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"loyalty\": {\n    \"bonuses\": {\n      \"follow\": 0,\n      \"tip\": 0,\n      \"subscriber\": 0,\n      \"cheer\": 0,\n      \"host\": 0\n    },\n    \"name\": \"points\",\n    \"enabled\": false,\n    \"amount\": 5,\n    \"subscriberMultiplier\": 3,\n    \"ignored\": [\n      \"streamelements\"\n    ]\n  },\n  \"_id\": \"5b2e2007760aeb7230487dc1\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-06-23T10:25:11.768Z\",\n  \"updatedAt\": \"2018-06-23T10:25:11.768Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "64b3ebc6-5b50-492b-a2eb-6945549711fd",
+    "name": "SE API Docs activities loyalties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities songrequests API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "songrequests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/playing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/playing",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "room",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "/playing"
+        },
+        {
+          "info": {
+            "name": "/youtube",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/youtube",
+            "params": [
+              {
+                "name": "videoId",
+                "value": "",
+                "type": "query",
+                "description": "string - YouTube video ID"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "string - phrase to search"
+              }
+            ]
+          },
+          "docs": "Get song details"
+        },
+        {
+          "info": {
+            "name": "/:channel/settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/settings",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get settings"
+        },
+        {
+          "info": {
+            "name": "/:channel/settings/public",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/settings/public",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get public settings"
+        },
+        {
+          "info": {
+            "name": "/:channel/queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/queue",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get songrequest queue"
+        },
+        {
+          "info": {
+            "name": "/:channel/queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/queue",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get songrequest queue"
+        },
+        {
+          "info": {
+            "name": "/:channel/queue/:song",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/queue/:song",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "song",
+                "value": "",
+                "type": "path",
+                "description": "guid - Song id"
+              }
+            ]
+          },
+          "docs": "Remove song from queue"
+        },
+        {
+          "info": {
+            "name": "/:channel/queue/public",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/queue/public",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get songrequest queue for public exposure (without video details)"
+        },
+        {
+          "info": {
+            "name": "/:channel/pending",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/pending",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get songs in moderation queue"
+        },
+        {
+          "info": {
+            "name": "/:channel/playlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/playlist",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - number of results per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "string - page identifier as in nextPage"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get songs on playlist"
+        },
+        {
+          "info": {
+            "name": "/:channel/player",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/player",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get current player status"
+        },
+        {
+          "info": {
+            "name": "/:channel/player/:state",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/player/:state",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "path",
+                "description": "string - one of play, pause"
+              }
+            ]
+          },
+          "docs": "Change current state of media player"
+        },
+        {
+          "info": {
+            "name": "/:channel/history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/history",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - Number of items per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "integer - Number of items to be skipped"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get songrequest history"
+        },
+        {
+          "info": {
+            "name": "/:channel/playing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/playing",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get currently playing song"
+        },
+        {
+          "info": {
+            "name": "/:channel/next",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/songrequest/:channel/next",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Get details of next song in queue"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

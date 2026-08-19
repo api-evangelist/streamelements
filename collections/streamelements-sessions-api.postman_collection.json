@@ -1,0 +1,753 @@
+{
+  "item": [
+    {
+      "id": "d44d1bd9-634d-4328-af9e-4ad6e5ce4b6d",
+      "name": "sessions",
+      "description": {
+        "content": "Endpoints to manage session data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0055fde-e413-49d9-88fb-53617b06f8a5",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "Get session data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "350a11ef-cf05-40f8-a06d-487f9d7653aa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"follower-latest\": {\n      \"name\": \"Emile Morissette\"\n    },\n    \"follower-session\": {\n      \"count\": 11\n    },\n    \"follower-week\": {\n      \"count\": 11\n    },\n    \"follower-month\": {\n      \"count\": 11\n    },\n    \"follower-goal\": {\n      \"amount\": 11\n    },\n    \"follower-total\": {\n      \"count\": 13\n    },\n    \"subscriber-latest\": {\n      \"name\": \"Marilyne Abshire\",\n      \"amount\": 17,\n      \"tier\": \"2000\",\n      \"message\": \"\",\n      \"sender\": null,\n      \"gifted\": null\n    },\n    \"subscriber-new-latest\": {\n      \"name\": \"\",\n      \"amount\": 0,\n      \"message\": \"\"\n    },\n    \"subscriber-resub-latest\": {\n      \"name\": \"Marilyne Abshire\",\n      \"amount\": 17,\n      \"message\": \"\"\n    },\n    \"subscriber-gifted-latest\": {\n      \"name\": \"\",\n      \"amount\": 0,\n      \"message\": \"\"\n    },\n    \"subscriber-session\": {\n      \"count\": 68\n    },\n    \"subscriber-new-session\": {\n      \"count\": 0\n    },\n    \"subscriber-resub-session\": {\n      \"count\": 68\n    },\n    \"subscriber-gifted-session\": {\n      \"count\": 0\n    },\n    \"subscriber-week\": {\n      \"count\": 68\n    },\n    \"subscriber-month\": {\n      \"count\": 68\n    },\n    \"subscriber-goal\": {\n      \"amount\": 68\n    },\n    \"subscriber-total\": {\n      \"count\": 68\n    },\n    \"subscriber-points\": {\n      \"amount\": 189\n    },\n    \"subscriber-alltime-gifter\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"host-latest\": {\n      \"name\": \"Cathryn Wehner\",\n      \"amount\": 2\n    },\n    \"raid-latest\": {\n      \"name\": \"Velma Langosh\",\n      \"amount\": 8\n    },\n    \"cheer-session\": {\n      \"amount\": 246\n    },\n    \"cheer-week\": {\n      \"amount\": 246\n    },\n    \"cheer-month\": {\n      \"amount\": 246\n    },\n    \"cheer-total\": {\n      \"amount\": 246\n    },\n    \"cheer-count\": {\n      \"count\": 8\n    },\n    \"cheer-goal\": {\n      \"amount\": 246\n    },\n    \"cheer-latest\": {\n      \"name\": \"Halle Koelpin\",\n      \"amount\": 24,\n      \"message\": \"\"\n    },\n    \"cheer-session-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-weekly-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-monthly-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-alltime-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-session-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"cheer-weekly-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"cheer-monthly-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"cheer-alltime-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"tip-latest\": {\n      \"name\": \"Ms. Aniyah Bernhard\",\n      \"amount\": 41,\n      \"message\": \"\"\n    },\n    \"tip-session-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-weekly-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-monthly-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-alltime-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-session-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-weekly-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-monthly-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-alltime-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-session\": {\n      \"amount\": 279\n    },\n    \"tip-week\": {\n      \"amount\": 279\n    },\n    \"tip-month\": {\n      \"amount\": 279\n    },\n    \"tip-total\": {\n      \"amount\": 279\n    },\n    \"tip-count\": {\n      \"count\": 8\n    },\n    \"tip-goal\": {\n      \"amount\": 279\n    },\n    \"merch-goal-orders\": {\n      \"amount\": 0\n    },\n    \"merch-goal-items\": {\n      \"amount\": 0\n    },\n    \"merch-goal-total\": {\n      \"amount\": 0\n    },\n    \"follower-recent\": [\n      {\n        \"name\": \"Josiane Dietrich\",\n        \"createdAt\": \"2018-12-06T15:54:41.635Z\"\n      },\n      {\n        \"name\": \"Noemi Powlowski\",\n        \"createdAt\": \"2018-12-06T15:54:41.639Z\"\n      },\n      {\n        \"name\": \"Norbert Rolfson MD\",\n        \"createdAt\": \"2018-12-06T15:54:41.636Z\"\n      },\n      {\n        \"name\": \"Christophe Connelly\",\n        \"createdAt\": \"2018-12-06T15:54:41.632Z\"\n      },\n      {\n        \"name\": \"Dameon Herzog\",\n        \"createdAt\": \"2018-12-06T15:54:41.642Z\"\n      },\n      {\n        \"name\": \"Ms. Damian Roob\",\n        \"createdAt\": \"2018-12-06T15:54:41.637Z\"\n      },\n      {\n        \"name\": \"Mr. Daisha Ankunding\",\n        \"createdAt\": \"2018-12-06T15:54:41.622Z\"\n      },\n      {\n        \"name\": \"Reva Padberg III\",\n        \"createdAt\": \"2018-12-06T15:54:41.623Z\"\n      },\n      {\n        \"name\": \"Odell Macejkovic\",\n        \"createdAt\": \"2018-12-06T15:54:41.617Z\"\n      },\n      {\n        \"name\": \"Clare Parisian\",\n        \"createdAt\": \"2018-12-06T15:54:41.619Z\"\n      },\n      {\n        \"name\": \"Torrance Marvin\",\n        \"createdAt\": \"2018-12-06T15:54:41.61Z\"\n      },\n      {\n        \"name\": \"Pat Schuster\",\n        \"createdAt\": \"2018-12-06T15:54:41.612Z\"\n      },\n      {\n        \"name\": \"Gardner Thompson\",\n        \"createdAt\": \"2018-12-06T15:54:41.609Z\"\n      },\n      {\n        \"name\": \"Emile Morissette\",\n        \"createdAt\": \"2018-12-06T15:54:41.604Z\"\n      },\n      {\n        \"name\": \"Gustave Casper\",\n        \"createdAt\": \"2018-12-06T15:54:41.601Z\"\n      },\n      {\n        \"name\": \"Demetris Emmerich\",\n        \"createdAt\": \"2018-12-06T15:54:41.599Z\"\n      },\n      {\n        \"name\": \"Pedro Ziemann\",\n        \"createdAt\": \"2018-12-06T15:54:41.591Z\"\n      },\n      {\n        \"name\": \"Hector Macejkovic\",\n        \"createdAt\": \"2018-12-06T15:54:41.597Z\"\n      },\n      {\n        \"name\": \"Ludie Klocko\",\n        \"createdAt\": \"2018-12-06T15:54:41.586Z\"\n      },\n      {\n        \"name\": \"Deven Kilback\",\n        \"createdAt\": \"2018-12-06T15:54:41.585Z\"\n      },\n      {\n        \"name\": \"Alanis Kub\",\n        \"createdAt\": \"2018-12-06T15:54:41.594Z\"\n      },\n      {\n        \"name\": \"Dr. Arturo Pagac\",\n        \"createdAt\": \"2018-12-06T15:54:40.077Z\"\n      },\n      {\n        \"name\": \"Mrs. Isaias Halvorson\",\n        \"createdAt\": \"2018-12-06T15:54:40.089Z\"\n      },\n      {\n        \"name\": \"Jerad Gottlieb\",\n        \"createdAt\": \"2018-12-06T15:54:40.093Z\"\n      },\n      {\n        \"name\": \"Bud Kozey\",\n        \"createdAt\": \"2018-12-06T15:54:40.088Z\"\n      }\n    ],\n    \"subscriber-recent\": [\n      {\n        \"name\": \"Marilyne Abshire\",\n        \"tier\": \"2000\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:48.768Z\"\n      },\n      {\n        \"name\": \"Verlie Nienow\",\n        \"tier\": \"prime\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:48.671Z\"\n      },\n      {\n        \"name\": \"Ansel Willms\",\n        \"tier\": \"prime\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:48.335Z\"\n      },\n      {\n        \"name\": \"Annetta D'Amore\",\n        \"tier\": \"2000\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:48.278Z\"\n      },\n      {\n        \"name\": \"Korey Kreiger\",\n        \"tier\": \"prime\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:48.232Z\"\n      },\n      {\n        \"name\": \"Krystal Schultz\",\n        \"tier\": \"3000\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:48.122Z\"\n      },\n      {\n        \"name\": \"Shayna Mann\",\n        \"tier\": \"2000\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:47.865Z\"\n      },\n      {\n        \"name\": \"Margarita Bode\",\n        \"tier\": \"2000\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:47.567Z\"\n      },\n      {\n        \"name\": \"Shakira Heidenreich\",\n        \"tier\": \"2000\",\n        \"amount\": 38,\n        \"createdAt\": \"2018-12-06T15:54:47.511Z\"\n      },\n      {\n        \"name\": \"Pierre Hodkiewicz\",\n        \"tier\": \"2000\",\n        \"amount\": 26,\n        \"createdAt\": \"2018-12-06T15:54:47.454Z\"\n      },\n      {\n        \"name\": \"Mr. Maxine Dicki\",\n        \"tier\": \"prime\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:47.372Z\"\n      },\n      {\n        \"name\": \"King Rempel\",\n        \"tier\": \"1000\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:47.215Z\"\n      },\n      {\n        \"name\": \"Katelynn Runolfsson V\",\n        \"tier\": \"3000\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:47.101Z\"\n      },\n      {\n        \"name\": \"Mike Hermiston\",\n        \"tier\": \"prime\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:47.069Z\"\n      },\n      {\n        \"name\": \"Mr. Lilyan Lynch\",\n        \"tier\": \"2000\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:47.028Z\"\n      },\n      {\n        \"name\": \"Keon Kuphal Jr.\",\n        \"tier\": \"1000\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:46.916Z\"\n      },\n      {\n        \"name\": \"Florencio Stokes\",\n        \"tier\": \"3000\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:46.851Z\"\n      },\n      {\n        \"name\": \"Sandra Wolf\",\n        \"tier\": \"1000\",\n        \"amount\": 25,\n        \"createdAt\": \"2018-12-06T15:54:46.809Z\"\n      },\n      {\n        \"name\": \"Aurelie Stark\",\n        \"tier\": \"1000\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:46.77Z\"\n      },\n      {\n        \"name\": \"Vernon Mosciski\",\n        \"tier\": \"prime\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:46.725Z\"\n      },\n      {\n        \"name\": \"Makenna Hyatt\",\n        \"tier\": \"1000\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:46.683Z\"\n      },\n      {\n        \"name\": \"Jada Sipes\",\n        \"tier\": \"3000\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:46.635Z\"\n      },\n      {\n        \"name\": \"Ibrahim Mante\",\n        \"tier\": \"2000\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:46.514Z\"\n      },\n      {\n        \"name\": \"Kiera DuBuque\",\n        \"tier\": \"2000\",\n        \"amount\": 50,\n        \"createdAt\": \"2018-12-06T15:54:46.461Z\"\n      },\n      {\n        \"name\": \"Casimir Stamm\",\n        \"tier\": \"3000\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:46.417Z\"\n      }\n    ],\n    \"host-recent\": [\n      {\n        \"name\": \"Alysa Jast\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.618Z\"\n      },\n      {\n        \"name\": \"Billie Ankunding\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.655Z\"\n      },\n      {\n        \"name\": \"Emily Russel\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.649Z\"\n      },\n      {\n        \"name\": \"Rylee Larson\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.649Z\"\n      },\n      {\n        \"name\": \"Fanny Predovic\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:41.638Z\"\n      },\n      {\n        \"name\": \"Roma Fadel I\",\n        \"amount\": 1,\n        \"createdAt\": \"2018-12-06T15:54:41.641Z\"\n      },\n      {\n        \"name\": \"Carolyn Hilll\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.647Z\"\n      },\n      {\n        \"name\": \"Otis Predovic\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.635Z\"\n      },\n      {\n        \"name\": \"Cathryn Wehner\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.636Z\"\n      },\n      {\n        \"name\": \"Marcelle Vandervort\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.629Z\"\n      },\n      {\n        \"name\": \"Makenna Upton\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.614Z\"\n      },\n      {\n        \"name\": \"Noe Carroll\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.629Z\"\n      },\n      {\n        \"name\": \"Nicolas Wilkinson\",\n        \"amount\": 36,\n        \"createdAt\": \"2018-12-06T15:54:41.607Z\"\n      },\n      {\n        \"name\": \"Dr. Annetta Rolfson\",\n        \"amount\": 31,\n        \"createdAt\": \"2018-12-06T15:54:41.593Z\"\n      },\n      {\n        \"name\": \"Freeda Frami\",\n        \"amount\": 48,\n        \"createdAt\": \"2018-12-06T15:54:41.595Z\"\n      },\n      {\n        \"name\": \"Eleonore Hansen\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:41.584Z\"\n      },\n      {\n        \"name\": \"Mr. Rachael Bergstrom\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:40.095Z\"\n      },\n      {\n        \"name\": \"Lila Baumbach\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:40.097Z\"\n      },\n      {\n        \"name\": \"Ardith Parisian\",\n        \"amount\": 37,\n        \"createdAt\": \"2018-12-06T15:54:40.079Z\"\n      },\n      {\n        \"name\": \"Ottilie Abernathy\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:40.073Z\"\n      },\n      {\n        \"name\": \"Manuela Will\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:40.062Z\"\n      },\n      {\n        \"name\": \"Norwood Lang I\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:40.073Z\"\n      },\n      {\n        \"name\": \"Francesca Kautzer\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:40.068Z\"\n      },\n      {\n        \"name\": \"Christ Donnelly\",\n        \"amount\": 7,\n        \"createdAt\": \"2018-12-06T15:54:40.072Z\"\n      },\n      {\n        \"name\": \"Max Jakubowski\",\n        \"amount\": 11,\n        \"createdAt\": \"2018-12-06T15:54:40.061Z\"\n      }\n    ],\n    \"raid-recent\": [\n      {\n        \"name\": \"Clement Abernathy DDS\",\n        \"amount\": 49,\n        \"createdAt\": \"2018-12-06T15:54:41.634Z\"\n      },\n      {\n        \"name\": \"Miss Amya Senger\",\n        \"amount\": 26,\n        \"createdAt\": \"2018-12-06T15:54:41.601Z\"\n      },\n      {\n        \"name\": \"Dr. Clarabelle Douglas\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:41.658Z\"\n      },\n      {\n        \"name\": \"Velma Langosh\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:41.659Z\"\n      },\n      {\n        \"name\": \"Gerhard Konopelski\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:41.65Z\"\n      },\n      {\n        \"name\": \"Dario Bashirian\",\n        \"amount\": 37,\n        \"createdAt\": \"2018-12-06T15:54:41.637Z\"\n      },\n      {\n        \"name\": \"Ellie McDermott\",\n        \"amount\": 48,\n        \"createdAt\": \"2018-12-06T15:54:41.631Z\"\n      },\n      {\n        \"name\": \"Elsa Lynch\",\n        \"amount\": 7,\n        \"createdAt\": \"2018-12-06T15:54:41.639Z\"\n      },\n      {\n        \"name\": \"Trystan Purdy\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.646Z\"\n      },\n      {\n        \"name\": \"Louisa Maggio\",\n        \"amount\": 6,\n        \"createdAt\": \"2018-12-06T15:54:41.633Z\"\n      },\n      {\n        \"name\": \"Brittany Windler\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.619Z\"\n      },\n      {\n        \"name\": \"Emmet Von\",\n        \"amount\": 24,\n        \"createdAt\": \"2018-12-06T15:54:41.626Z\"\n      },\n      {\n        \"name\": \"Mrs. Brennon McDermott\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.613Z\"\n      },\n      {\n        \"name\": \"Aaron Kovacek\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.62Z\"\n      },\n      {\n        \"name\": \"Leone Runte\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.598Z\"\n      },\n      {\n        \"name\": \"Bonita Bruen\",\n        \"amount\": 37,\n        \"createdAt\": \"2018-12-06T15:54:41.608Z\"\n      },\n      {\n        \"name\": \"Patrick Crooks\",\n        \"amount\": 26,\n        \"createdAt\": \"2018-12-06T15:54:41.606Z\"\n      },\n      {\n        \"name\": \"Antwan Franecki\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.611Z\"\n      },\n      {\n        \"name\": \"Ines Wilderman\",\n        \"amount\": 38,\n        \"createdAt\": \"2018-12-06T15:54:41.601Z\"\n      },\n      {\n        \"name\": \"Marisol Reichert\",\n        \"amount\": 48,\n        \"createdAt\": \"2018-12-06T15:54:41.604Z\"\n      },\n      {\n        \"name\": \"Cullen Torp V\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.611Z\"\n      },\n      {\n        \"name\": \"Kristopher Romaguera\",\n        \"amount\": 36,\n        \"createdAt\": \"2018-12-06T15:54:41.585Z\"\n      },\n      {\n        \"name\": \"Sydnie Reynolds\",\n        \"amount\": 19,\n        \"createdAt\": \"2018-12-06T15:54:41.59Z\"\n      },\n      {\n        \"name\": \"Chase Funk\",\n        \"amount\": 27,\n        \"createdAt\": \"2018-12-06T15:54:41.597Z\"\n      },\n      {\n        \"name\": \"Kenny Hodkiewicz\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:41.593Z\"\n      }\n    ],\n    \"cheer-recent\": [\n      {\n        \"name\": \"Glenda Carter\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.648Z\"\n      },\n      {\n        \"name\": \"Liana Hettinger\",\n        \"amount\": 16,\n        \"createdAt\": \"2018-12-06T15:54:41.66Z\"\n      },\n      {\n        \"name\": \"Paolo Tromp\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.653Z\"\n      },\n      {\n        \"name\": \"Sylvan Ward\",\n        \"amount\": 29,\n        \"createdAt\": \"2018-12-06T15:54:41.654Z\"\n      },\n      {\n        \"name\": \"Cassidy Homenick\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.652Z\"\n      },\n      {\n        \"name\": \"Miss Dulce Koss\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.657Z\"\n      },\n      {\n        \"name\": \"Arlie DuBuque DVM\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:41.64Z\"\n      },\n      {\n        \"name\": \"Gustave Douglas\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.647Z\"\n      },\n      {\n        \"name\": \"Halle Koelpin\",\n        \"amount\": 24,\n        \"createdAt\": \"2018-12-06T15:54:41.641Z\"\n      },\n      {\n        \"name\": \"Chester Beer\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.638Z\"\n      },\n      {\n        \"name\": \"Otis Reynolds\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.632Z\"\n      },\n      {\n        \"name\": \"Daphnee Streich\",\n        \"amount\": 44,\n        \"createdAt\": \"2018-12-06T15:54:41.63Z\"\n      },\n      {\n        \"name\": \"Boris Rogahn\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.617Z\"\n      },\n      {\n        \"name\": \"Kole Grady\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.603Z\"\n      },\n      {\n        \"name\": \"Giles Nienow\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.605Z\"\n      },\n      {\n        \"name\": \"Iliana Windler\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.6Z\"\n      },\n      {\n        \"name\": \"Pamela Hartmann\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.605Z\"\n      },\n      {\n        \"name\": \"Kamryn Crooks\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.602Z\"\n      },\n      {\n        \"name\": \"Emil Braun\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.603Z\"\n      },\n      {\n        \"name\": \"Shyanne Brakus\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.592Z\"\n      },\n      {\n        \"name\": \"Miles Paucek\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.592Z\"\n      },\n      {\n        \"name\": \"Jennings Kuhic\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.582Z\"\n      },\n      {\n        \"name\": \"Karelle Strosin\",\n        \"amount\": 18,\n        \"createdAt\": \"2018-12-06T15:54:41.587Z\"\n      },\n      {\n        \"name\": \"Trey Halvorson\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:40.092Z\"\n      },\n      {\n        \"name\": \"Dwight Hermiston PhD\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:40.094Z\"\n      }\n    ],\n    \"tip-recent\": [\n      {\n        \"name\": \"Hank Grady\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:41.651Z\"\n      },\n      {\n        \"name\": \"Hobart Renner\",\n        \"amount\": 27,\n        \"createdAt\": \"2018-12-06T15:54:41.658Z\"\n      },\n      {\n        \"name\": \"Sophie Goyette DVM\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.64Z\"\n      },\n      {\n        \"name\": \"Cecilia Upton\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.646Z\"\n      },\n      {\n        \"name\": \"Kristian Berge\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.634Z\"\n      },\n      {\n        \"name\": \"Leopold Schamberger DDS\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.633Z\"\n      },\n      {\n        \"name\": \"Madelyn Leffler MD\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.628Z\"\n      },\n      {\n        \"name\": \"Sydni Kemmer MD\",\n        \"amount\": 19,\n        \"createdAt\": \"2018-12-06T15:54:41.613Z\"\n      },\n      {\n        \"name\": \"Verda Champlin\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.63Z\"\n      },\n      {\n        \"name\": \"Ms. Aniyah Bernhard\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.621Z\"\n      },\n      {\n        \"name\": \"Kristoffer Barton\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.624Z\"\n      },\n      {\n        \"name\": \"Aaron Bergstrom\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.616Z\"\n      },\n      {\n        \"name\": \"Jovan Hegmann\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:41.618Z\"\n      },\n      {\n        \"name\": \"Keely Hauck\",\n        \"amount\": 44,\n        \"createdAt\": \"2018-12-06T15:54:41.622Z\"\n      },\n      {\n        \"name\": \"Demetrius Sauer\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.614Z\"\n      },\n      {\n        \"name\": \"Miss Stacy Dietrich\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.6Z\"\n      },\n      {\n        \"name\": \"Devon Reilly\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.609Z\"\n      },\n      {\n        \"name\": \"Johanna McDermott\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:41.598Z\"\n      },\n      {\n        \"name\": \"Russell Runolfsdottir PhD\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.588Z\"\n      },\n      {\n        \"name\": \"Mr. Pietro Torphy\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:41.594Z\"\n      },\n      {\n        \"name\": \"Samanta Jacobson\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:41.58Z\"\n      },\n      {\n        \"name\": \"Aaron Blanda\",\n        \"amount\": 11,\n        \"createdAt\": \"2018-12-06T15:54:41.596Z\"\n      },\n      {\n        \"name\": \"Dameon Hickle\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.596Z\"\n      },\n      {\n        \"name\": \"Kali Swift\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.58Z\"\n      },\n      {\n        \"name\": \"Lamar Hills\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.584Z\"\n      }\n    ],\n    \"merch-recent\": [\n      {\n        \"name\": \"Arlene Pfeffer\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.653Z\"\n      },\n      {\n        \"name\": \"Julianne D'Amore\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.659Z\"\n      },\n      {\n        \"name\": \"Dina Herman\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:41.656Z\"\n      },\n      {\n        \"name\": \"Leanna Bergnaum\",\n        \"amount\": 38,\n        \"createdAt\": \"2018-12-06T15:54:41.643Z\"\n      },\n      {\n        \"name\": \"Monica Rogahn\",\n        \"amount\": 5,\n        \"createdAt\": \"2018-12-06T15:54:41.631Z\"\n      },\n      {\n        \"name\": \"Levi Hansen\",\n        \"amount\": 6,\n        \"createdAt\": \"2018-12-06T15:54:41.643Z\"\n      },\n      {\n        \"name\": \"Dr. Madisyn Smith\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:41.625Z\"\n      },\n      {\n        \"name\": \"Alexis Ebert PhD\",\n        \"amount\": 12,\n        \"createdAt\": \"2018-12-06T15:54:41.625Z\"\n      },\n      {\n        \"name\": \"Tyreek Eichmann\",\n        \"amount\": 14,\n        \"createdAt\": \"2018-12-06T15:54:41.62Z\"\n      },\n      {\n        \"name\": \"Rick Langosh\",\n        \"amount\": 18,\n        \"createdAt\": \"2018-12-06T15:54:41.626Z\"\n      },\n      {\n        \"name\": \"Era Kuphal\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:41.627Z\"\n      },\n      {\n        \"name\": \"Caleb Leannon\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.628Z\"\n      },\n      {\n        \"name\": \"Ofelia Muller\",\n        \"amount\": 34,\n        \"createdAt\": \"2018-12-06T15:54:41.606Z\"\n      },\n      {\n        \"name\": \"Alize Halvorson\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.608Z\"\n      },\n      {\n        \"name\": \"Doris Conn\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.607Z\"\n      },\n      {\n        \"name\": \"Neil D'Amore\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.612Z\"\n      },\n      {\n        \"name\": \"Jovanny Wisoky III\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:41.61Z\"\n      },\n      {\n        \"name\": \"Osbaldo Medhurst\",\n        \"amount\": 49,\n        \"createdAt\": \"2018-12-06T15:54:41.59Z\"\n      },\n      {\n        \"name\": \"Maci Anderson\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.579Z\"\n      },\n      {\n        \"name\": \"Gretchen Koepp\",\n        \"amount\": 6,\n        \"createdAt\": \"2018-12-06T15:54:41.581Z\"\n      },\n      {\n        \"name\": \"Candido Hudson\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:41.581Z\"\n      },\n      {\n        \"name\": \"Moriah Kautzer\",\n        \"amount\": 30,\n        \"createdAt\": \"2018-12-06T15:54:40.092Z\"\n      },\n      {\n        \"name\": \"Alfreda Shields\",\n        \"amount\": 27,\n        \"createdAt\": \"2018-12-06T15:54:40.08Z\"\n      },\n      {\n        \"name\": \"Mikel Kuphal\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:40.076Z\"\n      },\n      {\n        \"name\": \"Tod Rippin\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:40.081Z\"\n      }\n    ]\n  },\n  \"settings\": {\n    \"autoReset\": true,\n    \"calendar\": false\n  },\n  \"provider\": \"twitch\",\n  \"lastReset\": \"2018-06-23T10:25:11.745Z\",\n  \"_id\": \"5b2e2007760aeb3196487dc3\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-06-23T10:25:11.767Z\",\n  \"updatedAt\": \"2018-12-06T15:54:48.768Z\",\n  \"__v\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7153c3b-e47d-401f-a4d8-a6275e0d9d08",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "Update session data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bcf03ac7-a172-4c57-ba6e-752a33e031cb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"follower-latest\": {\n      \"name\": \"Emile Morissette\"\n    },\n    \"follower-session\": {\n      \"count\": 11\n    },\n    \"follower-week\": {\n      \"count\": 11\n    },\n    \"follower-month\": {\n      \"count\": 11\n    },\n    \"follower-goal\": {\n      \"amount\": 11\n    },\n    \"follower-total\": {\n      \"count\": 13\n    },\n    \"subscriber-latest\": {\n      \"name\": \"Marilyne Abshire\",\n      \"amount\": 17,\n      \"tier\": \"2000\",\n      \"message\": \"\",\n      \"sender\": null,\n      \"gifted\": null\n    },\n    \"subscriber-new-latest\": {\n      \"name\": \"\",\n      \"amount\": 0,\n      \"message\": \"\"\n    },\n    \"subscriber-resub-latest\": {\n      \"name\": \"Marilyne Abshire\",\n      \"amount\": 17,\n      \"message\": \"\"\n    },\n    \"subscriber-gifted-latest\": {\n      \"name\": \"\",\n      \"amount\": 0,\n      \"message\": \"\"\n    },\n    \"subscriber-session\": {\n      \"count\": 68\n    },\n    \"subscriber-new-session\": {\n      \"count\": 0\n    },\n    \"subscriber-resub-session\": {\n      \"count\": 68\n    },\n    \"subscriber-gifted-session\": {\n      \"count\": 0\n    },\n    \"subscriber-week\": {\n      \"count\": 68\n    },\n    \"subscriber-month\": {\n      \"count\": 68\n    },\n    \"subscriber-goal\": {\n      \"amount\": 68\n    },\n    \"subscriber-total\": {\n      \"count\": 68\n    },\n    \"subscriber-points\": {\n      \"amount\": 189\n    },\n    \"subscriber-alltime-gifter\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"host-latest\": {\n      \"name\": \"Cathryn Wehner\",\n      \"amount\": 2\n    },\n    \"raid-latest\": {\n      \"name\": \"Velma Langosh\",\n      \"amount\": 8\n    },\n    \"cheer-session\": {\n      \"amount\": 246\n    },\n    \"cheer-week\": {\n      \"amount\": 246\n    },\n    \"cheer-month\": {\n      \"amount\": 246\n    },\n    \"cheer-total\": {\n      \"amount\": 246\n    },\n    \"cheer-count\": {\n      \"count\": 8\n    },\n    \"cheer-goal\": {\n      \"amount\": 246\n    },\n    \"cheer-latest\": {\n      \"name\": \"Halle Koelpin\",\n      \"amount\": 24,\n      \"message\": \"\"\n    },\n    \"cheer-session-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-weekly-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-monthly-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-alltime-top-donation\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50,\n      \"message\": \"\"\n    },\n    \"cheer-session-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"cheer-weekly-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"cheer-monthly-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"cheer-alltime-top-donator\": {\n      \"name\": \"Mariana Ward\",\n      \"amount\": 50\n    },\n    \"tip-latest\": {\n      \"name\": \"Ms. Aniyah Bernhard\",\n      \"amount\": 41,\n      \"message\": \"\"\n    },\n    \"tip-session-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-weekly-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-monthly-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-alltime-top-donation\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-session-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-weekly-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-monthly-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-alltime-top-donator\": {\n      \"name\": \"Demarco Okuneva\",\n      \"amount\": 50\n    },\n    \"tip-session\": {\n      \"amount\": 279\n    },\n    \"tip-week\": {\n      \"amount\": 279\n    },\n    \"tip-month\": {\n      \"amount\": 279\n    },\n    \"tip-total\": {\n      \"amount\": 279\n    },\n    \"tip-count\": {\n      \"count\": 8\n    },\n    \"tip-goal\": {\n      \"amount\": 279\n    },\n    \"merch-goal-orders\": {\n      \"amount\": 0\n    },\n    \"merch-goal-items\": {\n      \"amount\": 0\n    },\n    \"merch-goal-total\": {\n      \"amount\": 0\n    },\n    \"follower-recent\": [\n      {\n        \"name\": \"Josiane Dietrich\",\n        \"createdAt\": \"2018-12-06T15:54:41.635Z\"\n      },\n      {\n        \"name\": \"Noemi Powlowski\",\n        \"createdAt\": \"2018-12-06T15:54:41.639Z\"\n      },\n      {\n        \"name\": \"Norbert Rolfson MD\",\n        \"createdAt\": \"2018-12-06T15:54:41.636Z\"\n      },\n      {\n        \"name\": \"Christophe Connelly\",\n        \"createdAt\": \"2018-12-06T15:54:41.632Z\"\n      },\n      {\n        \"name\": \"Dameon Herzog\",\n        \"createdAt\": \"2018-12-06T15:54:41.642Z\"\n      },\n      {\n        \"name\": \"Ms. Damian Roob\",\n        \"createdAt\": \"2018-12-06T15:54:41.637Z\"\n      },\n      {\n        \"name\": \"Mr. Daisha Ankunding\",\n        \"createdAt\": \"2018-12-06T15:54:41.622Z\"\n      },\n      {\n        \"name\": \"Reva Padberg III\",\n        \"createdAt\": \"2018-12-06T15:54:41.623Z\"\n      },\n      {\n        \"name\": \"Odell Macejkovic\",\n        \"createdAt\": \"2018-12-06T15:54:41.617Z\"\n      },\n      {\n        \"name\": \"Clare Parisian\",\n        \"createdAt\": \"2018-12-06T15:54:41.619Z\"\n      },\n      {\n        \"name\": \"Torrance Marvin\",\n        \"createdAt\": \"2018-12-06T15:54:41.61Z\"\n      },\n      {\n        \"name\": \"Pat Schuster\",\n        \"createdAt\": \"2018-12-06T15:54:41.612Z\"\n      },\n      {\n        \"name\": \"Gardner Thompson\",\n        \"createdAt\": \"2018-12-06T15:54:41.609Z\"\n      },\n      {\n        \"name\": \"Emile Morissette\",\n        \"createdAt\": \"2018-12-06T15:54:41.604Z\"\n      },\n      {\n        \"name\": \"Gustave Casper\",\n        \"createdAt\": \"2018-12-06T15:54:41.601Z\"\n      },\n      {\n        \"name\": \"Demetris Emmerich\",\n        \"createdAt\": \"2018-12-06T15:54:41.599Z\"\n      },\n      {\n        \"name\": \"Pedro Ziemann\",\n        \"createdAt\": \"2018-12-06T15:54:41.591Z\"\n      },\n      {\n        \"name\": \"Hector Macejkovic\",\n        \"createdAt\": \"2018-12-06T15:54:41.597Z\"\n      },\n      {\n        \"name\": \"Ludie Klocko\",\n        \"createdAt\": \"2018-12-06T15:54:41.586Z\"\n      },\n      {\n        \"name\": \"Deven Kilback\",\n        \"createdAt\": \"2018-12-06T15:54:41.585Z\"\n      },\n      {\n        \"name\": \"Alanis Kub\",\n        \"createdAt\": \"2018-12-06T15:54:41.594Z\"\n      },\n      {\n        \"name\": \"Dr. Arturo Pagac\",\n        \"createdAt\": \"2018-12-06T15:54:40.077Z\"\n      },\n      {\n        \"name\": \"Mrs. Isaias Halvorson\",\n        \"createdAt\": \"2018-12-06T15:54:40.089Z\"\n      },\n      {\n        \"name\": \"Jerad Gottlieb\",\n        \"createdAt\": \"2018-12-06T15:54:40.093Z\"\n      },\n      {\n        \"name\": \"Bud Kozey\",\n        \"createdAt\": \"2018-12-06T15:54:40.088Z\"\n      }\n    ],\n    \"subscriber-recent\": [\n      {\n        \"name\": \"Marilyne Abshire\",\n        \"tier\": \"2000\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:48.768Z\"\n      },\n      {\n        \"name\": \"Verlie Nienow\",\n        \"tier\": \"prime\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:48.671Z\"\n      },\n      {\n        \"name\": \"Ansel Willms\",\n        \"tier\": \"prime\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:48.335Z\"\n      },\n      {\n        \"name\": \"Annetta D'Amore\",\n        \"tier\": \"2000\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:48.278Z\"\n      },\n      {\n        \"name\": \"Korey Kreiger\",\n        \"tier\": \"prime\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:48.232Z\"\n      },\n      {\n        \"name\": \"Krystal Schultz\",\n        \"tier\": \"3000\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:48.122Z\"\n      },\n      {\n        \"name\": \"Shayna Mann\",\n        \"tier\": \"2000\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:47.865Z\"\n      },\n      {\n        \"name\": \"Margarita Bode\",\n        \"tier\": \"2000\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:47.567Z\"\n      },\n      {\n        \"name\": \"Shakira Heidenreich\",\n        \"tier\": \"2000\",\n        \"amount\": 38,\n        \"createdAt\": \"2018-12-06T15:54:47.511Z\"\n      },\n      {\n        \"name\": \"Pierre Hodkiewicz\",\n        \"tier\": \"2000\",\n        \"amount\": 26,\n        \"createdAt\": \"2018-12-06T15:54:47.454Z\"\n      },\n      {\n        \"name\": \"Mr. Maxine Dicki\",\n        \"tier\": \"prime\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:47.372Z\"\n      },\n      {\n        \"name\": \"King Rempel\",\n        \"tier\": \"1000\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:47.215Z\"\n      },\n      {\n        \"name\": \"Katelynn Runolfsson V\",\n        \"tier\": \"3000\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:47.101Z\"\n      },\n      {\n        \"name\": \"Mike Hermiston\",\n        \"tier\": \"prime\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:47.069Z\"\n      },\n      {\n        \"name\": \"Mr. Lilyan Lynch\",\n        \"tier\": \"2000\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:47.028Z\"\n      },\n      {\n        \"name\": \"Keon Kuphal Jr.\",\n        \"tier\": \"1000\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:46.916Z\"\n      },\n      {\n        \"name\": \"Florencio Stokes\",\n        \"tier\": \"3000\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:46.851Z\"\n      },\n      {\n        \"name\": \"Sandra Wolf\",\n        \"tier\": \"1000\",\n        \"amount\": 25,\n        \"createdAt\": \"2018-12-06T15:54:46.809Z\"\n      },\n      {\n        \"name\": \"Aurelie Stark\",\n        \"tier\": \"1000\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:46.77Z\"\n      },\n      {\n        \"name\": \"Vernon Mosciski\",\n        \"tier\": \"prime\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:46.725Z\"\n      },\n      {\n        \"name\": \"Makenna Hyatt\",\n        \"tier\": \"1000\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:46.683Z\"\n      },\n      {\n        \"name\": \"Jada Sipes\",\n        \"tier\": \"3000\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:46.635Z\"\n      },\n      {\n        \"name\": \"Ibrahim Mante\",\n        \"tier\": \"2000\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:46.514Z\"\n      },\n      {\n        \"name\": \"Kiera DuBuque\",\n        \"tier\": \"2000\",\n        \"amount\": 50,\n        \"createdAt\": \"2018-12-06T15:54:46.461Z\"\n      },\n      {\n        \"name\": \"Casimir Stamm\",\n        \"tier\": \"3000\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:46.417Z\"\n      }\n    ],\n    \"host-recent\": [\n      {\n        \"name\": \"Alysa Jast\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.618Z\"\n      },\n      {\n        \"name\": \"Billie Ankunding\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.655Z\"\n      },\n      {\n        \"name\": \"Emily Russel\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.649Z\"\n      },\n      {\n        \"name\": \"Rylee Larson\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.649Z\"\n      },\n      {\n        \"name\": \"Fanny Predovic\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:41.638Z\"\n      },\n      {\n        \"name\": \"Roma Fadel I\",\n        \"amount\": 1,\n        \"createdAt\": \"2018-12-06T15:54:41.641Z\"\n      },\n      {\n        \"name\": \"Carolyn Hilll\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.647Z\"\n      },\n      {\n        \"name\": \"Otis Predovic\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.635Z\"\n      },\n      {\n        \"name\": \"Cathryn Wehner\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.636Z\"\n      },\n      {\n        \"name\": \"Marcelle Vandervort\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.629Z\"\n      },\n      {\n        \"name\": \"Makenna Upton\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.614Z\"\n      },\n      {\n        \"name\": \"Noe Carroll\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.629Z\"\n      },\n      {\n        \"name\": \"Nicolas Wilkinson\",\n        \"amount\": 36,\n        \"createdAt\": \"2018-12-06T15:54:41.607Z\"\n      },\n      {\n        \"name\": \"Dr. Annetta Rolfson\",\n        \"amount\": 31,\n        \"createdAt\": \"2018-12-06T15:54:41.593Z\"\n      },\n      {\n        \"name\": \"Freeda Frami\",\n        \"amount\": 48,\n        \"createdAt\": \"2018-12-06T15:54:41.595Z\"\n      },\n      {\n        \"name\": \"Eleonore Hansen\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:41.584Z\"\n      },\n      {\n        \"name\": \"Mr. Rachael Bergstrom\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:40.095Z\"\n      },\n      {\n        \"name\": \"Lila Baumbach\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:40.097Z\"\n      },\n      {\n        \"name\": \"Ardith Parisian\",\n        \"amount\": 37,\n        \"createdAt\": \"2018-12-06T15:54:40.079Z\"\n      },\n      {\n        \"name\": \"Ottilie Abernathy\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:40.073Z\"\n      },\n      {\n        \"name\": \"Manuela Will\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:40.062Z\"\n      },\n      {\n        \"name\": \"Norwood Lang I\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:40.073Z\"\n      },\n      {\n        \"name\": \"Francesca Kautzer\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:40.068Z\"\n      },\n      {\n        \"name\": \"Christ Donnelly\",\n        \"amount\": 7,\n        \"createdAt\": \"2018-12-06T15:54:40.072Z\"\n      },\n      {\n        \"name\": \"Max Jakubowski\",\n        \"amount\": 11,\n        \"createdAt\": \"2018-12-06T15:54:40.061Z\"\n      }\n    ],\n    \"raid-recent\": [\n      {\n        \"name\": \"Clement Abernathy DDS\",\n        \"amount\": 49,\n        \"createdAt\": \"2018-12-06T15:54:41.634Z\"\n      },\n      {\n        \"name\": \"Miss Amya Senger\",\n        \"amount\": 26,\n        \"createdAt\": \"2018-12-06T15:54:41.601Z\"\n      },\n      {\n        \"name\": \"Dr. Clarabelle Douglas\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:41.658Z\"\n      },\n      {\n        \"name\": \"Velma Langosh\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:41.659Z\"\n      },\n      {\n        \"name\": \"Gerhard Konopelski\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:41.65Z\"\n      },\n      {\n        \"name\": \"Dario Bashirian\",\n        \"amount\": 37,\n        \"createdAt\": \"2018-12-06T15:54:41.637Z\"\n      },\n      {\n        \"name\": \"Ellie McDermott\",\n        \"amount\": 48,\n        \"createdAt\": \"2018-12-06T15:54:41.631Z\"\n      },\n      {\n        \"name\": \"Elsa Lynch\",\n        \"amount\": 7,\n        \"createdAt\": \"2018-12-06T15:54:41.639Z\"\n      },\n      {\n        \"name\": \"Trystan Purdy\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.646Z\"\n      },\n      {\n        \"name\": \"Louisa Maggio\",\n        \"amount\": 6,\n        \"createdAt\": \"2018-12-06T15:54:41.633Z\"\n      },\n      {\n        \"name\": \"Brittany Windler\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.619Z\"\n      },\n      {\n        \"name\": \"Emmet Von\",\n        \"amount\": 24,\n        \"createdAt\": \"2018-12-06T15:54:41.626Z\"\n      },\n      {\n        \"name\": \"Mrs. Brennon McDermott\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.613Z\"\n      },\n      {\n        \"name\": \"Aaron Kovacek\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.62Z\"\n      },\n      {\n        \"name\": \"Leone Runte\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.598Z\"\n      },\n      {\n        \"name\": \"Bonita Bruen\",\n        \"amount\": 37,\n        \"createdAt\": \"2018-12-06T15:54:41.608Z\"\n      },\n      {\n        \"name\": \"Patrick Crooks\",\n        \"amount\": 26,\n        \"createdAt\": \"2018-12-06T15:54:41.606Z\"\n      },\n      {\n        \"name\": \"Antwan Franecki\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.611Z\"\n      },\n      {\n        \"name\": \"Ines Wilderman\",\n        \"amount\": 38,\n        \"createdAt\": \"2018-12-06T15:54:41.601Z\"\n      },\n      {\n        \"name\": \"Marisol Reichert\",\n        \"amount\": 48,\n        \"createdAt\": \"2018-12-06T15:54:41.604Z\"\n      },\n      {\n        \"name\": \"Cullen Torp V\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.611Z\"\n      },\n      {\n        \"name\": \"Kristopher Romaguera\",\n        \"amount\": 36,\n        \"createdAt\": \"2018-12-06T15:54:41.585Z\"\n      },\n      {\n        \"name\": \"Sydnie Reynolds\",\n        \"amount\": 19,\n        \"createdAt\": \"2018-12-06T15:54:41.59Z\"\n      },\n      {\n        \"name\": \"Chase Funk\",\n        \"amount\": 27,\n        \"createdAt\": \"2018-12-06T15:54:41.597Z\"\n      },\n      {\n        \"name\": \"Kenny Hodkiewicz\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:41.593Z\"\n      }\n    ],\n    \"cheer-recent\": [\n      {\n        \"name\": \"Glenda Carter\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.648Z\"\n      },\n      {\n        \"name\": \"Liana Hettinger\",\n        \"amount\": 16,\n        \"createdAt\": \"2018-12-06T15:54:41.66Z\"\n      },\n      {\n        \"name\": \"Paolo Tromp\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.653Z\"\n      },\n      {\n        \"name\": \"Sylvan Ward\",\n        \"amount\": 29,\n        \"createdAt\": \"2018-12-06T15:54:41.654Z\"\n      },\n      {\n        \"name\": \"Cassidy Homenick\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.652Z\"\n      },\n      {\n        \"name\": \"Miss Dulce Koss\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.657Z\"\n      },\n      {\n        \"name\": \"Arlie DuBuque DVM\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:41.64Z\"\n      },\n      {\n        \"name\": \"Gustave Douglas\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.647Z\"\n      },\n      {\n        \"name\": \"Halle Koelpin\",\n        \"amount\": 24,\n        \"createdAt\": \"2018-12-06T15:54:41.641Z\"\n      },\n      {\n        \"name\": \"Chester Beer\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.638Z\"\n      },\n      {\n        \"name\": \"Otis Reynolds\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.632Z\"\n      },\n      {\n        \"name\": \"Daphnee Streich\",\n        \"amount\": 44,\n        \"createdAt\": \"2018-12-06T15:54:41.63Z\"\n      },\n      {\n        \"name\": \"Boris Rogahn\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.617Z\"\n      },\n      {\n        \"name\": \"Kole Grady\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.603Z\"\n      },\n      {\n        \"name\": \"Giles Nienow\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.605Z\"\n      },\n      {\n        \"name\": \"Iliana Windler\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.6Z\"\n      },\n      {\n        \"name\": \"Pamela Hartmann\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.605Z\"\n      },\n      {\n        \"name\": \"Kamryn Crooks\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.602Z\"\n      },\n      {\n        \"name\": \"Emil Braun\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.603Z\"\n      },\n      {\n        \"name\": \"Shyanne Brakus\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.592Z\"\n      },\n      {\n        \"name\": \"Miles Paucek\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.592Z\"\n      },\n      {\n        \"name\": \"Jennings Kuhic\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.582Z\"\n      },\n      {\n        \"name\": \"Karelle Strosin\",\n        \"amount\": 18,\n        \"createdAt\": \"2018-12-06T15:54:41.587Z\"\n      },\n      {\n        \"name\": \"Trey Halvorson\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:40.092Z\"\n      },\n      {\n        \"name\": \"Dwight Hermiston PhD\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:40.094Z\"\n      }\n    ],\n    \"tip-recent\": [\n      {\n        \"name\": \"Hank Grady\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:41.651Z\"\n      },\n      {\n        \"name\": \"Hobart Renner\",\n        \"amount\": 27,\n        \"createdAt\": \"2018-12-06T15:54:41.658Z\"\n      },\n      {\n        \"name\": \"Sophie Goyette DVM\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.64Z\"\n      },\n      {\n        \"name\": \"Cecilia Upton\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.646Z\"\n      },\n      {\n        \"name\": \"Kristian Berge\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.634Z\"\n      },\n      {\n        \"name\": \"Leopold Schamberger DDS\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.633Z\"\n      },\n      {\n        \"name\": \"Madelyn Leffler MD\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.628Z\"\n      },\n      {\n        \"name\": \"Sydni Kemmer MD\",\n        \"amount\": 19,\n        \"createdAt\": \"2018-12-06T15:54:41.613Z\"\n      },\n      {\n        \"name\": \"Verda Champlin\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.63Z\"\n      },\n      {\n        \"name\": \"Ms. Aniyah Bernhard\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.621Z\"\n      },\n      {\n        \"name\": \"Kristoffer Barton\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.624Z\"\n      },\n      {\n        \"name\": \"Aaron Bergstrom\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.616Z\"\n      },\n      {\n        \"name\": \"Jovan Hegmann\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:41.618Z\"\n      },\n      {\n        \"name\": \"Keely Hauck\",\n        \"amount\": 44,\n        \"createdAt\": \"2018-12-06T15:54:41.622Z\"\n      },\n      {\n        \"name\": \"Demetrius Sauer\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.614Z\"\n      },\n      {\n        \"name\": \"Miss Stacy Dietrich\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.6Z\"\n      },\n      {\n        \"name\": \"Devon Reilly\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.609Z\"\n      },\n      {\n        \"name\": \"Johanna McDermott\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:41.598Z\"\n      },\n      {\n        \"name\": \"Russell Runolfsdottir PhD\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.588Z\"\n      },\n      {\n        \"name\": \"Mr. Pietro Torphy\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:41.594Z\"\n      },\n      {\n        \"name\": \"Samanta Jacobson\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:41.58Z\"\n      },\n      {\n        \"name\": \"Aaron Blanda\",\n        \"amount\": 11,\n        \"createdAt\": \"2018-12-06T15:54:41.596Z\"\n      },\n      {\n        \"name\": \"Dameon Hickle\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.596Z\"\n      },\n      {\n        \"name\": \"Kali Swift\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.58Z\"\n      },\n      {\n        \"name\": \"Lamar Hills\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.584Z\"\n      }\n    ],\n    \"merch-recent\": [\n      {\n        \"name\": \"Arlene Pfeffer\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.653Z\"\n      },\n      {\n        \"name\": \"Julianne D'Amore\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.659Z\"\n      },\n      {\n        \"name\": \"Dina Herman\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:41.656Z\"\n      },\n      {\n        \"name\": \"Leanna Bergnaum\",\n        \"amount\": 38,\n        \"createdAt\": \"2018-12-06T15:54:41.643Z\"\n      },\n      {\n        \"name\": \"Monica Rogahn\",\n        \"amount\": 5,\n        \"createdAt\": \"2018-12-06T15:54:41.631Z\"\n      },\n      {\n        \"name\": \"Levi Hansen\",\n        \"amount\": 6,\n        \"createdAt\": \"2018-12-06T15:54:41.643Z\"\n      },\n      {\n        \"name\": \"Dr. Madisyn Smith\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:41.625Z\"\n      },\n      {\n        \"name\": \"Alexis Ebert PhD\",\n        \"amount\": 12,\n        \"createdAt\": \"2018-12-06T15:54:41.625Z\"\n      },\n      {\n        \"name\": \"Tyreek Eichmann\",\n        \"amount\": 14,\n        \"createdAt\": \"2018-12-06T15:54:41.62Z\"\n      },\n      {\n        \"name\": \"Rick Langosh\",\n        \"amount\": 18,\n        \"createdAt\": \"2018-12-06T15:54:41.626Z\"\n      },\n      {\n        \"name\": \"Era Kuphal\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:41.627Z\"\n      },\n      {\n        \"name\": \"Caleb Leannon\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.628Z\"\n      },\n      {\n        \"name\": \"Ofelia Muller\",\n        \"amount\": 34,\n        \"createdAt\": \"2018-12-06T15:54:41.606Z\"\n      },\n      {\n        \"name\": \"Alize Halvorson\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.608Z\"\n      },\n      {\n        \"name\": \"Doris Conn\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.607Z\"\n      },\n      {\n        \"name\": \"Neil D'Amore\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.612Z\"\n      },\n      {\n        \"name\": \"Jovanny Wisoky III\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:41.61Z\"\n      },\n      {\n        \"name\": \"Osbaldo Medhurst\",\n        \"amount\": 49,\n        \"createdAt\": \"2018-12-06T15:54:41.59Z\"\n      },\n      {\n        \"name\": \"Maci Anderson\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.579Z\"\n      },\n      {\n        \"name\": \"Gretchen Koepp\",\n        \"amount\": 6,\n        \"createdAt\": \"2018-12-06T15:54:41.581Z\"\n      },\n      {\n        \"name\": \"Candido Hudson\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:41.581Z\"\n      },\n      {\n        \"name\": \"Moriah Kautzer\",\n        \"amount\": 30,\n        \"createdAt\": \"2018-12-06T15:54:40.092Z\"\n      },\n      {\n        \"name\": \"Alfreda Shields\",\n        \"amount\": 27,\n        \"createdAt\": \"2018-12-06T15:54:40.08Z\"\n      },\n      {\n        \"name\": \"Mikel Kuphal\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:40.076Z\"\n      },\n      {\n        \"name\": \"Tod Rippin\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:40.081Z\"\n      }\n    ]\n  },\n  \"settings\": {\n    \"autoReset\": true,\n    \"calendar\": false\n  },\n  \"provider\": \"twitch\",\n  \"lastReset\": \"2018-12-07T17:06:55.661Z\",\n  \"_id\": \"5b2e2007760aeb3196487dc3\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-06-23T10:25:11.767Z\",\n  \"updatedAt\": \"2018-12-07T17:06:55.667Z\",\n  \"__v\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8330f8e5-b121-4f55-a4b2-10a80c70e0cb",
+          "name": "/:channel/settings",
+          "request": {
+            "name": "/:channel/settings",
+            "description": {
+              "content": "Get session settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":channel",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f9b8080-ff80-4339-bd2c-bd09d1ff768e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":channel",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"autoReset\": true,\n  \"calendar\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c70f64b5-eb99-4bec-b87e-2d290a1ba6d6",
+          "name": "/:channel/settings",
+          "request": {
+            "name": "/:channel/settings",
+            "description": {
+              "content": "Update session settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":channel",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f04adb71-807e-4bf7-ab42-bc886b751d1d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":channel",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"autoReset\": true,\n  \"calendar\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7888f769-d46b-48e5-a9ee-8b449652d508",
+          "name": "/:channel/reset",
+          "request": {
+            "name": "/:channel/reset",
+            "description": {
+              "content": "Reset session data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":channel",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ff5b28c-50cc-4871-9741-196e3516db08",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":channel",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"follower-latest\": {\n      \"name\": \"Emile Morissette\"\n    },\n    \"follower-session\": {\n      \"count\": 0\n    },\n    \"follower-week\": {\n      \"count\": 0\n    },\n    \"follower-month\": {\n      \"count\": 0\n    },\n    \"follower-goal\": {\n      \"amount\": 11\n    },\n    \"follower-total\": {\n      \"count\": 6\n    },\n    \"subscriber-latest\": {\n      \"name\": \"Marilyne Abshire\",\n      \"amount\": 17,\n      \"tier\": \"2000\",\n      \"message\": \"\",\n      \"sender\": null,\n      \"gifted\": null\n    },\n    \"subscriber-new-latest\": {\n      \"name\": \"\",\n      \"amount\": 0,\n      \"message\": \"\"\n    },\n    \"subscriber-resub-latest\": {\n      \"name\": \"\",\n      \"amount\": 0,\n      \"message\": \"\"\n    },\n    \"subscriber-gifted-latest\": {\n      \"name\": \"\",\n      \"amount\": 0,\n      \"message\": \"\"\n    },\n    \"subscriber-session\": {\n      \"count\": 0\n    },\n    \"subscriber-new-session\": {\n      \"count\": 0\n    },\n    \"subscriber-resub-session\": {\n      \"count\": 0\n    },\n    \"subscriber-gifted-session\": {\n      \"count\": 0\n    },\n    \"subscriber-week\": {\n      \"count\": 0\n    },\n    \"subscriber-month\": {\n      \"count\": 0\n    },\n    \"subscriber-goal\": {\n      \"amount\": 68\n    },\n    \"subscriber-total\": {\n      \"count\": 0\n    },\n    \"subscriber-points\": {\n      \"amount\": 0\n    },\n    \"subscriber-alltime-gifter\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"host-latest\": {\n      \"name\": \"Cathryn Wehner\",\n      \"amount\": 2\n    },\n    \"raid-latest\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-session\": {\n      \"amount\": 0\n    },\n    \"cheer-week\": {\n      \"amount\": 0\n    },\n    \"cheer-month\": {\n      \"amount\": 0\n    },\n    \"cheer-total\": {\n      \"amount\": 2759\n    },\n    \"cheer-count\": {\n      \"count\": 0\n    },\n    \"cheer-goal\": {\n      \"amount\": 246\n    },\n    \"cheer-latest\": {\n      \"name\": \"Halle Koelpin\",\n      \"amount\": 24,\n      \"message\": \"\"\n    },\n    \"cheer-session-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-weekly-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-monthly-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-alltime-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-session-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-weekly-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-monthly-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"cheer-alltime-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-latest\": {\n      \"name\": \"Ms. Aniyah Bernhard\",\n      \"amount\": 41,\n      \"message\": \"\"\n    },\n    \"tip-session-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-weekly-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-monthly-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-alltime-top-donation\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-session-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-weekly-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-monthly-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-alltime-top-donator\": {\n      \"name\": \"\",\n      \"amount\": 0\n    },\n    \"tip-session\": {\n      \"amount\": 0\n    },\n    \"tip-week\": {\n      \"amount\": 0\n    },\n    \"tip-month\": {\n      \"amount\": 0\n    },\n    \"tip-total\": {\n      \"amount\": 3415\n    },\n    \"tip-count\": {\n      \"count\": 0\n    },\n    \"tip-goal\": {\n      \"amount\": 279\n    },\n    \"merch-goal-orders\": {\n      \"amount\": 0\n    },\n    \"merch-goal-items\": {\n      \"amount\": 0\n    },\n    \"merch-goal-total\": {\n      \"amount\": 0\n    },\n    \"follower-recent\": [\n      {\n        \"name\": \"Josiane Dietrich\",\n        \"createdAt\": \"2018-12-06T15:54:41.635Z\"\n      },\n      {\n        \"name\": \"Noemi Powlowski\",\n        \"createdAt\": \"2018-12-06T15:54:41.639Z\"\n      },\n      {\n        \"name\": \"Norbert Rolfson MD\",\n        \"createdAt\": \"2018-12-06T15:54:41.636Z\"\n      },\n      {\n        \"name\": \"Christophe Connelly\",\n        \"createdAt\": \"2018-12-06T15:54:41.632Z\"\n      },\n      {\n        \"name\": \"Dameon Herzog\",\n        \"createdAt\": \"2018-12-06T15:54:41.642Z\"\n      },\n      {\n        \"name\": \"Ms. Damian Roob\",\n        \"createdAt\": \"2018-12-06T15:54:41.637Z\"\n      },\n      {\n        \"name\": \"Mr. Daisha Ankunding\",\n        \"createdAt\": \"2018-12-06T15:54:41.622Z\"\n      },\n      {\n        \"name\": \"Reva Padberg III\",\n        \"createdAt\": \"2018-12-06T15:54:41.623Z\"\n      },\n      {\n        \"name\": \"Odell Macejkovic\",\n        \"createdAt\": \"2018-12-06T15:54:41.617Z\"\n      },\n      {\n        \"name\": \"Clare Parisian\",\n        \"createdAt\": \"2018-12-06T15:54:41.619Z\"\n      },\n      {\n        \"name\": \"Torrance Marvin\",\n        \"createdAt\": \"2018-12-06T15:54:41.61Z\"\n      },\n      {\n        \"name\": \"Pat Schuster\",\n        \"createdAt\": \"2018-12-06T15:54:41.612Z\"\n      },\n      {\n        \"name\": \"Gardner Thompson\",\n        \"createdAt\": \"2018-12-06T15:54:41.609Z\"\n      },\n      {\n        \"name\": \"Emile Morissette\",\n        \"createdAt\": \"2018-12-06T15:54:41.604Z\"\n      },\n      {\n        \"name\": \"Gustave Casper\",\n        \"createdAt\": \"2018-12-06T15:54:41.601Z\"\n      },\n      {\n        \"name\": \"Demetris Emmerich\",\n        \"createdAt\": \"2018-12-06T15:54:41.599Z\"\n      },\n      {\n        \"name\": \"Pedro Ziemann\",\n        \"createdAt\": \"2018-12-06T15:54:41.591Z\"\n      },\n      {\n        \"name\": \"Hector Macejkovic\",\n        \"createdAt\": \"2018-12-06T15:54:41.597Z\"\n      },\n      {\n        \"name\": \"Ludie Klocko\",\n        \"createdAt\": \"2018-12-06T15:54:41.586Z\"\n      },\n      {\n        \"name\": \"Deven Kilback\",\n        \"createdAt\": \"2018-12-06T15:54:41.585Z\"\n      },\n      {\n        \"name\": \"Alanis Kub\",\n        \"createdAt\": \"2018-12-06T15:54:41.594Z\"\n      },\n      {\n        \"name\": \"Dr. Arturo Pagac\",\n        \"createdAt\": \"2018-12-06T15:54:40.077Z\"\n      },\n      {\n        \"name\": \"Mrs. Isaias Halvorson\",\n        \"createdAt\": \"2018-12-06T15:54:40.089Z\"\n      },\n      {\n        \"name\": \"Jerad Gottlieb\",\n        \"createdAt\": \"2018-12-06T15:54:40.093Z\"\n      },\n      {\n        \"name\": \"Bud Kozey\",\n        \"createdAt\": \"2018-12-06T15:54:40.088Z\"\n      }\n    ],\n    \"subscriber-recent\": [\n      {\n        \"name\": \"Marilyne Abshire\",\n        \"tier\": \"2000\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:48.768Z\"\n      },\n      {\n        \"name\": \"Verlie Nienow\",\n        \"tier\": \"prime\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:48.671Z\"\n      },\n      {\n        \"name\": \"Ansel Willms\",\n        \"tier\": \"prime\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:48.335Z\"\n      },\n      {\n        \"name\": \"Annetta D'Amore\",\n        \"tier\": \"2000\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:48.278Z\"\n      },\n      {\n        \"name\": \"Korey Kreiger\",\n        \"tier\": \"prime\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:48.232Z\"\n      },\n      {\n        \"name\": \"Krystal Schultz\",\n        \"tier\": \"3000\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:48.122Z\"\n      },\n      {\n        \"name\": \"Shayna Mann\",\n        \"tier\": \"2000\",\n        \"amount\": 32,\n        \"createdAt\": \"2018-12-06T15:54:47.865Z\"\n      },\n      {\n        \"name\": \"Margarita Bode\",\n        \"tier\": \"2000\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:47.567Z\"\n      },\n      {\n        \"name\": \"Shakira Heidenreich\",\n        \"tier\": \"2000\",\n        \"amount\": 38,\n        \"createdAt\": \"2018-12-06T15:54:47.511Z\"\n      },\n      {\n        \"name\": \"Pierre Hodkiewicz\",\n        \"tier\": \"2000\",\n        \"amount\": 26,\n        \"createdAt\": \"2018-12-06T15:54:47.454Z\"\n      },\n      {\n        \"name\": \"Mr. Maxine Dicki\",\n        \"tier\": \"prime\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:47.372Z\"\n      },\n      {\n        \"name\": \"King Rempel\",\n        \"tier\": \"1000\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:47.215Z\"\n      },\n      {\n        \"name\": \"Katelynn Runolfsson V\",\n        \"tier\": \"3000\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:47.101Z\"\n      },\n      {\n        \"name\": \"Mike Hermiston\",\n        \"tier\": \"prime\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:47.069Z\"\n      },\n      {\n        \"name\": \"Mr. Lilyan Lynch\",\n        \"tier\": \"2000\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:47.028Z\"\n      },\n      {\n        \"name\": \"Keon Kuphal Jr.\",\n        \"tier\": \"1000\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:46.916Z\"\n      },\n      {\n        \"name\": \"Florencio Stokes\",\n        \"tier\": \"3000\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:46.851Z\"\n      },\n      {\n        \"name\": \"Sandra Wolf\",\n        \"tier\": \"1000\",\n        \"amount\": 25,\n        \"createdAt\": \"2018-12-06T15:54:46.809Z\"\n      },\n      {\n        \"name\": \"Aurelie Stark\",\n        \"tier\": \"1000\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:46.77Z\"\n      },\n      {\n        \"name\": \"Vernon Mosciski\",\n        \"tier\": \"prime\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:46.725Z\"\n      },\n      {\n        \"name\": \"Makenna Hyatt\",\n        \"tier\": \"1000\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:46.683Z\"\n      },\n      {\n        \"name\": \"Jada Sipes\",\n        \"tier\": \"3000\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:46.635Z\"\n      },\n      {\n        \"name\": \"Ibrahim Mante\",\n        \"tier\": \"2000\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:46.514Z\"\n      },\n      {\n        \"name\": \"Kiera DuBuque\",\n        \"tier\": \"2000\",\n        \"amount\": 50,\n        \"createdAt\": \"2018-12-06T15:54:46.461Z\"\n      },\n      {\n        \"name\": \"Casimir Stamm\",\n        \"tier\": \"3000\",\n        \"amount\": 8,\n        \"createdAt\": \"2018-12-06T15:54:46.417Z\"\n      }\n    ],\n    \"host-recent\": [\n      {\n        \"name\": \"Alysa Jast\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.618Z\"\n      },\n      {\n        \"name\": \"Billie Ankunding\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.655Z\"\n      },\n      {\n        \"name\": \"Emily Russel\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.649Z\"\n      },\n      {\n        \"name\": \"Rylee Larson\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.649Z\"\n      },\n      {\n        \"name\": \"Fanny Predovic\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:41.638Z\"\n      },\n      {\n        \"name\": \"Roma Fadel I\",\n        \"amount\": 1,\n        \"createdAt\": \"2018-12-06T15:54:41.641Z\"\n      },\n      {\n        \"name\": \"Carolyn Hilll\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.647Z\"\n      },\n      {\n        \"name\": \"Otis Predovic\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.635Z\"\n      },\n      {\n        \"name\": \"Cathryn Wehner\",\n        \"amount\": 2,\n        \"createdAt\": \"2018-12-06T15:54:41.636Z\"\n      },\n      {\n        \"name\": \"Marcelle Vandervort\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.629Z\"\n      },\n      {\n        \"name\": \"Makenna Upton\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.614Z\"\n      },\n      {\n        \"name\": \"Noe Carroll\",\n        \"amount\": 40,\n        \"createdAt\": \"2018-12-06T15:54:41.629Z\"\n      },\n      {\n        \"name\": \"Nicolas Wilkinson\",\n        \"amount\": 36,\n        \"createdAt\": \"2018-12-06T15:54:41.607Z\"\n      },\n      {\n        \"name\": \"Dr. Annetta Rolfson\",\n        \"amount\": 31,\n        \"createdAt\": \"2018-12-06T15:54:41.593Z\"\n      },\n      {\n        \"name\": \"Freeda Frami\",\n        \"amount\": 48,\n        \"createdAt\": \"2018-12-06T15:54:41.595Z\"\n      },\n      {\n        \"name\": \"Eleonore Hansen\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:41.584Z\"\n      },\n      {\n        \"name\": \"Mr. Rachael Bergstrom\",\n        \"amount\": 45,\n        \"createdAt\": \"2018-12-06T15:54:40.095Z\"\n      },\n      {\n        \"name\": \"Lila Baumbach\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:40.097Z\"\n      },\n      {\n        \"name\": \"Ardith Parisian\",\n        \"amount\": 37,\n        \"createdAt\": \"2018-12-06T15:54:40.079Z\"\n      },\n      {\n        \"name\": \"Ottilie Abernathy\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:40.073Z\"\n      },\n      {\n        \"name\": \"Manuela Will\",\n        \"amount\": 28,\n        \"createdAt\": \"2018-12-06T15:54:40.062Z\"\n      },\n      {\n        \"name\": \"Norwood Lang I\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:40.073Z\"\n      },\n      {\n        \"name\": \"Francesca Kautzer\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:40.068Z\"\n      },\n      {\n        \"name\": \"Christ Donnelly\",\n        \"amount\": 7,\n        \"createdAt\": \"2018-12-06T15:54:40.072Z\"\n      },\n      {\n        \"name\": \"Max Jakubowski\",\n        \"amount\": 11,\n        \"createdAt\": \"2018-12-06T15:54:40.061Z\"\n      }\n    ],\n    \"raid-recent\": [],\n    \"cheer-recent\": [\n      {\n        \"name\": \"Glenda Carter\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.648Z\"\n      },\n      {\n        \"name\": \"Liana Hettinger\",\n        \"amount\": 16,\n        \"createdAt\": \"2018-12-06T15:54:41.66Z\"\n      },\n      {\n        \"name\": \"Paolo Tromp\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.653Z\"\n      },\n      {\n        \"name\": \"Sylvan Ward\",\n        \"amount\": 29,\n        \"createdAt\": \"2018-12-06T15:54:41.654Z\"\n      },\n      {\n        \"name\": \"Cassidy Homenick\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.652Z\"\n      },\n      {\n        \"name\": \"Miss Dulce Koss\",\n        \"amount\": 20,\n        \"createdAt\": \"2018-12-06T15:54:41.657Z\"\n      },\n      {\n        \"name\": \"Arlie DuBuque DVM\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:41.64Z\"\n      },\n      {\n        \"name\": \"Gustave Douglas\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.647Z\"\n      },\n      {\n        \"name\": \"Halle Koelpin\",\n        \"amount\": 24,\n        \"createdAt\": \"2018-12-06T15:54:41.641Z\"\n      },\n      {\n        \"name\": \"Chester Beer\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.638Z\"\n      },\n      {\n        \"name\": \"Otis Reynolds\",\n        \"amount\": 46,\n        \"createdAt\": \"2018-12-06T15:54:41.632Z\"\n      },\n      {\n        \"name\": \"Daphnee Streich\",\n        \"amount\": 44,\n        \"createdAt\": \"2018-12-06T15:54:41.63Z\"\n      },\n      {\n        \"name\": \"Boris Rogahn\",\n        \"amount\": 23,\n        \"createdAt\": \"2018-12-06T15:54:41.617Z\"\n      },\n      {\n        \"name\": \"Kole Grady\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.603Z\"\n      },\n      {\n        \"name\": \"Giles Nienow\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.605Z\"\n      },\n      {\n        \"name\": \"Iliana Windler\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.6Z\"\n      },\n      {\n        \"name\": \"Pamela Hartmann\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.605Z\"\n      },\n      {\n        \"name\": \"Kamryn Crooks\",\n        \"amount\": 21,\n        \"createdAt\": \"2018-12-06T15:54:41.602Z\"\n      },\n      {\n        \"name\": \"Emil Braun\",\n        \"amount\": 10,\n        \"createdAt\": \"2018-12-06T15:54:41.603Z\"\n      },\n      {\n        \"name\": \"Shyanne Brakus\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.592Z\"\n      },\n      {\n        \"name\": \"Miles Paucek\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.592Z\"\n      },\n      {\n        \"name\": \"Jennings Kuhic\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.582Z\"\n      },\n      {\n        \"name\": \"Karelle Strosin\",\n        \"amount\": 18,\n        \"createdAt\": \"2018-12-06T15:54:41.587Z\"\n      },\n      {\n        \"name\": \"Trey Halvorson\",\n        \"amount\": 42,\n        \"createdAt\": \"2018-12-06T15:54:40.092Z\"\n      },\n      {\n        \"name\": \"Dwight Hermiston PhD\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:40.094Z\"\n      }\n    ],\n    \"tip-recent\": [\n      {\n        \"name\": \"Hank Grady\",\n        \"amount\": 22,\n        \"createdAt\": \"2018-12-06T15:54:41.651Z\"\n      },\n      {\n        \"name\": \"Hobart Renner\",\n        \"amount\": 27,\n        \"createdAt\": \"2018-12-06T15:54:41.658Z\"\n      },\n      {\n        \"name\": \"Sophie Goyette DVM\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.64Z\"\n      },\n      {\n        \"name\": \"Cecilia Upton\",\n        \"amount\": 13,\n        \"createdAt\": \"2018-12-06T15:54:41.646Z\"\n      },\n      {\n        \"name\": \"Kristian Berge\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.634Z\"\n      },\n      {\n        \"name\": \"Leopold Schamberger DDS\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.633Z\"\n      },\n      {\n        \"name\": \"Madelyn Leffler MD\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.628Z\"\n      },\n      {\n        \"name\": \"Sydni Kemmer MD\",\n        \"amount\": 19,\n        \"createdAt\": \"2018-12-06T15:54:41.613Z\"\n      },\n      {\n        \"name\": \"Verda Champlin\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.63Z\"\n      },\n      {\n        \"name\": \"Ms. Aniyah Bernhard\",\n        \"amount\": 41,\n        \"createdAt\": \"2018-12-06T15:54:41.621Z\"\n      },\n      {\n        \"name\": \"Kristoffer Barton\",\n        \"amount\": 9,\n        \"createdAt\": \"2018-12-06T15:54:41.624Z\"\n      },\n      {\n        \"name\": \"Aaron Bergstrom\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.616Z\"\n      },\n      {\n        \"name\": \"Jovan Hegmann\",\n        \"amount\": 17,\n        \"createdAt\": \"2018-12-06T15:54:41.618Z\"\n      },\n      {\n        \"name\": \"Keely Hauck\",\n        \"amount\": 44,\n        \"createdAt\": \"2018-12-06T15:54:41.622Z\"\n      },\n      {\n        \"name\": \"Demetrius Sauer\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.614Z\"\n      },\n      {\n        \"name\": \"Miss Stacy Dietrich\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.6Z\"\n      },\n      {\n        \"name\": \"Devon Reilly\",\n        \"amount\": 33,\n        \"createdAt\": \"2018-12-06T15:54:41.609Z\"\n      },\n      {\n        \"name\": \"Johanna McDermott\",\n        \"amount\": 35,\n        \"createdAt\": \"2018-12-06T15:54:41.598Z\"\n      },\n      {\n        \"name\": \"Russell Runolfsdottir PhD\",\n        \"amount\": 39,\n        \"createdAt\": \"2018-12-06T15:54:41.588Z\"\n      },\n      {\n        \"name\": \"Mr. Pietro Torphy\",\n        \"amount\": 43,\n        \"createdAt\": \"2018-12-06T15:54:41.594Z\"\n      },\n      {\n        \"name\": \"Samanta Jacobson\",\n        \"amount\": 47,\n        \"createdAt\": \"2018-12-06T15:54:41.58Z\"\n      },\n      {\n        \"name\": \"Aaron Blanda\",\n        \"amount\": 11,\n        \"createdAt\": \"2018-12-06T15:54:41.596Z\"\n      },\n      {\n        \"name\": \"Dameon Hickle\",\n        \"amount\": 15,\n        \"createdAt\": \"2018-12-06T15:54:41.596Z\"\n      },\n      {\n        \"name\": \"Kali Swift\",\n        \"amount\": 3,\n        \"createdAt\": \"2018-12-06T15:54:41.58Z\"\n      },\n      {\n        \"name\": \"Lamar Hills\",\n        \"amount\": 4,\n        \"createdAt\": \"2018-12-06T15:54:41.584Z\"\n      }\n    ],\n    \"merch-recent\": []\n  },\n  \"settings\": {\n    \"autoReset\": true,\n    \"calendar\": false\n  },\n  \"_id\": \"5c0aa930de9a4cf194a14e05\",\n  \"provider\": \"twitch\",\n  \"lastReset\": \"2018-12-07T17:09:04.037Z\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-07T17:09:04.055Z\",\n  \"updatedAt\": \"2018-12-07T17:09:04.055Z\",\n  \"__v\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdb4eb0b-5f70-4aa1-b5e6-6d625d408fe8",
+          "name": "/:channel/top",
+          "request": {
+            "name": "/:channel/top",
+            "description": {
+              "content": "Get top events from aggregates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":channel",
+                "top"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) integer - Max number of returned events"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) integer - starting element"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) string - Possible values: alltime, monthly, weekly, session"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) string - Possible values: tip, cheer, stars, embers,"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3158ff52-575a-4bee-bf31-e3b9baf9c431",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":channel",
+                    "top"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "alltime"
+                    },
+                    {
+                      "key": "type",
+                      "value": "tip"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5bbe95b4-d35f-4bed-883d-14b0c9f5a5d6",
+    "name": "SE API Docs activities sessions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

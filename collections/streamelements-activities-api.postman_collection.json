@@ -1,0 +1,1173 @@
+{
+  "item": [
+    {
+      "id": "f8981f9b-b8c7-411e-8b01-66b5bc0c3201",
+      "name": "activities",
+      "description": {
+        "content": "Endpoints to interract with activities collected by StreamElements",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "444177a9-441e-4a57-9415-77311c2d60e0",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "List channel activities",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "activities",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<integer>",
+                  "description": "(Required) datetime - Start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<long>",
+                  "description": "(Required) datetime - End date"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) integer - events per page between 1 and 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "mincheer",
+                  "value": "<integer>",
+                  "description": "(Required) integer - minimum amount of bits in cheer"
+                },
+                {
+                  "disabled": false,
+                  "key": "minhost",
+                  "value": "<integer>",
+                  "description": "(Required) integer - minimum amount of viewers in host"
+                },
+                {
+                  "disabled": false,
+                  "key": "minsub",
+                  "value": "<integer>",
+                  "description": "(Required) integer - minimum amount of subscription's months"
+                },
+                {
+                  "disabled": false,
+                  "key": "mintip",
+                  "value": "<integer>",
+                  "description": "(Required) integer - minimum amount of tip"
+                },
+                {
+                  "disabled": false,
+                  "key": "origin",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>",
+                  "description": "(Required) array - Possible values: follow, tip, host, cheer, redemption, raid, superchat, sponsor, merch"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "tips:read tips:write activities:read activities:write loyalty:read loyalty:write overlays:read overlays:write store:read store:write bot:read bot:write session:read contest:read contest:write giveaway:read giveaway:write"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.streamelements.com/oauth2/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.streamelements.com/oauth2/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ced817af-8974-41e1-9184-c25582d0c46d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "0"
+                    },
+                    {
+                      "key": "before",
+                      "value": "1544178274000"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "mincheer",
+                      "value": "0"
+                    },
+                    {
+                      "key": "minhost",
+                      "value": "0"
+                    },
+                    {
+                      "key": "minsub",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mintip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "origin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "[follow, tip, sponsor, superchat, host, raid, subscriber, cheer, redemption, merch]"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"data\": {\n      \"username\": \"Toy Bosco\",\n      \"amount\": 33,\n      \"message\": \"\",\n      \"tier\": \"3000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4cebcca14be8\",\n    \"type\": \"merch\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-06T01:28:27.648Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Hellen Rohan\",\n      \"amount\": 28,\n      \"message\": \"\",\n      \"tier\": \"2000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c2d6ea14b81\",\n    \"type\": \"cheer\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-06T01:03:03.148Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Katelynn Runolfsson V\",\n      \"amount\": 43,\n      \"message\": \"\",\n      \"tier\": \"3000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4cd73da14c0c\",\n    \"type\": \"subscriber\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T19:59:50.002Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Pinkie Lowe\",\n      \"amount\": 45,\n      \"message\": \"\",\n      \"tier\": \"prime\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c7a54a14cf5\",\n    \"type\": \"cheer\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T17:50:59.294Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Velma Langosh\",\n      \"amount\": 8,\n      \"message\": \"\",\n      \"tier\": \"3000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c2ae4a14b68\",\n    \"type\": \"raid\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T17:32:09.468Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Amya Kilback\",\n      \"amount\": 35,\n      \"message\": \"\",\n      \"tier\": \"1000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c49b2a14c65\",\n    \"type\": \"raid\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T16:12:40.253Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Rosemary Beatty\",\n      \"amount\": 22,\n      \"message\": \"\",\n      \"tier\": \"3000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c0ddaa14bcd\",\n    \"type\": \"redemption\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T14:16:44.503Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Emma O'Connell PhD\",\n      \"amount\": 8,\n      \"message\": \"\",\n      \"tier\": \"prime\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c18b5a14d1b\",\n    \"type\": \"tip\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T14:01:16.581Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Halie Hamill\",\n      \"amount\": 20,\n      \"message\": \"\",\n      \"tier\": \"1000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c78efa14b65\",\n    \"type\": \"merch\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T13:58:26.849Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Gretchen Koepp\",\n      \"amount\": 6,\n      \"message\": \"\",\n      \"tier\": \"2000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4cf882a14c15\",\n    \"type\": \"merch\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T12:02:09.516Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Kayli Greenholt\",\n      \"amount\": 37,\n      \"message\": \"\",\n      \"tier\": \"prime\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c3c2da14bb8\",\n    \"type\": \"host\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T10:21:32.894Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Aniyah Cronin\",\n      \"amount\": 2,\n      \"message\": \"\",\n      \"tier\": \"1000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c0e5ea14ce8\",\n    \"type\": \"merch\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T08:01:05.618Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Chester Beer\",\n      \"amount\": 39,\n      \"message\": \"\",\n      \"tier\": \"prime\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c02daa14bc3\",\n    \"type\": \"cheer\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-05T03:55:39.572Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Jeramy Stark V\",\n      \"amount\": 21,\n      \"message\": \"\",\n      \"tier\": \"3000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c8737a14beb\",\n    \"type\": \"merch\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T17:33:30.369Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Augustus Crona DVM\",\n      \"amount\": 9,\n      \"message\": \"\",\n      \"tier\": \"1000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c6e75a14c86\",\n    \"type\": \"tip\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T17:16:39.223Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Max Jakubowski\",\n      \"amount\": 11,\n      \"message\": \"\",\n      \"tier\": \"1000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c719ea14b9e\",\n    \"type\": \"host\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T16:06:41.439Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Junius Tremblay\",\n      \"amount\": 3,\n      \"message\": \"\",\n      \"tier\": \"1000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c3caba14c55\",\n    \"type\": \"follow\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T16:03:53.523Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Kali Swift\",\n      \"amount\": 3,\n      \"message\": \"\",\n      \"tier\": \"prime\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c3ccca14d30\",\n    \"type\": \"tip\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T15:28:19.542Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Patrick Kohler\",\n      \"amount\": 19,\n      \"message\": \"\",\n      \"tier\": \"2000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c2d71a14c28\",\n    \"type\": \"redemption\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T14:37:28.669Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Sydni Kemmer MD\",\n      \"amount\": 19,\n      \"message\": \"\",\n      \"tier\": \"2000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c347ea14d0e\",\n    \"type\": \"tip\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T09:50:17.756Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Jordi Johns\",\n      \"amount\": 3,\n      \"message\": \"\",\n      \"tier\": \"prime\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c486ca14b7f\",\n    \"type\": \"redemption\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-04T01:34:12.037Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Mr. Rachael Bergstrom\",\n      \"amount\": 45,\n      \"message\": \"\",\n      \"tier\": \"3000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c2001a14c7f\",\n    \"type\": \"host\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-03T23:46:26.492Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Osbaldo Medhurst\",\n      \"amount\": 49,\n      \"message\": \"\",\n      \"tier\": \"2000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4cab54a14c63\",\n    \"type\": \"merch\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-03T22:02:52.622Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Emily Russel\",\n      \"amount\": 21,\n      \"message\": \"\",\n      \"tier\": \"1000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4cf0f0a14c21\",\n    \"type\": \"host\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-03T19:12:54.925Z\"\n  },\n  {\n    \"data\": {\n      \"username\": \"Marco Keeling\",\n      \"amount\": 35,\n      \"message\": \"\",\n      \"tier\": \"3000\",\n      \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n    },\n    \"provider\": \"twitch\",\n    \"_id\": \"5c09463bde9a4c62d5a14d3d\",\n    \"type\": \"tip\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-03T18:45:38.679Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e8432c7-bb40-4ea7-92a5-f8db1f2a292d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "0"
+                    },
+                    {
+                      "key": "before",
+                      "value": "1544178274000"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "mincheer",
+                      "value": "0"
+                    },
+                    {
+                      "key": "minhost",
+                      "value": "0"
+                    },
+                    {
+                      "key": "minsub",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mintip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "origin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "[follow, tip, sponsor, superchat, host, raid, subscriber, cheer, redemption, merch]"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"types\\\" fails because [\\\"types\\\" must be an array, \\\"types\\\" is not allowed to be empty, \\\"types\\\" must be one of [follow, tip, sponsor, superchat, host, raid, subscriber, cheer, redemption, merch]]. child \\\"limit\\\" fails because [\\\"limit\\\" must be a number]. child \\\"after\\\" fails because [\\\"after\\\" must be a number of milliseconds or valid date string]. child \\\"before\\\" fails because [\\\"before\\\" must be a number of milliseconds or valid date string]. child \\\"origin\\\" fails because [\\\"origin\\\" is not allowed to be empty]. child \\\"minhost\\\" fails because [\\\"minhost\\\" must be a number]. child \\\"mintip\\\" fails because [\\\"mintip\\\" must be a number]. child \\\"mincheer\\\" fails because [\\\"mincheer\\\" must be a number]. child \\\"minsub\\\" fails because [\\\"minsub\\\" must be a number]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"types\"\n      ],\n      \"message\": \"\\\"types\\\" must be an array\"\n    },\n    {\n      \"path\": [\n        \"types\"\n      ],\n      \"message\": \"\\\"types\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"types\"\n      ],\n      \"message\": \"\\\"types\\\" must be one of [follow, tip, sponsor, superchat, host, raid, subscriber, cheer, redemption, merch]\"\n    },\n    {\n      \"path\": [\n        \"limit\"\n      ],\n      \"message\": \"\\\"limit\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"after\"\n      ],\n      \"message\": \"\\\"after\\\" must be a number of milliseconds or valid date string\"\n    },\n    {\n      \"path\": [\n        \"before\"\n      ],\n      \"message\": \"\\\"before\\\" must be a number of milliseconds or valid date string\"\n    },\n    {\n      \"path\": [\n        \"origin\"\n      ],\n      \"message\": \"\\\"origin\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"minhost\"\n      ],\n      \"message\": \"\\\"minhost\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"mintip\"\n      ],\n      \"message\": \"\\\"mintip\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"mincheer\"\n      ],\n      \"message\": \"\\\"mincheer\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"minsub\"\n      ],\n      \"message\": \"\\\"minsub\\\" must be a number\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2939db3b-d2b2-4e90-893c-c32b6342c409",
+          "name": "/:channel/top",
+          "request": {
+            "name": "/:channel/top",
+            "description": {
+              "content": "List channel's top activities by selected type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "activities",
+                ":channel",
+                "top"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) integer - starting element"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) integer - number of events"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) string - Possible values: cheer, tip"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) string - Possible values: alltime, months, weeks, session"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa185d22-fc8a-4579-a99b-944e4ac8807c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    "top"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "type",
+                      "value": "tip"
+                    },
+                    {
+                      "key": "period",
+                      "value": "alltime"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"total\": 50,\n    \"username\": \"Thurman Borer\"\n  },\n  {\n    \"total\": 50,\n    \"username\": \"Demarco Okuneva\"\n  },\n  {\n    \"total\": 49,\n    \"username\": \"Mr. Emile Sawayn\"\n  },\n  {\n    \"total\": 49,\n    \"username\": \"Ilene Wiegand\"\n  },\n  {\n    \"total\": 49,\n    \"username\": \"Dr. Macey Lakin\"\n  },\n  {\n    \"total\": 48,\n    \"username\": \"Quinten Ondricka\"\n  },\n  {\n    \"total\": 48,\n    \"username\": \"Audrey Heidenreich\"\n  },\n  {\n    \"total\": 48,\n    \"username\": \"Reymundo Mueller\"\n  },\n  {\n    \"total\": 47,\n    \"username\": \"Bradford Erdman\"\n  },\n  {\n    \"total\": 47,\n    \"username\": \"Jakayla Littel\"\n  },\n  {\n    \"total\": 47,\n    \"username\": \"Samanta Jacobson\"\n  },\n  {\n    \"total\": 46,\n    \"username\": \"Mr. Melyssa Block\"\n  },\n  {\n    \"total\": 46,\n    \"username\": \"Ana Erdman\"\n  },\n  {\n    \"total\": 45,\n    \"username\": \"Monserrat Streich\"\n  },\n  {\n    \"total\": 45,\n    \"username\": \"Emilie Bartell\"\n  },\n  {\n    \"total\": 45,\n    \"username\": \"Kellen Robel\"\n  },\n  {\n    \"total\": 45,\n    \"username\": \"Eleanore Reinger\"\n  },\n  {\n    \"total\": 45,\n    \"username\": \"Linda Homenick\"\n  },\n  {\n    \"total\": 44,\n    \"username\": \"Mylene Daugherty\"\n  },\n  {\n    \"total\": 44,\n    \"username\": \"Ashly Okuneva\"\n  },\n  {\n    \"total\": 44,\n    \"username\": \"Rocio Goodwin\"\n  },\n  {\n    \"total\": 44,\n    \"username\": \"Stacy O'Keefe\"\n  },\n  {\n    \"total\": 44,\n    \"username\": \"Emelie Tremblay\"\n  },\n  {\n    \"total\": 44,\n    \"username\": \"Pearline Nienow\"\n  },\n  {\n    \"total\": 44,\n    \"username\": \"Keely Hauck\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdddfd22-1951-4bb8-829b-7173d30db737",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    "top"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "type",
+                      "value": "tip"
+                    },
+                    {
+                      "key": "period",
+                      "value": "alltime"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"limit\\\" fails because [\\\"limit\\\" must be a number]. child \\\"offset\\\" fails because [\\\"offset\\\" must be a number]. child \\\"period\\\" fails because [\\\"period\\\" is not allowed to be empty, \\\"period\\\" must be one of [alltime, months, weeks, session]]. child \\\"type\\\" fails because [\\\"type\\\" is not allowed to be empty, \\\"type\\\" must be one of [cheer, tip]]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"limit\"\n      ],\n      \"message\": \"\\\"limit\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"offset\"\n      ],\n      \"message\": \"\\\"offset\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"period\"\n      ],\n      \"message\": \"\\\"period\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"period\"\n      ],\n      \"message\": \"\\\"period\\\" must be one of [alltime, months, weeks, session]\"\n    },\n    {\n      \"path\": [\n        \"type\"\n      ],\n      \"message\": \"\\\"type\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"type\"\n      ],\n      \"message\": \"\\\"type\\\" must be one of [cheer, tip]\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84cf76b7-05a2-4e85-9af4-6badd788a8b4",
+          "name": "/:channel/:activityId",
+          "request": {
+            "name": "/:channel/:activityId",
+            "description": {
+              "content": "Get activity details by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "activities",
+                ":channel",
+                ":activityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "activityId",
+                  "description": "(Required) guid - Activity id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b959fe49-095d-40e8-bcbf-1b5e5b7d480a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    ":activityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "activityId",
+                      "description": "(Required) guid - Activity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"username\": \"Hellen Rohan\",\n    \"amount\": 28,\n    \"message\": \"\",\n    \"tier\": \"2000\",\n    \"avatar\": \"https://cdn.streamelements.com/static/default-avatar.png\"\n  },\n  \"provider\": \"twitch\",\n  \"_id\": \"5c09463bde9a4c2d6ea14b81\",\n  \"type\": \"cheer\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-06T01:03:03.148Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15901f07-21b7-4ee0-ab5a-5e08e6befcfd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    ":activityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "activityId",
+                      "description": "(Required) guid - Activity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"activityId\\\" fails because [\\\"activityId\\\" with value \\\"test\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"activityId\"\n      ],\n      \"message\": \"\\\"activityId\\\" with value \\\"test\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b94f8856-0096-4122-8ab8-483ebb79fd4d",
+          "name": "/:channel/:activityId1",
+          "request": {
+            "name": "/:channel/:activityId1",
+            "description": {
+              "content": "Update activity id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "activities",
+                ":channel",
+                ":activityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "activityId",
+                  "description": "(Required) guid - Activity id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e16c8ad4-b704-45e6-9e74-57e7a978634b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    ":activityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "activityId",
+                      "description": "(Required) guid - Activity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6abd82a0-074d-4e7e-92fa-0a2977a7171e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    ":activityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "activityId",
+                      "description": "(Required) guid - Activity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"activityId\\\" fails because [\\\"activityId\\\" with value \\\"test\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"activityId\"\n      ],\n      \"message\": \"\\\"activityId\\\" with value \\\"test\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9525aed-9bb6-47bf-bdde-212f56df2cad",
+          "name": "/:channel/:activityId/replay",
+          "request": {
+            "name": "/:channel/:activityId/replay",
+            "description": {
+              "content": "Replay activity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "activities",
+                ":channel",
+                ":activityId",
+                "replay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "activityId",
+                  "description": "(Required) guid - Activity id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d8c8517-c71e-4167-b5fc-bdd875195d5f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    ":activityId",
+                    "replay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "activityId",
+                      "description": "(Required) guid - Activity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Vary",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0bb0b26-3784-4101-98f7-5d25e45a5214",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    ":activityId",
+                    "replay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "activityId",
+                      "description": "(Required) guid - Activity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"activityId\\\" fails because [\\\"activityId\\\" with value \\\"replay\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"activityId\"\n      ],\n      \"message\": \"\\\"activityId\\\" with value \\\"replay\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5dcd066e-1610-4a3a-b01a-94e1497f13c6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":channel",
+                    ":activityId",
+                    "replay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "activityId",
+                      "description": "(Required) guid - Activity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e5087acd-762c-483e-a49c-fcdc2302a818",
+    "name": "SE API Docs activities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

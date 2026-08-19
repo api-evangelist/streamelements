@@ -1,8 +1,8 @@
 generated: '2026-07-21'
 method: derived
 status: candidate
-note: No official StreamElements MCP server was found. Candidate tool list derived one-per-operation from the OpenAPI;
-  not an endorsed server.
+note: No official StreamElements MCP server was found. Candidate tool list derived one-per-operation from
+  the OpenAPI; not an endorsed server.
 server:
   name: streamelements
   transport: stdio
@@ -258,58 +258,58 @@ tools:
   source_operation: openapi/streamelements-openapi-original.yml# GET /contests/{channel}/history
   tag: contests
 - name: get_giveaways_channel_giveawayId
-  description: 'Get giveaway details. This endpoint is available only in the API version 3. Make sure to use the
-    v3 base URL: https://ap'
+  description: 'Get giveaway details. This endpoint is available only in the API version 3. Make sure
+    to use the v3 base URL: https://ap'
   source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}/{giveawayId}
   tag: single giveaway
 - name: post_giveaways_channel_giveawayId
-  description: 'Create a new Giveaway This endpoint is available only in the API version 3. Make sure to use the
-    v3 base URL: https://ap'
+  description: 'Create a new Giveaway This endpoint is available only in the API version 3. Make sure
+    to use the v3 base URL: https://ap'
   source_operation: openapi/streamelements-openapi-original.yml# POST /giveaways/{channel}/{giveawayId}
   tag: single giveaway
 - name: put_giveaways_channel_giveawayId
-  description: 'Update giveaway details This endpoint is available only in the API version 3. Make sure to use the
-    v3 base URL: https://'
+  description: 'Update giveaway details This endpoint is available only in the API version 3. Make sure
+    to use the v3 base URL: https://'
   source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}
   tag: single giveaway
 - name: delete_giveaways_channel_giveawayId
-  description: 'Delete Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
-    URL: https://api.stre'
+  description: 'Delete Giveaway This endpoint is available only in the API version 3. Make sure to use
+    the v3 base URL: https://api.stre'
   source_operation: openapi/streamelements-openapi-original.yml# DELETE /giveaways/{channel}/{giveawayId}
   tag: single giveaway
 - name: get_giveaways_channel_giveawayId_joined
-  description: 'List joined users in giveaway This endpoint is available only in the API version 3. Make sure to
-    use the v3 base URL: ht'
+  description: 'List joined users in giveaway This endpoint is available only in the API version 3. Make
+    sure to use the v3 base URL: ht'
   source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}/{giveawayId}/joined
   tag: single giveaway
 - name: put_giveaways_channel_giveawayId_start
-  description: 'Start a Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
-    URL: https://api.str'
+  description: 'Start a Giveaway This endpoint is available only in the API version 3. Make sure to use
+    the v3 base URL: https://api.str'
   source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/start
   tag: single giveaway
 - name: put_giveaways_channel_giveawayId_winner
-  description: 'Draw a Giveaway winner This endpoint is available only in the API version 3. Make sure to use the
-    v3 base URL: https://a'
+  description: 'Draw a Giveaway winner This endpoint is available only in the API version 3. Make sure
+    to use the v3 base URL: https://a'
   source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/winner
   tag: single giveaway
 - name: put_giveaways_channel_giveawayId_complete
-  description: 'Mark Giveaway as complete This endpoint is available only in the API version 3. Make sure to use
-    the v3 base URL: https:'
+  description: 'Mark Giveaway as complete This endpoint is available only in the API version 3. Make sure
+    to use the v3 base URL: https:'
   source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/complete
   tag: single giveaway
 - name: put_giveaways_channel_giveawayId_reopen
-  description: 'Reopen Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
-    URL: https://api.stre'
+  description: 'Reopen Giveaway This endpoint is available only in the API version 3. Make sure to use
+    the v3 base URL: https://api.stre'
   source_operation: openapi/streamelements-openapi-original.yml# PUT /giveaways/{channel}/{giveawayId}/reopen
   tag: single giveaway
 - name: delete_giveaways_channel_giveawayId_refund
-  description: 'Refund Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
-    URL: https://api.stre'
+  description: 'Refund Giveaway This endpoint is available only in the API version 3. Make sure to use
+    the v3 base URL: https://api.stre'
   source_operation: openapi/streamelements-openapi-original.yml# DELETE /giveaways/{channel}/{giveawayId}/refund
   tag: single giveaway
 - name: delete_giveaways_channel_giveawayId_close
-  description: 'Close Giveaway This endpoint is available only in the API version 3. Make sure to use the v3 base
-    URL: https://api.strea'
+  description: 'Close Giveaway This endpoint is available only in the API version 3. Make sure to use
+    the v3 base URL: https://api.strea'
   source_operation: openapi/streamelements-openapi-original.yml# DELETE /giveaways/{channel}/{giveawayId}/close
   tag: single giveaway
 - name: get_giveaways_channel
@@ -317,13 +317,13 @@ tools:
   source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}
   tag: giveaways
 - name: post_giveaways_channel
-  description: 'Create a new Giveaway This endpoint is available only in the API version 3. Make sure to use the
-    v3 base URL: https://ap'
+  description: 'Create a new Giveaway This endpoint is available only in the API version 3. Make sure
+    to use the v3 base URL: https://ap'
   source_operation: openapi/streamelements-openapi-original.yml# POST /giveaways/{channel}
   tag: giveaways
 - name: get_giveaways_channel_history
-  description: 'List previous giveaways This endpoint is available only in the API version 3. Make sure to use the
-    v3 base URL: https://'
+  description: 'List previous giveaways This endpoint is available only in the API version 3. Make sure
+    to use the v3 base URL: https://'
   source_operation: openapi/streamelements-openapi-original.yml# GET /giveaways/{channel}/history
   tag: giveaways
 - name: get_loyalty_channel
@@ -570,3 +570,9 @@ tools:
   description: List channel's access list
   source_operation: openapi/streamelements-openapi-original.yml# GET /users/access
   tag: users
+deployment:
+  mode: none
+  verified: derived
+  tools: 137
+  checked: '2026-08-12'
+  source: catalog MCP census

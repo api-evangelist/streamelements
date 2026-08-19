@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities overlays API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "overlays",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/overlays/:channel",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "List overlays"
+        },
+        {
+          "info": {
+            "name": "/:channel/:overlayId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/overlays/:channel/:overlayId",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "overlayId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Overlay id"
+              }
+            ]
+          },
+          "docs": "Gets overlay details with all widgets on it"
+        },
+        {
+          "info": {
+            "name": "/:channel/reload",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/overlays/:channel/reload",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "Reloads overlays for channel"
+        },
+        {
+          "info": {
+            "name": "/:channel/action/:action",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.streamelements.com/kappa/v2/overlays/:channel/action/:action",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "path",
+                "description": "string - one of reload, mute, unmute, pause, play"
+              }
+            ]
+          },
+          "docs": "Overlay/Alerts control"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

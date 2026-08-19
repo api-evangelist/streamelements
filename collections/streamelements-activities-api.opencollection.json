@@ -1,0 +1,214 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/:channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/activities/:channel",
+            "params": [
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "datetime - Start date"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "datetime - End date"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - events per page between 1 and 100"
+              },
+              {
+                "name": "mincheer",
+                "value": "",
+                "type": "query",
+                "description": "integer - minimum amount of bits in cheer"
+              },
+              {
+                "name": "minhost",
+                "value": "",
+                "type": "query",
+                "description": "integer - minimum amount of viewers in host"
+              },
+              {
+                "name": "minsub",
+                "value": "",
+                "type": "query",
+                "description": "integer - minimum amount of subscription's months"
+              },
+              {
+                "name": "mintip",
+                "value": "",
+                "type": "query",
+                "description": "integer - minimum amount of tip"
+              },
+              {
+                "name": "origin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "array - Possible values: follow, tip, host, cheer, redemption, raid, superchat, sponsor, merch"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "List channel activities"
+        },
+        {
+          "info": {
+            "name": "/:channel/top",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/activities/:channel/top",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "integer - starting element"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - number of events"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "string - Possible values: cheer, tip"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "string - Possible values: alltime, months, weeks, session"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              }
+            ]
+          },
+          "docs": "List channel's top activities by selected type"
+        },
+        {
+          "info": {
+            "name": "/:channel/:activityId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/activities/:channel/:activityId",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "activityId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Activity id"
+              }
+            ]
+          },
+          "docs": "Get activity details by id"
+        },
+        {
+          "info": {
+            "name": "/:channel/:activityId1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/activities/:channel/:activityId",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "activityId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Activity id"
+              }
+            ]
+          },
+          "docs": "Update activity id"
+        },
+        {
+          "info": {
+            "name": "/:channel/:activityId/replay",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.streamelements.com/kappa/v2/activities/:channel/:activityId/replay",
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "path",
+                "description": "guid - Channel id"
+              },
+              {
+                "name": "activityId",
+                "value": "",
+                "type": "path",
+                "description": "guid - Activity id"
+              }
+            ]
+          },
+          "docs": "Replay activity"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

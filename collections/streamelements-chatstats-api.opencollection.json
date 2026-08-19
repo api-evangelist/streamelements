@@ -1,0 +1,200 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SE API Docs activities chatstats API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "chatstats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/chatstats",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - Number of items per page"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "integer - Number of items to be skipped"
+              }
+            ]
+          },
+          "docs": "Get global chatstats"
+        },
+        {
+          "info": {
+            "name": "/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/chatstats/search",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "channel",
+                "value": "",
+                "type": "query",
+                "description": "string - Channel name"
+              }
+            ]
+          },
+          "docs": "Search for channel by channel name"
+        },
+        {
+          "info": {
+            "name": "/:username",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/chatstats/:username",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "string - Channel name"
+              }
+            ]
+          },
+          "docs": "Get stats for channel name"
+        },
+        {
+          "info": {
+            "name": "/:username/epm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/chatstats/:username/epm",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - number of items to be shown"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get channel's \"emotes per minute\""
+        },
+        {
+          "info": {
+            "name": "/:username/stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/chatstats/:username/stats",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "integer - Number of items to be shown"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "string - Channel name"
+              }
+            ]
+          },
+          "docs": "Get channels stats"
+        },
+        {
+          "info": {
+            "name": "/:username/:category/:item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.streamelements.com/kappa/v2/chatstats/:username/:category/:item",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "item",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get channels details linked to provided URL"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

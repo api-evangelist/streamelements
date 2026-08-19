@@ -1,0 +1,1985 @@
+{
+  "item": [
+    {
+      "id": "38e1b9aa-2344-4c67-8d3f-dda73f826f3e",
+      "name": "songrequests",
+      "description": {
+        "content": "Endpoints to interact with StreamElements Mediashare",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07fed6e5-2d85-40be-805c-041b6699283c",
+          "name": "/playing",
+          "request": {
+            "name": "/playing",
+            "description": {},
+            "url": {
+              "path": [
+                "songrequest",
+                "playing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "room",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07845962-0a41-4bbc-8a8d-ccfeef9d4a5f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    "playing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "room",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4074e78-50e2-4c68-a1ea-1a4120e5c1c0",
+          "name": "/youtube",
+          "request": {
+            "name": "/youtube",
+            "description": {
+              "content": "Get song details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                "youtube"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "videoId",
+                  "value": "<string>",
+                  "description": "(Required) string - YouTube video ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "(Required) string - phrase to search"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e2ba10e-72d1-4417-9e6c-902ab460dcb5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    "youtube"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "videoId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"videoId\": \"dQw4w9WgXcQ\",\n    \"thumbnail\": \"https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg\",\n    \"title\": \"Rick Astley - Never Gonna Give You Up (Video)\"\n  },\n  {\n    \"videoId\": \"6_b7RDuLwcI\",\n    \"thumbnail\": \"https://i.ytimg.com/vi/6_b7RDuLwcI/default.jpg\",\n    \"title\": \"Rick Astley Never gonna give you up lyrics!!!\"\n  },\n  {\n    \"videoId\": \"X9NOzYMLfmM\",\n    \"thumbnail\": \"https://i.ytimg.com/vi/X9NOzYMLfmM/default.jpg\",\n    \"title\": \"Never Gonna Give You Up By Rick Astley (AKA The Rick Roll Song) Lyrics\"\n  },\n  {\n    \"videoId\": \"IO9XlQrEt2Y\",\n    \"thumbnail\": \"https://i.ytimg.com/vi/IO9XlQrEt2Y/default.jpg\",\n    \"title\": \"Rick Astley - Never Gonna Give You Up (The Roxy 1987)\"\n  },\n  {\n    \"videoId\": \"p1tMZ50s2Oo\",\n    \"thumbnail\": \"https://i.ytimg.com/vi/p1tMZ50s2Oo/default.jpg\",\n    \"title\": \"Rick Astley - Never Gonna Give You Up (Live @ V Festival 2016 + Interview, HD)\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "164f36c3-9197-4425-93f6-02721cadc578",
+          "name": "/:channel/settings",
+          "request": {
+            "name": "/:channel/settings",
+            "description": {
+              "content": "Get settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca08b829-f6fe-4dc8-b572-cb2fb8c6a102",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"player\": {\n    \"delay\": 0\n  },\n  \"limits\": {\n    \"users\": {\n      \"free\": 5,\n      \"paid\": 0\n    },\n    \"queueLimit\": 10,\n    \"maxDuration\": 420\n  },\n  \"backupPlaylist\": {\n    \"url\": \"https://www.youtube.com/playlist?list=UUp8OOssjSjGZRVYK6zWbNLg\",\n    \"prioritizeQueue\": false\n  },\n  \"bot\": {\n    \"voteskip\": {\n      \"enabled\": true,\n      \"votesRequired\": 5\n    },\n    \"cost\": 0,\n    \"subscriberDiscount\": 50,\n    \"exemptUserLevel\": 500,\n    \"minUserLevel\": 100\n  },\n  \"tips\": {\n    \"mediashare\": {\n      \"enabled\": false,\n      \"costPerSecond\": 0.1\n    },\n    \"prioritize\": true\n  },\n  \"youtube\": {\n    \"securityLevel\": 0,\n    \"musicOnly\": false,\n    \"bannedTags\": [],\n    \"bannedVideos\": []\n  },\n  \"enabled\": false,\n  \"mode\": \"combined\",\n  \"moderation\": false,\n  \"_id\": \"5b2e2007760aeb82e8487dc4\",\n  \"bannedUsers\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb12d993-5995-47c6-a2fb-00be76fb4211",
+          "name": "/:channel/settings/public",
+          "request": {
+            "name": "/:channel/settings/public",
+            "description": {
+              "content": "Get public settings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "settings",
+                "public"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dac3805b-b310-433d-9f08-70f4a00d295f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "settings",
+                    "public"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"enabled\": false,\n  \"limits\": {\n    \"users\": {\n      \"free\": 5,\n      \"paid\": 0\n    },\n    \"queueLimit\": 10,\n    \"maxDuration\": 420\n  },\n  \"mode\": \"combined\",\n  \"tips\": {\n    \"mediashare\": {\n      \"enabled\": false,\n      \"costPerSecond\": 0.1\n    },\n    \"prioritize\": true\n  },\n  \"youtube\": {\n    \"musicOnly\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdc61984-dcfa-4273-92c1-64cd4ff1d49a",
+          "name": "/:channel/queue",
+          "request": {
+            "name": "/:channel/queue",
+            "description": {
+              "content": "Get songrequest queue",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "queue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2411640a-137a-4bb3-a69d-8dbe5f22336d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"duration\": 213,\n    \"tags\": [],\n    \"_id\": \"5c0ba7b3de9a4c7036a15040\",\n    \"videoId\": \"dQw4w9WgXcQ\",\n    \"title\": \"Rick Astley - Never Gonna Give You Up (Video)\",\n    \"channel\": \"RickAstleyVEVO\",\n    \"statistics\": {\n      \"viewCount\": 504489596,\n      \"likeCount\": 3380238,\n      \"dislikeCount\": 154269\n    },\n    \"source\": \"site\",\n    \"user\": {\n      \"username\": \"leeeeex\",\n      \"providerId\": \"85827806\"\n    },\n    \"voteskips\": []\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce19d3e6-5ee5-4f5f-b067-f66401e22edf",
+          "name": "/:channel/queue",
+          "request": {
+            "name": "/:channel/queue",
+            "description": {
+              "content": "Get songrequest queue",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "queue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"video\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "926ce325-2dcb-45a3-bd0b-f7fbca7f464a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"video\": \"youtube-Identifier\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Vary",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"videoId\": \"dQw4w9WgXcQ\",\n  \"title\": \"Rick Astley - Never Gonna Give You Up (Video)\",\n  \"channel\": \"RickAstleyVEVO\",\n  \"duration\": 213,\n  \"categoryId\": 10,\n  \"statistics\": {\n    \"viewCount\": 504489631,\n    \"likeCount\": 3380251,\n    \"dislikeCount\": 154269\n  },\n  \"_id\": \"5c0ba9bade9a4c3723a1504d\",\n  \"source\": \"site\",\n  \"user\": {\n    \"_id\": \"5b2e2007760aeb7729487dab\",\n    \"username\": \"leeeeex\",\n    \"providerId\": \"85827806\",\n    \"displayName\": \"leeeeex\",\n    \"avatar\": \"https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80277dd7-8612-4d49-9d0f-d42b769652db",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"video\": \"youtube-Identifier\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"error\": \"Not Found\",\n  \"message\": \"No videos found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7f502d7-76f2-4382-a0ed-66525c7a13e7",
+          "name": "/:channel/queue/:song",
+          "request": {
+            "name": "/:channel/queue/:song",
+            "description": {
+              "content": "Remove song from queue",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "queue",
+                ":song"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "song",
+                  "description": "(Required) guid - Song id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain; charset=utf-8"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2475a22-7d0d-414e-80c5-f5c8bb48b7f6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "queue",
+                    ":song"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "song",
+                      "description": "(Required) guid - Song id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain; charset=utf-8"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain; charset=utf-8"
+                }
+              ],
+              "body": "Created",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5eb5beb0-2ff1-4c2b-aade-f4fa910300ce",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "queue",
+                    ":song"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "song",
+                      "description": "(Required) guid - Song id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"songId\\\" fails because [\\\"songId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"songId\"\n      ],\n      \"message\": \"\\\"songId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b4d3cf0-ed7d-4755-be2d-54b81ed6992c",
+          "name": "/:channel/queue/public",
+          "request": {
+            "name": "/:channel/queue/public",
+            "description": {
+              "content": "Get songrequest queue for public exposure (without video details)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "queue",
+                "public"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09d7b163-a6b6-43a8-8e91-f315c199208d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "queue",
+                    "public"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"duration\": 213,\n    \"_id\": \"5c0ba7b3de9a4c7036a15040\",\n    \"videoId\": \"dQw4w9WgXcQ\",\n    \"title\": \"Rick Astley - Never Gonna Give You Up (Video)\",\n    \"channel\": \"RickAstleyVEVO\",\n    \"source\": \"site\",\n    \"user\": {\n      \"username\": \"leeeeex\",\n      \"providerId\": \"85827806\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3189b2c4-2c4b-4973-9aef-18aa6b7b473b",
+          "name": "/:channel/pending",
+          "request": {
+            "name": "/:channel/pending",
+            "description": {
+              "content": "Get songs in moderation queue",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "pending"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "353a59de-42e7-417d-b610-c87af079fd0a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "pending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d5e7040-7ab7-46e6-a7a1-78de3aa4243c",
+          "name": "/:channel/playlist",
+          "request": {
+            "name": "/:channel/playlist",
+            "description": {
+              "content": "Get songs on playlist",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "playlist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) integer - number of results per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "(Required) string - page identifier as in nextPage"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b0b4a7c-b029-42d5-8d44-88123011dc44",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "playlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"limit\": 25,\n  \"nextPage\": \"CDIQAA\",\n  \"total\": 102,\n  \"videos\": [\n    {\n      \"videoId\": \"KjBNpJiID-k\",\n      \"title\": \"Anevo & Laura Brehm - Universe [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"dpdQZ56cKgA\",\n      \"title\": \"CloudNone - Spring Snow [Monstercat EP Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"_6tqFnhz83M\",\n      \"title\": \"Keepsake - This Time Around (feat. Slyleaf) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"cIseaPTGCRU\",\n      \"title\": \"Bad Computer - Voyage (feat. Savoi) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"VT9q8-i8e7Q\",\n      \"title\": \"Conro - September [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"xhTJ_5g_57k\",\n      \"title\": \"Aiobahn & Vin - If We Never [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"DzJXOb7Q1_s\",\n      \"title\": \"Laszlo - Gravity [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"XvEtJ6zbzyw\",\n      \"title\": \"The Night - Set Me Free [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"K2QEKOKPlV4\",\n      \"title\": \"Au5 - The Journey (feat. Trove) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"lAHpT1eAYH4\",\n      \"title\": \"Conro - Trippin [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"mlpdyTXeUTc\",\n      \"title\": \"Koven - Settled [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"FrX0ZfX8Dqs\",\n      \"title\": \"Ephixa - Dreamstate [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"MH9i4DkNVRc\",\n      \"title\": \"CloudNone - None Trick Pony [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"vZkExPWt3ig\",\n      \"title\": \"Vicetone - Walk Thru Fire (feat. Meron Ryan) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"5m7L8hlArsU\",\n      \"title\": \"Lookas & Krewella - Alarm [Monstercat Official Music Video]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"1zjqS6YGwrs\",\n      \"title\": \"Snareskin - Mad For You (feat. Trove) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"f244Kb8y_a8\",\n      \"title\": \"Koven - Voices [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"FIE_w_Yiy68\",\n      \"title\": \"Jay Cosmic - One Way Dream [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"UMh8V--HxnI\",\n      \"title\": \"Rogue - Mirage [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"uPDjXJgGklM\",\n      \"title\": \"Aiobahn - In Your Arms (feat. Ralph Larenzo) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"AiYuSpsY9kg\",\n      \"title\": \"MYLK - Sleepy [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"P6JcPvoIT6E\",\n      \"title\": \"Dion Timmer - The Right Type (feat. Jade LeMac) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"Ba_n0eHnNDc\",\n      \"title\": \"Duumu - Forward (feat. ÊMIA) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"fBsNIJLj0Gs\",\n      \"title\": \"LVTHER - Time Well Spent (feat. Ayelle) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    },\n    {\n      \"videoId\": \"iS-PpppSj0E\",\n      \"title\": \"SLANDER - So Long (feat. Juliana Chahayed) [Monstercat Release]\",\n      \"channel\": \"Monstercat: Instinct\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b9f51e2-cc64-434a-a5ed-5770865bbfd6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "playlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"limit\\\" fails because [\\\"limit\\\" must be a number]. child \\\"page\\\" fails because [\\\"page\\\" is not allowed to be empty]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"limit\"\n      ],\n      \"message\": \"\\\"limit\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"page\"\n      ],\n      \"message\": \"\\\"page\\\" is not allowed to be empty\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b4542d8-7a4e-4757-8fac-a29c9e42b8b3",
+          "name": "/:channel/player",
+          "request": {
+            "name": "/:channel/player",
+            "description": {
+              "content": "Get current player status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "player"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c640b98-db0d-4c5d-9f7b-0db0c93ba1a4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "player"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"state\": \"paused\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94543e58-5c0d-433c-bc2d-b6c8c7febcd9",
+          "name": "/:channel/player/:state",
+          "request": {
+            "name": "/:channel/player/:state",
+            "description": {
+              "content": "Change current state of media player",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "player",
+                ":state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "state",
+                  "description": "(Required) string - one of play, pause"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d790795-7c3e-49ea-91fe-c847ccf57aed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "player",
+                    ":state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "state",
+                      "description": "(Required) string - one of play, pause"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Vary",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain; charset=utf-8"
+                }
+              ],
+              "body": "Created",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0548edb-dfaf-41e2-bd7d-22560fb5842b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "player",
+                    ":state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "state",
+                      "description": "(Required) string - one of play, pause"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"state\\\" fails because [\\\"state\\\" must be one of [volume, play, pause]]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"state\"\n      ],\n      \"message\": \"\\\"state\\\" must be one of [volume, play, pause]\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5138d10-fa18-4165-9ca2-cb3e6b126483",
+          "name": "/:channel/history",
+          "request": {
+            "name": "/:channel/history",
+            "description": {
+              "content": "Get songrequest history",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) integer - Number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) integer - Number of items to be skipped"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c81b52a9-da90-4b2c-aaa8-4ed73eced41a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c96243e-7926-41f8-ae83-5a319dca931b",
+          "name": "/:channel/playing",
+          "request": {
+            "name": "/:channel/playing",
+            "description": {
+              "content": "Get currently playing song",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "playing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d876582c-4f7e-40e0-bbf6-47f45c347a74",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "playing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"username\": \"leeeeex\",\n    \"providerId\": \"85827806\"\n  },\n  \"statistics\": {\n    \"viewCount\": 504489596,\n    \"likeCount\": 3380238,\n    \"dislikeCount\": 154269\n  },\n  \"duration\": 213,\n  \"tags\": [],\n  \"_id\": \"5c0ba73fde9a4c1385a1503b\",\n  \"voteskips\": [],\n  \"videoId\": \"dQw4w9WgXcQ\",\n  \"title\": \"Rick Astley - Never Gonna Give You Up (Video)\",\n  \"channel\": \"RickAstleyVEVO\",\n  \"source\": \"site\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22281c82-d488-4f69-92ec-6403ac395b51",
+          "name": "/:channel/next",
+          "request": {
+            "name": "/:channel/next",
+            "description": {
+              "content": "Get details of next song in queue",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "songrequest",
+                ":channel",
+                "next"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "225d9428-b908-4e35-b966-9e1da71d5eae",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "songrequest",
+                    ":channel",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"song\": {\n    \"user\": {\n      \"username\": \"leeeeex\",\n      \"providerId\": \"85827806\"\n    },\n    \"statistics\": {\n      \"viewCount\": 505416595,\n      \"likeCount\": 3387160,\n      \"dislikeCount\": 154477\n    },\n    \"duration\": 213,\n    \"tags\": [],\n    \"voteskips\": [],\n    \"_id\": \"5c0f9d54bd1e47cf2d3d6cac\",\n    \"videoId\": \"dQw4w9WgXcQ\",\n    \"title\": \"Rick Astley - Never Gonna Give You Up (Video)\",\n    \"channel\": \"RickAstleyVEVO\",\n    \"source\": \"site\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "029bf0a4-d22a-4f2f-810d-739795e60685",
+    "name": "SE API Docs activities songrequests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

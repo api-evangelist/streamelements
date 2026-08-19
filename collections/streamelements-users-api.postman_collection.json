@@ -1,0 +1,322 @@
+{
+  "item": [
+    {
+      "id": "d46be127-4273-4a75-938d-c18b30452bad",
+      "name": "users",
+      "description": {
+        "content": "Folder for loyalty",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "816f8a63-a4f0-469d-b303-a218b5945804",
+          "name": "/current",
+          "request": {
+            "name": "/current",
+            "description": {
+              "content": "Current user channel",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "current"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c9188ff-c2a8-43a9-92d0-372c3efc3eb9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"suspended\": false,\n  \"teams\": [],\n  \"channels\": [\n    {\n      \"profile\": {\n        \"headerImage\": \"https://cdn.streamelements.com/static/user/profile_header_default.png\",\n        \"title\": \"leeeeex's profile\"\n      },\n      \"provider\": \"twitch\",\n      \"suspended\": false,\n      \"nullChannel\": false,\n      \"providerEmails\": [],\n      \"lastJWTToken\": null,\n      \"_id\": \"5b2e2007760aeb7729487dab\",\n      \"email\": \"email@streamelements.com\",\n      \"avatar\": \"https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg\",\n      \"verified\": false,\n      \"username\": \"leeeeex\",\n      \"alias\": \"leeeeex\",\n      \"displayName\": \"leeeeex\",\n      \"providerId\": \"85827806\",\n      \"isPartner\": false,\n      \"broadcasterType\": \"\",\n      \"ab\": [],\n      \"createdAt\": \"2018-06-23T10:25:11.733Z\",\n      \"updatedAt\": \"2018-12-07T17:26:23.792Z\",\n      \"lastLogin\": \"2018-12-07T17:26:23.79Z\",\n      \"country\": \"US\",\n      \"role\": \"owner\",\n      \"moderators\": [\n        {\n          \"user\": {\n            \"_id\": \"5b53229c8f09b957272a404f\",\n            \"username\": \"keizar\",\n            \"avatar\": \"https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png\"\n          },\n          \"role\": \"administrator\"\n        }\n      ]\n    }\n  ],\n  \"_id\": \"5b2e2007760aeb6677487daa\",\n  \"lastLogin\": \"2018-06-23T10:25:11.728Z\",\n  \"ab\": [],\n  \"primaryChannel\": \"5b2e2007760aeb7729487dab\",\n  \"username\": \"leeeeex\",\n  \"avatar\": \"https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg\",\n  \"createdAt\": \"2018-06-23T10:25:11.732Z\",\n  \"updatedAt\": \"2018-12-07T08:43:29.014Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7ff33e3-9001-41b0-aa3b-16a9e2a4b29b",
+          "name": "/channels",
+          "request": {
+            "name": "/channels",
+            "description": {
+              "content": "TODO: Add Description",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "channels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b49ac0e-b615-4acb-a24f-780a558132c4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "channels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "tip"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ac81a12-0b58-45bc-a93a-e330ac36bb9e",
+          "name": "/access",
+          "request": {
+            "name": "/access",
+            "description": {
+              "content": "List channel's access list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "access"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "032954c1-76b3-4bc6-bbee-97f6db764efc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "access"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"channelId\": \"5b2e2007760aeb7729487dab\",\n    \"username\": \"leeeeex\",\n    \"avatar\": \"https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg\",\n    \"provider\": \"twitch\",\n    \"role\": \"owner\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8fa6d26a-53ac-4fc5-846a-afb08beb166b",
+    "name": "SE API Docs activities users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

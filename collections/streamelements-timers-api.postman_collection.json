@@ -1,0 +1,757 @@
+{
+  "item": [
+    {
+      "id": "5cff80c0-6953-40e5-9746-147565987fe3",
+      "name": "timers",
+      "description": {
+        "content": "Bot timers (chat \"cron\" messages) management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d24bc44f-00df-4c91-956a-60b4d52f661e",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "List timers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "timers",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "276aefff-e0ee-4752-8cb4-07baedc82a10",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "timers",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"online\": {\n      \"enabled\": true,\n      \"interval\": 5\n    },\n    \"offline\": {\n      \"enabled\": true,\n      \"interval\": 30\n    },\n    \"enabled\": true,\n    \"chatLines\": 5,\n    \"_id\": \"5c0aa9d3de9a4c4622a14e07\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"name\": \"test timer\",\n    \"message\": \"This is a test\",\n    \"createdAt\": \"2018-12-07T17:11:47.909Z\",\n    \"updatedAt\": \"2018-12-07T17:11:47.909Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b461807d-3a77-43bd-b0c6-6ee119723388",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "Create a new timer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "timers",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"online\": {\n    \"enabled\": \"<boolean>\",\n    \"interval\": \"<integer>\"\n  },\n  \"offline\": {\n    \"enabled\": \"<boolean>\",\n    \"interval\": \"<integer>\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"chatLines\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53da31ce-a6bc-48bc-9e7b-9a04e618507b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "timers",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"online\": {\n    \"enabled\": true,\n    \"interval\": 5\n  },\n  \"offline\": {\n    \"enabled\": true,\n    \"interval\": 30\n  },\n  \"enabled\": true,\n  \"chatLines\": 5,\n  \"name\": \"\",\n  \"message\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Vary",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"_id\": \"5c0a52dcde9a4c1de1a14d8d\",\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test2\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-07T11:00:44.538Z\",\n  \"updatedAt\": \"2018-12-07T11:00:44.538Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11044d51-2923-4706-a4f9-f5abcaf51054",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "timers",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"online\": {\n    \"enabled\": true,\n    \"interval\": 5\n  },\n  \"offline\": {\n    \"enabled\": true,\n    \"interval\": 30\n  },\n  \"enabled\": true,\n  \"chatLines\": 5,\n  \"name\": \"\",\n  \"message\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"error\": \"Conflict\",\n  \"message\": \"Command test already exists\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b3cb8cc-15d7-40bc-be6d-bf5cce1c2c23",
+          "name": "/:channel/:timerId",
+          "request": {
+            "name": "/:channel/:timerId",
+            "description": {
+              "content": "Get timer details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "timers",
+                ":channel",
+                ":timerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "timerId",
+                  "description": "(Required) guid - Timer id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "108592ba-670e-48e8-bdcd-0c7ea0c7b873",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "timers",
+                    ":channel",
+                    ":timerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "timerId",
+                      "description": "(Required) guid - Timer id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"online\": {\n    \"enabled\": true,\n    \"interval\": 5\n  },\n  \"offline\": {\n    \"enabled\": true,\n    \"interval\": 30\n  },\n  \"enabled\": true,\n  \"chatLines\": 5,\n  \"_id\": \"5c0aa9d3de9a4c4622a14e07\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"name\": \"test timer\",\n  \"message\": \"This is a test\",\n  \"createdAt\": \"2018-12-07T17:11:47.909Z\",\n  \"updatedAt\": \"2018-12-07T17:11:47.909Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f430b217-d09c-4a15-838a-1c0bba391e53",
+          "name": "/:channel/:timerId",
+          "request": {
+            "name": "/:channel/:timerId",
+            "description": {
+              "content": "Update timer details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "timers",
+                ":channel",
+                ":timerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "timerId",
+                  "description": "(Required) guid - Timer id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff0de5f7-ea7b-47ca-bee9-e54659dd2e4d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "timers",
+                    ":channel",
+                    ":timerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "timerId",
+                      "description": "(Required) guid - Timer id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"online\": {\n    \"enabled\": true,\n    \"interval\": 5\n  },\n  \"offline\": {\n    \"enabled\": false,\n    \"interval\": 35\n  },\n  \"enabled\": true,\n  \"chatLines\": 5,\n  \"_id\": \"5c0aa9d3de9a4c4622a14e07\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"name\": \"test timer\",\n  \"message\": \"This is a test\",\n  \"createdAt\": \"2018-12-07T17:11:47.909Z\",\n  \"updatedAt\": \"2018-12-07T17:13:23.118Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b8a879f-d277-47b9-9f13-7f27584f9cd7",
+          "name": "/:channel/:timerId1",
+          "request": {
+            "name": "/:channel/:timerId1",
+            "description": {
+              "content": "Delete timer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "timers",
+                ":channel",
+                ":timerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "timerId",
+                  "description": "(Required) guid - Timer id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d4cd273-b9fd-4393-bfdf-5c83f26e39a3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "timers",
+                    ":channel",
+                    ":timerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "timerId",
+                      "description": "(Required) guid - Timer id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "108424b3-5c28-4102-ab5d-5d69ffdf0f28",
+    "name": "SE API Docs activities timers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

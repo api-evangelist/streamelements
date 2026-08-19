@@ -1,0 +1,1367 @@
+{
+  "item": [
+    {
+      "id": "347b0277-f6bc-46e4-8957-784292855436",
+      "name": "commands",
+      "description": {
+        "content": "Bot commands management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "100dafe1-e810-4b54-ac96-e077939679a7",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "List custom commands",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d3caf62-081d-4c9f-aafe-80833cba39d7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"keywords\": [],\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"hidden\": false,\n    \"cost\": 0,\n    \"type\": \"say\",\n    \"accessLevel\": 100,\n    \"_id\": \"5c0a5172de9a4c5b7da14d8a\",\n    \"regex\": \"test[0-9]{3}\",\n    \"reply\": \"test response\",\n    \"command\": \"test\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-07T10:54:42.594Z\",\n    \"updatedAt\": \"2018-12-07T10:54:42.594Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "474e9ae6-744c-4143-9fcb-130aecd98a32",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "Create new command",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cooldown\": {\n    \"user\": \"<integer>\",\n    \"global\": \"<integer>\"\n  },\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"keywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\",\n  \"enabledOnline\": \"<boolean>\",\n  \"enabledOffline\": \"<boolean>\",\n  \"hidden\": \"<boolean>\",\n  \"cost\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"accessLevel\": \"<integer>\",\n  \"regex\": \"<string>\",\n  \"reply\": \"<string>\",\n  \"command\": \"<string>\",\n  \"channel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "06128d68-2d28-40f6-9744-2f006cc4626b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test2\",\n  \"channel\": \"5b2e2007760aeb7729487dab\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Vary",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"_id\": \"5c0a52dcde9a4c1de1a14d8d\",\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test2\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-07T11:00:44.538Z\",\n  \"updatedAt\": \"2018-12-07T11:00:44.538Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86aff23f-6237-4f9a-b54a-40968ba218bd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test2\",\n  \"channel\": \"5b2e2007760aeb7729487dab\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"command\\\" fails because [\\\"command\\\" is not allowed to be empty]. child \\\"type\\\" fails because [\\\"type\\\" is not allowed to be empty, \\\"type\\\" must be one of [say, reply, whisper]]. child \\\"accessLevel\\\" fails because [\\\"accessLevel\\\" must be a number]. child \\\"reply\\\" fails because [\\\"reply\\\" is not allowed to be empty, \\\"reply\\\" length must be at least 1 characters long]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"command\"\n      ],\n      \"message\": \"\\\"command\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"type\"\n      ],\n      \"message\": \"\\\"type\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"type\"\n      ],\n      \"message\": \"\\\"type\\\" must be one of [say, reply, whisper]\"\n    },\n    {\n      \"path\": [\n        \"accessLevel\"\n      ],\n      \"message\": \"\\\"accessLevel\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"reply\"\n      ],\n      \"message\": \"\\\"reply\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"reply\"\n      ],\n      \"message\": \"\\\"reply\\\" length must be at least 1 characters long\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d64e9f29-1c1d-4f9c-949d-326fd4cb7309",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test2\",\n  \"channel\": \"5b2e2007760aeb7729487dab\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"error\": \"Conflict\",\n  \"message\": \"Command test already exists\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ec6e372-b1f6-4192-bad8-c9fddc8a3efc",
+          "name": "/:channel/public",
+          "request": {
+            "name": "/:channel/public",
+            "description": {
+              "content": "List channel's public commands",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel",
+                "public"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c7378e2-7c3b-404e-9058-07d1fb811bf4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    "public"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"keywords\": [],\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"hidden\": false,\n    \"cost\": 0,\n    \"type\": \"say\",\n    \"accessLevel\": 100,\n    \"_id\": \"5c0a5172de9a4c5b7da14d8a\",\n    \"regex\": \"test[0-9]{3}\",\n    \"reply\": \"test response\",\n    \"command\": \"test\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-07T10:54:42.594Z\",\n    \"updatedAt\": \"2018-12-07T10:54:42.594Z\"\n  },\n  {\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"keywords\": [],\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"hidden\": false,\n    \"cost\": 0,\n    \"type\": \"say\",\n    \"accessLevel\": 100,\n    \"_id\": \"5c0a52dcde9a4c1de1a14d8d\",\n    \"regex\": \"test[0-9]{3}\",\n    \"reply\": \"test response\",\n    \"command\": \"test2\",\n    \"channel\": \"5b2e2007760aeb7729487dab\",\n    \"createdAt\": \"2018-12-07T11:00:44.538Z\",\n    \"updatedAt\": \"2018-12-07T11:01:37.758Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30d3749d-a68b-42f4-baf0-911b4d7c799e",
+          "name": "/:channel/default",
+          "request": {
+            "name": "/:channel/default",
+            "description": {
+              "content": "Lists default commands",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "(Required) string - language iso code lowercase (eg. en)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7f3092a-eea1-460a-af2c-d3adc0728c43",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"commandId\": \"raffle_join\",\n    \"command\": \"join\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"raffle\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Join an active raffle\"\n  },\n  {\n    \"commandId\": \"emotes\",\n    \"command\": \"emotes\",\n    \"subCommands\": [\n      \"ffz\",\n      \"bttv\",\n      \"update\"\n    ],\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Active BTTV emotes in chat: Clap KKaper gachiBASS gachiGASM monkaS\"\n  },\n  {\n    \"commandId\": \"srpause\",\n    \"command\": \"pause\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Pause songrequest playback.\"\n  },\n  {\n    \"commandId\": \"leaderboard\",\n    \"command\": \"leaderboard\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"ranklist\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Check out the $(pointsname) Leaderboard here https://StreamElements.com/${channel.alias}/leaderboard\"\n  },\n  {\n    \"commandId\": \"srqueue\",\n    \"command\": \"songqueue\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 10\n    },\n    \"aliases\": [\n      \"songlist\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"you can see the songrequest queue here https://StreamElements.com/${channel.alias}/songrequest\"\n  },\n  {\n    \"commandId\": \"srplay\",\n    \"command\": \"play\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"resume\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Resume songrequest playback.\"\n  },\n  {\n    \"commandId\": \"level\",\n    \"command\": \"level\",\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Set a viewers access level. Reset with !level <username> reset.\"\n  },\n  {\n    \"commandId\": \"givepoints\",\n    \"command\": \"givepoints\",\n    \"accessLevel\": 100,\n    \"enabled\": false,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"transfer\",\n      \"give\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Transfer points to another user.\"\n  },\n  {\n    \"commandId\": \"commands\",\n    \"command\": \"commands\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"cmds\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"You can find a list of all Commands here https://StreamElements.com/${channel.alias}/commands\"\n  },\n  {\n    \"commandId\": \"slotmachine\",\n    \"command\": \"slots\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"slotmachine\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"slotmachine\",\n      \"slot\",\n      \"sm\",\n      \"smp\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Play the slot machine\"\n  },\n  {\n    \"commandId\": \"hypecup\",\n    \"command\": \"hypecup\",\n    \"subCommands\": [\n      \"clear\"\n    ],\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 1,\n      \"global\": 1\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Control the HypeCup.\"\n  },\n  {\n    \"commandId\": \"contest_bet\",\n    \"command\": \"bet\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 5,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Bet on a contest.\"\n  },\n  {\n    \"commandId\": \"accountage\",\n    \"command\": \"accountage\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"accage\",\n      \"created\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"${user} was created 1 year 5 months 27 days 1 hour ago.\"\n  },\n  {\n    \"commandId\": \"srremove\",\n    \"command\": \"removesong\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 10\n    },\n    \"aliases\": [\n      \"songs.pop()\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Remove a users songs, or a single song from the queue.\"\n  },\n  {\n    \"commandId\": \"raffle_singleraffle\",\n    \"command\": \"sraffle\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"raffle\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"singleraffle\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Start a raffle with a single winner\"\n  },\n  {\n    \"commandId\": \"top\",\n    \"command\": \"top\",\n    \"subCommands\": [\n      \"points\",\n      \"alltime\",\n      \"online\",\n      \"offline\"\n    ],\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 5,\n      \"global\": 2\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Show the top of the leaderboard.\"\n  },\n  {\n    \"commandId\": \"giveaway\",\n    \"command\": \"giveaway\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Show the currently active giveaway.\"\n  },\n  {\n    \"commandId\": \"followage\",\n    \"command\": \"followage\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"howlong\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"${user1} has been following ${user2} for 1 year 5 months 27 days 1 hour\"\n  },\n  {\n    \"commandId\": \"srskip\",\n    \"command\": \"skip\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 10\n    },\n    \"aliases\": [\n      \"skipsong\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Skip the current song\"\n  },\n  {\n    \"commandId\": \"wrongsong\",\n    \"command\": \"wrongsong\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"ctrl-z\",\n      \"heybuddyithinkyougotthewrongsong\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Removes your last song from the queue\"\n  },\n  {\n    \"commandId\": \"eightball\",\n    \"command\": \"8ball\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"eightball\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 3\n    },\n    \"aliases\": [\n      \"eightball\",\n      \"69ball\",\n      \"420ball\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Ask the magic 8-ball a question\"\n  },\n  {\n    \"commandId\": \"store_redeem\",\n    \"command\": \"redeem\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 5,\n      \"global\": 1\n    },\n    \"aliases\": [\n      \"buy\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"You successfully redeemed item1 for 420 points.\"\n  },\n  {\n    \"commandId\": \"permit\",\n    \"command\": \"permit\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Prevent a viewer from getting timed out for 60 seconds.\"\n  },\n  {\n    \"commandId\": \"roulette\",\n    \"command\": \"roulette\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"roulette\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 60,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"gamble\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"gamble your life away\"\n  },\n  {\n    \"commandId\": \"editpoints\",\n    \"command\": \"addpoints\",\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"editpoints\",\n      \"bonus\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Give points to viewers. Use 'all' for all chatters\"\n  },\n  {\n    \"commandId\": \"module\",\n    \"command\": \"module\",\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Enable or disable modules via chat.\"\n  },\n  {\n    \"commandId\": \"next\",\n    \"command\": \"next\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"nextsong\",\n      \"whatisthenextsonghomie\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"next song: MrSuicideSheep - WE WON ZULUL [2m3s] requested by LordFluffyButt https://youtu.be/9OG-Qr1qAe4\"\n  },\n  {\n    \"commandId\": \"store_items\",\n    \"command\": \"items\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"store\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Available items are: item1, item2, item3 https://StreamElements.com/${channel.alias}/store\"\n  },\n  {\n    \"commandId\": \"srsongrequest\",\n    \"command\": \"songrequest\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"songrequest\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 3\n    },\n    \"aliases\": [\n      \"sr\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Request a song by youtube id, url or video title.\"\n  },\n  {\n    \"commandId\": \"srwhen\",\n    \"command\": \"when\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 15\n    },\n    \"aliases\": [\n      \"mysong\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"\\\"My Summer Car - Radio Chill\\\" is at #2 in the queue and is playing 2 mins 3 secs\"\n  },\n  {\n    \"commandId\": \"srvolume\",\n    \"command\": \"volume\",\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Change the songrequest volume.\"\n  },\n  {\n    \"commandId\": \"kappagen\",\n    \"command\": \"kappagen\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"emotesplosion\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"KappaGen emotesplosions.\"\n  },\n  {\n    \"commandId\": \"command\",\n    \"command\": \"command\",\n    \"subCommands\": [\n      \"add\",\n      \"remove\",\n      \"edit\",\n      \"options\",\n      \"show\"\n    ],\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 3,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"cmd\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Add, edit and delete chat commands.\"\n  },\n  {\n    \"commandId\": \"ping\",\n    \"command\": \"ping\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleEnabled\": true,\n    \"moduleId\": \"admin\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 15\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"streamelements has been running for 13 hours 47 mins!\"\n  },\n  {\n    \"commandId\": \"duel_accept\",\n    \"command\": \"accept\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"duel\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Accept a duel request from another chatter\"\n  },\n  {\n    \"commandId\": \"bot\",\n    \"command\": \"bot\",\n    \"subCommands\": [\n      \"mute\",\n      \"unmute\",\n      \"part\"\n    ],\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Mute, unmute or remove the bot.\"\n  },\n  {\n    \"commandId\": \"raffle_cancel\",\n    \"command\": \"cancelraffle\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"raffle\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"rafflecancel\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Cancel an active raffle\"\n  },\n  {\n    \"commandId\": \"bingo\",\n    \"command\": \"bingo\",\n    \"subCommands\": [\n      \"bttv\",\n      \"ffz\",\n      \"twitch\",\n      \"all\",\n      \"cancel\"\n    ],\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"bingo\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Play a game of emote-bingo\"\n  },\n  {\n    \"commandId\": \"pepes\",\n    \"command\": \"pepes\",\n    \"accessLevel\": 1000,\n    \"enabled\": false,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Enable or disable pepes in bot responses.\"\n  },\n  {\n    \"commandId\": \"edit_counter\",\n    \"command\": \"editcounter\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"editcount\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Edit a custom ${count <name>}/${getcount <name>} counter\"\n  },\n  {\n    \"commandId\": \"voteskip\",\n    \"command\": \"voteskip\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"songrequest\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Vote to skip the current song\"\n  },\n  {\n    \"commandId\": \"raffle_multiraffle\",\n    \"command\": \"raffle\",\n    \"accessLevel\": 500,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"raffle\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"mraffle\",\n      \"multiraffle\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Start a raffle with multiple winners\"\n  },\n  {\n    \"commandId\": \"duel\",\n    \"command\": \"duel\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"duel\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Duel another chatter for points\"\n  },\n  {\n    \"commandId\": \"setpoints\",\n    \"command\": \"setpoints\",\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Set the points of a viewer.\"\n  },\n  {\n    \"commandId\": \"watchtime\",\n    \"command\": \"watchtime\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 1\n    },\n    \"aliases\": [\n      \"viewtime\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"${user} has spent ${user.time_online|'0 seconds'} watching ${channel}\"\n  },\n  {\n    \"commandId\": \"duel_cancel\",\n    \"command\": \"cancelduel\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"duel\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Cancel a duel request to another chatter\"\n  },\n  {\n    \"commandId\": \"quote\",\n    \"command\": \"quote\",\n    \"subCommands\": [\n      \"add\",\n      \"remove\"\n    ],\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Add, remove and show quotes.\"\n  },\n  {\n    \"commandId\": \"points\",\n    \"command\": \"points\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 5,\n      \"global\": 1\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"$(user) has $(user.points) $(pointsname) and is rank $(user.points_rank) on the leaderboard.\"\n  },\n  {\n    \"commandId\": \"chatstats\",\n    \"command\": \"chatstats\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"twitchstats\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"https://stats.StreamElements.com/c/$(channel) PogChamp\"\n  },\n  {\n    \"commandId\": \"srsong\",\n    \"command\": \"song\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 15\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"current song: harambe.waw - WE WON ZULUL [2m3s] requested by nuuls https://youtu.be/9OG-Qr1qAe4\"\n  },\n  {\n    \"commandId\": \"settitle\",\n    \"command\": \"settitle\",\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 15\n    },\n    \"aliases\": [\n      \"setitle\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Update the stream title.\"\n  },\n  {\n    \"commandId\": \"duel_deny\",\n    \"command\": \"deny\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"duel\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Deny a duel request from another chatter\"\n  },\n  {\n    \"commandId\": \"giveaway_enter\",\n    \"command\": \"enter\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 10,\n      \"global\": 0\n    },\n    \"aliases\": [\n      \"ticket\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"Buy tickets for a giveaway.\"\n  },\n  {\n    \"commandId\": \"uptime\",\n    \"command\": \"uptime\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"downtime\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"${channel} has been streaming for 2 hours 20 mins\"\n  },\n  {\n    \"commandId\": \"contest_contest\",\n    \"command\": \"contest\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Show the currently active contest.\"\n  },\n  {\n    \"commandId\": \"tip\",\n    \"command\": \"tip\",\n    \"accessLevel\": 100,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 15,\n      \"global\": 5\n    },\n    \"aliases\": [\n      \"donate\"\n    ],\n    \"regex\": \"\",\n    \"description\": \"You can Tip to $(channel) using this link https://StreamElements.com/${channel.alias}/tip\"\n  },\n  {\n    \"commandId\": \"setgame\",\n    \"command\": \"setgame\",\n    \"accessLevel\": 1000,\n    \"enabled\": true,\n    \"enabledOnline\": true,\n    \"enabledOffline\": true,\n    \"moduleId\": \"\",\n    \"cost\": 0,\n    \"cooldown\": {\n      \"user\": 0,\n      \"global\": 15\n    },\n    \"aliases\": [],\n    \"regex\": \"\",\n    \"description\": \"Update the channels game.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11a8206a-cc11-4e5e-9c33-822282a2d112",
+          "name": "/:channel/default/:commandId",
+          "request": {
+            "name": "/:channel/default/:commandId",
+            "description": {
+              "content": "Update default command",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel",
+                "default",
+                ":commandId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commandId",
+                  "description": "(Required) string - command id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5cd68df8-3453-4c17-8d32-abb75ba138c1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    "default",
+                    ":commandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commandId",
+                      "description": "(Required) string - command id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"command\": \"chatstats\",\n  \"accessLevel\": 100,\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"cost\": 0,\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [\n    \"twitchstats\"\n  ],\n  \"regex\": \"\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"commandId\": \"chatstats\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2517f20b-072f-4861-85a1-b05194096c97",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    "default",
+                    ":commandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commandId",
+                      "description": "(Required) string - command id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"command\\\" fails because [\\\"command\\\" is required]. child \\\"reply\\\" fails because [\\\"reply\\\" is required]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"command\"\n      ],\n      \"message\": \"\\\"command\\\" is required\"\n    },\n    {\n      \"path\": [\n        \"reply\"\n      ],\n      \"message\": \"\\\"reply\\\" is required\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dacba80a-1b52-4c66-850e-b1893e753409",
+          "name": "/:channel/:commandId",
+          "request": {
+            "name": "/:channel/:commandId",
+            "description": {
+              "content": "Get command details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel",
+                ":commandId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commandId",
+                  "description": "(Required) guid - Command id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "987f16b3-54fc-49f7-be3e-093a61118c31",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    ":commandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commandId",
+                      "description": "(Required) guid - Command id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"_id\": \"5c0a5172de9a4c5b7da14d8a\",\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-07T10:54:42.594Z\",\n  \"updatedAt\": \"2018-12-07T10:54:42.594Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "126c2573-d5af-4a95-ba61-6dc98c33cb3d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    ":commandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commandId",
+                      "description": "(Required) guid - Command id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"commandId\\\" fails because [\\\"commandId\\\" with value \\\"1\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"commandId\"\n      ],\n      \"message\": \"\\\"commandId\\\" with value \\\"1\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0c3d087-6821-4d92-8167-4666512423bc",
+          "name": "/:channel/:commandId",
+          "request": {
+            "name": "/:channel/:commandId",
+            "description": {
+              "content": "Update command details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel",
+                ":commandId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commandId",
+                  "description": "(Required) guid - Command id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cooldown\": {\n    \"user\": \"<integer>\",\n    \"global\": \"<integer>\"\n  },\n  \"aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"keywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"enabled\": \"<boolean>\",\n  \"enabledOnline\": \"<boolean>\",\n  \"enabledOffline\": \"<boolean>\",\n  \"hidden\": \"<boolean>\",\n  \"cost\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"accessLevel\": \"<integer>\",\n  \"regex\": \"<string>\",\n  \"reply\": \"<string>\",\n  \"command\": \"<string>\",\n  \"channel\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cb1d425-57eb-4d91-b91e-981ec518d66f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    ":commandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commandId",
+                      "description": "(Required) guid - Command id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test2\",\n  \"channel\": \"5b2e2007760aeb7729487dab\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"cooldown\": {\n    \"user\": 15,\n    \"global\": 5\n  },\n  \"aliases\": [],\n  \"keywords\": [],\n  \"enabled\": true,\n  \"enabledOnline\": true,\n  \"enabledOffline\": true,\n  \"hidden\": false,\n  \"cost\": 0,\n  \"type\": \"say\",\n  \"accessLevel\": 100,\n  \"_id\": \"5c0a52dcde9a4c1de1a14d8d\",\n  \"regex\": \"test[0-9]{3}\",\n  \"reply\": \"test response\",\n  \"command\": \"test2\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"createdAt\": \"2018-12-07T11:00:44.538Z\",\n  \"updatedAt\": \"2018-12-07T11:01:37.758Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "593c42af-504e-4249-ab4c-dd602cec1b42",
+          "name": "/:channel/:commandId1",
+          "request": {
+            "name": "/:channel/:commandId1",
+            "description": {
+              "content": "Delete command",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bot",
+                "commands",
+                ":channel",
+                ":commandId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commandId",
+                  "description": "(Required) guid - Command id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91fedb2d-8332-4b9f-9277-816be406cd66",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bot",
+                    "commands",
+                    ":channel",
+                    ":commandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commandId",
+                      "description": "(Required) guid - Command id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f41b9035-3248-4c67-822e-5d61d185cb64",
+    "name": "SE API Docs activities commands API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}

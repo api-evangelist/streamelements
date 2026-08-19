@@ -1,0 +1,1068 @@
+{
+  "item": [
+    {
+      "id": "cd1a5e94-924c-48d6-bb1e-811ec76aa99c",
+      "name": "tips",
+      "description": {
+        "content": "Endpoints to interract with tips",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8216f017-c0e0-43ea-89f4-dfa33fa94797",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {
+              "content": "List tips",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tips",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "(Required) integer - Starting element"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) integer - Events per page between 1 and 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "(Required) string - Sorting method. Possible values createdAt, -createdAt, donation.amount, -donation.amount, donation.provider, -donation.provider"
+                },
+                {
+                  "disabled": false,
+                  "key": "tz",
+                  "value": "<integer>",
+                  "description": "(Required) integer - Timezone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) string - Username"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) string - Email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<integer>",
+                  "description": "(Required) datetime - Start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<long>",
+                  "description": "(Required) datetime - End date"
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>",
+                  "description": "(Required) string - Tip message"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37645c45-191e-4dc7-a7ee-e004930f532a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "4"
+                    },
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "0"
+                    },
+                    {
+                      "key": "before",
+                      "value": "1544178274000"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"docs\": [\n    {\n      \"donation\": {\n        \"user\": {\n          \"username\": \"StreamElements\",\n          \"geo\": null,\n          \"email\": \"streamelements@streamelements.com\"\n        },\n        \"message\": \"This is a test\",\n        \"amount\": 100,\n        \"currency\": \"USD\"\n      },\n      \"provider\": \"paypal\",\n      \"status\": \"success\",\n      \"deleted\": false,\n      \"_id\": \"5c0aab85de9a4c6756a14e0d\",\n      \"channel\": \"5b2e2007760aeb7729487dab\",\n      \"transactionId\": \"IMPORTED\",\n      \"createdAt\": \"2018-12-07T17:19:01.957Z\",\n      \"approved\": \"allowed\",\n      \"updatedAt\": \"2018-12-07T17:19:01.957Z\"\n    }\n  ],\n  \"total\": 1,\n  \"limit\": 25,\n  \"offset\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85878657-489d-49e9-85f9-6f6483ea9ef0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "4"
+                    },
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "0"
+                    },
+                    {
+                      "key": "before",
+                      "value": "1544178274000"
+                    },
+                    {
+                      "key": "message",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"after\\\" fails because [\\\"after\\\" must be a number of milliseconds or valid date string]. child \\\"before\\\" fails because [\\\"before\\\" must be a number of milliseconds or valid date string]. child \\\"limit\\\" fails because [\\\"limit\\\" must be a number]. child \\\"offset\\\" fails because [\\\"offset\\\" must be a number]. child \\\"sort\\\" fails because [\\\"sort\\\" is not allowed to be empty, \\\"sort\\\" must be one of [createdAt, -createdAt, donation.amount, -donation.amount, donation.provider, -donation.provider]]. child \\\"email\\\" fails because [\\\"email\\\" is not allowed to be empty, \\\"email\\\" must be a valid email]. child \\\"tz\\\" fails because [\\\"tz\\\" must be a number]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"after\"\n      ],\n      \"message\": \"\\\"after\\\" must be a number of milliseconds or valid date string\"\n    },\n    {\n      \"path\": [\n        \"before\"\n      ],\n      \"message\": \"\\\"before\\\" must be a number of milliseconds or valid date string\"\n    },\n    {\n      \"path\": [\n        \"limit\"\n      ],\n      \"message\": \"\\\"limit\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"offset\"\n      ],\n      \"message\": \"\\\"offset\\\" must be a number\"\n    },\n    {\n      \"path\": [\n        \"sort\"\n      ],\n      \"message\": \"\\\"sort\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"sort\"\n      ],\n      \"message\": \"\\\"sort\\\" must be one of [createdAt, -createdAt, donation.amount, -donation.amount, donation.provider, -donation.provider]\"\n    },\n    {\n      \"path\": [\n        \"email\"\n      ],\n      \"message\": \"\\\"email\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"email\"\n      ],\n      \"message\": \"\\\"email\\\" must be a valid email\"\n    },\n    {\n      \"path\": [\n        \"tz\"\n      ],\n      \"message\": \"\\\"tz\\\" must be a number\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db1d6e0c-d51a-4fc2-9b30-7f07149845db",
+          "name": "/:channel",
+          "request": {
+            "name": "/:channel",
+            "description": {},
+            "url": {
+              "path": [
+                "tips",
+                ":channel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {\n    \"userId\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"provider\": \"<string>\",\n  \"message\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"imported\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1eac0fd8-a6b1-46b5-88a5-ef978a5cbd69",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"userId\": \"\",\n    \"username\": \"\",\n    \"email\": \"com\"\n  },\n  \"provider\": \"\",\n  \"message\": \"\",\n  \"amount\": 0,\n  \"currency\": \"\",\n  \"imported\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Vary",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"donation\": {\n    \"user\": {\n      \"username\": \"StreamElements\",\n      \"ip\": null,\n      \"geo\": null,\n      \"email\": \"StreamElements@streamelements.com\"\n    },\n    \"message\": \"Test message\",\n    \"amount\": 123,\n    \"currency\": \"USD\"\n  },\n  \"provider\": \"paypal\",\n  \"status\": \"success\",\n  \"deleted\": false,\n  \"_id\": \"5c0aad12de9a4c5ca1a14e13\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"transactionId\": \"IMPORTED\",\n  \"createdAt\": \"2018-12-07T17:25:38.507Z\",\n  \"approved\": \"allowed\",\n  \"updatedAt\": \"2018-12-07T17:25:38.507Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba83f576-5417-4b19-900b-8065cbba93ea",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"userId\": \"\",\n    \"username\": \"\",\n    \"email\": \"com\"\n  },\n  \"provider\": \"\",\n  \"message\": \"\",\n  \"amount\": 0,\n  \"currency\": \"\",\n  \"imported\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"currency\\\" fails because [\\\"currency\\\" is not allowed to be empty, \\\"currency\\\" must be one of [AUD, BRL, CAD, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, NOK, NZD, PHP, PLN, GBP, RUB, SGD, SEK, CHF, TWD, THB, TRY, USD]]. child \\\"user\\\" fails because [child \\\"email\\\" fails because [\\\"email\\\" must be a valid email]]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"currency\"\n      ],\n      \"message\": \"\\\"currency\\\" is not allowed to be empty\"\n    },\n    {\n      \"path\": [\n        \"currency\"\n      ],\n      \"message\": \"\\\"currency\\\" must be one of [AUD, BRL, CAD, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, NOK, NZD, PHP, PLN, GBP, RUB, SGD, SEK, CHF, TWD, THB, TRY, USD]\"\n    },\n    {\n      \"path\": [\n        \"user\",\n        \"email\"\n      ],\n      \"message\": \"\\\"email\\\" must be a valid email\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6a8f15f-d18e-47f3-90f3-ff96f7e0230e",
+          "name": "/:channel/top",
+          "request": {
+            "name": "/:channel/top",
+            "description": {
+              "content": "Get top tippers for channel",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tips",
+                ":channel",
+                "top"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0703e0c5-d8ff-4b9e-b7c7-0c3893013f61",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel",
+                    "top"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "[\n  {\n    \"username\": \"StreamElements\",\n    \"first\": \"2018-12-07T17:19:01.957Z\",\n    \"last\": \"2018-12-07T17:19:01.957Z\",\n    \"count\": 1,\n    \"total\": 100,\n    \"email\": \"streamelements@streamelements.com\",\n    \"average\": 100\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5df93057-b353-4b80-a8df-743ea4f97363",
+          "name": "/:channel/leaderboard",
+          "request": {
+            "name": "/:channel/leaderboard",
+            "description": {
+              "content": "Get tips leaderboard",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tips",
+                ":channel",
+                "leaderboard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53adf1e4-9e41-41bf-b408-9d49ca5c8985",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel",
+                    "leaderboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dccf7f63-67ff-496d-abf7-60b0559b31ec",
+          "name": "/:channel/moderation",
+          "request": {
+            "name": "/:channel/moderation",
+            "description": {
+              "content": "List tips waiting for moderation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tips",
+                ":channel",
+                "moderation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1505e7d-9f35-4b30-86e6-c2f1c98b28e9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel",
+                    "moderation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"recent\": [\n    {\n      \"donation\": {\n        \"user\": {\n          \"username\": \"StreamElements\",\n          \"geo\": null,\n          \"email\": \"streamelements@streamelements.com\"\n        },\n        \"message\": \"This is a test\",\n        \"amount\": 100,\n        \"currency\": \"USD\"\n      },\n      \"provider\": \"paypal\",\n      \"status\": \"success\",\n      \"deleted\": false,\n      \"_id\": \"5c0aab85de9a4c6756a14e0d\",\n      \"channel\": \"5b2e2007760aeb7729487dab\",\n      \"transactionId\": \"IMPORTED\",\n      \"createdAt\": \"2018-12-07T17:19:01.957Z\",\n      \"approved\": \"allowed\",\n      \"updatedAt\": \"2018-12-07T17:19:01.957Z\"\n    }\n  ],\n  \"pending\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b60443ca-d46d-4ff4-b84e-b989694543cf",
+          "name": "/:channel/:tipId",
+          "request": {
+            "name": "/:channel/:tipId",
+            "description": {
+              "content": "Get tip details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tips",
+                ":channel",
+                ":tipId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channel",
+                  "description": "(Required) guid - Channel id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tipId",
+                  "description": "(Required) guid - Tip id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "564f6c21-4d3b-4328-a108-0d3c5302d88e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel",
+                    ":tipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tipId",
+                      "description": "(Required) guid - Tip id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"donation\": {\n    \"user\": {\n      \"username\": \"StreamElements\",\n      \"geo\": null,\n      \"email\": \"streamelements@streamelements.com\"\n    },\n    \"message\": \"This is a test\",\n    \"amount\": 100,\n    \"currency\": \"USD\"\n  },\n  \"provider\": \"paypal\",\n  \"status\": \"success\",\n  \"deleted\": false,\n  \"_id\": \"5c0aab85de9a4c6756a14e0d\",\n  \"channel\": \"5b2e2007760aeb7729487dab\",\n  \"transactionId\": \"IMPORTED\",\n  \"createdAt\": \"2018-12-07T17:19:01.957Z\",\n  \"approved\": \"allowed\",\n  \"updatedAt\": \"2018-12-07T17:19:01.957Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "411beef6-1e69-455f-8c52-634a3315098c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel",
+                    ":tipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tipId",
+                      "description": "(Required) guid - Tip id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"error\": \"Bad Request\",\n  \"message\": \"child \\\"tipId\\\" fails because [\\\"tipId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]\",\n  \"details\": [\n    {\n      \"path\": [\n        \"tipId\"\n      ],\n      \"message\": \"\\\"tipId\\\" with value \\\"truncated\\\" fails to match the required pattern: /^[0-9a-fA-F]{24}$/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ede08e5c-8b98-497f-8312-f6f795bcd0bc",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tips",
+                    ":channel",
+                    ":tipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channel",
+                      "description": "(Required) guid - Channel id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tipId",
+                      "description": "(Required) guid - Tip id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.streamelements.com/kappa/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "994c565c-560f-47e6-8d26-1e7fecd70b63",
+    "name": "SE API Docs activities tips API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Custom Variable types\n`guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)\n`datetime` - either timestamp in milliseconds (unix timestamp*1000) or string in ISO 8061 format\n## Global variables\n`Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click \"Show secrets\")\n`channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token\n`channelName` - string: lowercase channel name\n`timezone` - integer: timezone index",
+      "type": "text/plain"
+    }
+  }
+}
