@@ -34,6 +34,24 @@ tags:
 - Live Streaming
 - Creator Economy
 - Overlays
+- Chatbots
+- Monetization
+- Donations
+- Loyalty Points
+- Giveaways
+- Video
+- Twitch
+- YouTube
+- Real-Time
+- WebSockets
+- Webhook
+- REST
+tags_raw:
+- Company
+- Consumer
+- Live Streaming
+- Creator Economy
+- Overlays
 - Chatbot
 - Monetization
 - Donations
@@ -53,6 +71,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Activities
+  tags_raw:
   - activities
   properties:
   - type: OpenAPI
@@ -63,6 +83,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Bot
+  tags_raw:
   - bot
   properties:
   - type: OpenAPI
@@ -73,6 +95,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Channels
+  tags_raw:
   - channels
   properties:
   - type: OpenAPI
@@ -93,6 +117,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Commands
+  tags_raw:
   - commands
   properties:
   - type: OpenAPI
@@ -103,6 +129,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Contests
+  tags_raw:
   - contests
   properties:
   - type: OpenAPI
@@ -113,6 +141,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Filters
+  tags_raw:
   - filters
   properties:
   - type: OpenAPI
@@ -124,6 +154,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Giveaways
+  tags_raw:
   - giveaways
   properties:
   - type: OpenAPI
@@ -144,6 +176,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Modules
+  tags_raw:
   - modules
   properties:
   - type: OpenAPI
@@ -154,6 +188,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Overlays
+  tags_raw:
   - overlays
   properties:
   - type: OpenAPI
@@ -164,6 +200,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Points
+  tags_raw:
   - points
   properties:
   - type: OpenAPI
@@ -174,6 +212,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Redemptions
+  tags_raw:
   - redemptions
   properties:
   - type: OpenAPI
@@ -184,6 +224,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Sessions
+  tags_raw:
   - sessions
   properties:
   - type: OpenAPI
@@ -235,6 +277,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Stats
+  tags_raw:
   - stats
   properties:
   - type: OpenAPI
@@ -245,6 +289,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Store
+  tags_raw:
   - store
   properties:
   - type: OpenAPI
@@ -255,6 +301,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Themes
+  tags_raw:
   - themes
   properties:
   - type: OpenAPI
@@ -265,6 +313,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Timers
+  tags_raw:
   - timers
   properties:
   - type: OpenAPI
@@ -275,6 +325,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - Tips
+  tags_raw:
   - tips
   properties:
   - type: OpenAPI
@@ -285,6 +337,8 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
