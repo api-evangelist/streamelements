@@ -1,0 +1,36 @@
+slug: streamelements
+provider: StreamElements
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: loyalties
+  spec_file: streamelements-loyalties-api-openapi.yml
+  capability_id: BC-420.40
+  capability_id_l1: BC-420
+  capability_name: Loyalty & Retention Management
+  confidence: 0.8
+  evidence: GET /loyalty/{channel}, PUT /loyalty/{channel}, schemas Loyalty, Bonuses
+  reason: Reads and updates the channel's loyalty programme configuration and bonus rules, matching the
+    vendor's stated 'loyalty points' feature. Clearly Loyalty & Retention Management; only the thin operation
+    set limits confidence.
+- tag: points
+  spec_file: streamelements-points-api-openapi.yml
+  capability_id: BC-420.40
+  capability_id_l1: BC-420
+  capability_name: Loyalty & Retention Management
+  confidence: 0.75
+  evidence: PUT /points/{channel}/{user}/{amount}, GET /points/{channel}/{user}/rank, GET /points/{channel}/watchtime,
+    GET /points/{channel}/top
+  reason: Awards, adjusts, ranks and resets per-viewer loyalty point balances and watchtime — operation
+    of the audience loyalty points programme. Loyalty & Retention Management is the best fit; slight ambiguity
+    with engagement analytics keeps this below 0.8.
