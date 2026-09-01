@@ -46,7 +46,7 @@ tags:
 - Live Streaming
 - Creator Economy
 - Overlays
-- Chatbot
+- Chatbots
 - Monetization
 - Donations
 - Loyalty Points
@@ -129,7 +129,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - commands
+  - Commands
   tags_raw:
   - commands
   properties:
@@ -141,7 +141,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - contests
+  - Contests
   tags_raw:
   - contests
   properties:
@@ -153,7 +153,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - filters
+  - Filters
   tags_raw:
   - filters
   properties:
@@ -166,7 +166,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - giveaways
+  - Giveaways
   tags_raw:
   - giveaways
   properties:
@@ -200,7 +200,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - overlays
+  - Overlays
   tags_raw:
   - overlays
   properties:
@@ -212,7 +212,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - points
+  - Points
   tags_raw:
   - points
   properties:
@@ -224,7 +224,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - redemptions
+  - Redemptions
   tags_raw:
   - redemptions
   properties:
@@ -301,7 +301,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - store
+  - Store
   tags_raw:
   - store
   properties:
@@ -325,7 +325,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - timers
+  - Timers
   tags_raw:
   - timers
   properties:
@@ -337,7 +337,7 @@ apis:
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
   tags:
-  - tips
+  - Tips
   tags_raw:
   - tips
   properties:
