@@ -1,30 +1,7 @@
 {
   "provider": "streamelements",
   "sources": [
-    "streamelements-activities-api-openapi.yml",
-    "streamelements-bot-api-openapi.yml",
-    "streamelements-channels-api-openapi.yml",
-    "streamelements-chatstats-api-openapi.yml",
-    "streamelements-commands-api-openapi.yml",
-    "streamelements-contests-api-openapi.yml",
-    "streamelements-filters-api-openapi.yml",
-    "streamelements-giveaways-api-openapi.yml",
-    "streamelements-loyalties-api-openapi.yml",
-    "streamelements-modules-api-openapi.yml",
-    "streamelements-overlays-api-openapi.yml",
-    "streamelements-points-api-openapi.yml",
-    "streamelements-redemptions-api-openapi.yml",
-    "streamelements-sessions-api-openapi.yml",
-    "streamelements-single-contest-api-openapi.yml",
-    "streamelements-single-giveaway-api-openapi.yml",
-    "streamelements-single-user-api-openapi.yml",
-    "streamelements-songrequests-api-openapi.yml",
-    "streamelements-stats-api-openapi.yml",
-    "streamelements-store-api-openapi.yml",
-    "streamelements-themes-api-openapi.yml",
-    "streamelements-timers-api-openapi.yml",
-    "streamelements-tips-api-openapi.yml",
-    "streamelements-users-api-openapi.yml"
+    "_original/streamelements-openapi-original.yml"
   ],
   "outputs": [
     "streamelements-activities-api-openapi.yml",
@@ -55,6 +32,35 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "streamelements-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "streamelements-activities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-bot-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-channels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-chatstats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-commands-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-contests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-filters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-giveaways-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-loyalties-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-modules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-overlays-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-points-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-redemptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-single-contest-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-single-giveaway-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-single-user-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-songrequests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-store-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-themes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-timers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-tips-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "streamelements-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

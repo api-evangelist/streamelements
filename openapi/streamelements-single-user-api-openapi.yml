@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: SE API Docs activities single user API
+  title: SE API Docs single user API
   description: '## Custom Variable types
 
     `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
@@ -9,13 +9,11 @@ info:
 
     ## Global variables
 
-    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+    `Authorization` - string: JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
 
     `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
 
-    `channelName` - string: lowercase channel name
-
-    `timezone` - integer: timezone index'
+    `channelName` - string: lowercase…'
   contact: {}
   version: '1.0'
 servers:
@@ -31,7 +29,7 @@ security:
 - ApiKeyBearer: []
 tags:
 - name: single user
-  description: 'Endpoints to manage single user points data '
+  description: Endpoints to manage single user points data
 paths:
   /points/{channel}/{user}:
     get:

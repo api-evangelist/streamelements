@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: SE API Docs activities channels API
+  title: SE API Docs Channels API
   description: '## Custom Variable types
 
     `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
@@ -9,13 +9,11 @@ info:
 
     ## Global variables
 
-    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+    `Authorization` - string: JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
 
     `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
 
-    `channelName` - string: lowercase channel name
-
-    `timezone` - integer: timezone index'
+    `channelName` - string: lowercase…'
   contact: {}
   version: '1.0'
 servers:
@@ -30,13 +28,13 @@ security:
 - OAuth2: []
 - ApiKeyBearer: []
 tags:
-- name: channels
+- name: Channels
   description: Endpoints to get channel data
 paths:
   /channels/me:
     get:
       tags:
-      - channels
+      - Channels
       summary: /me
       description: Get channels details linked to provided JWT Token
       operationId: /me
@@ -107,7 +105,7 @@ paths:
   /channels/{channel}:
     get:
       tags:
-      - channels
+      - Channels
       summary: /:channel
       description: Get channel details for provided channel id or channel name
       operationId: Get/:channel12345
@@ -166,7 +164,7 @@ paths:
   /channels/{channel}/details:
     get:
       tags:
-      - channels
+      - Channels
       summary: /:channel/details
       description: Get channel details
       operationId: /:channel/details
@@ -242,7 +240,7 @@ paths:
   /channels/{channel}/emotes:
     get:
       tags:
-      - channels
+      - Channels
       summary: /:channel/emotes
       description: Get emotes that can be used on channel (twitch, bttv, ffz)
       operationId: /:channel/emotes
@@ -3901,7 +3899,7 @@ paths:
   /channels/{channel}/socket:
     post:
       tags:
-      - channels
+      - Channels
       summary: /:channel/socket
       operationId: /:channel/socket
       parameters:
@@ -3937,7 +3935,7 @@ paths:
   /channels/{channel}/accesstoken:
     delete:
       tags:
-      - channels
+      - Channels
       summary: /:channelId/accesstoken
       operationId: /:channelId/accesstoken
       parameters:
@@ -4026,8 +4024,9 @@ components:
             type: string
           description: ''
         lastJWTToken:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         _id:
           type: string
         email:
@@ -4102,99 +4101,6 @@ components:
         updatedAt: '2018-12-07T10:43:42.282Z'
         lastLogin: '2018-12-07T10:43:42.281Z'
         country: US
-        inactive: false
-    Emote:
-      title: Emote
-      required:
-      - _id
-      - name
-      - type
-      - width
-      - height
-      - gif
-      - urls
-      type: object
-      properties:
-        _id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-        width:
-          type: integer
-          format: int32
-        height:
-          type: integer
-          format: int32
-        gif:
-          type: boolean
-        urls:
-          type: object
-          additionalProperties:
-            type: string
-      example:
-        _id: '354'
-        name: 4Head
-        type: twitch
-        width: 28
-        height: 28
-        gif: false
-        urls:
-          '1': https://static-cdn.jtvnw.net/emoticons/v1/354/1.0
-          '2': https://static-cdn.jtvnw.net/emoticons/v1/354/1.0
-          '4': https://static-cdn.jtvnw.net/emoticons/v1/354/3.0
-    SimpleChannelDetails:
-      title: SimpleChannelDetails
-      required:
-      - profile
-      - provider
-      - _id
-      - avatar
-      - username
-      - alias
-      - displayName
-      - providerId
-      - isPartner
-      - broadcasterType
-      - inactive
-      type: object
-      properties:
-        profile:
-          $ref: '#/components/schemas/Profile'
-        provider:
-          type: string
-        _id:
-          type: string
-        avatar:
-          type: string
-        username:
-          type: string
-        alias:
-          type: string
-        displayName:
-          type: string
-        providerId:
-          type: string
-        isPartner:
-          type: boolean
-        broadcasterType:
-          type: string
-        inactive:
-          type: boolean
-      example:
-        profile:
-          headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
-          title: leeeeex's profile
-        provider: twitch
-        _id: 5b2e2007760aeb7729487dab
-        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
-        username: leeeeex
-        alias: leeeeex
-        displayName: leeeeex
-        providerId: '85827806'
-        isPartner: false
-        broadcasterType: ''
         inactive: false
     BttvEmotes:
       title: BttvGlobalEmotes
@@ -5325,6 +5231,285 @@ components:
             '1': https://cdn.betterttv.net/emote/566ca11a65dbbdab32ec0558/1x
             '2': https://cdn.betterttv.net/emote/566ca11a65dbbdab32ec0558/2x
             '4': https://cdn.betterttv.net/emote/566ca11a65dbbdab32ec0558/3x
+    FfzGlobalEmotes:
+      title: FfzGlobalEmotes
+      type: object
+      properties:
+        AndKnuckles:
+          $ref: '#/components/schemas/Emote'
+        BORT:
+          $ref: '#/components/schemas/Emote'
+        BeanieHipster:
+          $ref: '#/components/schemas/Emote'
+        CatBag:
+          $ref: '#/components/schemas/Emote'
+        LaterSooner:
+          $ref: '#/components/schemas/Emote'
+        LilZ:
+          $ref: '#/components/schemas/Emote'
+        ManChicken:
+          $ref: '#/components/schemas/Emote'
+        OBOY:
+          $ref: '#/components/schemas/Emote'
+        OiMinna:
+          $ref: '#/components/schemas/Emote'
+        YellowFever:
+          $ref: '#/components/schemas/Emote'
+        YooHoo:
+          $ref: '#/components/schemas/Emote'
+        ZliL:
+          $ref: '#/components/schemas/Emote'
+        ZrehplaR:
+          $ref: '#/components/schemas/Emote'
+        ZreknarF:
+          $ref: '#/components/schemas/Emote'
+      example:
+        AndKnuckles:
+          _id: '24999'
+          name: AndKnuckles
+          type: ffz
+          width: 80
+          height: 11
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/2104d535159a04a63d479adcbc236600.PNG
+            '2': https://cdn.frankerfacez.com/f8457911a8931e9839e7c9ae1870e069.PNG
+            '4': https://cdn.frankerfacez.com/d16e1c9fd592e1e5ac64a7a3406172c7.png
+        BORT:
+          _id: '142673'
+          name: BORT
+          type: ffz
+          width: 19
+          height: 30
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/aa4c8a9d459c866e9f9e03aac614c47a.png
+        BeanieHipster:
+          _id: '3'
+          name: BeanieHipster
+          type: ffz
+          width: 28
+          height: 33
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/9c727af513b96dfb0dcbc86daa2239d8.png
+        CatBag:
+          _id: '25927'
+          name: CatBag
+          type: ffz
+          width: 32
+          height: 29
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/66e8e3cb33c9214b6d0bcfef04e48036.png
+            '2': https://cdn.frankerfacez.com/585e6fdea0c5d3e20678284f43af8749.PNG
+            '4': https://cdn.frankerfacez.com/e122d47bb38465c5edd7c79a18a70c91.png
+        LaterSooner:
+          _id: '149346'
+          name: LaterSooner
+          type: ffz
+          width: 25
+          height: 32
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/abb31ac36f9e722c34af8a6af3ce8015.PNG
+            '2': https://cdn.frankerfacez.com/1fcefc6216cd36fc9ce2a2f7385d854c.PNG
+            '4': https://cdn.frankerfacez.com/e0b85cec6a0b95066fbc3e838263f578.png
+        LilZ:
+          _id: '28136'
+          name: LilZ
+          type: ffz
+          width: 32
+          height: 23
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/42c1ab2d569b74fd067279096f5ec238.png
+            '2': https://cdn.frankerfacez.com/a6623002a430bcd27edc866441c1582f.PNG
+            '4': https://cdn.frankerfacez.com/87f9e721b468ba34e9780cdb97afb827.png
+        ManChicken:
+          _id: '4'
+          name: ManChicken
+          type: ffz
+          width: 30
+          height: 29
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/08c6aa877f0d946d45f30454d9fb1300.png
+        OBOY:
+          _id: '147400'
+          name: OBOY
+          type: ffz
+          width: 27
+          height: 32
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/2c54ee3f057f38a3205990d1bc9f1773.PNG
+            '2': https://cdn.frankerfacez.com/1f78c913e9d774dc516a34c31365a264.PNG
+            '4': https://cdn.frankerfacez.com/a828d1810660377d6966c7d332a148c2.png
+        OiMinna:
+          _id: '143930'
+          name: OiMinna
+          type: ffz
+          width: 32
+          height: 32
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/ff7001713323e7a04461e40a66f971a2.PNG
+            '2': https://cdn.frankerfacez.com/3f5b1ef8c2a33f1dc1a5b726c5be53ac.PNG
+            '4': https://cdn.frankerfacez.com/193e59bbfef68b8f7172db49137e6f85.png
+        YellowFever:
+          _id: '5'
+          name: YellowFever
+          type: ffz
+          width: 23
+          height: 29
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/53ebdc39a0603f7a3372ad016bb8597e.png
+        YooHoo:
+          _id: '6'
+          name: YooHoo
+          type: ffz
+          width: 28
+          height: 34
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/4c3f7ea69ff255ff4ee0adebbe62751c.png
+        ZliL:
+          _id: '28138'
+          name: ZliL
+          type: ffz
+          width: 32
+          height: 23
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/575045fa940e46932e035f18b58bb681.png
+            '2': https://cdn.frankerfacez.com/0aa63d7f0ac0a6d3622b009b5af28944.PNG
+            '4': https://cdn.frankerfacez.com/d29eaa2e41841be27e2e35badec0942f.png
+        ZrehplaR:
+          _id: '9'
+          name: ZrehplaR
+          type: ffz
+          width: 33
+          height: 30
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/4556987ef91323110080b223f96d7400.png
+        ZreknarF:
+          _id: '27081'
+          name: ZreknarF
+          type: ffz
+          width: 40
+          height: 30
+          gif: false
+          urls:
+            '1': https://cdn.frankerfacez.com/3d9385dc754fa97a5ef7ffdc4751534c.png
+            '2': https://cdn.frankerfacez.com/1719f1cd21489ef579f6e8bbc861c22f.PNG
+            '4': https://cdn.frankerfacez.com/f4f00341b9e9e28aace2a85d5a889b82.png
+    SimpleChannelDetails:
+      title: SimpleChannelDetails
+      required:
+      - profile
+      - provider
+      - _id
+      - avatar
+      - username
+      - alias
+      - displayName
+      - providerId
+      - isPartner
+      - broadcasterType
+      - inactive
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/Profile'
+        provider:
+          type: string
+        _id:
+          type: string
+        avatar:
+          type: string
+        username:
+          type: string
+        alias:
+          type: string
+        displayName:
+          type: string
+        providerId:
+          type: string
+        isPartner:
+          type: boolean
+        broadcasterType:
+          type: string
+        inactive:
+          type: boolean
+      example:
+        profile:
+          headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+          title: leeeeex's profile
+        provider: twitch
+        _id: 5b2e2007760aeb7729487dab
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        username: leeeeex
+        alias: leeeeex
+        displayName: leeeeex
+        providerId: '85827806'
+        isPartner: false
+        broadcasterType: ''
+        inactive: false
+    Emote:
+      title: Emote
+      required:
+      - _id
+      - name
+      - type
+      - width
+      - height
+      - gif
+      - urls
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        width:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+        gif:
+          type: boolean
+        urls:
+          type: object
+          additionalProperties:
+            type: string
+      example:
+        _id: '354'
+        name: 4Head
+        type: twitch
+        width: 28
+        height: 28
+        gif: false
+        urls:
+          '1': https://static-cdn.jtvnw.net/emoticons/v1/354/1.0
+          '2': https://static-cdn.jtvnw.net/emoticons/v1/354/1.0
+          '4': https://static-cdn.jtvnw.net/emoticons/v1/354/3.0
+    ProviderTotals:
+      title: ProviderTotals
+      required:
+      - follower-total
+      type: object
+      properties:
+        follower-total:
+          type: integer
+          format: int32
+      example:
+        follower-total: 6
     TwitchGlobalEmotes:
       title: TwitchGlobalEmotes
       type: object
@@ -7664,133 +7849,6 @@ components:
             '1': https://static-cdn.jtvnw.net/emoticons/v1/62836/1.0
             '2': https://static-cdn.jtvnw.net/emoticons/v1/62836/1.0
             '4': https://static-cdn.jtvnw.net/emoticons/v1/62836/3.0
-    LinkedChannels:
-      title: LinkedChannels
-      required:
-      - profile
-      - provider
-      - suspended
-      - nullChannel
-      - providerEmails
-      - lastJWTToken
-      - _id
-      - email
-      - avatar
-      - verified
-      - username
-      - alias
-      - displayName
-      - providerId
-      - accessToken
-      - apiToken
-      - isPartner
-      - broadcasterType
-      - users
-      - ab
-      - createdAt
-      - updatedAt
-      - lastLogin
-      - country
-      - providerTotals
-      - features
-      - geo
-      type: object
-      properties:
-        profile:
-          $ref: '#/components/schemas/Profile'
-        provider:
-          type: string
-        suspended:
-          type: boolean
-        nullChannel:
-          type: boolean
-        providerEmails:
-          type: array
-          items:
-            type: string
-          description: ''
-        lastJWTToken:
-          type: string
-          nullable: true
-        _id:
-          type: string
-        email:
-          type: string
-        avatar:
-          type: string
-        verified:
-          type: boolean
-        username:
-          type: string
-        alias:
-          type: string
-        displayName:
-          type: string
-        providerId:
-          type: string
-        accessToken:
-          type: string
-        apiToken:
-          type: string
-        isPartner:
-          type: boolean
-        broadcasterType:
-          type: string
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-          description: ''
-        ab:
-          type: object
-        createdAt:
-          type: string
-        updatedAt:
-          type: string
-        lastLogin:
-          type: string
-        country:
-          type: string
-        providerTotals:
-          $ref: '#/components/schemas/ProviderTotals'
-        features:
-          type: object
-        geo:
-          type: string
-      example:
-        profile:
-          headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
-          title: leeeeex's profile
-        provider: twitch
-        suspended: false
-        nullChannel: false
-        providerEmails: []
-        lastJWTToken: null
-        _id: 5b2e2007760aeb7729487dab
-        email: email@streamelements.com
-        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
-        verified: false
-        username: leeeeex
-        alias: leeeeex
-        displayName: leeeeex
-        providerId: '85827806'
-        accessToken: ixfd2ussul9naws1agx16n8ufwny5a
-        apiToken: 7JkHvfuVsd5I1f1A0TRF
-        isPartner: false
-        broadcasterType: ''
-        users:
-        - user: 5b2e2007760aeb6677487daa
-          providerId: '85827806'
-          role: owner
-        ab: {}
-        createdAt: '2018-06-23T10:25:11.733Z'
-        updatedAt: '2018-12-07T09:29:01.582Z'
-        lastLogin: '2018-12-07T09:29:01.58Z'
-        country: US
-        providerTotals:
-          follower-total: 6
-        features: {}
-        geo: US
     ChannelEmotes:
       title: ChannelEmotes
       required:
@@ -7807,15 +7865,17 @@ components:
         bttvGlobalEmotes:
           $ref: '#/components/schemas/BttvEmotes'
         ffzChannelEmotes:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         ffzGlobalEmotes:
           $ref: '#/components/schemas/FfzGlobalEmotes'
         twitchGlobalEmotes:
           $ref: '#/components/schemas/TwitchGlobalEmotes'
         twitchSubEmotes:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       example:
         bttvChannelEmotes:
           gachiBASS:
@@ -11430,6 +11490,134 @@ components:
               '2': https://static-cdn.jtvnw.net/emoticons/v1/62836/1.0
               '4': https://static-cdn.jtvnw.net/emoticons/v1/62836/3.0
         twitchSubEmotes: null
+    LinkedChannels:
+      title: LinkedChannels
+      required:
+      - profile
+      - provider
+      - suspended
+      - nullChannel
+      - providerEmails
+      - lastJWTToken
+      - _id
+      - email
+      - avatar
+      - verified
+      - username
+      - alias
+      - displayName
+      - providerId
+      - accessToken
+      - apiToken
+      - isPartner
+      - broadcasterType
+      - users
+      - ab
+      - createdAt
+      - updatedAt
+      - lastLogin
+      - country
+      - providerTotals
+      - features
+      - geo
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/Profile'
+        provider:
+          type: string
+        suspended:
+          type: boolean
+        nullChannel:
+          type: boolean
+        providerEmails:
+          type: array
+          items:
+            type: string
+          description: ''
+        lastJWTToken:
+          type:
+          - string
+          - 'null'
+        _id:
+          type: string
+        email:
+          type: string
+        avatar:
+          type: string
+        verified:
+          type: boolean
+        username:
+          type: string
+        alias:
+          type: string
+        displayName:
+          type: string
+        providerId:
+          type: string
+        accessToken:
+          type: string
+        apiToken:
+          type: string
+        isPartner:
+          type: boolean
+        broadcasterType:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+          description: ''
+        ab:
+          type: object
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        lastLogin:
+          type: string
+        country:
+          type: string
+        providerTotals:
+          $ref: '#/components/schemas/ProviderTotals'
+        features:
+          type: object
+        geo:
+          type: string
+      example:
+        profile:
+          headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+          title: leeeeex's profile
+        provider: twitch
+        suspended: false
+        nullChannel: false
+        providerEmails: []
+        lastJWTToken: null
+        _id: 5b2e2007760aeb7729487dab
+        email: email@streamelements.com
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        verified: false
+        username: leeeeex
+        alias: leeeeex
+        displayName: leeeeex
+        providerId: '85827806'
+        accessToken: ixfd2ussul9naws1agx16n8ufwny5a
+        apiToken: 7JkHvfuVsd5I1f1A0TRF
+        isPartner: false
+        broadcasterType: ''
+        users:
+        - user: 5b2e2007760aeb6677487daa
+          providerId: '85827806'
+          role: owner
+        ab: {}
+        createdAt: '2018-06-23T10:25:11.733Z'
+        updatedAt: '2018-12-07T09:29:01.582Z'
+        lastLogin: '2018-12-07T09:29:01.58Z'
+        country: US
+        providerTotals:
+          follower-total: 6
+        features: {}
+        geo: US
     Profile:
       title: Profile
       required:
@@ -11444,192 +11632,6 @@ components:
       example:
         headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
         title: leeeeex's profile
-    FfzGlobalEmotes:
-      title: FfzGlobalEmotes
-      type: object
-      properties:
-        AndKnuckles:
-          $ref: '#/components/schemas/Emote'
-        BORT:
-          $ref: '#/components/schemas/Emote'
-        BeanieHipster:
-          $ref: '#/components/schemas/Emote'
-        CatBag:
-          $ref: '#/components/schemas/Emote'
-        LaterSooner:
-          $ref: '#/components/schemas/Emote'
-        LilZ:
-          $ref: '#/components/schemas/Emote'
-        ManChicken:
-          $ref: '#/components/schemas/Emote'
-        OBOY:
-          $ref: '#/components/schemas/Emote'
-        OiMinna:
-          $ref: '#/components/schemas/Emote'
-        YellowFever:
-          $ref: '#/components/schemas/Emote'
-        YooHoo:
-          $ref: '#/components/schemas/Emote'
-        ZliL:
-          $ref: '#/components/schemas/Emote'
-        ZrehplaR:
-          $ref: '#/components/schemas/Emote'
-        ZreknarF:
-          $ref: '#/components/schemas/Emote'
-      example:
-        AndKnuckles:
-          _id: '24999'
-          name: AndKnuckles
-          type: ffz
-          width: 80
-          height: 11
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/2104d535159a04a63d479adcbc236600.PNG
-            '2': https://cdn.frankerfacez.com/f8457911a8931e9839e7c9ae1870e069.PNG
-            '4': https://cdn.frankerfacez.com/d16e1c9fd592e1e5ac64a7a3406172c7.png
-        BORT:
-          _id: '142673'
-          name: BORT
-          type: ffz
-          width: 19
-          height: 30
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/aa4c8a9d459c866e9f9e03aac614c47a.png
-        BeanieHipster:
-          _id: '3'
-          name: BeanieHipster
-          type: ffz
-          width: 28
-          height: 33
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/9c727af513b96dfb0dcbc86daa2239d8.png
-        CatBag:
-          _id: '25927'
-          name: CatBag
-          type: ffz
-          width: 32
-          height: 29
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/66e8e3cb33c9214b6d0bcfef04e48036.png
-            '2': https://cdn.frankerfacez.com/585e6fdea0c5d3e20678284f43af8749.PNG
-            '4': https://cdn.frankerfacez.com/e122d47bb38465c5edd7c79a18a70c91.png
-        LaterSooner:
-          _id: '149346'
-          name: LaterSooner
-          type: ffz
-          width: 25
-          height: 32
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/abb31ac36f9e722c34af8a6af3ce8015.PNG
-            '2': https://cdn.frankerfacez.com/1fcefc6216cd36fc9ce2a2f7385d854c.PNG
-            '4': https://cdn.frankerfacez.com/e0b85cec6a0b95066fbc3e838263f578.png
-        LilZ:
-          _id: '28136'
-          name: LilZ
-          type: ffz
-          width: 32
-          height: 23
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/42c1ab2d569b74fd067279096f5ec238.png
-            '2': https://cdn.frankerfacez.com/a6623002a430bcd27edc866441c1582f.PNG
-            '4': https://cdn.frankerfacez.com/87f9e721b468ba34e9780cdb97afb827.png
-        ManChicken:
-          _id: '4'
-          name: ManChicken
-          type: ffz
-          width: 30
-          height: 29
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/08c6aa877f0d946d45f30454d9fb1300.png
-        OBOY:
-          _id: '147400'
-          name: OBOY
-          type: ffz
-          width: 27
-          height: 32
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/2c54ee3f057f38a3205990d1bc9f1773.PNG
-            '2': https://cdn.frankerfacez.com/1f78c913e9d774dc516a34c31365a264.PNG
-            '4': https://cdn.frankerfacez.com/a828d1810660377d6966c7d332a148c2.png
-        OiMinna:
-          _id: '143930'
-          name: OiMinna
-          type: ffz
-          width: 32
-          height: 32
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/ff7001713323e7a04461e40a66f971a2.PNG
-            '2': https://cdn.frankerfacez.com/3f5b1ef8c2a33f1dc1a5b726c5be53ac.PNG
-            '4': https://cdn.frankerfacez.com/193e59bbfef68b8f7172db49137e6f85.png
-        YellowFever:
-          _id: '5'
-          name: YellowFever
-          type: ffz
-          width: 23
-          height: 29
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/53ebdc39a0603f7a3372ad016bb8597e.png
-        YooHoo:
-          _id: '6'
-          name: YooHoo
-          type: ffz
-          width: 28
-          height: 34
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/4c3f7ea69ff255ff4ee0adebbe62751c.png
-        ZliL:
-          _id: '28138'
-          name: ZliL
-          type: ffz
-          width: 32
-          height: 23
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/575045fa940e46932e035f18b58bb681.png
-            '2': https://cdn.frankerfacez.com/0aa63d7f0ac0a6d3622b009b5af28944.PNG
-            '4': https://cdn.frankerfacez.com/d29eaa2e41841be27e2e35badec0942f.png
-        ZrehplaR:
-          _id: '9'
-          name: ZrehplaR
-          type: ffz
-          width: 33
-          height: 30
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/4556987ef91323110080b223f96d7400.png
-        ZreknarF:
-          _id: '27081'
-          name: ZreknarF
-          type: ffz
-          width: 40
-          height: 30
-          gif: false
-          urls:
-            '1': https://cdn.frankerfacez.com/3d9385dc754fa97a5ef7ffdc4751534c.png
-            '2': https://cdn.frankerfacez.com/1719f1cd21489ef579f6e8bbc861c22f.PNG
-            '4': https://cdn.frankerfacez.com/f4f00341b9e9e28aace2a85d5a889b82.png
-    ProviderTotals:
-      title: ProviderTotals
-      required:
-      - follower-total
-      type: object
-      properties:
-        follower-total:
-          type: integer
-          format: int32
-      example:
-        follower-total: 6
   securitySchemes:
     JWTBearer:
       type: http

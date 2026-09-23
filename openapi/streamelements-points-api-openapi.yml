@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: SE API Docs activities points API
+  title: SE API Docs Points API
   description: '## Custom Variable types
 
     `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
@@ -9,13 +9,11 @@ info:
 
     ## Global variables
 
-    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+    `Authorization` - string: JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
 
     `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
 
-    `channelName` - string: lowercase channel name
-
-    `timezone` - integer: timezone index'
+    `channelName` - string: lowercase…'
   contact: {}
   version: '1.0'
 servers:
@@ -30,13 +28,13 @@ security:
 - OAuth2: []
 - ApiKeyBearer: []
 tags:
-- name: points
+- name: Points
   description: Endpoints to manage loyalty points
 paths:
   /points/{channel}/{user}:
     get:
       tags:
-      - points
+      - Points
       summary: /:channel/:user
       description: Get userpoints for specific username
       operationId: /:channel/:user
@@ -72,7 +70,7 @@ paths:
   /points/{channel}/{user}/rank:
     get:
       tags:
-      - points
+      - Points
       summary: /:channel/:user/rank
       description: Get current user rank by username
       operationId: /:channel/:user/rank
@@ -108,7 +106,7 @@ paths:
   /points/{channel}/{user}/{amount}:
     put:
       tags:
-      - points
+      - Points
       summary: /:channel/:user/:amount
       description: Add or remove points from user
       operationId: /:channel/:user/:amount
@@ -151,7 +149,7 @@ paths:
   /points/{channel}/alltime/{user}/{amount}:
     put:
       tags:
-      - points
+      - Points
       summary: /:channel/alltime/:user/:amount
       description: Update alltime points for user
       operationId: /:channel/alltime/:user/:amount
@@ -206,7 +204,7 @@ paths:
   /points/{channel}/alltime:
     get:
       tags:
-      - points
+      - Points
       summary: /:channel/alltime
       description: List alltime userpoints
       operationId: /:channel/alltime
@@ -255,7 +253,7 @@ paths:
   /points/{channel}/top:
     get:
       tags:
-      - points
+      - Points
       summary: /:channel/top
       description: List top userpoints
       operationId: Get/:channel/top
@@ -304,7 +302,7 @@ paths:
   /points/{channel}/watchtime:
     get:
       tags:
-      - points
+      - Points
       summary: /:channel/watchtime
       description: List users watchtime
       operationId: /:channel/watchtime
@@ -353,7 +351,7 @@ paths:
   /points/{channel}:
     put:
       tags:
-      - points
+      - Points
       summary: /:channel
       description: Bulk add/set points to users
       operationId: Put/:channel1
@@ -390,7 +388,7 @@ paths:
   /points/{channel}/reset/{context}:
     delete:
       tags:
-      - points
+      - Points
       summary: /:channel/reset/:context
       operationId: /:channel/reset/:context
       parameters:

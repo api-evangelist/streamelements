@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: SE API Docs activities bot API
+  title: SE API Docs Bot API
   description: '## Custom Variable types
 
     `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
@@ -9,13 +9,11 @@ info:
 
     ## Global variables
 
-    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+    `Authorization` - string: JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
 
     `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
 
-    `channelName` - string: lowercase channel name
-
-    `timezone` - integer: timezone index'
+    `channelName` - string: lowercase…'
   contact: {}
   version: '1.0'
 servers:
@@ -30,13 +28,13 @@ security:
 - OAuth2: []
 - ApiKeyBearer: []
 tags:
-- name: bot
+- name: Bot
   description: Endpoints to manage StreamElements chat bot
 paths:
   /bot/commands/{channel}:
     get:
       tags:
-      - bot
+      - Bot
       summary: /:channel
       description: List custom commands
       operationId: Get/:channel
@@ -123,7 +121,7 @@ paths:
   /bot/commands/{channel}/public:
     get:
       tags:
-      - bot
+      - Bot
       summary: /:channel/public
       description: List channel's public commands
       operationId: /:channel/public
@@ -248,7 +246,7 @@ paths:
   /bot/commands/{channel}/default:
     get:
       tags:
-      - bot
+      - Bot
       summary: /:channel/default
       description: Lists default commands
       operationId: /:channel/default
@@ -2047,7 +2045,7 @@ paths:
   /bot/{channel}:
     get:
       tags:
-      - bot
+      - Bot
       summary: /:channel
       description: Get bot info
       operationId: Get/:channel1234
@@ -2103,7 +2101,7 @@ paths:
   /bot/{channel}/join:
     post:
       tags:
-      - bot
+      - Bot
       summary: /:channel/join
       description: Join bot to channel
       operationId: /:channel/join
@@ -2176,7 +2174,7 @@ paths:
   /bot/{channel}/part:
     post:
       tags:
-      - bot
+      - Bot
       summary: /:channel/part
       description: Leave bot from channel
       operationId: /:channel/part
@@ -2239,7 +2237,7 @@ paths:
   /bot/{channel}/mute:
     post:
       tags:
-      - bot
+      - Bot
       summary: /:channel/mute
       description: Mute bot
       operationId: /:channel/mute
@@ -2312,7 +2310,7 @@ paths:
   /bot/{channel}/unmute:
     post:
       tags:
-      - bot
+      - Bot
       summary: /:channel/unmute
       description: Unmute bot
       operationId: /:channel/unmute
@@ -2385,7 +2383,7 @@ paths:
   /bot/{channel}/say:
     post:
       tags:
-      - bot
+      - Bot
       summary: /:channel/say
       description: Send message to channel as bot
       operationId: /:channel/say
@@ -2449,7 +2447,7 @@ paths:
   /bot/{channel}/language:
     post:
       tags:
-      - bot
+      - Bot
       summary: /:channel/language
       description: Set bot language
       operationId: /:channel/language
@@ -2525,7 +2523,7 @@ paths:
   /bot/{channel}/levels:
     get:
       tags:
-      - bot
+      - Bot
       summary: /:channel/levels
       description: List channel permissions for users
       operationId: /:channel/levels
@@ -2583,7 +2581,7 @@ paths:
       deprecated: false
     post:
       tags:
-      - bot
+      - Bot
       summary: /:channel/levels
       description: Add user to permissions table
       operationId: Post/:channel/levels
@@ -2650,7 +2648,7 @@ paths:
   /bot/{channel}/levels/{username}:
     delete:
       tags:
-      - bot
+      - Bot
       summary: /:channel/levels/:username
       description: Remove user from permission table
       operationId: /:channel/levels/:username
@@ -2705,7 +2703,7 @@ paths:
   /bot/{channel}/counters/{counter}:
     get:
       tags:
-      - bot
+      - Bot
       summary: /:channel/counters/:counter
       description: Get list of bot modules
       operationId: /:channel/counters/:counter
@@ -2759,6 +2757,22 @@ paths:
       deprecated: false
 components:
   schemas:
+    Cooldown:
+      title: Cooldown
+      required:
+      - user
+      - global
+      type: object
+      properties:
+        user:
+          type: integer
+          format: int32
+        global:
+          type: integer
+          format: int32
+      example:
+        user: 15
+        global: 5
     Bot:
       title: Bot
       required:
@@ -2804,36 +2818,26 @@ components:
         language: en
         channel: 5b2e2007760aeb7729487dab
         logs: []
-    Success26:
-      title: Success26
+    channel_sayrequest:
+      title: /:channel/sayrequest
       required:
-      - statusCode
       - message
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
         message:
           type: string
       example:
-        statusCode: 201
-        message: Removed user testuser
-    channel_levelsrequest:
-      title: /:channel/levelsrequest
+        message: '{{botMessage}}'
+    channel_languagerequest:
+      title: /:channel/languagerequest
       required:
-      - username
-      - level
+      - language
       type: object
       properties:
-        username:
+        language:
           type: string
-        level:
-          type: integer
-          format: int32
       example:
-        username: ''
-        level: 500
+        language: en
     Success6:
       title: Success6
       required:
@@ -2902,22 +2906,55 @@ components:
         aliases: []
         regex: ''
         description: Join an active raffle
-    Cooldown:
-      title: Cooldown
+    channel_levelsrequest:
+      title: /:channel/levelsrequest
       required:
-      - user
-      - global
+      - username
+      - level
       type: object
       properties:
-        user:
-          type: integer
-          format: int32
-        global:
+        username:
+          type: string
+        level:
           type: integer
           format: int32
       example:
-        user: 15
-        global: 5
+        username: ''
+        level: 500
+    Success26:
+      title: Success26
+      required:
+      - statusCode
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 201
+        message: Removed user testuser
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
     Success27:
       title: Success27
       required:
@@ -2933,24 +2970,44 @@ components:
       example:
         counter: testcounter
         value: 1
-    Detail:
-      title: Detail
+    BotJoinResponse:
+      title: BotJoinResponse
       required:
-      - path
+      - status
+      - channel
       - message
       type: object
       properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
+        status:
+          type: integer
+          format: int32
+        channel:
+          type: string
         message:
           type: string
       example:
-        path:
-        - types
-        message: '"types" must be an array'
+        status: 200
+        channel: 5b2e2007760aeb7729487dab
+        message: successfully joined your channel
+    BotSettings:
+      title: BotSettings
+      required:
+      - bot
+      type: object
+      properties:
+        bot:
+          $ref: '#/components/schemas/Bot'
+      example:
+        bot:
+          enabled: true
+          name: streamelements
+          joined: false
+          muted: false
+          mod: false
+          allowCustomName: false
+          language: en
+          channel: 5b2e2007760aeb7729487dab
+          logs: []
     BotCommand:
       title: BotCommand
       required:
@@ -3032,110 +3089,24 @@ components:
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-07T10:54:42.594Z'
         updatedAt: '2018-12-07T10:54:42.594Z'
-    channel_redemptions_itemId:
-      title: /:channel/redemptions/:itemId
+    Detail:
+      title: Detail
       required:
-      - statusCode
-      - error
+      - path
       - message
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
         message:
           type: string
       example:
-        statusCode: 404
-        error: Not Found
-        message: Item not found
-    BotSettings:
-      title: BotSettings
-      required:
-      - bot
-      type: object
-      properties:
-        bot:
-          $ref: '#/components/schemas/Bot'
-      example:
-        bot:
-          enabled: true
-          name: streamelements
-          joined: false
-          muted: false
-          mod: false
-          allowCustomName: false
-          language: en
-          channel: 5b2e2007760aeb7729487dab
-          logs: []
-    UserLevel:
-      title: UserLevel
-      required:
-      - username
-      - lastActive
-      - moderator
-      - subscriber
-      - level
-      type: object
-      properties:
-        username:
-          type: string
-        lastActive:
-          type: string
-        moderator:
-          type: boolean
-        subscriber:
-          type: boolean
-        level:
-          type: integer
-          format: int32
-      example:
-        username: testuser
-        lastActive: '0001-01-01T00:00:00Z'
-        moderator: false
-        subscriber: false
-        level: 500
-    channel_sayrequest:
-      title: /:channel/sayrequest
-      required:
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-      example:
-        message: '{{botMessage}}'
-    BotJoinResponse:
-      title: BotJoinResponse
-      required:
-      - status
-      - channel
-      - message
-      type: object
-      properties:
-        status:
-          type: integer
-          format: int32
-        channel:
-          type: string
-        message:
-          type: string
-      example:
-        status: 200
-        channel: 5b2e2007760aeb7729487dab
-        message: successfully joined your channel
-    channel_languagerequest:
-      title: /:channel/languagerequest
-      required:
-      - language
-      type: object
-      properties:
-        language:
-          type: string
-      example:
-        language: en
+        path:
+        - types
+        message: '"types" must be an array'
     400-badrequest:
       title: 400-badrequest
       required:
@@ -3165,6 +3136,33 @@ components:
         - path:
           - giveawayId
           message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+    UserLevel:
+      title: UserLevel
+      required:
+      - username
+      - lastActive
+      - moderator
+      - subscriber
+      - level
+      type: object
+      properties:
+        username:
+          type: string
+        lastActive:
+          type: string
+        moderator:
+          type: boolean
+        subscriber:
+          type: boolean
+        level:
+          type: integer
+          format: int32
+      example:
+        username: testuser
+        lastActive: '0001-01-01T00:00:00Z'
+        moderator: false
+        subscriber: false
+        level: 500
   securitySchemes:
     JWTBearer:
       type: http

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: SE API Docs activities filters API
+  title: SE API Docs Filters API
   description: '## Custom Variable types
 
     `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
@@ -9,13 +9,11 @@ info:
 
     ## Global variables
 
-    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+    `Authorization` - string: JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
 
     `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
 
-    `channelName` - string: lowercase channel name
-
-    `timezone` - integer: timezone index'
+    `channelName` - string: lowercase…'
   contact: {}
   version: '1.0'
 servers:
@@ -30,13 +28,13 @@ security:
 - OAuth2: []
 - ApiKeyBearer: []
 tags:
-- name: filters
+- name: Filters
   description: Bot spam filters management
 paths:
   /bot/filters/banphrases/search:
     get:
       tags:
-      - filters
+      - Filters
       summary: /banphrases/search
       description: Get details for provided banned phrase id
       operationId: /banphrases/search
@@ -118,7 +116,7 @@ paths:
   /bot/filters/{channel}:
     get:
       tags:
-      - filters
+      - Filters
       summary: /:channel
       description: List filters
       operationId: Get/:channel123
@@ -226,7 +224,7 @@ paths:
       deprecated: false
     put:
       tags:
-      - filters
+      - Filters
       summary: /:channel
       description: Update channel settings
       operationId: Put/:channel
@@ -264,7 +262,7 @@ paths:
   /bot/filters/{channel}/banphrases:
     post:
       tags:
-      - filters
+      - Filters
       summary: /:channel/banphrases
       description: Add new banphrases group
       operationId: /:channel/banphrases
@@ -302,7 +300,7 @@ paths:
   /bot/filters/{channel}/test:
     post:
       tags:
-      - filters
+      - Filters
       summary: /:channel/test
       description: Test a message against filters
       operationId: /:channel/test
@@ -339,7 +337,7 @@ paths:
   /bot/filters/{channel}/banphrases/{groupId}:
     put:
       tags:
-      - filters
+      - Filters
       summary: /:channel/banphrases/:groupId
       description: Update banphrases group
       operationId: /:channel/banphrases/:groupId
@@ -383,7 +381,7 @@ paths:
       deprecated: false
     delete:
       tags:
-      - filters
+      - Filters
       summary: /:channel/banphrases/:groupId
       description: Delete banphrases group
       operationId: Delete/:channel/banphrases/:groupId
@@ -419,7 +417,7 @@ paths:
   /bot/filters/{channel}/{filter}:
     put:
       tags:
-      - filters
+      - Filters
       summary: /:channel/:filter
       description: Start a contest
       operationId: /:channel/:filter
@@ -463,31 +461,16 @@ paths:
       deprecated: false
 components:
   schemas:
-    Paragraph:
-      title: Paragraph
+    Banphrases:
+      title: Banphrases
       required:
-      - timeout
-      - settings
       - enabled
-      - exclude
       type: object
       properties:
-        timeout:
-          $ref: '#/components/schemas/Timeout'
-        settings:
-          $ref: '#/components/schemas/TimeoutSettings'
         enabled:
           type: boolean
-        exclude:
-          type: integer
-          format: int32
       example:
-        timeout:
-          length: 300
-        settings:
-          limit: 250
         enabled: false
-        exclude: 300
     Success16:
       title: Success16
       required:
@@ -552,16 +535,6 @@ components:
         lastUpdatedBy: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-08T10:06:12.342Z'
         updatedAt: '2018-12-08T10:06:12.342Z'
-    Banphrases:
-      title: Banphrases
-      required:
-      - enabled
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      example:
-        enabled: false
     Settings:
       title: Settings
       required:
@@ -583,6 +556,16 @@ components:
         limit: 50
         min: 8
         percent: 60
+    Banphrasesrequest:
+      title: New ban phrase
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: ''
     Caps:
       title: Caps
       required:
@@ -610,6 +593,139 @@ components:
           percent: 60
         enabled: false
         exclude: 300
+    Symbols:
+      title: Symbols
+      required:
+      - timeout
+      - settings
+      - enabled
+      - exclude
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        settings:
+          $ref: '#/components/schemas/Settings'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+      example:
+        timeout:
+          length: 300
+        settings:
+          limit: 50
+          min: 15
+          percent: 40
+        enabled: false
+        exclude: 300
+    Emotes:
+      title: Emotes
+      required:
+      - timeout
+      - settings
+      - enabled
+      - exclude
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        settings:
+          $ref: '#/components/schemas/TimeoutSettings'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+      example:
+        timeout:
+          length: 300
+        settings:
+          limit: 20
+        enabled: false
+        exclude: 300
+    Links:
+      title: Links
+      required:
+      - timeout
+      - enabled
+      - exclude
+      - whitelist
+      - blacklist
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+        whitelist:
+          type: array
+          items:
+            type: string
+          description: ''
+        blacklist:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        timeout:
+          length: 300
+        enabled: false
+        exclude: 300
+        whitelist: []
+        blacklist: []
+    TimeoutSettings:
+      title: TimeoutSettings
+      required:
+      - limit
+      type: object
+      properties:
+        limit:
+          type: integer
+          format: int32
+      example:
+        limit: 20
+    Paragraph:
+      title: Paragraph
+      required:
+      - timeout
+      - settings
+      - enabled
+      - exclude
+      type: object
+      properties:
+        timeout:
+          $ref: '#/components/schemas/Timeout'
+        settings:
+          $ref: '#/components/schemas/TimeoutSettings'
+        enabled:
+          type: boolean
+        exclude:
+          type: integer
+          format: int32
+      example:
+        timeout:
+          length: 300
+        settings:
+          limit: 250
+        enabled: false
+        exclude: 300
+    Timeout:
+      title: Timeout
+      required:
+      - length
+      type: object
+      properties:
+        length:
+          type: integer
+          format: int32
+      example:
+        length: 300
     BotFilters:
       title: BotFilters
       required:
@@ -675,124 +791,6 @@ components:
             limit: 250
           enabled: false
           exclude: 300
-    TimeoutSettings:
-      title: TimeoutSettings
-      required:
-      - limit
-      type: object
-      properties:
-        limit:
-          type: integer
-          format: int32
-      example:
-        limit: 20
-    Timeout:
-      title: Timeout
-      required:
-      - length
-      type: object
-      properties:
-        length:
-          type: integer
-          format: int32
-      example:
-        length: 300
-    Banphrasesrequest:
-      title: New ban phrase
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-      example:
-        name: ''
-    Links:
-      title: Links
-      required:
-      - timeout
-      - enabled
-      - exclude
-      - whitelist
-      - blacklist
-      type: object
-      properties:
-        timeout:
-          $ref: '#/components/schemas/Timeout'
-        enabled:
-          type: boolean
-        exclude:
-          type: integer
-          format: int32
-        whitelist:
-          type: array
-          items:
-            type: string
-          description: ''
-        blacklist:
-          type: array
-          items:
-            type: string
-          description: ''
-      example:
-        timeout:
-          length: 300
-        enabled: false
-        exclude: 300
-        whitelist: []
-        blacklist: []
-    Symbols:
-      title: Symbols
-      required:
-      - timeout
-      - settings
-      - enabled
-      - exclude
-      type: object
-      properties:
-        timeout:
-          $ref: '#/components/schemas/Timeout'
-        settings:
-          $ref: '#/components/schemas/Settings'
-        enabled:
-          type: boolean
-        exclude:
-          type: integer
-          format: int32
-      example:
-        timeout:
-          length: 300
-        settings:
-          limit: 50
-          min: 15
-          percent: 40
-        enabled: false
-        exclude: 300
-    Emotes:
-      title: Emotes
-      required:
-      - timeout
-      - settings
-      - enabled
-      - exclude
-      type: object
-      properties:
-        timeout:
-          $ref: '#/components/schemas/Timeout'
-        settings:
-          $ref: '#/components/schemas/TimeoutSettings'
-        enabled:
-          type: boolean
-        exclude:
-          type: integer
-          format: int32
-      example:
-        timeout:
-          length: 300
-        settings:
-          limit: 20
-        enabled: false
-        exclude: 300
   securitySchemes:
     JWTBearer:
       type: http

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: SE API Docs activities loyalties API
+  title: SE API Docs Loyalties API
   description: '## Custom Variable types
 
     `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
@@ -9,13 +9,11 @@ info:
 
     ## Global variables
 
-    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+    `Authorization` - string: JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
 
     `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
 
-    `channelName` - string: lowercase channel name
-
-    `timezone` - integer: timezone index'
+    `channelName` - string: lowercase…'
   contact: {}
   version: '1.0'
 servers:
@@ -168,6 +166,47 @@ paths:
       deprecated: false
 components:
   schemas:
+    Loyalty:
+      title: Loyalty
+      required:
+      - bonuses
+      - name
+      - enabled
+      - amount
+      - subscriberMultiplier
+      - ignored
+      type: object
+      properties:
+        bonuses:
+          $ref: '#/components/schemas/Bonuses'
+        name:
+          type: string
+        enabled:
+          type: boolean
+        amount:
+          type: integer
+          format: int32
+        subscriberMultiplier:
+          type: integer
+          format: int32
+        ignored:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        bonuses:
+          follow: 0
+          tip: 0
+          subscriber: 0
+          cheer: 0
+          host: 0
+        name: points
+        enabled: false
+        amount: 5
+        subscriberMultiplier: 3
+        ignored:
+        - streamelements
     Success40:
       title: Success40
       required:
@@ -237,47 +276,6 @@ components:
         subscriber: 0
         cheer: 0
         host: 0
-    Loyalty:
-      title: Loyalty
-      required:
-      - bonuses
-      - name
-      - enabled
-      - amount
-      - subscriberMultiplier
-      - ignored
-      type: object
-      properties:
-        bonuses:
-          $ref: '#/components/schemas/Bonuses'
-        name:
-          type: string
-        enabled:
-          type: boolean
-        amount:
-          type: integer
-          format: int32
-        subscriberMultiplier:
-          type: integer
-          format: int32
-        ignored:
-          type: array
-          items:
-            type: string
-          description: ''
-      example:
-        bonuses:
-          follow: 0
-          tip: 0
-          subscriber: 0
-          cheer: 0
-          host: 0
-        name: points
-        enabled: false
-        amount: 5
-        subscriberMultiplier: 3
-        ignored:
-        - streamelements
   securitySchemes:
     JWTBearer:
       type: http

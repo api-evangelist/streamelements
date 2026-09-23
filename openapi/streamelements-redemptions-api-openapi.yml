@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: SE API Docs activities redemptions API
+  title: SE API Docs Redemptions API
   description: '## Custom Variable types
 
     `guid` - string that matches pattern: `/^[0-9a-fA-F]{24}$/` (24 character hexadecimal string)
@@ -9,13 +9,11 @@ info:
 
     ## Global variables
 
-    `Authorization` - string:  JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
+    `Authorization` - string: JWT Token you can obtain here: https://streamelements.com/dashboard/account/channels (click "Show secrets")
 
     `channelId` - guid: obtained by requesting `/channels/me` endpoint with provided JWT token
 
-    `channelName` - string: lowercase channel name
-
-    `timezone` - integer: timezone index'
+    `channelName` - string: lowercase…'
   contact: {}
   version: '1.0'
 servers:
@@ -30,12 +28,12 @@ security:
 - OAuth2: []
 - ApiKeyBearer: []
 tags:
-- name: redemptions
+- name: Redemptions
 paths:
   /store/{channel}/redemptions:
     get:
       tags:
-      - redemptions
+      - Redemptions
       summary: /:channel/redemptions
       description: List redemptions
       operationId: /:channel/redemptions
@@ -92,7 +90,7 @@ paths:
   /store/{channel}/redemptions/search:
     get:
       tags:
-      - redemptions
+      - Redemptions
       summary: /:channel/redemptions/search
       description: Search for redemptions
       operationId: /:channel/redemptions/search
@@ -188,7 +186,7 @@ paths:
   /store/{channel}/redemptions/me:
     get:
       tags:
-      - redemptions
+      - Redemptions
       summary: /:channel/redemptions/me
       description: Get own redemptions
       operationId: /:channel/redemptions/me
@@ -237,7 +235,7 @@ paths:
   /store/{channel}/redemptions/{redemptionId}:
     put:
       tags:
-      - redemptions
+      - Redemptions
       summary: /:channel/redemptions/:redemptionId
       description: Update redemption
       operationId: /:channel/redemptions/:redemptionId
@@ -281,7 +279,7 @@ paths:
       deprecated: false
     delete:
       tags:
-      - redemptions
+      - Redemptions
       summary: /:channel/redemptions/:redemptionId
       description: Delete redemption
       operationId: Delete/:channel/redemptions/:redemptionId
@@ -316,7 +314,7 @@ paths:
       deprecated: false
     get:
       tags:
-      - redemptions
+      - Redemptions
       summary: /:channel/redemptions/:redemptionId1
       description: Get redemption details
       operationId: /:channel/redemptions/:redemptionId1
