@@ -615,58 +615,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Cooldown:
-      title: Cooldown
-      required:
-      - user
-      - global
-      type: object
-      properties:
-        user:
-          type: integer
-          format: int32
-        global:
-          type: integer
-          format: int32
-      example:
-        user: 15
-        global: 5
-    Alert:
-      title: Alert
-      required:
-      - graphics
-      - audio
-      - enabled
-      type: object
-      properties:
-        graphics:
-          $ref: '#/components/schemas/Graphics8'
-        audio:
-          $ref: '#/components/schemas/Audio1'
-        enabled:
-          type: boolean
-      example:
-        graphics:
-          duration: 8
-        audio:
-          volume: 0.5
-          src: null
-        enabled: true
-    Notfound2:
-      title: Notfound2
-      required:
-      - statusCode
-      - error
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
-      example:
-        statusCode: 404
-        error: Not Found
     AccessCodes:
       title: AccessCodes
       required:
@@ -688,6 +636,82 @@ components:
         keys: []
         mode: multi
         random: false
+    Notfound2:
+      title: Notfound2
+      required:
+      - statusCode
+      - error
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+    Alert:
+      title: Alert
+      required:
+      - graphics
+      - audio
+      - enabled
+      type: object
+      properties:
+        graphics:
+          $ref: '#/components/schemas/Graphics8'
+        audio:
+          $ref: '#/components/schemas/Audio1'
+        enabled:
+          type: boolean
+      example:
+        graphics:
+          duration: 8
+        audio:
+          volume: 0.5
+          src: null
+        enabled: true
+    Quantity1:
+      title: Quantity1
+      required:
+      - total
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int32
+      example:
+        total: -1
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
+    Graphics8:
+      title: Graphics8
+      required:
+      - duration
+      type: object
+      properties:
+        duration:
+          type: integer
+          format: int32
+      example:
+        duration: 8
     LoyaltyItem:
       title: LoyaltyItem
       required:
@@ -783,75 +807,6 @@ components:
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-08T12:01:50.208Z'
         updatedAt: '2018-12-08T12:12:45.883Z'
-    Quantity1:
-      title: Quantity1
-      required:
-      - total
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int32
-      example:
-        total: -1
-    Bot2:
-      title: Bot2
-      required:
-      - enabled
-      - identifier
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        identifier:
-          type: string
-      example:
-        enabled: true
-        identifier: testitem
-    Audio1:
-      title: Audio1
-      required:
-      - src
-      type: object
-      properties:
-        src:
-          type:
-          - string
-          - 'null'
-        volume:
-          type: number
-      example:
-        src: https://cdn.streamelements.com/static/alertbox/default.ogg
-        volume: 0.5
-    Detail:
-      title: Detail
-      required:
-      - path
-      - message
-      type: object
-      properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
-        message:
-          type: string
-      example:
-        path:
-        - types
-        message: '"types" must be an array'
-    Graphics8:
-      title: Graphics8
-      required:
-      - duration
-      type: object
-      properties:
-        duration:
-          type: integer
-          format: int32
-      example:
-        duration: 8
     400-badrequest:
       title: 400-badrequest
       required:
@@ -881,6 +836,51 @@ components:
         - path:
           - giveawayId
           message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+    Cooldown:
+      title: Cooldown
+      required:
+      - user
+      - global
+      type: object
+      properties:
+        user:
+          type: integer
+          format: int32
+        global:
+          type: integer
+          format: int32
+      example:
+        user: 15
+        global: 5
+    Audio1:
+      title: Audio1
+      required:
+      - src
+      type: object
+      properties:
+        src:
+          type:
+          - string
+          - 'null'
+        volume:
+          type: number
+      example:
+        src: https://cdn.streamelements.com/static/alertbox/default.ogg
+        volume: 0.5
+    Bot2:
+      title: Bot2
+      required:
+      - enabled
+      - identifier
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        identifier:
+          type: string
+      example:
+        enabled: true
+        identifier: testitem
   securitySchemes:
     JWTBearer:
       type: http

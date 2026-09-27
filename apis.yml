@@ -78,7 +78,7 @@ tags_raw:
 - REST
 apis:
 - aid: streamelements:streamelements-activities-api
-  name: StreamElements activities API
+  name: StreamElements Activities API
   description: Endpoints to interract with activities collected by StreamElements
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -90,7 +90,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-activities-api-openapi.yml
 - aid: streamelements:streamelements-bot-api
-  name: StreamElements bot API
+  name: StreamElements Bot API
   description: Endpoints to manage StreamElements chat bot
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -102,7 +102,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-bot-api-openapi.yml
 - aid: streamelements:streamelements-channels-api
-  name: StreamElements channels API
+  name: StreamElements Channels API
   description: Endpoints to get channel data
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -114,7 +114,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-channels-api-openapi.yml
 - aid: streamelements:streamelements-chatstats-api
-  name: StreamElements chatstats API
+  name: StreamElements Chatstats API
   description: Endpoint to get chat statistics
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -124,7 +124,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-chatstats-api-openapi.yml
 - aid: streamelements:streamelements-commands-api
-  name: StreamElements commands API
+  name: StreamElements Commands API
   description: Bot commands management
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -136,7 +136,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-commands-api-openapi.yml
 - aid: streamelements:streamelements-contests-api
-  name: StreamElements contests API
+  name: StreamElements Contests API
   description: Endpoints to interract with contests
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -148,7 +148,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-contests-api-openapi.yml
 - aid: streamelements:streamelements-filters-api
-  name: StreamElements filters API
+  name: StreamElements Filters API
   description: Bot spam filters management
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -160,7 +160,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-filters-api-openapi.yml
 - aid: streamelements:streamelements-giveaways-api
-  name: StreamElements giveaways API
+  name: StreamElements Giveaways API
   description: >-
     This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.
   humanURL: https://dev.streamelements.com/docs/api-docs
@@ -173,7 +173,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-giveaways-api-openapi.yml
 - aid: streamelements:streamelements-loyalties-api
-  name: StreamElements loyalties API
+  name: StreamElements Loyalties API
   description: Endpoints to manage loyalty settings
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -183,7 +183,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-loyalties-api-openapi.yml
 - aid: streamelements:streamelements-modules-api
-  name: StreamElements modules API
+  name: StreamElements Modules API
   description: Endpoints to manage bot modules
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -195,7 +195,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-modules-api-openapi.yml
 - aid: streamelements:streamelements-overlays-api
-  name: StreamElements overlays API
+  name: StreamElements Overlays API
   description: Endpoints to manage overlays assigned to channel
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -207,7 +207,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-overlays-api-openapi.yml
 - aid: streamelements:streamelements-points-api
-  name: StreamElements points API
+  name: StreamElements Points API
   description: Endpoints to manage loyalty points
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -219,7 +219,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-points-api-openapi.yml
 - aid: streamelements:streamelements-redemptions-api
-  name: StreamElements redemptions API
+  name: StreamElements Redemptions API
   description: The redemptions API from StreamElements — 4 operation(s) for redemptions.
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -231,7 +231,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-redemptions-api-openapi.yml
 - aid: streamelements:streamelements-sessions-api
-  name: StreamElements sessions API
+  name: StreamElements Sessions API
   description: Endpoints to manage session data
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -274,7 +274,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-single-user-api-openapi.yml
 - aid: streamelements:streamelements-songrequests-api
-  name: StreamElements songrequests API
+  name: StreamElements Songrequests API
   description: Endpoints to interact with StreamElements Mediashare
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -284,7 +284,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-songrequests-api-openapi.yml
 - aid: streamelements:streamelements-stats-api
-  name: StreamElements stats API
+  name: StreamElements Stats API
   description: Folder for loyalty
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -296,7 +296,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-stats-api-openapi.yml
 - aid: streamelements:streamelements-store-api
-  name: StreamElements store API
+  name: StreamElements Store API
   description: Store items management
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -308,7 +308,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-store-api-openapi.yml
 - aid: streamelements:streamelements-themes-api
-  name: StreamElements themes API
+  name: StreamElements Themes API
   description: Endpoints to browse StreamElements themes
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -320,7 +320,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-themes-api-openapi.yml
 - aid: streamelements:streamelements-timers-api
-  name: StreamElements timers API
+  name: StreamElements Timers API
   description: Bot timers (chat "cron" messages) management
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -332,7 +332,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-timers-api-openapi.yml
 - aid: streamelements:streamelements-tips-api
-  name: StreamElements tips API
+  name: StreamElements Tips API
   description: Endpoints to interract with tips
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2
@@ -344,7 +344,7 @@ apis:
   - type: OpenAPI
     url: openapi/streamelements-tips-api-openapi.yml
 - aid: streamelements:streamelements-users-api
-  name: StreamElements users API
+  name: StreamElements Users API
   description: Folder for loyalty
   humanURL: https://dev.streamelements.com/docs/api-docs
   baseURL: https://api.streamelements.com/kappa/v2

@@ -529,76 +529,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    User11:
-      title: User11
-      required:
-      - userId
-      - username
-      - email
-      type: object
-      properties:
-        userId:
-          type: string
-        username:
-          type: string
-        email:
-          type: string
-      example:
-        userId: ''
-        username: ''
-        email: com
-    Notfound2:
-      title: Notfound2
-      required:
-      - statusCode
-      - error
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
-      example:
-        statusCode: 404
-        error: Not Found
-    Success64:
-      title: Success64
-      required:
-      - username
-      - first
-      - last
-      - count
-      - total
-      - email
-      - average
-      type: object
-      properties:
-        username:
-          type: string
-        first:
-          type: string
-        last:
-          type: string
-        count:
-          type: integer
-          format: int32
-        total:
-          type: integer
-          format: int32
-        email:
-          type: string
-        average:
-          type: integer
-          format: int32
-      example:
-        username: StreamElements
-        first: '2018-12-07T17:19:01.957Z'
-        last: '2018-12-07T17:19:01.957Z'
-        count: 1
-        total: 100
-        email: streamelements@streamelements.com
-        average: 100
     NewTip:
       title: New tip
       required:
@@ -633,6 +563,39 @@ components:
         amount: 0
         currency: ''
         imported: true
+    Notfound2:
+      title: Notfound2
+      required:
+      - statusCode
+      - error
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
     TipData:
       title: TipData
       required:
@@ -686,51 +649,24 @@ components:
         createdAt: '2018-12-07T17:19:01.957Z'
         approved: allowed
         updatedAt: '2018-12-07T17:19:01.957Z'
-    Donation:
-      title: Donation3
+    User11:
+      title: User11
       required:
-      - user
-      - message
-      - amount
-      - currency
+      - userId
+      - username
+      - email
       type: object
       properties:
-        user:
-          $ref: '#/components/schemas/DonationUser'
-        message:
+        userId:
           type: string
-        amount:
-          type: integer
-          format: int32
-        currency:
+        username:
+          type: string
+        email:
           type: string
       example:
-        user:
-          username: StreamElements
-          ip: null
-          geo: null
-          email: StreamElements@streamelements.com
-        message: Test message
-        amount: 123
-        currency: USD
-    Detail:
-      title: Detail
-      required:
-      - path
-      - message
-      type: object
-      properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
-        message:
-          type: string
-      example:
-        path:
-        - types
-        message: '"types" must be an array'
+        userId: ''
+        username: ''
+        email: com
     DonationUser:
       title: Donation user
       required:
@@ -785,6 +721,70 @@ components:
         - path:
           - giveawayId
           message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+    Success64:
+      title: Success64
+      required:
+      - username
+      - first
+      - last
+      - count
+      - total
+      - email
+      - average
+      type: object
+      properties:
+        username:
+          type: string
+        first:
+          type: string
+        last:
+          type: string
+        count:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+        email:
+          type: string
+        average:
+          type: integer
+          format: int32
+      example:
+        username: StreamElements
+        first: '2018-12-07T17:19:01.957Z'
+        last: '2018-12-07T17:19:01.957Z'
+        count: 1
+        total: 100
+        email: streamelements@streamelements.com
+        average: 100
+    Donation:
+      title: Donation3
+      required:
+      - user
+      - message
+      - amount
+      - currency
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/DonationUser'
+        message:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        currency:
+          type: string
+      example:
+        user:
+          username: StreamElements
+          ip: null
+          geo: null
+          email: StreamElements@streamelements.com
+        message: Test message
+        amount: 123
+        currency: USD
   securitySchemes:
     JWTBearer:
       type: http

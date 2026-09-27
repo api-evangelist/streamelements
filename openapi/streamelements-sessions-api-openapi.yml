@@ -2221,36 +2221,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Count:
-      title: Count
-      required:
-      - count
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-      example:
-        count: 8
-    SubscriberResubLatest:
-      title: SubscriberResubLatest
-      required:
-      - name
-      - amount
-      - message
-      type: object
-      properties:
-        name:
-          type: string
-        amount:
-          type: integer
-          format: int32
-        message:
-          type: string
-      example:
-        name: Marilyne Abshire
-        amount: 17
-        message: ''
     Amount:
       title: Amount
       required:
@@ -2262,25 +2232,30 @@ components:
           format: int32
       example:
         amount: 246
-    SubscriberGiftedLatest:
-      title: SubscriberGiftedLatest
+    FollowerLatest:
+      title: FollowerLatest
       required:
       - name
-      - amount
-      - message
       type: object
       properties:
         name:
           type: string
-        amount:
-          type: integer
-          format: int32
-        message:
-          type: string
       example:
-        name: ''
-        amount: 0
-        message: ''
+        name: Emile Morissette
+    SessionSettings:
+      title: SessionSettings
+      required:
+      - autoReset
+      - calendar
+      type: object
+      properties:
+        autoReset:
+          type: boolean
+        calendar:
+          type: boolean
+      example:
+        autoReset: true
+        calendar: false
     FollowerRecent:
       title: FollowerRecent
       required:
@@ -2295,6 +2270,40 @@ components:
       example:
         name: Josiane Dietrich
         createdAt: '2018-12-06T15:54:41.635Z'
+    SubscriberRecent:
+      title: SubscriberRecent
+      required:
+      - name
+      - tier
+      - amount
+      - createdAt
+      type: object
+      properties:
+        name:
+          type: string
+        tier:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+      example:
+        name: Marilyne Abshire
+        tier: '2000'
+        amount: 17
+        createdAt: '2018-12-06T15:54:48.768Z'
+    Count:
+      title: Count
+      required:
+      - count
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+      example:
+        count: 8
     channel_reset:
       title: /:channel/reset
       required:
@@ -2884,20 +2893,44 @@ components:
         name: Mariana Ward
         amount: 50
         message: ''
-    channel_settings:
-      title: /:channel/settings
+    SubscriberGiftedLatest:
+      title: SubscriberGiftedLatest
       required:
-      - autoReset
-      - calendar
+      - name
+      - amount
+      - message
       type: object
       properties:
-        autoReset:
-          type: boolean
-        calendar:
-          type: boolean
+        name:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        message:
+          type: string
       example:
-        autoReset: true
-        calendar: false
+        name: ''
+        amount: 0
+        message: ''
+    TipLatest:
+      title: TipLatest
+      required:
+      - name
+      - amount
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        name: Ms. Aniyah Bernhard
+        amount: 41
+        message: ''
     channelData:
       title: /:channel
       required:
@@ -3623,101 +3656,731 @@ components:
         createdAt: '2018-06-23T10:25:11.767Z'
         updatedAt: '2018-12-07T17:06:55.667Z'
         __v: 1
-    SubscriberRecent:
-      title: SubscriberRecent
+    SessionDataInfo:
+      title: SessionDataInfo
       required:
-      - name
-      - tier
-      - amount
+      - data
+      - settings
+      - provider
+      - lastReset
+      - _id
+      - channel
       - createdAt
+      - updatedAt
+      - __v
       type: object
       properties:
-        name:
+        data:
+          $ref: '#/components/schemas/SessionData'
+        settings:
+          $ref: '#/components/schemas/SessionSettings'
+        provider:
           type: string
-        tier:
+        lastReset:
           type: string
-        amount:
-          type: integer
-          format: int32
+        _id:
+          type: string
+        channel:
+          type: string
         createdAt:
           type: string
-      example:
-        name: Marilyne Abshire
-        tier: '2000'
-        amount: 17
-        createdAt: '2018-12-06T15:54:48.768Z'
-    AmountRecent:
-      title: Recent username/amount
-      required:
-      - name
-      - amount
-      type: object
-      properties:
-        name:
+        updatedAt:
           type: string
-        amount:
+        __v:
           type: integer
           format: int32
-        createdAt:
-          type: string
       example:
-        name: Alysa Jast
-        amount: 2
-        createdAt: '2018-12-06T15:54:41.618Z'
-    TipLatest:
-      title: TipLatest
-      required:
-      - name
-      - amount
-      - message
-      type: object
-      properties:
-        name:
-          type: string
-        amount:
-          type: integer
-          format: int32
-        message:
-          type: string
-      example:
-        name: Ms. Aniyah Bernhard
-        amount: 41
-        message: ''
-    SubscriberLatest:
-      title: SubscriberLatest
-      required:
-      - name
-      - amount
-      - tier
-      - message
-      - sender
-      - gifted
-      type: object
-      properties:
-        name:
-          type: string
-        amount:
-          type: integer
-          format: int32
-        tier:
-          type: string
-        message:
-          type: string
-        sender:
-          type:
-          - string
-          - 'null'
-        gifted:
-          type:
-          - string
-          - 'null'
-      example:
-        name: Marilyne Abshire
-        amount: 17
-        tier: '2000'
-        message: ''
-        sender: null
-        gifted: null
+        data:
+          follower-latest:
+            name: Emile Morissette
+          follower-session:
+            count: 11
+          follower-week:
+            count: 11
+          follower-month:
+            count: 11
+          follower-goal:
+            amount: 11
+          follower-total:
+            count: 13
+          subscriber-latest:
+            name: Marilyne Abshire
+            amount: 17
+            tier: '2000'
+            message: ''
+            sender: null
+            gifted: null
+          subscriber-new-latest:
+            name: ''
+            amount: 0
+            message: ''
+          subscriber-resub-latest:
+            name: Marilyne Abshire
+            amount: 17
+            message: ''
+          subscriber-gifted-latest:
+            name: ''
+            amount: 0
+            message: ''
+          subscriber-session:
+            count: 68
+          subscriber-new-session:
+            count: 0
+          subscriber-resub-session:
+            count: 68
+          subscriber-gifted-session:
+            count: 0
+          subscriber-week:
+            count: 68
+          subscriber-month:
+            count: 68
+          subscriber-goal:
+            amount: 68
+          subscriber-total:
+            count: 68
+          subscriber-points:
+            amount: 189
+          subscriber-alltime-gifter:
+            name: ''
+            amount: 0
+          host-latest:
+            name: Cathryn Wehner
+            amount: 2
+          raid-latest:
+            name: Velma Langosh
+            amount: 8
+          cheer-session:
+            amount: 246
+          cheer-week:
+            amount: 246
+          cheer-month:
+            amount: 246
+          cheer-total:
+            amount: 246
+          cheer-count:
+            count: 8
+          cheer-goal:
+            amount: 246
+          cheer-latest:
+            name: Halle Koelpin
+            amount: 24
+            message: ''
+          cheer-session-top-donation:
+            name: Mariana Ward
+            amount: 50
+            message: ''
+          cheer-weekly-top-donation:
+            name: Mariana Ward
+            amount: 50
+            message: ''
+          cheer-monthly-top-donation:
+            name: Mariana Ward
+            amount: 50
+            message: ''
+          cheer-alltime-top-donation:
+            name: Mariana Ward
+            amount: 50
+            message: ''
+          cheer-session-top-donator:
+            name: Mariana Ward
+            amount: 50
+          cheer-weekly-top-donator:
+            name: Mariana Ward
+            amount: 50
+          cheer-monthly-top-donator:
+            name: Mariana Ward
+            amount: 50
+          cheer-alltime-top-donator:
+            name: Mariana Ward
+            amount: 50
+          tip-latest:
+            name: Ms. Aniyah Bernhard
+            amount: 41
+            message: ''
+          tip-session-top-donation:
+            name: Demarco Okuneva
+            amount: 50
+          tip-weekly-top-donation:
+            name: Demarco Okuneva
+            amount: 50
+          tip-monthly-top-donation:
+            name: Demarco Okuneva
+            amount: 50
+          tip-alltime-top-donation:
+            name: Demarco Okuneva
+            amount: 50
+          tip-session-top-donator:
+            name: Demarco Okuneva
+            amount: 50
+          tip-weekly-top-donator:
+            name: Demarco Okuneva
+            amount: 50
+          tip-monthly-top-donator:
+            name: Demarco Okuneva
+            amount: 50
+          tip-alltime-top-donator:
+            name: Demarco Okuneva
+            amount: 50
+          tip-session:
+            amount: 279
+          tip-week:
+            amount: 279
+          tip-month:
+            amount: 279
+          tip-total:
+            amount: 279
+          tip-count:
+            count: 8
+          tip-goal:
+            amount: 279
+          merch-goal-orders:
+            amount: 0
+          merch-goal-items:
+            amount: 0
+          merch-goal-total:
+            amount: 0
+          follower-recent:
+          - name: Josiane Dietrich
+            createdAt: '2018-12-06T15:54:41.635Z'
+          - name: Noemi Powlowski
+            createdAt: '2018-12-06T15:54:41.639Z'
+          - name: Norbert Rolfson MD
+            createdAt: '2018-12-06T15:54:41.636Z'
+          - name: Christophe Connelly
+            createdAt: '2018-12-06T15:54:41.632Z'
+          - name: Dameon Herzog
+            createdAt: '2018-12-06T15:54:41.642Z'
+          - name: Ms. Damian Roob
+            createdAt: '2018-12-06T15:54:41.637Z'
+          - name: Mr. Daisha Ankunding
+            createdAt: '2018-12-06T15:54:41.622Z'
+          - name: Reva Padberg III
+            createdAt: '2018-12-06T15:54:41.623Z'
+          - name: Odell Macejkovic
+            createdAt: '2018-12-06T15:54:41.617Z'
+          - name: Clare Parisian
+            createdAt: '2018-12-06T15:54:41.619Z'
+          - name: Torrance Marvin
+            createdAt: '2018-12-06T15:54:41.61Z'
+          - name: Pat Schuster
+            createdAt: '2018-12-06T15:54:41.612Z'
+          - name: Gardner Thompson
+            createdAt: '2018-12-06T15:54:41.609Z'
+          - name: Emile Morissette
+            createdAt: '2018-12-06T15:54:41.604Z'
+          - name: Gustave Casper
+            createdAt: '2018-12-06T15:54:41.601Z'
+          - name: Demetris Emmerich
+            createdAt: '2018-12-06T15:54:41.599Z'
+          - name: Pedro Ziemann
+            createdAt: '2018-12-06T15:54:41.591Z'
+          - name: Hector Macejkovic
+            createdAt: '2018-12-06T15:54:41.597Z'
+          - name: Ludie Klocko
+            createdAt: '2018-12-06T15:54:41.586Z'
+          - name: Deven Kilback
+            createdAt: '2018-12-06T15:54:41.585Z'
+          - name: Alanis Kub
+            createdAt: '2018-12-06T15:54:41.594Z'
+          - name: Dr. Arturo Pagac
+            createdAt: '2018-12-06T15:54:40.077Z'
+          - name: Mrs. Isaias Halvorson
+            createdAt: '2018-12-06T15:54:40.089Z'
+          - name: Jerad Gottlieb
+            createdAt: '2018-12-06T15:54:40.093Z'
+          - name: Bud Kozey
+            createdAt: '2018-12-06T15:54:40.088Z'
+          subscriber-recent:
+          - name: Marilyne Abshire
+            tier: '2000'
+            amount: 17
+            createdAt: '2018-12-06T15:54:48.768Z'
+          - name: Verlie Nienow
+            tier: prime
+            amount: 22
+            createdAt: '2018-12-06T15:54:48.671Z'
+          - name: Ansel Willms
+            tier: prime
+            amount: 32
+            createdAt: '2018-12-06T15:54:48.335Z'
+          - name: Annetta D'Amore
+            tier: '2000'
+            amount: 46
+            createdAt: '2018-12-06T15:54:48.278Z'
+          - name: Korey Kreiger
+            tier: prime
+            amount: 35
+            createdAt: '2018-12-06T15:54:48.232Z'
+          - name: Krystal Schultz
+            tier: '3000'
+            amount: 20
+            createdAt: '2018-12-06T15:54:48.122Z'
+          - name: Shayna Mann
+            tier: '2000'
+            amount: 32
+            createdAt: '2018-12-06T15:54:47.865Z'
+          - name: Margarita Bode
+            tier: '2000'
+            amount: 10
+            createdAt: '2018-12-06T15:54:47.567Z'
+          - name: Shakira Heidenreich
+            tier: '2000'
+            amount: 38
+            createdAt: '2018-12-06T15:54:47.511Z'
+          - name: Pierre Hodkiewicz
+            tier: '2000'
+            amount: 26
+            createdAt: '2018-12-06T15:54:47.454Z'
+          - name: Mr. Maxine Dicki
+            tier: prime
+            amount: 43
+            createdAt: '2018-12-06T15:54:47.372Z'
+          - name: King Rempel
+            tier: '1000'
+            amount: 21
+            createdAt: '2018-12-06T15:54:47.215Z'
+          - name: Katelynn Runolfsson V
+            tier: '3000'
+            amount: 43
+            createdAt: '2018-12-06T15:54:47.101Z'
+          - name: Mike Hermiston
+            tier: prime
+            amount: 28
+            createdAt: '2018-12-06T15:54:47.069Z'
+          - name: Mr. Lilyan Lynch
+            tier: '2000'
+            amount: 8
+            createdAt: '2018-12-06T15:54:47.028Z'
+          - name: Keon Kuphal Jr.
+            tier: '1000'
+            amount: 17
+            createdAt: '2018-12-06T15:54:46.916Z'
+          - name: Florencio Stokes
+            tier: '3000'
+            amount: 2
+            createdAt: '2018-12-06T15:54:46.851Z'
+          - name: Sandra Wolf
+            tier: '1000'
+            amount: 25
+            createdAt: '2018-12-06T15:54:46.809Z'
+          - name: Aurelie Stark
+            tier: '1000'
+            amount: 3
+            createdAt: '2018-12-06T15:54:46.77Z'
+          - name: Vernon Mosciski
+            tier: prime
+            amount: 46
+            createdAt: '2018-12-06T15:54:46.725Z'
+          - name: Makenna Hyatt
+            tier: '1000'
+            amount: 46
+            createdAt: '2018-12-06T15:54:46.683Z'
+          - name: Jada Sipes
+            tier: '3000'
+            amount: 42
+            createdAt: '2018-12-06T15:54:46.635Z'
+          - name: Ibrahim Mante
+            tier: '2000'
+            amount: 47
+            createdAt: '2018-12-06T15:54:46.514Z'
+          - name: Kiera DuBuque
+            tier: '2000'
+            amount: 50
+            createdAt: '2018-12-06T15:54:46.461Z'
+          - name: Casimir Stamm
+            tier: '3000'
+            amount: 8
+            createdAt: '2018-12-06T15:54:46.417Z'
+          host-recent:
+          - name: Alysa Jast
+            amount: 2
+            createdAt: '2018-12-06T15:54:41.618Z'
+          - name: Billie Ankunding
+            amount: 40
+            createdAt: '2018-12-06T15:54:41.655Z'
+          - name: Emily Russel
+            amount: 21
+            createdAt: '2018-12-06T15:54:41.649Z'
+          - name: Rylee Larson
+            amount: 20
+            createdAt: '2018-12-06T15:54:41.649Z'
+          - name: Fanny Predovic
+            amount: 45
+            createdAt: '2018-12-06T15:54:41.638Z'
+          - name: Roma Fadel I
+            amount: 1
+            createdAt: '2018-12-06T15:54:41.641Z'
+          - name: Carolyn Hilll
+            amount: 15
+            createdAt: '2018-12-06T15:54:41.647Z'
+          - name: Otis Predovic
+            amount: 40
+            createdAt: '2018-12-06T15:54:41.635Z'
+          - name: Cathryn Wehner
+            amount: 2
+            createdAt: '2018-12-06T15:54:41.636Z'
+          - name: Marcelle Vandervort
+            amount: 21
+            createdAt: '2018-12-06T15:54:41.629Z'
+          - name: Makenna Upton
+            amount: 9
+            createdAt: '2018-12-06T15:54:41.614Z'
+          - name: Noe Carroll
+            amount: 40
+            createdAt: '2018-12-06T15:54:41.629Z'
+          - name: Nicolas Wilkinson
+            amount: 36
+            createdAt: '2018-12-06T15:54:41.607Z'
+          - name: Dr. Annetta Rolfson
+            amount: 31
+            createdAt: '2018-12-06T15:54:41.593Z'
+          - name: Freeda Frami
+            amount: 48
+            createdAt: '2018-12-06T15:54:41.595Z'
+          - name: Eleonore Hansen
+            amount: 45
+            createdAt: '2018-12-06T15:54:41.584Z'
+          - name: Mr. Rachael Bergstrom
+            amount: 45
+            createdAt: '2018-12-06T15:54:40.095Z'
+          - name: Lila Baumbach
+            amount: 13
+            createdAt: '2018-12-06T15:54:40.097Z'
+          - name: Ardith Parisian
+            amount: 37
+            createdAt: '2018-12-06T15:54:40.079Z'
+          - name: Ottilie Abernathy
+            amount: 4
+            createdAt: '2018-12-06T15:54:40.073Z'
+          - name: Manuela Will
+            amount: 28
+            createdAt: '2018-12-06T15:54:40.062Z'
+          - name: Norwood Lang I
+            amount: 46
+            createdAt: '2018-12-06T15:54:40.073Z'
+          - name: Francesca Kautzer
+            amount: 17
+            createdAt: '2018-12-06T15:54:40.068Z'
+          - name: Christ Donnelly
+            amount: 7
+            createdAt: '2018-12-06T15:54:40.072Z'
+          - name: Max Jakubowski
+            amount: 11
+            createdAt: '2018-12-06T15:54:40.061Z'
+          raid-recent:
+          - name: Clement Abernathy DDS
+            amount: 49
+            createdAt: '2018-12-06T15:54:41.634Z'
+          - name: Miss Amya Senger
+            amount: 26
+            createdAt: '2018-12-06T15:54:41.601Z'
+          - name: Dr. Clarabelle Douglas
+            amount: 47
+            createdAt: '2018-12-06T15:54:41.658Z'
+          - name: Velma Langosh
+            amount: 8
+            createdAt: '2018-12-06T15:54:41.659Z'
+          - name: Gerhard Konopelski
+            amount: 42
+            createdAt: '2018-12-06T15:54:41.65Z'
+          - name: Dario Bashirian
+            amount: 37
+            createdAt: '2018-12-06T15:54:41.637Z'
+          - name: Ellie McDermott
+            amount: 48
+            createdAt: '2018-12-06T15:54:41.631Z'
+          - name: Elsa Lynch
+            amount: 7
+            createdAt: '2018-12-06T15:54:41.639Z'
+          - name: Trystan Purdy
+            amount: 23
+            createdAt: '2018-12-06T15:54:41.646Z'
+          - name: Louisa Maggio
+            amount: 6
+            createdAt: '2018-12-06T15:54:41.633Z'
+          - name: Brittany Windler
+            amount: 46
+            createdAt: '2018-12-06T15:54:41.619Z'
+          - name: Emmet Von
+            amount: 24
+            createdAt: '2018-12-06T15:54:41.626Z'
+          - name: Mrs. Brennon McDermott
+            amount: 46
+            createdAt: '2018-12-06T15:54:41.613Z'
+          - name: Aaron Kovacek
+            amount: 21
+            createdAt: '2018-12-06T15:54:41.62Z'
+          - name: Leone Runte
+            amount: 46
+            createdAt: '2018-12-06T15:54:41.598Z'
+          - name: Bonita Bruen
+            amount: 37
+            createdAt: '2018-12-06T15:54:41.608Z'
+          - name: Patrick Crooks
+            amount: 26
+            createdAt: '2018-12-06T15:54:41.606Z'
+          - name: Antwan Franecki
+            amount: 2
+            createdAt: '2018-12-06T15:54:41.611Z'
+          - name: Ines Wilderman
+            amount: 38
+            createdAt: '2018-12-06T15:54:41.601Z'
+          - name: Marisol Reichert
+            amount: 48
+            createdAt: '2018-12-06T15:54:41.604Z'
+          - name: Cullen Torp V
+            amount: 41
+            createdAt: '2018-12-06T15:54:41.611Z'
+          - name: Kristopher Romaguera
+            amount: 36
+            createdAt: '2018-12-06T15:54:41.585Z'
+          - name: Sydnie Reynolds
+            amount: 19
+            createdAt: '2018-12-06T15:54:41.59Z'
+          - name: Chase Funk
+            amount: 27
+            createdAt: '2018-12-06T15:54:41.597Z'
+          - name: Kenny Hodkiewicz
+            amount: 43
+            createdAt: '2018-12-06T15:54:41.593Z'
+          cheer-recent:
+          - name: Glenda Carter
+            amount: 39
+            createdAt: '2018-12-06T15:54:41.648Z'
+          - name: Liana Hettinger
+            amount: 16
+            createdAt: '2018-12-06T15:54:41.66Z'
+          - name: Paolo Tromp
+            amount: 10
+            createdAt: '2018-12-06T15:54:41.653Z'
+          - name: Sylvan Ward
+            amount: 29
+            createdAt: '2018-12-06T15:54:41.654Z'
+          - name: Cassidy Homenick
+            amount: 23
+            createdAt: '2018-12-06T15:54:41.652Z'
+          - name: Miss Dulce Koss
+            amount: 20
+            createdAt: '2018-12-06T15:54:41.657Z'
+          - name: Arlie DuBuque DVM
+            amount: 42
+            createdAt: '2018-12-06T15:54:41.64Z'
+          - name: Gustave Douglas
+            amount: 23
+            createdAt: '2018-12-06T15:54:41.647Z'
+          - name: Halle Koelpin
+            amount: 24
+            createdAt: '2018-12-06T15:54:41.641Z'
+          - name: Chester Beer
+            amount: 39
+            createdAt: '2018-12-06T15:54:41.638Z'
+          - name: Otis Reynolds
+            amount: 46
+            createdAt: '2018-12-06T15:54:41.632Z'
+          - name: Daphnee Streich
+            amount: 44
+            createdAt: '2018-12-06T15:54:41.63Z'
+          - name: Boris Rogahn
+            amount: 23
+            createdAt: '2018-12-06T15:54:41.617Z'
+          - name: Kole Grady
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.603Z'
+          - name: Giles Nienow
+            amount: 4
+            createdAt: '2018-12-06T15:54:41.605Z'
+          - name: Iliana Windler
+            amount: 13
+            createdAt: '2018-12-06T15:54:41.6Z'
+          - name: Pamela Hartmann
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.605Z'
+          - name: Kamryn Crooks
+            amount: 21
+            createdAt: '2018-12-06T15:54:41.602Z'
+          - name: Emil Braun
+            amount: 10
+            createdAt: '2018-12-06T15:54:41.603Z'
+          - name: Shyanne Brakus
+            amount: 15
+            createdAt: '2018-12-06T15:54:41.592Z'
+          - name: Miles Paucek
+            amount: 33
+            createdAt: '2018-12-06T15:54:41.592Z'
+          - name: Jennings Kuhic
+            amount: 13
+            createdAt: '2018-12-06T15:54:41.582Z'
+          - name: Karelle Strosin
+            amount: 18
+            createdAt: '2018-12-06T15:54:41.587Z'
+          - name: Trey Halvorson
+            amount: 42
+            createdAt: '2018-12-06T15:54:40.092Z'
+          - name: Dwight Hermiston PhD
+            amount: 22
+            createdAt: '2018-12-06T15:54:40.094Z'
+          tip-recent:
+          - name: Hank Grady
+            amount: 22
+            createdAt: '2018-12-06T15:54:41.651Z'
+          - name: Hobart Renner
+            amount: 27
+            createdAt: '2018-12-06T15:54:41.658Z'
+          - name: Sophie Goyette DVM
+            amount: 41
+            createdAt: '2018-12-06T15:54:41.64Z'
+          - name: Cecilia Upton
+            amount: 13
+            createdAt: '2018-12-06T15:54:41.646Z'
+          - name: Kristian Berge
+            amount: 33
+            createdAt: '2018-12-06T15:54:41.634Z'
+          - name: Leopold Schamberger DDS
+            amount: 9
+            createdAt: '2018-12-06T15:54:41.633Z'
+          - name: Madelyn Leffler MD
+            amount: 33
+            createdAt: '2018-12-06T15:54:41.628Z'
+          - name: Sydni Kemmer MD
+            amount: 19
+            createdAt: '2018-12-06T15:54:41.613Z'
+          - name: Verda Champlin
+            amount: 4
+            createdAt: '2018-12-06T15:54:41.63Z'
+          - name: Ms. Aniyah Bernhard
+            amount: 41
+            createdAt: '2018-12-06T15:54:41.621Z'
+          - name: Kristoffer Barton
+            amount: 9
+            createdAt: '2018-12-06T15:54:41.624Z'
+          - name: Aaron Bergstrom
+            amount: 4
+            createdAt: '2018-12-06T15:54:41.616Z'
+          - name: Jovan Hegmann
+            amount: 17
+            createdAt: '2018-12-06T15:54:41.618Z'
+          - name: Keely Hauck
+            amount: 44
+            createdAt: '2018-12-06T15:54:41.622Z'
+          - name: Demetrius Sauer
+            amount: 39
+            createdAt: '2018-12-06T15:54:41.614Z'
+          - name: Miss Stacy Dietrich
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.6Z'
+          - name: Devon Reilly
+            amount: 33
+            createdAt: '2018-12-06T15:54:41.609Z'
+          - name: Johanna McDermott
+            amount: 35
+            createdAt: '2018-12-06T15:54:41.598Z'
+          - name: Russell Runolfsdottir PhD
+            amount: 39
+            createdAt: '2018-12-06T15:54:41.588Z'
+          - name: Mr. Pietro Torphy
+            amount: 43
+            createdAt: '2018-12-06T15:54:41.594Z'
+          - name: Samanta Jacobson
+            amount: 47
+            createdAt: '2018-12-06T15:54:41.58Z'
+          - name: Aaron Blanda
+            amount: 11
+            createdAt: '2018-12-06T15:54:41.596Z'
+          - name: Dameon Hickle
+            amount: 15
+            createdAt: '2018-12-06T15:54:41.596Z'
+          - name: Kali Swift
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.58Z'
+          - name: Lamar Hills
+            amount: 4
+            createdAt: '2018-12-06T15:54:41.584Z'
+          merch-recent:
+          - name: Arlene Pfeffer
+            amount: 20
+            createdAt: '2018-12-06T15:54:41.653Z'
+          - name: Julianne D'Amore
+            amount: 4
+            createdAt: '2018-12-06T15:54:41.659Z'
+          - name: Dina Herman
+            amount: 32
+            createdAt: '2018-12-06T15:54:41.656Z'
+          - name: Leanna Bergnaum
+            amount: 38
+            createdAt: '2018-12-06T15:54:41.643Z'
+          - name: Monica Rogahn
+            amount: 5
+            createdAt: '2018-12-06T15:54:41.631Z'
+          - name: Levi Hansen
+            amount: 6
+            createdAt: '2018-12-06T15:54:41.643Z'
+          - name: Dr. Madisyn Smith
+            amount: 47
+            createdAt: '2018-12-06T15:54:41.625Z'
+          - name: Alexis Ebert PhD
+            amount: 12
+            createdAt: '2018-12-06T15:54:41.625Z'
+          - name: Tyreek Eichmann
+            amount: 14
+            createdAt: '2018-12-06T15:54:41.62Z'
+          - name: Rick Langosh
+            amount: 18
+            createdAt: '2018-12-06T15:54:41.626Z'
+          - name: Era Kuphal
+            amount: 35
+            createdAt: '2018-12-06T15:54:41.627Z'
+          - name: Caleb Leannon
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.628Z'
+          - name: Ofelia Muller
+            amount: 34
+            createdAt: '2018-12-06T15:54:41.606Z'
+          - name: Alize Halvorson
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.608Z'
+          - name: Doris Conn
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.607Z'
+          - name: Neil D'Amore
+            amount: 10
+            createdAt: '2018-12-06T15:54:41.612Z'
+          - name: Jovanny Wisoky III
+            amount: 28
+            createdAt: '2018-12-06T15:54:41.61Z'
+          - name: Osbaldo Medhurst
+            amount: 49
+            createdAt: '2018-12-06T15:54:41.59Z'
+          - name: Maci Anderson
+            amount: 3
+            createdAt: '2018-12-06T15:54:41.579Z'
+          - name: Gretchen Koepp
+            amount: 6
+            createdAt: '2018-12-06T15:54:41.581Z'
+          - name: Candido Hudson
+            amount: 35
+            createdAt: '2018-12-06T15:54:41.581Z'
+          - name: Moriah Kautzer
+            amount: 30
+            createdAt: '2018-12-06T15:54:40.092Z'
+          - name: Alfreda Shields
+            amount: 27
+            createdAt: '2018-12-06T15:54:40.08Z'
+          - name: Mikel Kuphal
+            amount: 3
+            createdAt: '2018-12-06T15:54:40.076Z'
+          - name: Tod Rippin
+            amount: 22
+            createdAt: '2018-12-06T15:54:40.081Z'
+        settings:
+          autoReset: true
+          calendar: false
+        provider: twitch
+        lastReset: '2018-06-23T10:25:11.745Z'
+        _id: 5b2e2007760aeb3196487dc3
+        channel: 5b2e2007760aeb7729487dab
+        createdAt: '2018-06-23T10:25:11.767Z'
+        updatedAt: '2018-12-06T15:54:48.768Z'
+        __v: 1
     SessionData:
       title: Session Data
       required:
@@ -4611,731 +5274,57 @@ components:
         - name: Tod Rippin
           amount: 22
           createdAt: '2018-12-06T15:54:40.081Z'
-    SessionDataInfo:
-      title: SessionDataInfo
+    SubscriberResubLatest:
+      title: SubscriberResubLatest
       required:
-      - data
-      - settings
-      - provider
-      - lastReset
-      - _id
-      - channel
-      - createdAt
-      - updatedAt
-      - __v
+      - name
+      - amount
+      - message
       type: object
       properties:
-        data:
-          $ref: '#/components/schemas/SessionData'
-        settings:
-          $ref: '#/components/schemas/SessionSettings'
-        provider:
+        name:
           type: string
-        lastReset:
-          type: string
-        _id:
-          type: string
-        channel:
-          type: string
-        createdAt:
-          type: string
-        updatedAt:
-          type: string
-        __v:
+        amount:
           type: integer
           format: int32
+        message:
+          type: string
       example:
-        data:
-          follower-latest:
-            name: Emile Morissette
-          follower-session:
-            count: 11
-          follower-week:
-            count: 11
-          follower-month:
-            count: 11
-          follower-goal:
-            amount: 11
-          follower-total:
-            count: 13
-          subscriber-latest:
-            name: Marilyne Abshire
-            amount: 17
-            tier: '2000'
-            message: ''
-            sender: null
-            gifted: null
-          subscriber-new-latest:
-            name: ''
-            amount: 0
-            message: ''
-          subscriber-resub-latest:
-            name: Marilyne Abshire
-            amount: 17
-            message: ''
-          subscriber-gifted-latest:
-            name: ''
-            amount: 0
-            message: ''
-          subscriber-session:
-            count: 68
-          subscriber-new-session:
-            count: 0
-          subscriber-resub-session:
-            count: 68
-          subscriber-gifted-session:
-            count: 0
-          subscriber-week:
-            count: 68
-          subscriber-month:
-            count: 68
-          subscriber-goal:
-            amount: 68
-          subscriber-total:
-            count: 68
-          subscriber-points:
-            amount: 189
-          subscriber-alltime-gifter:
-            name: ''
-            amount: 0
-          host-latest:
-            name: Cathryn Wehner
-            amount: 2
-          raid-latest:
-            name: Velma Langosh
-            amount: 8
-          cheer-session:
-            amount: 246
-          cheer-week:
-            amount: 246
-          cheer-month:
-            amount: 246
-          cheer-total:
-            amount: 246
-          cheer-count:
-            count: 8
-          cheer-goal:
-            amount: 246
-          cheer-latest:
-            name: Halle Koelpin
-            amount: 24
-            message: ''
-          cheer-session-top-donation:
-            name: Mariana Ward
-            amount: 50
-            message: ''
-          cheer-weekly-top-donation:
-            name: Mariana Ward
-            amount: 50
-            message: ''
-          cheer-monthly-top-donation:
-            name: Mariana Ward
-            amount: 50
-            message: ''
-          cheer-alltime-top-donation:
-            name: Mariana Ward
-            amount: 50
-            message: ''
-          cheer-session-top-donator:
-            name: Mariana Ward
-            amount: 50
-          cheer-weekly-top-donator:
-            name: Mariana Ward
-            amount: 50
-          cheer-monthly-top-donator:
-            name: Mariana Ward
-            amount: 50
-          cheer-alltime-top-donator:
-            name: Mariana Ward
-            amount: 50
-          tip-latest:
-            name: Ms. Aniyah Bernhard
-            amount: 41
-            message: ''
-          tip-session-top-donation:
-            name: Demarco Okuneva
-            amount: 50
-          tip-weekly-top-donation:
-            name: Demarco Okuneva
-            amount: 50
-          tip-monthly-top-donation:
-            name: Demarco Okuneva
-            amount: 50
-          tip-alltime-top-donation:
-            name: Demarco Okuneva
-            amount: 50
-          tip-session-top-donator:
-            name: Demarco Okuneva
-            amount: 50
-          tip-weekly-top-donator:
-            name: Demarco Okuneva
-            amount: 50
-          tip-monthly-top-donator:
-            name: Demarco Okuneva
-            amount: 50
-          tip-alltime-top-donator:
-            name: Demarco Okuneva
-            amount: 50
-          tip-session:
-            amount: 279
-          tip-week:
-            amount: 279
-          tip-month:
-            amount: 279
-          tip-total:
-            amount: 279
-          tip-count:
-            count: 8
-          tip-goal:
-            amount: 279
-          merch-goal-orders:
-            amount: 0
-          merch-goal-items:
-            amount: 0
-          merch-goal-total:
-            amount: 0
-          follower-recent:
-          - name: Josiane Dietrich
-            createdAt: '2018-12-06T15:54:41.635Z'
-          - name: Noemi Powlowski
-            createdAt: '2018-12-06T15:54:41.639Z'
-          - name: Norbert Rolfson MD
-            createdAt: '2018-12-06T15:54:41.636Z'
-          - name: Christophe Connelly
-            createdAt: '2018-12-06T15:54:41.632Z'
-          - name: Dameon Herzog
-            createdAt: '2018-12-06T15:54:41.642Z'
-          - name: Ms. Damian Roob
-            createdAt: '2018-12-06T15:54:41.637Z'
-          - name: Mr. Daisha Ankunding
-            createdAt: '2018-12-06T15:54:41.622Z'
-          - name: Reva Padberg III
-            createdAt: '2018-12-06T15:54:41.623Z'
-          - name: Odell Macejkovic
-            createdAt: '2018-12-06T15:54:41.617Z'
-          - name: Clare Parisian
-            createdAt: '2018-12-06T15:54:41.619Z'
-          - name: Torrance Marvin
-            createdAt: '2018-12-06T15:54:41.61Z'
-          - name: Pat Schuster
-            createdAt: '2018-12-06T15:54:41.612Z'
-          - name: Gardner Thompson
-            createdAt: '2018-12-06T15:54:41.609Z'
-          - name: Emile Morissette
-            createdAt: '2018-12-06T15:54:41.604Z'
-          - name: Gustave Casper
-            createdAt: '2018-12-06T15:54:41.601Z'
-          - name: Demetris Emmerich
-            createdAt: '2018-12-06T15:54:41.599Z'
-          - name: Pedro Ziemann
-            createdAt: '2018-12-06T15:54:41.591Z'
-          - name: Hector Macejkovic
-            createdAt: '2018-12-06T15:54:41.597Z'
-          - name: Ludie Klocko
-            createdAt: '2018-12-06T15:54:41.586Z'
-          - name: Deven Kilback
-            createdAt: '2018-12-06T15:54:41.585Z'
-          - name: Alanis Kub
-            createdAt: '2018-12-06T15:54:41.594Z'
-          - name: Dr. Arturo Pagac
-            createdAt: '2018-12-06T15:54:40.077Z'
-          - name: Mrs. Isaias Halvorson
-            createdAt: '2018-12-06T15:54:40.089Z'
-          - name: Jerad Gottlieb
-            createdAt: '2018-12-06T15:54:40.093Z'
-          - name: Bud Kozey
-            createdAt: '2018-12-06T15:54:40.088Z'
-          subscriber-recent:
-          - name: Marilyne Abshire
-            tier: '2000'
-            amount: 17
-            createdAt: '2018-12-06T15:54:48.768Z'
-          - name: Verlie Nienow
-            tier: prime
-            amount: 22
-            createdAt: '2018-12-06T15:54:48.671Z'
-          - name: Ansel Willms
-            tier: prime
-            amount: 32
-            createdAt: '2018-12-06T15:54:48.335Z'
-          - name: Annetta D'Amore
-            tier: '2000'
-            amount: 46
-            createdAt: '2018-12-06T15:54:48.278Z'
-          - name: Korey Kreiger
-            tier: prime
-            amount: 35
-            createdAt: '2018-12-06T15:54:48.232Z'
-          - name: Krystal Schultz
-            tier: '3000'
-            amount: 20
-            createdAt: '2018-12-06T15:54:48.122Z'
-          - name: Shayna Mann
-            tier: '2000'
-            amount: 32
-            createdAt: '2018-12-06T15:54:47.865Z'
-          - name: Margarita Bode
-            tier: '2000'
-            amount: 10
-            createdAt: '2018-12-06T15:54:47.567Z'
-          - name: Shakira Heidenreich
-            tier: '2000'
-            amount: 38
-            createdAt: '2018-12-06T15:54:47.511Z'
-          - name: Pierre Hodkiewicz
-            tier: '2000'
-            amount: 26
-            createdAt: '2018-12-06T15:54:47.454Z'
-          - name: Mr. Maxine Dicki
-            tier: prime
-            amount: 43
-            createdAt: '2018-12-06T15:54:47.372Z'
-          - name: King Rempel
-            tier: '1000'
-            amount: 21
-            createdAt: '2018-12-06T15:54:47.215Z'
-          - name: Katelynn Runolfsson V
-            tier: '3000'
-            amount: 43
-            createdAt: '2018-12-06T15:54:47.101Z'
-          - name: Mike Hermiston
-            tier: prime
-            amount: 28
-            createdAt: '2018-12-06T15:54:47.069Z'
-          - name: Mr. Lilyan Lynch
-            tier: '2000'
-            amount: 8
-            createdAt: '2018-12-06T15:54:47.028Z'
-          - name: Keon Kuphal Jr.
-            tier: '1000'
-            amount: 17
-            createdAt: '2018-12-06T15:54:46.916Z'
-          - name: Florencio Stokes
-            tier: '3000'
-            amount: 2
-            createdAt: '2018-12-06T15:54:46.851Z'
-          - name: Sandra Wolf
-            tier: '1000'
-            amount: 25
-            createdAt: '2018-12-06T15:54:46.809Z'
-          - name: Aurelie Stark
-            tier: '1000'
-            amount: 3
-            createdAt: '2018-12-06T15:54:46.77Z'
-          - name: Vernon Mosciski
-            tier: prime
-            amount: 46
-            createdAt: '2018-12-06T15:54:46.725Z'
-          - name: Makenna Hyatt
-            tier: '1000'
-            amount: 46
-            createdAt: '2018-12-06T15:54:46.683Z'
-          - name: Jada Sipes
-            tier: '3000'
-            amount: 42
-            createdAt: '2018-12-06T15:54:46.635Z'
-          - name: Ibrahim Mante
-            tier: '2000'
-            amount: 47
-            createdAt: '2018-12-06T15:54:46.514Z'
-          - name: Kiera DuBuque
-            tier: '2000'
-            amount: 50
-            createdAt: '2018-12-06T15:54:46.461Z'
-          - name: Casimir Stamm
-            tier: '3000'
-            amount: 8
-            createdAt: '2018-12-06T15:54:46.417Z'
-          host-recent:
-          - name: Alysa Jast
-            amount: 2
-            createdAt: '2018-12-06T15:54:41.618Z'
-          - name: Billie Ankunding
-            amount: 40
-            createdAt: '2018-12-06T15:54:41.655Z'
-          - name: Emily Russel
-            amount: 21
-            createdAt: '2018-12-06T15:54:41.649Z'
-          - name: Rylee Larson
-            amount: 20
-            createdAt: '2018-12-06T15:54:41.649Z'
-          - name: Fanny Predovic
-            amount: 45
-            createdAt: '2018-12-06T15:54:41.638Z'
-          - name: Roma Fadel I
-            amount: 1
-            createdAt: '2018-12-06T15:54:41.641Z'
-          - name: Carolyn Hilll
-            amount: 15
-            createdAt: '2018-12-06T15:54:41.647Z'
-          - name: Otis Predovic
-            amount: 40
-            createdAt: '2018-12-06T15:54:41.635Z'
-          - name: Cathryn Wehner
-            amount: 2
-            createdAt: '2018-12-06T15:54:41.636Z'
-          - name: Marcelle Vandervort
-            amount: 21
-            createdAt: '2018-12-06T15:54:41.629Z'
-          - name: Makenna Upton
-            amount: 9
-            createdAt: '2018-12-06T15:54:41.614Z'
-          - name: Noe Carroll
-            amount: 40
-            createdAt: '2018-12-06T15:54:41.629Z'
-          - name: Nicolas Wilkinson
-            amount: 36
-            createdAt: '2018-12-06T15:54:41.607Z'
-          - name: Dr. Annetta Rolfson
-            amount: 31
-            createdAt: '2018-12-06T15:54:41.593Z'
-          - name: Freeda Frami
-            amount: 48
-            createdAt: '2018-12-06T15:54:41.595Z'
-          - name: Eleonore Hansen
-            amount: 45
-            createdAt: '2018-12-06T15:54:41.584Z'
-          - name: Mr. Rachael Bergstrom
-            amount: 45
-            createdAt: '2018-12-06T15:54:40.095Z'
-          - name: Lila Baumbach
-            amount: 13
-            createdAt: '2018-12-06T15:54:40.097Z'
-          - name: Ardith Parisian
-            amount: 37
-            createdAt: '2018-12-06T15:54:40.079Z'
-          - name: Ottilie Abernathy
-            amount: 4
-            createdAt: '2018-12-06T15:54:40.073Z'
-          - name: Manuela Will
-            amount: 28
-            createdAt: '2018-12-06T15:54:40.062Z'
-          - name: Norwood Lang I
-            amount: 46
-            createdAt: '2018-12-06T15:54:40.073Z'
-          - name: Francesca Kautzer
-            amount: 17
-            createdAt: '2018-12-06T15:54:40.068Z'
-          - name: Christ Donnelly
-            amount: 7
-            createdAt: '2018-12-06T15:54:40.072Z'
-          - name: Max Jakubowski
-            amount: 11
-            createdAt: '2018-12-06T15:54:40.061Z'
-          raid-recent:
-          - name: Clement Abernathy DDS
-            amount: 49
-            createdAt: '2018-12-06T15:54:41.634Z'
-          - name: Miss Amya Senger
-            amount: 26
-            createdAt: '2018-12-06T15:54:41.601Z'
-          - name: Dr. Clarabelle Douglas
-            amount: 47
-            createdAt: '2018-12-06T15:54:41.658Z'
-          - name: Velma Langosh
-            amount: 8
-            createdAt: '2018-12-06T15:54:41.659Z'
-          - name: Gerhard Konopelski
-            amount: 42
-            createdAt: '2018-12-06T15:54:41.65Z'
-          - name: Dario Bashirian
-            amount: 37
-            createdAt: '2018-12-06T15:54:41.637Z'
-          - name: Ellie McDermott
-            amount: 48
-            createdAt: '2018-12-06T15:54:41.631Z'
-          - name: Elsa Lynch
-            amount: 7
-            createdAt: '2018-12-06T15:54:41.639Z'
-          - name: Trystan Purdy
-            amount: 23
-            createdAt: '2018-12-06T15:54:41.646Z'
-          - name: Louisa Maggio
-            amount: 6
-            createdAt: '2018-12-06T15:54:41.633Z'
-          - name: Brittany Windler
-            amount: 46
-            createdAt: '2018-12-06T15:54:41.619Z'
-          - name: Emmet Von
-            amount: 24
-            createdAt: '2018-12-06T15:54:41.626Z'
-          - name: Mrs. Brennon McDermott
-            amount: 46
-            createdAt: '2018-12-06T15:54:41.613Z'
-          - name: Aaron Kovacek
-            amount: 21
-            createdAt: '2018-12-06T15:54:41.62Z'
-          - name: Leone Runte
-            amount: 46
-            createdAt: '2018-12-06T15:54:41.598Z'
-          - name: Bonita Bruen
-            amount: 37
-            createdAt: '2018-12-06T15:54:41.608Z'
-          - name: Patrick Crooks
-            amount: 26
-            createdAt: '2018-12-06T15:54:41.606Z'
-          - name: Antwan Franecki
-            amount: 2
-            createdAt: '2018-12-06T15:54:41.611Z'
-          - name: Ines Wilderman
-            amount: 38
-            createdAt: '2018-12-06T15:54:41.601Z'
-          - name: Marisol Reichert
-            amount: 48
-            createdAt: '2018-12-06T15:54:41.604Z'
-          - name: Cullen Torp V
-            amount: 41
-            createdAt: '2018-12-06T15:54:41.611Z'
-          - name: Kristopher Romaguera
-            amount: 36
-            createdAt: '2018-12-06T15:54:41.585Z'
-          - name: Sydnie Reynolds
-            amount: 19
-            createdAt: '2018-12-06T15:54:41.59Z'
-          - name: Chase Funk
-            amount: 27
-            createdAt: '2018-12-06T15:54:41.597Z'
-          - name: Kenny Hodkiewicz
-            amount: 43
-            createdAt: '2018-12-06T15:54:41.593Z'
-          cheer-recent:
-          - name: Glenda Carter
-            amount: 39
-            createdAt: '2018-12-06T15:54:41.648Z'
-          - name: Liana Hettinger
-            amount: 16
-            createdAt: '2018-12-06T15:54:41.66Z'
-          - name: Paolo Tromp
-            amount: 10
-            createdAt: '2018-12-06T15:54:41.653Z'
-          - name: Sylvan Ward
-            amount: 29
-            createdAt: '2018-12-06T15:54:41.654Z'
-          - name: Cassidy Homenick
-            amount: 23
-            createdAt: '2018-12-06T15:54:41.652Z'
-          - name: Miss Dulce Koss
-            amount: 20
-            createdAt: '2018-12-06T15:54:41.657Z'
-          - name: Arlie DuBuque DVM
-            amount: 42
-            createdAt: '2018-12-06T15:54:41.64Z'
-          - name: Gustave Douglas
-            amount: 23
-            createdAt: '2018-12-06T15:54:41.647Z'
-          - name: Halle Koelpin
-            amount: 24
-            createdAt: '2018-12-06T15:54:41.641Z'
-          - name: Chester Beer
-            amount: 39
-            createdAt: '2018-12-06T15:54:41.638Z'
-          - name: Otis Reynolds
-            amount: 46
-            createdAt: '2018-12-06T15:54:41.632Z'
-          - name: Daphnee Streich
-            amount: 44
-            createdAt: '2018-12-06T15:54:41.63Z'
-          - name: Boris Rogahn
-            amount: 23
-            createdAt: '2018-12-06T15:54:41.617Z'
-          - name: Kole Grady
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.603Z'
-          - name: Giles Nienow
-            amount: 4
-            createdAt: '2018-12-06T15:54:41.605Z'
-          - name: Iliana Windler
-            amount: 13
-            createdAt: '2018-12-06T15:54:41.6Z'
-          - name: Pamela Hartmann
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.605Z'
-          - name: Kamryn Crooks
-            amount: 21
-            createdAt: '2018-12-06T15:54:41.602Z'
-          - name: Emil Braun
-            amount: 10
-            createdAt: '2018-12-06T15:54:41.603Z'
-          - name: Shyanne Brakus
-            amount: 15
-            createdAt: '2018-12-06T15:54:41.592Z'
-          - name: Miles Paucek
-            amount: 33
-            createdAt: '2018-12-06T15:54:41.592Z'
-          - name: Jennings Kuhic
-            amount: 13
-            createdAt: '2018-12-06T15:54:41.582Z'
-          - name: Karelle Strosin
-            amount: 18
-            createdAt: '2018-12-06T15:54:41.587Z'
-          - name: Trey Halvorson
-            amount: 42
-            createdAt: '2018-12-06T15:54:40.092Z'
-          - name: Dwight Hermiston PhD
-            amount: 22
-            createdAt: '2018-12-06T15:54:40.094Z'
-          tip-recent:
-          - name: Hank Grady
-            amount: 22
-            createdAt: '2018-12-06T15:54:41.651Z'
-          - name: Hobart Renner
-            amount: 27
-            createdAt: '2018-12-06T15:54:41.658Z'
-          - name: Sophie Goyette DVM
-            amount: 41
-            createdAt: '2018-12-06T15:54:41.64Z'
-          - name: Cecilia Upton
-            amount: 13
-            createdAt: '2018-12-06T15:54:41.646Z'
-          - name: Kristian Berge
-            amount: 33
-            createdAt: '2018-12-06T15:54:41.634Z'
-          - name: Leopold Schamberger DDS
-            amount: 9
-            createdAt: '2018-12-06T15:54:41.633Z'
-          - name: Madelyn Leffler MD
-            amount: 33
-            createdAt: '2018-12-06T15:54:41.628Z'
-          - name: Sydni Kemmer MD
-            amount: 19
-            createdAt: '2018-12-06T15:54:41.613Z'
-          - name: Verda Champlin
-            amount: 4
-            createdAt: '2018-12-06T15:54:41.63Z'
-          - name: Ms. Aniyah Bernhard
-            amount: 41
-            createdAt: '2018-12-06T15:54:41.621Z'
-          - name: Kristoffer Barton
-            amount: 9
-            createdAt: '2018-12-06T15:54:41.624Z'
-          - name: Aaron Bergstrom
-            amount: 4
-            createdAt: '2018-12-06T15:54:41.616Z'
-          - name: Jovan Hegmann
-            amount: 17
-            createdAt: '2018-12-06T15:54:41.618Z'
-          - name: Keely Hauck
-            amount: 44
-            createdAt: '2018-12-06T15:54:41.622Z'
-          - name: Demetrius Sauer
-            amount: 39
-            createdAt: '2018-12-06T15:54:41.614Z'
-          - name: Miss Stacy Dietrich
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.6Z'
-          - name: Devon Reilly
-            amount: 33
-            createdAt: '2018-12-06T15:54:41.609Z'
-          - name: Johanna McDermott
-            amount: 35
-            createdAt: '2018-12-06T15:54:41.598Z'
-          - name: Russell Runolfsdottir PhD
-            amount: 39
-            createdAt: '2018-12-06T15:54:41.588Z'
-          - name: Mr. Pietro Torphy
-            amount: 43
-            createdAt: '2018-12-06T15:54:41.594Z'
-          - name: Samanta Jacobson
-            amount: 47
-            createdAt: '2018-12-06T15:54:41.58Z'
-          - name: Aaron Blanda
-            amount: 11
-            createdAt: '2018-12-06T15:54:41.596Z'
-          - name: Dameon Hickle
-            amount: 15
-            createdAt: '2018-12-06T15:54:41.596Z'
-          - name: Kali Swift
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.58Z'
-          - name: Lamar Hills
-            amount: 4
-            createdAt: '2018-12-06T15:54:41.584Z'
-          merch-recent:
-          - name: Arlene Pfeffer
-            amount: 20
-            createdAt: '2018-12-06T15:54:41.653Z'
-          - name: Julianne D'Amore
-            amount: 4
-            createdAt: '2018-12-06T15:54:41.659Z'
-          - name: Dina Herman
-            amount: 32
-            createdAt: '2018-12-06T15:54:41.656Z'
-          - name: Leanna Bergnaum
-            amount: 38
-            createdAt: '2018-12-06T15:54:41.643Z'
-          - name: Monica Rogahn
-            amount: 5
-            createdAt: '2018-12-06T15:54:41.631Z'
-          - name: Levi Hansen
-            amount: 6
-            createdAt: '2018-12-06T15:54:41.643Z'
-          - name: Dr. Madisyn Smith
-            amount: 47
-            createdAt: '2018-12-06T15:54:41.625Z'
-          - name: Alexis Ebert PhD
-            amount: 12
-            createdAt: '2018-12-06T15:54:41.625Z'
-          - name: Tyreek Eichmann
-            amount: 14
-            createdAt: '2018-12-06T15:54:41.62Z'
-          - name: Rick Langosh
-            amount: 18
-            createdAt: '2018-12-06T15:54:41.626Z'
-          - name: Era Kuphal
-            amount: 35
-            createdAt: '2018-12-06T15:54:41.627Z'
-          - name: Caleb Leannon
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.628Z'
-          - name: Ofelia Muller
-            amount: 34
-            createdAt: '2018-12-06T15:54:41.606Z'
-          - name: Alize Halvorson
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.608Z'
-          - name: Doris Conn
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.607Z'
-          - name: Neil D'Amore
-            amount: 10
-            createdAt: '2018-12-06T15:54:41.612Z'
-          - name: Jovanny Wisoky III
-            amount: 28
-            createdAt: '2018-12-06T15:54:41.61Z'
-          - name: Osbaldo Medhurst
-            amount: 49
-            createdAt: '2018-12-06T15:54:41.59Z'
-          - name: Maci Anderson
-            amount: 3
-            createdAt: '2018-12-06T15:54:41.579Z'
-          - name: Gretchen Koepp
-            amount: 6
-            createdAt: '2018-12-06T15:54:41.581Z'
-          - name: Candido Hudson
-            amount: 35
-            createdAt: '2018-12-06T15:54:41.581Z'
-          - name: Moriah Kautzer
-            amount: 30
-            createdAt: '2018-12-06T15:54:40.092Z'
-          - name: Alfreda Shields
-            amount: 27
-            createdAt: '2018-12-06T15:54:40.08Z'
-          - name: Mikel Kuphal
-            amount: 3
-            createdAt: '2018-12-06T15:54:40.076Z'
-          - name: Tod Rippin
-            amount: 22
-            createdAt: '2018-12-06T15:54:40.081Z'
-        settings:
-          autoReset: true
-          calendar: false
-        provider: twitch
-        lastReset: '2018-06-23T10:25:11.745Z'
-        _id: 5b2e2007760aeb3196487dc3
-        channel: 5b2e2007760aeb7729487dab
-        createdAt: '2018-06-23T10:25:11.767Z'
-        updatedAt: '2018-12-06T15:54:48.768Z'
-        __v: 1
+        name: Marilyne Abshire
+        amount: 17
+        message: ''
+    channel_settings:
+      title: /:channel/settings
+      required:
+      - autoReset
+      - calendar
+      type: object
+      properties:
+        autoReset:
+          type: boolean
+        calendar:
+          type: boolean
+      example:
+        autoReset: true
+        calendar: false
+    AmountRecent:
+      title: Recent username/amount
+      required:
+      - name
+      - amount
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+      example:
+        name: Alysa Jast
+        amount: 2
+        createdAt: '2018-12-06T15:54:41.618Z'
     SubscriberNewLatest:
       title: SubscriberNewLatest
       required:
@@ -5355,30 +5344,6 @@ components:
         name: ''
         amount: 0
         message: ''
-    FollowerLatest:
-      title: FollowerLatest
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-      example:
-        name: Emile Morissette
-    SessionSettings:
-      title: SessionSettings
-      required:
-      - autoReset
-      - calendar
-      type: object
-      properties:
-        autoReset:
-          type: boolean
-        calendar:
-          type: boolean
-      example:
-        autoReset: true
-        calendar: false
     CheerLatest:
       title: CheerLatest
       required:
@@ -5398,6 +5363,41 @@ components:
         name: Halle Koelpin
         amount: 24
         message: ''
+    SubscriberLatest:
+      title: SubscriberLatest
+      required:
+      - name
+      - amount
+      - tier
+      - message
+      - sender
+      - gifted
+      type: object
+      properties:
+        name:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        tier:
+          type: string
+        message:
+          type: string
+        sender:
+          type:
+          - string
+          - 'null'
+        gifted:
+          type:
+          - string
+          - 'null'
+      example:
+        name: Marilyne Abshire
+        amount: 17
+        tier: '2000'
+        message: ''
+        sender: null
+        gifted: null
   securitySchemes:
     JWTBearer:
       type: http

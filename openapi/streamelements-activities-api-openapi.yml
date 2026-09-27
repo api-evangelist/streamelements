@@ -1203,43 +1203,6 @@ components:
         type: merch
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-06T01:28:27.648Z'
-    Success3:
-      title: Success3
-      required:
-      - success
-      type: object
-      properties:
-        success:
-          type: boolean
-      example:
-        success: true
-    SubscriberEvent:
-      title: Subscriber Event
-      required:
-      - username
-      - amount
-      - message
-      - tier
-      - avatar
-      type: object
-      properties:
-        username:
-          type: string
-        amount:
-          type: integer
-          format: int32
-        message:
-          type: string
-        tier:
-          type: string
-        avatar:
-          type: string
-      example:
-        username: Toy Bosco
-        amount: 33
-        message: ''
-        tier: '3000'
-        avatar: https://cdn.streamelements.com/static/default-avatar.png
     Detail:
       title: Detail
       required:
@@ -1258,21 +1221,16 @@ components:
         path:
         - types
         message: '"types" must be an array'
-    Success1:
-      title: Success1
+    Success3:
+      title: Success3
       required:
-      - total
-      - username
+      - success
       type: object
       properties:
-        total:
-          type: integer
-          format: int32
-        username:
-          type: string
+        success:
+          type: boolean
       example:
-        total: 50
-        username: Thurman Borer
+        success: true
     400-badrequest:
       title: 400-badrequest
       required:
@@ -1302,6 +1260,48 @@ components:
         - path:
           - giveawayId
           message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+    SubscriberEvent:
+      title: Subscriber Event
+      required:
+      - username
+      - amount
+      - message
+      - tier
+      - avatar
+      type: object
+      properties:
+        username:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        message:
+          type: string
+        tier:
+          type: string
+        avatar:
+          type: string
+      example:
+        username: Toy Bosco
+        amount: 33
+        message: ''
+        tier: '3000'
+        avatar: https://cdn.streamelements.com/static/default-avatar.png
+    Success1:
+      title: Success1
+      required:
+      - total
+      - username
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int32
+        username:
+          type: string
+      example:
+        total: 50
+        username: Thurman Borer
   securitySchemes:
     JWTBearer:
       type: http

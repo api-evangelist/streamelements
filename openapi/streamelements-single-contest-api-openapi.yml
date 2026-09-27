@@ -526,34 +526,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    Option:
-      title: Option
-      required:
-      - totalAmount
-      - totalUsers
-      - _id
-      - title
-      - command
-      type: object
-      properties:
-        totalAmount:
-          type: integer
-          format: int32
-        totalUsers:
-          type: integer
-          format: int32
-        _id:
-          type: string
-        title:
-          type: string
-        command:
-          type: string
-      example:
-        totalAmount: 0
-        totalUsers: 0
-        _id: 5c0a53cede9a4cc345a14d92
-        title: Win
-        command: win
     channel_redemptions_itemId:
       title: /:channel/redemptions/:itemId
       required:
@@ -649,6 +621,34 @@ components:
         state: created
         createdAt: '2018-12-07T11:04:46.528Z'
         updatedAt: '2018-12-07T11:04:46.528Z'
+    Option:
+      title: Option
+      required:
+      - totalAmount
+      - totalUsers
+      - _id
+      - title
+      - command
+      type: object
+      properties:
+        totalAmount:
+          type: integer
+          format: int32
+        totalUsers:
+          type: integer
+          format: int32
+        _id:
+          type: string
+        title:
+          type: string
+        command:
+          type: string
+      example:
+        totalAmount: 0
+        totalUsers: 0
+        _id: 5c0a53cede9a4cc345a14d92
+        title: Win
+        command: win
   securitySchemes:
     JWTBearer:
       type: http
