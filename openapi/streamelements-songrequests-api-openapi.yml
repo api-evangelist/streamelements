@@ -969,175 +969,30 @@ paths:
       deprecated: false
 components:
   schemas:
-    Song:
-      title: Song
+    Success53:
+      title: Success53
       required:
-      - user
-      - duration
-      - _id
-      - videoId
-      - title
-      - channel
-      - source
+      - state
       type: object
       properties:
-        user:
-          $ref: '#/components/schemas/User2'
-        statistics:
-          $ref: '#/components/schemas/Statistics'
-        duration:
-          type: integer
-          format: int32
-        tags:
-          type: array
-          items:
-            type: string
-          description: ''
-        voteskips:
-          type: array
-          items:
-            type: string
-          description: ''
-        _id:
-          type: string
-        videoId:
-          type: string
-        title:
-          type: string
-        channel:
-          type: string
-        source:
+        state:
           type: string
       example:
-        user:
-          username: leeeeex
-          providerId: '85827806'
-        statistics:
-          viewCount: 505416595
-          likeCount: 3387160
-          dislikeCount: 154477
-        duration: 213
-        tags: []
-        voteskips: []
-        _id: 5c0f9d54bd1e47cf2d3d6cac
-        videoId: dQw4w9WgXcQ
-        title: Rick Astley - Never Gonna Give You Up (Video)
-        channel: RickAstleyVEVO
-        source: site
-    Player:
-      title: Player
-      required:
-      - delay
-      type: object
-      properties:
-        delay:
-          type: integer
-          format: int32
-      example:
-        delay: 0
-    Success48:
-      title: Success48
+        state: paused
+    Mediashare:
+      title: Mediashare
       required:
       - enabled
-      - limits
-      - mode
-      - tips
-      - youtube
+      - costPerSecond
       type: object
       properties:
         enabled:
           type: boolean
-        limits:
-          $ref: '#/components/schemas/Limits'
-        mode:
-          type: string
-        tips:
-          $ref: '#/components/schemas/Tips'
-        youtube:
-          $ref: '#/components/schemas/Youtube'
+        costPerSecond:
+          type: number
       example:
         enabled: false
-        limits:
-          users:
-            free: 5
-            paid: 0
-          queueLimit: 10
-          maxDuration: 420
-        mode: combined
-        tips:
-          mediashare:
-            enabled: false
-            costPerSecond: 0.1
-          prioritize: true
-        youtube:
-          musicOnly: false
-    Bot1:
-      title: Bot1
-      required:
-      - voteskip
-      - cost
-      - subscriberDiscount
-      - exemptUserLevel
-      - minUserLevel
-      type: object
-      properties:
-        voteskip:
-          $ref: '#/components/schemas/Voteskip'
-        cost:
-          type: integer
-          format: int32
-        subscriberDiscount:
-          type: integer
-          format: int32
-        exemptUserLevel:
-          type: integer
-          format: int32
-        minUserLevel:
-          type: integer
-          format: int32
-      example:
-        voteskip:
-          enabled: true
-          votesRequired: 5
-        cost: 0
-        subscriberDiscount: 50
-        exemptUserLevel: 500
-        minUserLevel: 100
-    Statistics:
-      title: Statistics
-      required:
-      - viewCount
-      - likeCount
-      - dislikeCount
-      type: object
-      properties:
-        viewCount:
-          type: integer
-          format: int32
-        likeCount:
-          type: integer
-          format: int32
-        dislikeCount:
-          type: integer
-          format: int32
-      example:
-        viewCount: 504489596
-        likeCount: 3380238
-        dislikeCount: 154269
-    User2:
-      title: User2
-      required:
-      - username
-      - providerId
-      type: object
-      properties:
-        username:
-          type: string
-        providerId:
-          type: string
-      example:
-        username: leeeeex
-        providerId: '85827806'
+        costPerSecond: 0.1
     Youtube:
       title: Youtube
       required:
@@ -1164,69 +1019,6 @@ components:
         musicOnly: false
         bannedTags: []
         bannedVideos: []
-    Limits:
-      title: Limits
-      required:
-      - users
-      - queueLimit
-      - maxDuration
-      type: object
-      properties:
-        users:
-          $ref: '#/components/schemas/Users'
-        queueLimit:
-          type: integer
-          format: int32
-        maxDuration:
-          type: integer
-          format: int32
-      example:
-        users:
-          free: 5
-          paid: 0
-        queueLimit: 10
-        maxDuration: 420
-    Users:
-      title: Users
-      required:
-      - free
-      - paid
-      type: object
-      properties:
-        free:
-          type: integer
-          format: int32
-        paid:
-          type: integer
-          format: int32
-      example:
-        free: 5
-        paid: 0
-    Voteskip:
-      title: Voteskip
-      required:
-      - enabled
-      - votesRequired
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        votesRequired:
-          type: integer
-          format: int32
-      example:
-        enabled: true
-        votesRequired: 5
-    Success53:
-      title: Success53
-      required:
-      - state
-      type: object
-      properties:
-        state:
-          type: string
-      example:
-        state: paused
     BackupPlaylist:
       title: BackupPlaylist
       required:
@@ -1241,24 +1033,133 @@ components:
       example:
         url: https://www.youtube.com/playlist?list=UUp8OOssjSjGZRVYK6zWbNLg
         prioritizeQueue: false
-    Video1:
-      title: Video1
+    MediaRequestQueue:
+      title: MediaRequestQueue
       required:
-      - videoId
-      - title
-      - channel
+      - limit
+      - nextPage
+      - total
+      - videos
       type: object
       properties:
-        videoId:
+        limit:
+          type: integer
+          format: int32
+        nextPage:
           type: string
-        title:
+        total:
+          type: integer
+          format: int32
+        videos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Video1'
+          description: ''
+      example:
+        limit: 25
+        nextPage: CDIQAA
+        total: 102
+        videos:
+        - videoId: KjBNpJiID-k
+          title: Anevo & Laura Brehm - Universe [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: dpdQZ56cKgA
+          title: CloudNone - Spring Snow [Monstercat EP Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: _6tqFnhz83M
+          title: Keepsake - This Time Around (feat. Slyleaf) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: cIseaPTGCRU
+          title: Bad Computer - Voyage (feat. Savoi) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: VT9q8-i8e7Q
+          title: Conro - September [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: xhTJ_5g_57k
+          title: Aiobahn & Vin - If We Never [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: DzJXOb7Q1_s
+          title: Laszlo - Gravity [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: XvEtJ6zbzyw
+          title: The Night - Set Me Free [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: K2QEKOKPlV4
+          title: Au5 - The Journey (feat. Trove) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: lAHpT1eAYH4
+          title: Conro - Trippin [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: mlpdyTXeUTc
+          title: Koven - Settled [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: FrX0ZfX8Dqs
+          title: Ephixa - Dreamstate [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: MH9i4DkNVRc
+          title: CloudNone - None Trick Pony [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: vZkExPWt3ig
+          title: Vicetone - Walk Thru Fire (feat. Meron Ryan) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: 5m7L8hlArsU
+          title: Lookas & Krewella - Alarm [Monstercat Official Music Video]
+          channel: 'Monstercat: Instinct'
+        - videoId: 1zjqS6YGwrs
+          title: Snareskin - Mad For You (feat. Trove) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: f244Kb8y_a8
+          title: Koven - Voices [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: FIE_w_Yiy68
+          title: Jay Cosmic - One Way Dream [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: UMh8V--HxnI
+          title: Rogue - Mirage [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: uPDjXJgGklM
+          title: Aiobahn - In Your Arms (feat. Ralph Larenzo) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: AiYuSpsY9kg
+          title: MYLK - Sleepy [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: P6JcPvoIT6E
+          title: Dion Timmer - The Right Type (feat. Jade LeMac) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: Ba_n0eHnNDc
+          title: Duumu - Forward (feat. ÊMIA) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: fBsNIJLj0Gs
+          title: LVTHER - Time Well Spent (feat. Ayelle) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+        - videoId: iS-PpppSj0E
+          title: SLANDER - So Long (feat. Juliana Chahayed) [Monstercat Release]
+          channel: 'Monstercat: Instinct'
+    Player:
+      title: Player
+      required:
+      - delay
+      type: object
+      properties:
+        delay:
+          type: integer
+          format: int32
+      example:
+        delay: 0
+    User2:
+      title: User2
+      required:
+      - username
+      - providerId
+      type: object
+      properties:
+        username:
           type: string
-        channel:
+        providerId:
           type: string
       example:
-        videoId: KjBNpJiID-k
-        title: Anevo & Laura Brehm - Universe [Monstercat Release]
-        channel: 'Monstercat: Instinct'
+        username: leeeeex
+        providerId: '85827806'
     MediaRequestData:
       title: Media Request data
       required:
@@ -1364,54 +1265,82 @@ components:
         - path:
           - giveawayId
           message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
-    Tips:
-      title: Tips
-      required:
-      - mediashare
-      - prioritize
-      type: object
-      properties:
-        mediashare:
-          $ref: '#/components/schemas/Mediashare'
-        prioritize:
-          type: boolean
-      example:
-        mediashare:
-          enabled: false
-          costPerSecond: 0.1
-        prioritize: true
-    Mediashare:
-      title: Mediashare
+    Success48:
+      title: Success48
       required:
       - enabled
-      - costPerSecond
+      - limits
+      - mode
+      - tips
+      - youtube
       type: object
       properties:
         enabled:
           type: boolean
-        costPerSecond:
-          type: number
+        limits:
+          $ref: '#/components/schemas/Limits'
+        mode:
+          type: string
+        tips:
+          $ref: '#/components/schemas/Tips'
+        youtube:
+          $ref: '#/components/schemas/Youtube'
       example:
         enabled: false
-        costPerSecond: 0.1
-    Detail:
-      title: Detail
+        limits:
+          users:
+            free: 5
+            paid: 0
+          queueLimit: 10
+          maxDuration: 420
+        mode: combined
+        tips:
+          mediashare:
+            enabled: false
+            costPerSecond: 0.1
+          prioritize: true
+        youtube:
+          musicOnly: false
+    Limits:
+      title: Limits
       required:
-      - path
-      - message
+      - users
+      - queueLimit
+      - maxDuration
       type: object
       properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
-        message:
+        users:
+          $ref: '#/components/schemas/Users'
+        queueLimit:
+          type: integer
+          format: int32
+        maxDuration:
+          type: integer
+          format: int32
+      example:
+        users:
+          free: 5
+          paid: 0
+        queueLimit: 10
+        maxDuration: 420
+    Video1:
+      title: Video1
+      required:
+      - videoId
+      - title
+      - channel
+      type: object
+      properties:
+        videoId:
+          type: string
+        title:
+          type: string
+        channel:
           type: string
       example:
-        path:
-        - types
-        message: '"types" must be an array'
+        videoId: KjBNpJiID-k
+        title: Anevo & Laura Brehm - Universe [Monstercat Release]
+        channel: 'Monstercat: Instinct'
     Success-searchbysongname:
       title: Success-searchbysongname
       required:
@@ -1430,6 +1359,77 @@ components:
         videoId: dQw4w9WgXcQ
         thumbnail: https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg
         title: Rick Astley - Never Gonna Give You Up (Video)
+    Tips:
+      title: Tips
+      required:
+      - mediashare
+      - prioritize
+      type: object
+      properties:
+        mediashare:
+          $ref: '#/components/schemas/Mediashare'
+        prioritize:
+          type: boolean
+      example:
+        mediashare:
+          enabled: false
+          costPerSecond: 0.1
+        prioritize: true
+    Song:
+      title: Song
+      required:
+      - user
+      - duration
+      - _id
+      - videoId
+      - title
+      - channel
+      - source
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User2'
+        statistics:
+          $ref: '#/components/schemas/Statistics'
+        duration:
+          type: integer
+          format: int32
+        tags:
+          type: array
+          items:
+            type: string
+          description: ''
+        voteskips:
+          type: array
+          items:
+            type: string
+          description: ''
+        _id:
+          type: string
+        videoId:
+          type: string
+        title:
+          type: string
+        channel:
+          type: string
+        source:
+          type: string
+      example:
+        user:
+          username: leeeeex
+          providerId: '85827806'
+        statistics:
+          viewCount: 505416595
+          likeCount: 3387160
+          dislikeCount: 154477
+        duration: 213
+        tags: []
+        voteskips: []
+        _id: 5c0f9d54bd1e47cf2d3d6cac
+        videoId: dQw4w9WgXcQ
+        title: Rick Astley - Never Gonna Give You Up (Video)
+        channel: RickAstleyVEVO
+        source: site
     channel_queuerequest:
       title: /:channel/queuerequest
       required:
@@ -1440,6 +1440,93 @@ components:
           type: string
       example:
         video: youtube-Identifier
+    Statistics:
+      title: Statistics
+      required:
+      - viewCount
+      - likeCount
+      - dislikeCount
+      type: object
+      properties:
+        viewCount:
+          type: integer
+          format: int32
+        likeCount:
+          type: integer
+          format: int32
+        dislikeCount:
+          type: integer
+          format: int32
+      example:
+        viewCount: 504489596
+        likeCount: 3380238
+        dislikeCount: 154269
+    Bot1:
+      title: Bot1
+      required:
+      - voteskip
+      - cost
+      - subscriberDiscount
+      - exemptUserLevel
+      - minUserLevel
+      type: object
+      properties:
+        voteskip:
+          $ref: '#/components/schemas/Voteskip'
+        cost:
+          type: integer
+          format: int32
+        subscriberDiscount:
+          type: integer
+          format: int32
+        exemptUserLevel:
+          type: integer
+          format: int32
+        minUserLevel:
+          type: integer
+          format: int32
+      example:
+        voteskip:
+          enabled: true
+          votesRequired: 5
+        cost: 0
+        subscriberDiscount: 50
+        exemptUserLevel: 500
+        minUserLevel: 100
+    Users:
+      title: Users
+      required:
+      - free
+      - paid
+      type: object
+      properties:
+        free:
+          type: integer
+          format: int32
+        paid:
+          type: integer
+          format: int32
+      example:
+        free: 5
+        paid: 0
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
     channel_redemptions_itemId:
       title: /:channel/redemptions/:itemId
       required:
@@ -1459,108 +1546,21 @@ components:
         statusCode: 404
         error: Not Found
         message: Item not found
-    MediaRequestQueue:
-      title: MediaRequestQueue
+    Voteskip:
+      title: Voteskip
       required:
-      - limit
-      - nextPage
-      - total
-      - videos
+      - enabled
+      - votesRequired
       type: object
       properties:
-        limit:
+        enabled:
+          type: boolean
+        votesRequired:
           type: integer
           format: int32
-        nextPage:
-          type: string
-        total:
-          type: integer
-          format: int32
-        videos:
-          type: array
-          items:
-            $ref: '#/components/schemas/Video1'
-          description: ''
       example:
-        limit: 25
-        nextPage: CDIQAA
-        total: 102
-        videos:
-        - videoId: KjBNpJiID-k
-          title: Anevo & Laura Brehm - Universe [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: dpdQZ56cKgA
-          title: CloudNone - Spring Snow [Monstercat EP Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: _6tqFnhz83M
-          title: Keepsake - This Time Around (feat. Slyleaf) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: cIseaPTGCRU
-          title: Bad Computer - Voyage (feat. Savoi) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: VT9q8-i8e7Q
-          title: Conro - September [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: xhTJ_5g_57k
-          title: Aiobahn & Vin - If We Never [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: DzJXOb7Q1_s
-          title: Laszlo - Gravity [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: XvEtJ6zbzyw
-          title: The Night - Set Me Free [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: K2QEKOKPlV4
-          title: Au5 - The Journey (feat. Trove) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: lAHpT1eAYH4
-          title: Conro - Trippin [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: mlpdyTXeUTc
-          title: Koven - Settled [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: FrX0ZfX8Dqs
-          title: Ephixa - Dreamstate [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: MH9i4DkNVRc
-          title: CloudNone - None Trick Pony [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: vZkExPWt3ig
-          title: Vicetone - Walk Thru Fire (feat. Meron Ryan) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: 5m7L8hlArsU
-          title: Lookas & Krewella - Alarm [Monstercat Official Music Video]
-          channel: 'Monstercat: Instinct'
-        - videoId: 1zjqS6YGwrs
-          title: Snareskin - Mad For You (feat. Trove) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: f244Kb8y_a8
-          title: Koven - Voices [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: FIE_w_Yiy68
-          title: Jay Cosmic - One Way Dream [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: UMh8V--HxnI
-          title: Rogue - Mirage [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: uPDjXJgGklM
-          title: Aiobahn - In Your Arms (feat. Ralph Larenzo) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: AiYuSpsY9kg
-          title: MYLK - Sleepy [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: P6JcPvoIT6E
-          title: Dion Timmer - The Right Type (feat. Jade LeMac) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: Ba_n0eHnNDc
-          title: Duumu - Forward (feat. ÊMIA) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: fBsNIJLj0Gs
-          title: LVTHER - Time Well Spent (feat. Ayelle) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
-        - videoId: iS-PpppSj0E
-          title: SLANDER - So Long (feat. Juliana Chahayed) [Monstercat Release]
-          channel: 'Monstercat: Instinct'
+        enabled: true
+        votesRequired: 5
   securitySchemes:
     JWTBearer:
       type: http

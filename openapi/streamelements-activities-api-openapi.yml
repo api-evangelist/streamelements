@@ -1153,6 +1153,33 @@ paths:
       deprecated: false
 components:
   schemas:
+    SubscriberEvent:
+      title: Subscriber Event
+      required:
+      - username
+      - amount
+      - message
+      - tier
+      - avatar
+      type: object
+      properties:
+        username:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        message:
+          type: string
+        tier:
+          type: string
+        avatar:
+          type: string
+      example:
+        username: Toy Bosco
+        amount: 33
+        message: ''
+        tier: '3000'
+        avatar: https://cdn.streamelements.com/static/default-avatar.png
     Notfound2:
       title: Notfound2
       required:
@@ -1168,6 +1195,53 @@ components:
       example:
         statusCode: 404
         error: Not Found
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
+    400-badrequest:
+      title: 400-badrequest
+      required:
+      - statusCode
+      - error
+      - message
+      - details
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        statusCode: 400
+        error: Bad Request
+        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+        details:
+        - path:
+          - giveawayId
+          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
     Success:
       title: Success
       required:
@@ -1203,24 +1277,6 @@ components:
         type: merch
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-06T01:28:27.648Z'
-    Detail:
-      title: Detail
-      required:
-      - path
-      - message
-      type: object
-      properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
-        message:
-          type: string
-      example:
-        path:
-        - types
-        message: '"types" must be an array'
     Success3:
       title: Success3
       required:
@@ -1231,62 +1287,6 @@ components:
           type: boolean
       example:
         success: true
-    400-badrequest:
-      title: 400-badrequest
-      required:
-      - statusCode
-      - error
-      - message
-      - details
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/Detail'
-          description: ''
-      example:
-        statusCode: 400
-        error: Bad Request
-        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
-        details:
-        - path:
-          - giveawayId
-          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
-    SubscriberEvent:
-      title: Subscriber Event
-      required:
-      - username
-      - amount
-      - message
-      - tier
-      - avatar
-      type: object
-      properties:
-        username:
-          type: string
-        amount:
-          type: integer
-          format: int32
-        message:
-          type: string
-        tier:
-          type: string
-        avatar:
-          type: string
-      example:
-        username: Toy Bosco
-        amount: 33
-        message: ''
-        tier: '3000'
-        avatar: https://cdn.streamelements.com/static/default-avatar.png
     Success1:
       title: Success1
       required:

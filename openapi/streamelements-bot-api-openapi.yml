@@ -2757,6 +2757,25 @@ paths:
       deprecated: false
 components:
   schemas:
+    BotJoinResponse:
+      title: BotJoinResponse
+      required:
+      - status
+      - channel
+      - message
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        channel:
+          type: string
+        message:
+          type: string
+      example:
+        status: 200
+        channel: 5b2e2007760aeb7729487dab
+        message: successfully joined your channel
     channel_sayrequest:
       title: /:channel/sayrequest
       required:
@@ -2767,6 +2786,40 @@ components:
           type: string
       example:
         message: '{{botMessage}}'
+    BotSettings:
+      title: BotSettings
+      required:
+      - bot
+      type: object
+      properties:
+        bot:
+          $ref: '#/components/schemas/Bot'
+      example:
+        bot:
+          enabled: true
+          name: streamelements
+          joined: false
+          muted: false
+          mod: false
+          allowCustomName: false
+          language: en
+          channel: 5b2e2007760aeb7729487dab
+          logs: []
+    Success26:
+      title: Success26
+      required:
+      - statusCode
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        message:
+          type: string
+      example:
+        statusCode: 201
+        message: Removed user testuser
     channel_levelsrequest:
       title: /:channel/levelsrequest
       required:
@@ -2863,148 +2916,6 @@ components:
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-07T10:54:42.594Z'
         updatedAt: '2018-12-07T10:54:42.594Z'
-    Cooldown:
-      title: Cooldown
-      required:
-      - user
-      - global
-      type: object
-      properties:
-        user:
-          type: integer
-          format: int32
-        global:
-          type: integer
-          format: int32
-      example:
-        user: 15
-        global: 5
-    Bot:
-      title: Bot
-      required:
-      - enabled
-      - name
-      - joined
-      - muted
-      - mod
-      - allowCustomName
-      - language
-      - channel
-      - logs
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        name:
-          type: string
-        joined:
-          type: boolean
-        muted:
-          type: boolean
-        mod:
-          type: boolean
-        allowCustomName:
-          type: boolean
-        language:
-          type: string
-        channel:
-          type: string
-        logs:
-          type: array
-          items:
-            type: string
-          description: ''
-      example:
-        enabled: true
-        name: streamelements
-        joined: false
-        muted: false
-        mod: false
-        allowCustomName: false
-        language: en
-        channel: 5b2e2007760aeb7729487dab
-        logs: []
-    Detail:
-      title: Detail
-      required:
-      - path
-      - message
-      type: object
-      properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
-        message:
-          type: string
-      example:
-        path:
-        - types
-        message: '"types" must be an array'
-    channel_languagerequest:
-      title: /:channel/languagerequest
-      required:
-      - language
-      type: object
-      properties:
-        language:
-          type: string
-      example:
-        language: en
-    Success26:
-      title: Success26
-      required:
-      - statusCode
-      - message
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        message:
-          type: string
-      example:
-        statusCode: 201
-        message: Removed user testuser
-    channel_redemptions_itemId:
-      title: /:channel/redemptions/:itemId
-      required:
-      - statusCode
-      - error
-      - message
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
-        message:
-          type: string
-      example:
-        statusCode: 404
-        error: Not Found
-        message: Item not found
-    BotSettings:
-      title: BotSettings
-      required:
-      - bot
-      type: object
-      properties:
-        bot:
-          $ref: '#/components/schemas/Bot'
-      example:
-        bot:
-          enabled: true
-          name: streamelements
-          joined: false
-          muted: false
-          mod: false
-          allowCustomName: false
-          language: en
-          channel: 5b2e2007760aeb7729487dab
-          logs: []
     Success6:
       title: Success6
       required:
@@ -3073,25 +2984,51 @@ components:
         aliases: []
         regex: ''
         description: Join an active raffle
-    BotJoinResponse:
-      title: BotJoinResponse
+    Bot:
+      title: Bot
       required:
-      - status
+      - enabled
+      - name
+      - joined
+      - muted
+      - mod
+      - allowCustomName
+      - language
       - channel
-      - message
+      - logs
       type: object
       properties:
-        status:
-          type: integer
-          format: int32
+        enabled:
+          type: boolean
+        name:
+          type: string
+        joined:
+          type: boolean
+        muted:
+          type: boolean
+        mod:
+          type: boolean
+        allowCustomName:
+          type: boolean
+        language:
+          type: string
         channel:
           type: string
-        message:
-          type: string
+        logs:
+          type: array
+          items:
+            type: string
+          description: ''
       example:
-        status: 200
+        enabled: true
+        name: streamelements
+        joined: false
+        muted: false
+        mod: false
+        allowCustomName: false
+        language: en
         channel: 5b2e2007760aeb7729487dab
-        message: successfully joined your channel
+        logs: []
     UserLevel:
       title: UserLevel
       required:
@@ -3119,6 +3056,24 @@ components:
         moderator: false
         subscriber: false
         level: 500
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
     400-badrequest:
       title: 400-badrequest
       required:
@@ -3148,6 +3103,51 @@ components:
         - path:
           - giveawayId
           message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+    Cooldown:
+      title: Cooldown
+      required:
+      - user
+      - global
+      type: object
+      properties:
+        user:
+          type: integer
+          format: int32
+        global:
+          type: integer
+          format: int32
+      example:
+        user: 15
+        global: 5
+    channel_languagerequest:
+      title: /:channel/languagerequest
+      required:
+      - language
+      type: object
+      properties:
+        language:
+          type: string
+      example:
+        language: en
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
     Success27:
       title: Success27
       required:

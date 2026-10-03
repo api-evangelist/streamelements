@@ -385,6 +385,21 @@ paths:
       deprecated: false
 components:
   schemas:
+    Online:
+      title: Online
+      required:
+      - enabled
+      - interval
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        interval:
+          type: integer
+          format: int32
+      example:
+        enabled: true
+        interval: 5
     BotCommand:
       title: BotCommand
       required:
@@ -481,6 +496,22 @@ components:
       example:
         enabled: true
         interval: 30
+    Cooldown:
+      title: Cooldown
+      required:
+      - user
+      - global
+      type: object
+      properties:
+        user:
+          type: integer
+          format: int32
+        global:
+          type: integer
+          format: int32
+      example:
+        user: 15
+        global: 5
     channelrequest1:
       title: /:channelrequest1
       required:
@@ -586,37 +617,6 @@ components:
         statusCode: 404
         error: Not Found
         message: Item not found
-    Online:
-      title: Online
-      required:
-      - enabled
-      - interval
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        interval:
-          type: integer
-          format: int32
-      example:
-        enabled: true
-        interval: 5
-    Cooldown:
-      title: Cooldown
-      required:
-      - user
-      - global
-      type: object
-      properties:
-        user:
-          type: integer
-          format: int32
-        global:
-          type: integer
-          format: int32
-      example:
-        user: 15
-        global: 5
   securitySchemes:
     JWTBearer:
       type: http

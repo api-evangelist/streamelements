@@ -166,6 +166,44 @@ paths:
       deprecated: false
 components:
   schemas:
+    Success40:
+      title: Success40
+      required:
+      - loyalty
+      - _id
+      - channel
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        loyalty:
+          $ref: '#/components/schemas/Loyalty'
+        _id:
+          type: string
+        channel:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        loyalty:
+          bonuses:
+            follow: 0
+            tip: 0
+            subscriber: 0
+            cheer: 0
+            host: 0
+          name: points
+          enabled: false
+          amount: 5
+          subscriberMultiplier: 3
+          ignored:
+          - streamelements
+        _id: 5b2e2007760aeb7230487dc1
+        channel: 5b2e2007760aeb7729487dab
+        createdAt: '2018-06-23T10:25:11.768Z'
+        updatedAt: '2018-06-23T10:25:11.768Z'
     Loyalty:
       title: Loyalty
       required:
@@ -207,44 +245,6 @@ components:
         subscriberMultiplier: 3
         ignored:
         - streamelements
-    Success40:
-      title: Success40
-      required:
-      - loyalty
-      - _id
-      - channel
-      - createdAt
-      - updatedAt
-      type: object
-      properties:
-        loyalty:
-          $ref: '#/components/schemas/Loyalty'
-        _id:
-          type: string
-        channel:
-          type: string
-        createdAt:
-          type: string
-        updatedAt:
-          type: string
-      example:
-        loyalty:
-          bonuses:
-            follow: 0
-            tip: 0
-            subscriber: 0
-            cheer: 0
-            host: 0
-          name: points
-          enabled: false
-          amount: 5
-          subscriberMultiplier: 3
-          ignored:
-          - streamelements
-        _id: 5b2e2007760aeb7230487dc1
-        channel: 5b2e2007760aeb7729487dab
-        createdAt: '2018-06-23T10:25:11.768Z'
-        updatedAt: '2018-06-23T10:25:11.768Z'
     Bonuses:
       title: Bonuses
       required:

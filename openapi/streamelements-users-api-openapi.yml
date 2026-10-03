@@ -211,132 +211,6 @@ components:
         _id: 5b53229c8f09b957272a404f
         username: keizar
         avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
-    Profile:
-      title: Profile
-      required:
-      - headerImage
-      - title
-      type: object
-      properties:
-        headerImage:
-          type: string
-        title:
-          type: string
-      example:
-        headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
-        title: leeeeex's profile
-    Success67:
-      title: Success67
-      required:
-      - suspended
-      - teams
-      - channels
-      - _id
-      - lastLogin
-      - ab
-      - primaryChannel
-      - username
-      - avatar
-      - createdAt
-      - updatedAt
-      type: object
-      properties:
-        suspended:
-          type: boolean
-        teams:
-          type: array
-          items:
-            type: string
-          description: ''
-        channels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Channel1'
-          description: ''
-        _id:
-          type: string
-        lastLogin:
-          type: string
-        ab:
-          type: object
-        primaryChannel:
-          type: string
-        username:
-          type: string
-        avatar:
-          type: string
-        createdAt:
-          type: string
-        updatedAt:
-          type: string
-      example:
-        suspended: false
-        teams: []
-        channels:
-        - profile:
-            headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
-            title: leeeeex's profile
-          provider: twitch
-          suspended: false
-          nullChannel: false
-          providerEmails: []
-          lastJWTToken: null
-          _id: 5b2e2007760aeb7729487dab
-          email: email@streamelements.com
-          avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
-          verified: false
-          username: leeeeex
-          alias: leeeeex
-          displayName: leeeeex
-          providerId: '85827806'
-          isPartner: false
-          broadcasterType: ''
-          ab: []
-          createdAt: '2018-06-23T10:25:11.733Z'
-          updatedAt: '2018-12-07T17:26:23.792Z'
-          lastLogin: '2018-12-07T17:26:23.79Z'
-          country: US
-          role: owner
-          moderators:
-          - user:
-              _id: 5b53229c8f09b957272a404f
-              username: keizar
-              avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
-            role: administrator
-        _id: 5b2e2007760aeb6677487daa
-        lastLogin: '2018-06-23T10:25:11.728Z'
-        ab: {}
-        primaryChannel: 5b2e2007760aeb7729487dab
-        username: leeeeex
-        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
-        createdAt: '2018-06-23T10:25:11.732Z'
-        updatedAt: '2018-12-07T08:43:29.014Z'
-    ChannelUsers:
-      title: ChannelUsers
-      required:
-      - channelId
-      - username
-      - avatar
-      - provider
-      - role
-      type: object
-      properties:
-        channelId:
-          type: string
-        username:
-          type: string
-        avatar:
-          type: string
-        provider:
-          type: string
-        role:
-          type: string
-      example:
-        channelId: 5b2e2007760aeb7729487dab
-        username: leeeeex
-        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
-        provider: twitch
-        role: owner
     Channel1:
       title: Channel1
       required:
@@ -470,6 +344,132 @@ components:
           username: keizar
           avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
         role: administrator
+    Success67:
+      title: Success67
+      required:
+      - suspended
+      - teams
+      - channels
+      - _id
+      - lastLogin
+      - ab
+      - primaryChannel
+      - username
+      - avatar
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        suspended:
+          type: boolean
+        teams:
+          type: array
+          items:
+            type: string
+          description: ''
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel1'
+          description: ''
+        _id:
+          type: string
+        lastLogin:
+          type: string
+        ab:
+          type: object
+        primaryChannel:
+          type: string
+        username:
+          type: string
+        avatar:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      example:
+        suspended: false
+        teams: []
+        channels:
+        - profile:
+            headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+            title: leeeeex's profile
+          provider: twitch
+          suspended: false
+          nullChannel: false
+          providerEmails: []
+          lastJWTToken: null
+          _id: 5b2e2007760aeb7729487dab
+          email: email@streamelements.com
+          avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+          verified: false
+          username: leeeeex
+          alias: leeeeex
+          displayName: leeeeex
+          providerId: '85827806'
+          isPartner: false
+          broadcasterType: ''
+          ab: []
+          createdAt: '2018-06-23T10:25:11.733Z'
+          updatedAt: '2018-12-07T17:26:23.792Z'
+          lastLogin: '2018-12-07T17:26:23.79Z'
+          country: US
+          role: owner
+          moderators:
+          - user:
+              _id: 5b53229c8f09b957272a404f
+              username: keizar
+              avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/12eb26c7-5cce-40ff-bc0d-cb625143ed08-profile_image-300x300.png
+            role: administrator
+        _id: 5b2e2007760aeb6677487daa
+        lastLogin: '2018-06-23T10:25:11.728Z'
+        ab: {}
+        primaryChannel: 5b2e2007760aeb7729487dab
+        username: leeeeex
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        createdAt: '2018-06-23T10:25:11.732Z'
+        updatedAt: '2018-12-07T08:43:29.014Z'
+    Profile:
+      title: Profile
+      required:
+      - headerImage
+      - title
+      type: object
+      properties:
+        headerImage:
+          type: string
+        title:
+          type: string
+      example:
+        headerImage: https://cdn.streamelements.com/static/user/profile_header_default.png
+        title: leeeeex's profile
+    ChannelUsers:
+      title: ChannelUsers
+      required:
+      - channelId
+      - username
+      - avatar
+      - provider
+      - role
+      type: object
+      properties:
+        channelId:
+          type: string
+        username:
+          type: string
+        avatar:
+          type: string
+        provider:
+          type: string
+        role:
+          type: string
+      example:
+        channelId: 5b2e2007760aeb7729487dab
+        username: leeeeex
+        avatar: https://static-cdn.jtvnw.net/jtv_user_pictures/b21a7fa5-4f3f-4402-b68f-3545dcc68b90-profile_image-300x300.jpg
+        provider: twitch
+        role: owner
   securitySchemes:
     JWTBearer:
       type: http
