@@ -204,6 +204,37 @@ components:
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-06-23T10:25:11.768Z'
         updatedAt: '2018-06-23T10:25:11.768Z'
+    Bonuses:
+      title: Bonuses
+      required:
+      - follow
+      - tip
+      - subscriber
+      - cheer
+      - host
+      type: object
+      properties:
+        follow:
+          type: integer
+          format: int32
+        tip:
+          type: integer
+          format: int32
+        subscriber:
+          type: integer
+          format: int32
+        cheer:
+          type: integer
+          format: int32
+        host:
+          type: integer
+          format: int32
+      example:
+        follow: 0
+        tip: 0
+        subscriber: 0
+        cheer: 0
+        host: 0
     Loyalty:
       title: Loyalty
       required:
@@ -245,37 +276,6 @@ components:
         subscriberMultiplier: 3
         ignored:
         - streamelements
-    Bonuses:
-      title: Bonuses
-      required:
-      - follow
-      - tip
-      - subscriber
-      - cheer
-      - host
-      type: object
-      properties:
-        follow:
-          type: integer
-          format: int32
-        tip:
-          type: integer
-          format: int32
-        subscriber:
-          type: integer
-          format: int32
-        cheer:
-          type: integer
-          format: int32
-        host:
-          type: integer
-          format: int32
-      example:
-        follow: 0
-        tip: 0
-        subscriber: 0
-        cheer: 0
-        host: 0
   securitySchemes:
     JWTBearer:
       type: http

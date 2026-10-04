@@ -481,72 +481,25 @@ components:
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-07T10:54:42.594Z'
         updatedAt: '2018-12-07T10:54:42.594Z'
-    Offline:
-      title: Offline
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
       required:
-      - enabled
-      - interval
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        interval:
-          type: integer
-          format: int32
-      example:
-        enabled: true
-        interval: 30
-    Cooldown:
-      title: Cooldown
-      required:
-      - user
-      - global
-      type: object
-      properties:
-        user:
-          type: integer
-          format: int32
-        global:
-          type: integer
-          format: int32
-      example:
-        user: 15
-        global: 5
-    channelrequest1:
-      title: /:channelrequest1
-      required:
-      - online
-      - offline
-      - enabled
-      - chatLines
-      - name
+      - statusCode
+      - error
       - message
       type: object
       properties:
-        online:
-          $ref: '#/components/schemas/Online'
-        offline:
-          $ref: '#/components/schemas/Offline'
-        enabled:
-          type: boolean
-        chatLines:
+        statusCode:
           type: integer
           format: int32
-        name:
+        error:
           type: string
         message:
           type: string
       example:
-        online:
-          enabled: true
-          interval: 5
-        offline:
-          enabled: true
-          interval: 30
-        enabled: true
-        chatLines: 5
-        name: ''
-        message: ''
+        statusCode: 404
+        error: Not Found
+        message: Item not found
     Success11:
       title: Success11
       required:
@@ -598,25 +551,72 @@ components:
         message: This is a test
         createdAt: '2018-12-07T17:11:47.909Z'
         updatedAt: '2018-12-07T17:11:47.909Z'
-    channel_redemptions_itemId:
-      title: /:channel/redemptions/:itemId
+    Cooldown:
+      title: Cooldown
       required:
-      - statusCode
-      - error
+      - user
+      - global
+      type: object
+      properties:
+        user:
+          type: integer
+          format: int32
+        global:
+          type: integer
+          format: int32
+      example:
+        user: 15
+        global: 5
+    Offline:
+      title: Offline
+      required:
+      - enabled
+      - interval
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        interval:
+          type: integer
+          format: int32
+      example:
+        enabled: true
+        interval: 30
+    channelrequest1:
+      title: /:channelrequest1
+      required:
+      - online
+      - offline
+      - enabled
+      - chatLines
+      - name
       - message
       type: object
       properties:
-        statusCode:
+        online:
+          $ref: '#/components/schemas/Online'
+        offline:
+          $ref: '#/components/schemas/Offline'
+        enabled:
+          type: boolean
+        chatLines:
           type: integer
           format: int32
-        error:
+        name:
           type: string
         message:
           type: string
       example:
-        statusCode: 404
-        error: Not Found
-        message: Item not found
+        online:
+          enabled: true
+          interval: 5
+        offline:
+          enabled: true
+          interval: 30
+        enabled: true
+        chatLines: 5
+        name: ''
+        message: ''
   securitySchemes:
     JWTBearer:
       type: http

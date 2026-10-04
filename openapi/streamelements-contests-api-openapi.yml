@@ -639,25 +639,6 @@ components:
           state: created
           createdAt: '2018-12-07T11:04:46.528Z'
           updatedAt: '2018-12-07T11:04:46.528Z'
-    channel_redemptions_itemId:
-      title: /:channel/redemptions/:itemId
-      required:
-      - statusCode
-      - error
-      - message
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
-        message:
-          type: string
-      example:
-        statusCode: 404
-        error: Not Found
-        message: Item not found
     Contest:
       title: Contest
       required:
@@ -734,6 +715,25 @@ components:
         state: created
         createdAt: '2018-12-07T11:04:46.528Z'
         updatedAt: '2018-12-07T11:04:46.528Z'
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
     Option:
       title: Option
       required:
