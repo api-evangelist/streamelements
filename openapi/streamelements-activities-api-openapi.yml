@@ -1153,6 +1153,21 @@ paths:
       deprecated: false
 components:
   schemas:
+    Notfound2:
+      title: Notfound2
+      required:
+      - statusCode
+      - error
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
     Success:
       title: Success
       required:
@@ -1188,21 +1203,24 @@ components:
         type: merch
         channel: 5b2e2007760aeb7729487dab
         createdAt: '2018-12-06T01:28:27.648Z'
-    Notfound2:
-      title: Notfound2
+    Detail:
+      title: Detail
       required:
-      - statusCode
-      - error
+      - path
+      - message
       type: object
       properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
           type: string
       example:
-        statusCode: 404
-        error: Not Found
+        path:
+        - types
+        message: '"types" must be an array'
     400-badrequest:
       title: 400-badrequest
       required:
@@ -1247,24 +1265,6 @@ components:
       example:
         total: 50
         username: Thurman Borer
-    Detail:
-      title: Detail
-      required:
-      - path
-      - message
-      type: object
-      properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
-        message:
-          type: string
-      example:
-        path:
-        - types
-        message: '"types" must be an array'
     Success3:
       title: Success3
       required:

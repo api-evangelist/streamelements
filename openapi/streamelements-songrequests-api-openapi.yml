@@ -969,6 +969,70 @@ paths:
       deprecated: false
 components:
   schemas:
+    BackupPlaylist:
+      title: BackupPlaylist
+      required:
+      - url
+      - prioritizeQueue
+      type: object
+      properties:
+        url:
+          type: string
+        prioritizeQueue:
+          type: boolean
+      example:
+        url: https://www.youtube.com/playlist?list=UUp8OOssjSjGZRVYK6zWbNLg
+        prioritizeQueue: false
+    Bot1:
+      title: Bot1
+      required:
+      - voteskip
+      - cost
+      - subscriberDiscount
+      - exemptUserLevel
+      - minUserLevel
+      type: object
+      properties:
+        voteskip:
+          $ref: '#/components/schemas/Voteskip'
+        cost:
+          type: integer
+          format: int32
+        subscriberDiscount:
+          type: integer
+          format: int32
+        exemptUserLevel:
+          type: integer
+          format: int32
+        minUserLevel:
+          type: integer
+          format: int32
+      example:
+        voteskip:
+          enabled: true
+          votesRequired: 5
+        cost: 0
+        subscriberDiscount: 50
+        exemptUserLevel: 500
+        minUserLevel: 100
+    Detail:
+      title: Detail
+      required:
+      - path
+      - message
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          description: ''
+        message:
+          type: string
+      example:
+        path:
+        - types
+        message: '"types" must be an array'
     Statistics:
       title: Statistics
       required:
@@ -990,76 +1054,6 @@ components:
         viewCount: 504489596
         likeCount: 3380238
         dislikeCount: 154269
-    Success48:
-      title: Success48
-      required:
-      - enabled
-      - limits
-      - mode
-      - tips
-      - youtube
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        limits:
-          $ref: '#/components/schemas/Limits'
-        mode:
-          type: string
-        tips:
-          $ref: '#/components/schemas/Tips'
-        youtube:
-          $ref: '#/components/schemas/Youtube'
-      example:
-        enabled: false
-        limits:
-          users:
-            free: 5
-            paid: 0
-          queueLimit: 10
-          maxDuration: 420
-        mode: combined
-        tips:
-          mediashare:
-            enabled: false
-            costPerSecond: 0.1
-          prioritize: true
-        youtube:
-          musicOnly: false
-    Video1:
-      title: Video1
-      required:
-      - videoId
-      - title
-      - channel
-      type: object
-      properties:
-        videoId:
-          type: string
-        title:
-          type: string
-        channel:
-          type: string
-      example:
-        videoId: KjBNpJiID-k
-        title: Anevo & Laura Brehm - Universe [Monstercat Release]
-        channel: 'Monstercat: Instinct'
-    Tips:
-      title: Tips
-      required:
-      - mediashare
-      - prioritize
-      type: object
-      properties:
-        mediashare:
-          $ref: '#/components/schemas/Mediashare'
-        prioritize:
-          type: boolean
-      example:
-        mediashare:
-          enabled: false
-          costPerSecond: 0.1
-        prioritize: true
     Users:
       title: Users
       required:
@@ -1076,54 +1070,6 @@ components:
       example:
         free: 5
         paid: 0
-    Success53:
-      title: Success53
-      required:
-      - state
-      type: object
-      properties:
-        state:
-          type: string
-      example:
-        state: paused
-    BackupPlaylist:
-      title: BackupPlaylist
-      required:
-      - url
-      - prioritizeQueue
-      type: object
-      properties:
-        url:
-          type: string
-        prioritizeQueue:
-          type: boolean
-      example:
-        url: https://www.youtube.com/playlist?list=UUp8OOssjSjGZRVYK6zWbNLg
-        prioritizeQueue: false
-    Mediashare:
-      title: Mediashare
-      required:
-      - enabled
-      - costPerSecond
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        costPerSecond:
-          type: number
-      example:
-        enabled: false
-        costPerSecond: 0.1
-    channel_queuerequest:
-      title: /:channel/queuerequest
-      required:
-      - video
-      type: object
-      properties:
-        video:
-          type: string
-      example:
-        video: youtube-Identifier
     MediaRequestData:
       title: Media Request data
       required:
@@ -1200,6 +1146,61 @@ components:
         moderation: false
         _id: 5b2e2007760aeb82e8487dc4
         bannedUsers: []
+    Success53:
+      title: Success53
+      required:
+      - state
+      type: object
+      properties:
+        state:
+          type: string
+      example:
+        state: paused
+    channel_queuerequest:
+      title: /:channel/queuerequest
+      required:
+      - video
+      type: object
+      properties:
+        video:
+          type: string
+      example:
+        video: youtube-Identifier
+    channel_redemptions_itemId:
+      title: /:channel/redemptions/:itemId
+      required:
+      - statusCode
+      - error
+      - message
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+        message:
+          type: string
+      example:
+        statusCode: 404
+        error: Not Found
+        message: Item not found
+    Tips:
+      title: Tips
+      required:
+      - mediashare
+      - prioritize
+      type: object
+      properties:
+        mediashare:
+          $ref: '#/components/schemas/Mediashare'
+        prioritize:
+          type: boolean
+      example:
+        mediashare:
+          enabled: false
+          costPerSecond: 0.1
+        prioritize: true
     Player:
       title: Player
       required:
@@ -1211,6 +1212,24 @@ components:
           format: int32
       example:
         delay: 0
+    Success-searchbysongname:
+      title: Success-searchbysongname
+      required:
+      - videoId
+      - thumbnail
+      - title
+      type: object
+      properties:
+        videoId:
+          type: string
+        thumbnail:
+          type: string
+        title:
+          type: string
+      example:
+        videoId: dQw4w9WgXcQ
+        thumbnail: https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg
+        title: Rick Astley - Never Gonna Give You Up (Video)
     Limits:
       title: Limits
       required:
@@ -1233,38 +1252,133 @@ components:
           paid: 0
         queueLimit: 10
         maxDuration: 420
-    Bot1:
-      title: Bot1
+    Song:
+      title: Song
       required:
-      - voteskip
-      - cost
-      - subscriberDiscount
-      - exemptUserLevel
-      - minUserLevel
+      - user
+      - duration
+      - _id
+      - videoId
+      - title
+      - channel
+      - source
       type: object
       properties:
-        voteskip:
-          $ref: '#/components/schemas/Voteskip'
-        cost:
+        user:
+          $ref: '#/components/schemas/User2'
+        statistics:
+          $ref: '#/components/schemas/Statistics'
+        duration:
           type: integer
           format: int32
-        subscriberDiscount:
+        tags:
+          type: array
+          items:
+            type: string
+          description: ''
+        voteskips:
+          type: array
+          items:
+            type: string
+          description: ''
+        _id:
+          type: string
+        videoId:
+          type: string
+        title:
+          type: string
+        channel:
+          type: string
+        source:
+          type: string
+      example:
+        user:
+          username: leeeeex
+          providerId: '85827806'
+        statistics:
+          viewCount: 505416595
+          likeCount: 3387160
+          dislikeCount: 154477
+        duration: 213
+        tags: []
+        voteskips: []
+        _id: 5c0f9d54bd1e47cf2d3d6cac
+        videoId: dQw4w9WgXcQ
+        title: Rick Astley - Never Gonna Give You Up (Video)
+        channel: RickAstleyVEVO
+        source: site
+    400-badrequest:
+      title: 400-badrequest
+      required:
+      - statusCode
+      - error
+      - message
+      - details
+      type: object
+      properties:
+        statusCode:
           type: integer
           format: int32
-        exemptUserLevel:
-          type: integer
-          format: int32
-        minUserLevel:
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        statusCode: 400
+        error: Bad Request
+        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
+        details:
+        - path:
+          - giveawayId
+          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
+    Voteskip:
+      title: Voteskip
+      required:
+      - enabled
+      - votesRequired
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        votesRequired:
           type: integer
           format: int32
       example:
-        voteskip:
-          enabled: true
-          votesRequired: 5
-        cost: 0
-        subscriberDiscount: 50
-        exemptUserLevel: 500
-        minUserLevel: 100
+        enabled: true
+        votesRequired: 5
+    Mediashare:
+      title: Mediashare
+      required:
+      - enabled
+      - costPerSecond
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        costPerSecond:
+          type: number
+      example:
+        enabled: false
+        costPerSecond: 0.1
+    User2:
+      title: User2
+      required:
+      - username
+      - providerId
+      type: object
+      properties:
+        username:
+          type: string
+        providerId:
+          type: string
+      example:
+        username: leeeeex
+        providerId: '85827806'
     MediaRequestQueue:
       title: MediaRequestQueue
       required:
@@ -1367,42 +1481,42 @@ components:
         - videoId: iS-PpppSj0E
           title: SLANDER - So Long (feat. Juliana Chahayed) [Monstercat Release]
           channel: 'Monstercat: Instinct'
-    Success-searchbysongname:
-      title: Success-searchbysongname
+    Success48:
+      title: Success48
       required:
-      - videoId
-      - thumbnail
-      - title
+      - enabled
+      - limits
+      - mode
+      - tips
+      - youtube
       type: object
       properties:
-        videoId:
+        enabled:
+          type: boolean
+        limits:
+          $ref: '#/components/schemas/Limits'
+        mode:
           type: string
-        thumbnail:
-          type: string
-        title:
-          type: string
+        tips:
+          $ref: '#/components/schemas/Tips'
+        youtube:
+          $ref: '#/components/schemas/Youtube'
       example:
-        videoId: dQw4w9WgXcQ
-        thumbnail: https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg
-        title: Rick Astley - Never Gonna Give You Up (Video)
-    Detail:
-      title: Detail
-      required:
-      - path
-      - message
-      type: object
-      properties:
-        path:
-          type: array
-          items:
-            type: string
-          description: ''
-        message:
-          type: string
-      example:
-        path:
-        - types
-        message: '"types" must be an array'
+        enabled: false
+        limits:
+          users:
+            free: 5
+            paid: 0
+          queueLimit: 10
+          maxDuration: 420
+        mode: combined
+        tips:
+          mediashare:
+            enabled: false
+            costPerSecond: 0.1
+          prioritize: true
+        youtube:
+          musicOnly: false
     Youtube:
       title: Youtube
       required:
@@ -1429,138 +1543,24 @@ components:
         musicOnly: false
         bannedTags: []
         bannedVideos: []
-    Voteskip:
-      title: Voteskip
+    Video1:
+      title: Video1
       required:
-      - enabled
-      - votesRequired
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        votesRequired:
-          type: integer
-          format: int32
-      example:
-        enabled: true
-        votesRequired: 5
-    User2:
-      title: User2
-      required:
-      - username
-      - providerId
-      type: object
-      properties:
-        username:
-          type: string
-        providerId:
-          type: string
-      example:
-        username: leeeeex
-        providerId: '85827806'
-    400-badrequest:
-      title: 400-badrequest
-      required:
-      - statusCode
-      - error
-      - message
-      - details
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            $ref: '#/components/schemas/Detail'
-          description: ''
-      example:
-        statusCode: 400
-        error: Bad Request
-        message: 'child "giveawayId" fails because ["giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/]'
-        details:
-        - path:
-          - giveawayId
-          message: '"giveawayId" with value "5c10e383bd1e475b7c3d6eb" fails to match the required pattern: /^[0-9a-fA-F]{24}$/'
-    channel_redemptions_itemId:
-      title: /:channel/redemptions/:itemId
-      required:
-      - statusCode
-      - error
-      - message
-      type: object
-      properties:
-        statusCode:
-          type: integer
-          format: int32
-        error:
-          type: string
-        message:
-          type: string
-      example:
-        statusCode: 404
-        error: Not Found
-        message: Item not found
-    Song:
-      title: Song
-      required:
-      - user
-      - duration
-      - _id
       - videoId
       - title
       - channel
-      - source
       type: object
       properties:
-        user:
-          $ref: '#/components/schemas/User2'
-        statistics:
-          $ref: '#/components/schemas/Statistics'
-        duration:
-          type: integer
-          format: int32
-        tags:
-          type: array
-          items:
-            type: string
-          description: ''
-        voteskips:
-          type: array
-          items:
-            type: string
-          description: ''
-        _id:
-          type: string
         videoId:
           type: string
         title:
           type: string
         channel:
           type: string
-        source:
-          type: string
       example:
-        user:
-          username: leeeeex
-          providerId: '85827806'
-        statistics:
-          viewCount: 505416595
-          likeCount: 3387160
-          dislikeCount: 154477
-        duration: 213
-        tags: []
-        voteskips: []
-        _id: 5c0f9d54bd1e47cf2d3d6cac
-        videoId: dQw4w9WgXcQ
-        title: Rick Astley - Never Gonna Give You Up (Video)
-        channel: RickAstleyVEVO
-        source: site
+        videoId: KjBNpJiID-k
+        title: Anevo & Laura Brehm - Universe [Monstercat Release]
+        channel: 'Monstercat: Instinct'
   securitySchemes:
     JWTBearer:
       type: http
