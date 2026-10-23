@@ -10,10 +10,7 @@
     },
     {
       "source": "https://blog.streamelements.com/",
-      "feed_url": "https://blog.streamelements.com/feed",
-      "title": "",
-      "saved": 0,
-      "method": "discovered"
+      "error": "HTTPError"
     },
     {
       "source": "https://support.streamelements.com/",
@@ -23,6 +20,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 8,
+  "fetched": "2026-10-17T14:53:57Z"
 }
