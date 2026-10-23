@@ -381,3 +381,9 @@ components:
             contest:write: Grants create and update contests
             giveaway:read: Grants read of giveaways
             giveaway:write: Grants create and update giveaways
+x-provenance:
+  method: harvested
+  publisher: StreamElements
+  source: https://raw.githubusercontent.com/streamelements/api-docs/HEAD/api.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
