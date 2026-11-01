@@ -64,6 +64,201 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-StreamElements is a company surfaced as a portfolio company of softbank-vision-fund and added to the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.
+StreamElements is a cloud-based platform for live streamers and content creators on Twitch, YouTube, Kick and Facebook, offering 100% free customizable overlays and alerts, a chatbot, tipping and donations, loyalty points, giveaways and contests, song requests, a media/merch store, brand sponsorships, and analytics — all managed from the StreamElements dashboard. Developers integrate through a public REST API at api.streamelements.com (kappa v2/v3) authenticated with JWT, overlay API keys, or OAuth2, plus the Astro real-time WebSocket gateway (wss://astro.streamelements.com) for live event topics.
 
-Backed by: softbank-vision-fund
+**Areas:** Company · Consumer · Live Streaming · Creator Economy · Overlays · Chatbots · Monetization · Donations · Loyalty Points · Giveaways · Video · Twitch
+
+## StreamElements on APIs.io
+
+Everything profiled for StreamElements is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/streamelements/](https://apis.io/providers/streamelements/)** — or go straight to one of the APIs or properties below.
+
+### APIs (24)
+
+- [StreamElements Activities API](https://apis.io/apis/streamelements/streamelements-activities-api/) — Endpoints to interract with activities collected by StreamElements
+- [StreamElements Bot API](https://apis.io/apis/streamelements/streamelements-bot-api/) — Endpoints to manage StreamElements chat bot
+- [StreamElements Channels API](https://apis.io/apis/streamelements/streamelements-channels-api/) — Endpoints to get channel data
+- [StreamElements Chatstats API](https://apis.io/apis/streamelements/streamelements-chatstats-api/) — Endpoint to get chat statistics
+- [StreamElements Commands API](https://apis.io/apis/streamelements/streamelements-commands-api/) — Bot commands management
+- [StreamElements Contests API](https://apis.io/apis/streamelements/streamelements-contests-api/) — Endpoints to interract with contests
+- [StreamElements Filters API](https://apis.io/apis/streamelements/streamelements-filters-api/) — Bot spam filters management
+- [StreamElements Giveaways API](https://apis.io/apis/streamelements/streamelements-giveaways-api/) — This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.
+- [StreamElements Loyalties API](https://apis.io/apis/streamelements/streamelements-loyalties-api/) — Endpoints to manage loyalty settings
+- [StreamElements Modules API](https://apis.io/apis/streamelements/streamelements-modules-api/) — Endpoints to manage bot modules
+- [StreamElements Overlays API](https://apis.io/apis/streamelements/streamelements-overlays-api/) — Endpoints to manage overlays assigned to channel
+- [StreamElements Points API](https://apis.io/apis/streamelements/streamelements-points-api/) — Endpoints to manage loyalty points
+- [StreamElements Redemptions API](https://apis.io/apis/streamelements/streamelements-redemptions-api/) — The redemptions API from StreamElements — 4 operation(s) for redemptions.
+- [StreamElements Sessions API](https://apis.io/apis/streamelements/streamelements-sessions-api/) — Endpoints to manage session data
+- [StreamElements single contest API](https://apis.io/apis/streamelements/streamelements-single-contest-api/) — The single contest API from StreamElements — 6 operation(s) for single contest.
+- [StreamElements single giveaway API](https://apis.io/apis/streamelements/streamelements-single-giveaway-api/) — This endpoint is available only in the API version 3. Make sure to use the v3 base URL: https://api.streamelements.com/kappa/v3.
+- [StreamElements single user API](https://apis.io/apis/streamelements/streamelements-single-user-api/) — Endpoints to manage single user points data
+- [StreamElements Songrequests API](https://apis.io/apis/streamelements/streamelements-songrequests-api/) — Endpoints to interact with StreamElements Mediashare
+- [StreamElements Stats API](https://apis.io/apis/streamelements/streamelements-stats-api/) — Folder for loyalty
+- [StreamElements Store API](https://apis.io/apis/streamelements/streamelements-store-api/) — Store items management
+- [StreamElements Themes API](https://apis.io/apis/streamelements/streamelements-themes-api/) — Endpoints to browse StreamElements themes
+- [StreamElements Timers API](https://apis.io/apis/streamelements/streamelements-timers-api/) — Bot timers (chat "cron" messages) management
+- [StreamElements Tips API](https://apis.io/apis/streamelements/streamelements-tips-api/) — Endpoints to interract with tips
+- [StreamElements Users API](https://apis.io/apis/streamelements/streamelements-users-api/) — Folder for loyalty
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [StreamElements Astro Real-Time Gateway](https://apis.io/asyncapis/streamelements/streamelements-astro-asyncapi/)
+
+#### Event channels (18)
+
+Individual events and webhooks the provider emits.
+
+- [channel.activities](https://apis.io/channels/streamelements/channel-activities/)
+- [channel.chat.message](https://apis.io/channels/streamelements/channel-chat-message/)
+- [channel.chatbot.counters](https://apis.io/channels/streamelements/channel-chatbot-counters/)
+- [channel.chatbot.modules.emotecombo](https://apis.io/channels/streamelements/channel-chatbot-modules-emotecombo/)
+- [channel.chatbot.modules.pyramid](https://apis.io/channels/streamelements/channel-chatbot-modules-pyramid/)
+- [channel.chatbot.status](https://apis.io/channels/streamelements/channel-chatbot-status/)
+- [channel.chatbot.timeout](https://apis.io/channels/streamelements/channel-chatbot-timeout/)
+- [channel.contests](https://apis.io/channels/streamelements/channel-contests/)
+- [channel.giveaways](https://apis.io/channels/streamelements/channel-giveaways/)
+- [channel.overlay.action](https://apis.io/channels/streamelements/channel-overlay-action/)
+- [channel.overlay.broadcast](https://apis.io/channels/streamelements/channel-overlay-broadcast/)
+- [channel.overlay.update](https://apis.io/channels/streamelements/channel-overlay-update/)
+- [channel.session.reset](https://apis.io/channels/streamelements/channel-session-reset/)
+- [channel.session.update](https://apis.io/channels/streamelements/channel-session-update/)
+- [channel.songrequest](https://apis.io/channels/streamelements/channel-songrequest/)
+- [channel.stream.status](https://apis.io/channels/streamelements/channel-stream-status/)
+- [channel.tips](https://apis.io/channels/streamelements/channel-tips/)
+- [channel.tips.moderation](https://apis.io/channels/streamelements/channel-tips-moderation/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [streamelements](https://apis.io/servers/streamelements/streamelements/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Streamelements Agentic Access](https://apis.io/agentic-access/streamelements/streamelements-agentic-access/)
+
+#### Collections (24)
+
+Postman and Open Collection request collections.
+
+- [SE API Docs activities API](https://apis.io/collections/streamelements/open-streamelements-activities-api/)
+- [SE API Docs activities bot API](https://apis.io/collections/streamelements/open-streamelements-bot-api/)
+- [SE API Docs activities channels API](https://apis.io/collections/streamelements/open-streamelements-channels-api/)
+- [SE API Docs activities chatstats API](https://apis.io/collections/streamelements/open-streamelements-chatstats-api/)
+- [SE API Docs activities commands API](https://apis.io/collections/streamelements/open-streamelements-commands-api/)
+- [SE API Docs activities contests API](https://apis.io/collections/streamelements/open-streamelements-contests-api/)
+- [SE API Docs activities filters API](https://apis.io/collections/streamelements/open-streamelements-filters-api/)
+- [SE API Docs activities giveaways API](https://apis.io/collections/streamelements/open-streamelements-giveaways-api/)
+- [SE API Docs activities loyalties API](https://apis.io/collections/streamelements/open-streamelements-loyalties-api/)
+- [SE API Docs activities modules API](https://apis.io/collections/streamelements/open-streamelements-modules-api/)
+- [SE API Docs activities overlays API](https://apis.io/collections/streamelements/open-streamelements-overlays-api/)
+- [SE API Docs activities points API](https://apis.io/collections/streamelements/open-streamelements-points-api/)
+- [SE API Docs activities redemptions API](https://apis.io/collections/streamelements/open-streamelements-redemptions-api/)
+- [SE API Docs activities sessions API](https://apis.io/collections/streamelements/open-streamelements-sessions-api/)
+- [SE API Docs activities single contest API](https://apis.io/collections/streamelements/open-streamelements-single-contest-api/)
+- [SE API Docs activities single giveaway API](https://apis.io/collections/streamelements/open-streamelements-single-giveaway-api/)
+- [SE API Docs activities single user API](https://apis.io/collections/streamelements/open-streamelements-single-user-api/)
+- [SE API Docs activities songrequests API](https://apis.io/collections/streamelements/open-streamelements-songrequests-api/)
+- [SE API Docs activities stats API](https://apis.io/collections/streamelements/open-streamelements-stats-api/)
+- [SE API Docs activities store API](https://apis.io/collections/streamelements/open-streamelements-store-api/)
+- [SE API Docs activities themes API](https://apis.io/collections/streamelements/open-streamelements-themes-api/)
+- [SE API Docs activities timers API](https://apis.io/collections/streamelements/open-streamelements-timers-api/)
+- [SE API Docs activities tips API](https://apis.io/collections/streamelements/open-streamelements-tips-api/)
+- [SE API Docs activities users API](https://apis.io/collections/streamelements/open-streamelements-users-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Streamelements Api Overlay](https://apis.io/overlays/streamelements/streamelements-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Streamelements Authentication](https://apis.io/security/streamelements/streamelements-authentication/)
+- [Streamelements Domain Security](https://apis.io/security/streamelements/streamelements-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Streamelements Scopes](https://apis.io/scopes/streamelements/streamelements-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.streamelements.com/)
+- [Documentation](https://dev.streamelements.com/docs/api-docs)
+- [Getting started](https://dev.streamelements.com/docs/api-docs/authentication)
+- [API reference](https://dev.streamelements.com/docs/api-docs)
+- [Sign up](https://streamelements.com/login)
+- [Support](https://support.streamelements.com/)
+- [Blog](https://blog.streamelements.com/)
+- [Terms of service](https://streamelements.com/terms)
+- [Privacy policy](https://streamelements.com/privacy)
+- [GitHub](https://github.com/StreamElements)
+- [Status](https://status.streamelements.com/)
+
+## API Evangelist rating
+
+**Kin Score 43.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 56.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 37.5 |
+| Access clarity | 34.2 |
+
+**Agent readiness 35.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 34.3** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/streamelements/](https://apis.io/providers/streamelements/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for StreamElements: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/streamelements/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
